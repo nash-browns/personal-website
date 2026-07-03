@@ -35,6 +35,7 @@ import {
     ImageFeature,
     BlackTieTitle,
     PhotoCarousel,
+    ContinueReading,
 } from '@/components/blog'
 
 export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kodaik-island-explore%2Ffeature-image-two.jpeg?alt=media&token=74a817ce-64dc-449a-a743-f42fe45d686d";
@@ -47,6 +48,10 @@ export const fort  = "https://firebasestorage.googleapis.com/v0/b/nash-browns.fi
 export const bear  = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kodaik-island-explore%2Fbear.jpeg?alt=media&token=da406ce3-969c-4591-837e-6328c34bcdc4";
 export const seaLion  = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kodaik-island-explore%2Fsea-lion.jpeg?alt=media&token=b6d82ae6-8cf5-4166-832d-dbe04d689ad4";
 export const deer  = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kodaik-island-explore%2Fdeer.jpeg?alt=media&token=8612690e-1f0c-432a-84f2-689a6fef5593";
+
+export const relatedArticleOne = '/blog/articles/thayer-hut';
+export const relatedArticleTwo = '/blog/articles/indianhouse';
+export const relatedArticleThree = '/blog/articles/north-yuyanq-chex';
 
 <ImageFeature
     title='Kodiak Island Explore'
@@ -190,6 +195,12 @@ We were on the island for 3 full days and that ended up being plenty. Unless you
     { photoUrl: "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kodaik-island-explore%2Fsurf.jpeg?alt=media&token=60585b14-da73-4fd1-b958-b443f7875830", show: false},
 ]} 
     options={{loop: true}} 
+/>
+
+<ContinueReading 
+    articleOne={relatedArticleOne}
+    articleTwo={relatedArticleTwo}
+    articleThree={relatedArticleThree}
 />
 
 </MdxLayout>
