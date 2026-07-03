@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Kansas River Trip Report",
     published: "2024-10-27",
-    updated: "2024-10-27",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-trip-report-10-27-24%2Ffeature-image.jpg?alt=media&token=445188c4-442b-4027-a4bf-995ddbda2fbc',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-trip-report-10-27-24%2Fhippy-hokusai-feature-image.jpg?alt=media&token=2c705187-8fa6-4990-be22-36b1a6456f0e',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="kansas-river-trip-report-10-27-2024" />
 
 export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-trip-report-10-27-24%2Ffeature-image.jpg?alt=media&token=445188c4-442b-4027-a4bf-995ddbda2fbc";
 export const parkingEntrance = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-trip-report-10-27-24%2Fparking-entrance.JPEG?alt=media&token=863d8f52-1b01-4e3d-92fa-02c142013fef";
@@ -64,7 +69,7 @@ image={featureImage}
 <BlogStatsSection>
     <Stat title={'Distance'} stat={'9 Mi'} icon={faRoute}/>
     <Stat title={'Days'} stat={'1'} icon={faCalendarDays}/>
-    <Stat title={'Speed(CFS)'} stat={'1200'} icon={faGauge}/>
+    <Stat title={'Speed (CFS)'} stat={'1200'} icon={faGauge}/>
     <Stat title={'Paddle Time'} stat={'3:39:17'} icon={faClock}/>
     <Stat title={'Difficulty'} stat={'Hard'} icon={faShip}/>
     <Stat title={'Put In'} stat={'Turner Bridge'} icon={faPlaneArrival}/>
@@ -80,15 +85,15 @@ text="I had a great late October trip on the Kaw. The fall colors were beautiful
 />
 
 ## Turner Bridge Access
-Accessing at Turner bridge was alright. The actual ramp is pretty secluded. I drove back to check out the parking situation and there were some homeless people making a fire back there. They also had a broken down truck parked at the bottom of the ramp. I talked to them for a few minutes, drove back to the gravel parking lot near the main road, then walked back down to the river!
+Accessing at Turner Bridge was alright. The actual ramp is pretty secluded. I drove back to check out the parking situation and there were some homeless people making a fire back there. They also had a broken-down truck parked at the bottom of the ramp. I talked to them for a few minutes, drove back to the gravel parking lot near the main road, then walked back down to the river!
 
-<CenteredImage image={parkingEntrance} altText={'Cedar Niles 3 Corners'} title={'3 Corners'} width={640} height={640}/>
-<TwoCenteredImages image={[bridge, launch]} altText={['Turner Bridge River Access', 'Turner Bridge Packraft Launch']} titles={['Turner Bridge Access', 'My Lanch Point']} width={640} height={640} />
+<CenteredImage image={parkingEntrance} altText={'Turner Bridge Parking Entrance'} title={'Parking Entrance'} width={640} height={640}/>
+<TwoCenteredImages image={[bridge, launch]} altText={['Turner Bridge River Access', 'Turner Bridge Packraft Launch']} titles={['Turner Bridge Access', 'My Launch Point']} width={640} height={640} />
 
 ## Paddling
-There was more paddling than expected on this trip. I was expecting 1200 CFS to push me along, but if I stopped paddling I was dead in the water. There was some wind but it was sporadic and short lived. 
+There was more paddling than expected on this trip. I was expecting 1200 CFS to push me along, but if I stopped paddling I was dead in the water. There was some wind but it was sporadic and short-lived. 
 
-The total trip length was 9.24 Miles which was the expected length. The Friends of the Kaw website says that novice paddlers can paddle 3 miles per hour, so I was expecting 3 hours. Instead, It took 3 hours 50 minutes. Maybe I am out of shape, but I felt like I was getting after it. I did take a 15min break to take a leak and adjust the seat on my boat. I was sore the next day!
+The total trip length was 9.24 miles which was the expected length. The Friends of the Kaw website says that novice paddlers can paddle 3 miles per hour, so I was expecting 3 hours. Instead, it took 3 hours 50 minutes. Maybe I am out of shape, but I felt like I was getting after it. I did take a 15 min break to take a leak and adjust the seat on my boat. I was sore the next day!
 <Strava
     stravaId='12760366647'
     token='R-qsXWfdM-Ko4yKvWB-nlLrA-HLyqgLTFBxmQX1MrT8'
@@ -101,15 +106,15 @@ I was also interested in checking out the "super cool" Rock Island Bridge seen a
 Once I was at the end I was jealous of the speed of the Missouri River and think that would be more fun and less work to get down. That might be my next trip!
 
 ## Wildlife
-While doing past Hadley Island a deer swam across the river about 100' in front of me. I think we were both equally surprised. Other than a few more deer, I saw a handful of cranes and lots of fish!
+While paddling past Hadley Island a deer swam across the river about 100' in front of me. I think we were both equally surprised. Other than a few more deer, I saw a handful of cranes and lots of fish!
 
 ## First Trip With the Expedition
-The New Alpacka Raft Performed great. It wasn't the right boat for this river, but you have to run what you have! I ended up Ubering back to my truck, and it was nice just to fold up my boat and not have to worry about locking it up or coming back to get it! I think that a touring style kayak would be the ultimate setup if this was the only river you were going to be on. I am going back to Alaska soon and it's far easier to fly with a pack raft!
+The new Alpacka raft performed great. It wasn't the right boat for this river, but you have to run what you have! I ended up Ubering back to my truck, and it was nice just to fold up my boat and not have to worry about locking it up or coming back to get it! I think that a touring-style kayak would be the ultimate setup if this was the only river you were going to be on. I am going back to Alaska soon and it's far easier to fly with a packraft!
 
 ## 7th Street Access
 <TwoColumn>
 <div className={'w-full sm:w-1/2'}>
-I ran into a guy fishing while heading down the river. He mentioned another access point on 7th street. I can confirm this is true! This is much closer to downtown. I believe it was about 3 miles from Kaw point. There is a dock and if I were taking someone who was newer to paddling, I would recommend from this access point to Kaw Park!
+I ran into a guy fishing while heading down the river. He mentioned another access point on 7th Street. I can confirm this is true! This is much closer to downtown. I believe it was about 3 miles from Kaw Point. There is a dock and if I were taking someone who was newer to paddling, I would recommend going from this access point to Kaw Point!
 </div>
 
 <div className={'w-full sm:w-1/2'}>
@@ -122,7 +127,7 @@ I ran into a guy fishing while heading down the river. He mentioned another acce
 ## Kaw Point Access
 
 <TwoColumn>
-    There are always some characters hanging out at Kaw Point. As soon as I pulled up some dude started yelling at me wanting to rent my raft? I don't know what he was saying. Maybe I just hate people. Otherwise this park is beautiful. Definitely one of my favorite in Kansas City!
+    There are always some characters hanging out at Kaw Point. As soon as I pulled up some dude started yelling at me wanting to rent my raft? I don't know what he was saying. Maybe I just hate people. Otherwise this park is beautiful. Definitely one of my favorites in Kansas City!
     <CenteredImage image={kawPoint} altText={'Kaw Point Downtown Kansas City Overlook'} title={'Kaw Point'} width={320} height={320}/>
 </TwoColumn>
 

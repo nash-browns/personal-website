@@ -5,7 +5,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Salt Peak Climb Report",
     published: "2025-06-22",
-    updated: "2025-06-26",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/salt-peak%2Fsalt-summit.jpeg?alt=media&token=b9694ac8-64f9-4089-bb2a-0418d984dcb3',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/salt-peak%2Fhippy-hokusai-feature-image.jpg?alt=media&token=14ac248e-4977-4ba0-948c-221127c28293',
@@ -16,6 +16,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="salt-peak" />
 
 import { 
     MdxLayout,
@@ -82,13 +87,13 @@ text="Salt is the final stop on the Condiment Traverse. Maybe the furthest stop 
 />
 
 The route to Salt! The track closer to the lake was me "saving tons of time" on the way back after I had mastered this route!
-<CenteredImage image={route} altText={"Route from Pepper Peak to Shaker Peak"} width={1000} height={500} />
+<CenteredImage image={route} altText={"Route from Shaker Peak to Salt Peak"} width={1000} height={500} />
 
 You must go lower to get higher! Down Shaker I went. The descent was a nice break but ultimately annoying, not steep enough to scree surf, but steep enough to burn the legs! Beautiful views of the Miter once I got to the saddle!
-<CenteredImage image={miter} altText={"O'Malley Peak 3D Map"} width={500} height={500} />
+<CenteredImage image={miter} altText={"The Miter from the saddle between Shaker and Salt"} width={500} height={500} />
 
-The nice thing about this outing is that it is very straightforward. I shimmied up Salt as the weather finally broke! The views were nice. Heck you could even see Palmer from here. Most of the biggest mountains were being bashful and hiding in the clouds!
-<CenteredImage image={palmer} altText={"O'Malley Peak 3D Map"} width={1000} height={500} />
+The nice thing about this outing is that it is very straightforward. I shimmied up Salt as the weather finally broke! The views were nice. Heck, you could even see Palmer from here. Most of the biggest mountains were being bashful and hiding in the clouds!
+<CenteredImage image={palmer} altText={"View toward Palmer from the summit of Salt Peak"} width={1000} height={500} />
 
 The whole trip was uneventful other than the goats. A good thing I guess? The route back was more of the same. It's weird that in order to get back to the trailhead you have to re-climb everything! I of course had to get some Moose's Tooth Za to both celebrate a fun day in the Chugach and wish farewell to Alaska. I'll be back in August.
 <CenteredImage image={pizza} altText={"Mooses Tooth Pizza"} width={500} height={500} />
@@ -99,7 +104,7 @@ The whole trip was uneventful other than the goats. A good thing I guess? The ro
 
 <Strava
     stravaId='14937681322'
-    garminId='19565668335'
+    token='FwjkaGSyocBp3OIA8rc4ZGLiPRfkjxtOHhoxNQ7XevE'
 />
 
 <ContinueReading 

@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "O'Malley Peak Climb Report",
     published: "2025-06-22",
-    updated: "2025-06-26",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/omalley-climb-report%2Ffeature-image.jpeg?alt=media&token=148eac89-c1b2-43b9-bb40-1dd854b57e38',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/omalley-climb-report%2Fhippy-hokusai-feature-image.jpg?alt=media&token=956ed996-9f6a-46b3-95a2-ccb1c701e360',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="omalley-peak" />
 
 import { 
     MdxLayout,
@@ -69,7 +74,7 @@ export const relatedArticleThree = '/blog/articles/rock-island-katy-trail';
     <Stat title={'Duration'} stat={'3:05:40'} icon={faTimer}/>
     <Stat title={'Summit Date'} stat={'June 22, 2025'} icon={faCalendarDays}/>
     <Stat title={'Difficulty'} stat={'Non-Technical'} icon={faPickaxe}/>
-    <Stat title={'Trailhead'} stat={<a href="https://maps.app.goo.gl/oVZwQ1dcR2RcPk7b6" target="_blank">Rainbow Trailhead</a>} icon={faLocationDot}/>
+    <Stat title={'Trailhead'} stat={<a href="https://maps.app.goo.gl/oVZwQ1dcR2RcPk7b6" target="_blank">Glen Alps Trailhead</a>} icon={faLocationDot}/>
 </BlogStatsSection>
 
 <MdxLayout>
@@ -78,7 +83,7 @@ export const relatedArticleThree = '/blog/articles/rock-island-katy-trail';
 text="O'Malley is an easy non-technical climb in the front range. It is very fun, the scree surfing is pleasant, and the views are spectacular. More and more tourists are finding their way over to Little O'Malley which is a great alternative if you aren't feeling up to the whole climb!"
 />
 
-I made it up O'Malley peak on a dreary day in late June. I was lucky; when I left the truck it was starting to sprinkle and it looked like a rainy day was in my future. Fortunately, the mountains kept the rain further back in the range. I would say that it was very pleasant on the summit. It is funny how often this happens to me in the great Chugach. The map below illustrates the route nicely!
+I made it up O'Malley Peak on a dreary day in late June. I was lucky; when I left the truck it was starting to sprinkle and it looked like a rainy day was in my future. Fortunately, the mountains kept the rain further back in the range. I would say that it was very pleasant on the summit. It is funny how often this happens to me in the great Chugach. The map below illustrates the route nicely!
 
 <CenteredImage image={route} altText={"O'Malley Peak 3D Map"} width={1000} height={500} />
 
@@ -97,7 +102,7 @@ I made it up O'Malley peak on a dreary day in late June. I was lucky; when I lef
 
 Head out the back of the parking lot and turn right on the Power Line Pass. You will quickly see an offshoot to the left labeled "O'Malley Peak Trail". That is what you are looking for! The trail leads up to Little O'Malley and is straightforward!
 
-On the way up I saw this porcupine on the trail. I have mistaken these for bear cubs many times. I love how they slowly lumber down the trail. Their gait gives off a pissed off vibe. I imagine them cussing the humans as they waddle though the world. I love them! I also love dogs and I was able to save a few of the off-leash variety from getting stuck with a quill! The owners seemed upset for some reason. Next time I will let them do their thing!
+On the way up I saw this porcupine on the trail. I have mistaken these for bear cubs many times. I love how they slowly lumber down the trail. Their gait gives off a pissed-off vibe. I imagine them cussing the humans as they waddle through the world. I love them! I also love dogs and I was able to save a few of the off-leash variety from getting stuck with a quill! The owners seemed upset for some reason. Next time I will let them do their thing!
 
 After I parted ways with the porcupine I was standing on Little O'Malley ridge before I knew it! I walked down the back of the ridge onto the large meadow. Huge meadow actually. I love looking at it from Anchorage because it is so freaking big.
     </div>
@@ -107,7 +112,7 @@ After I parted ways with the porcupine I was standing on Little O'Malley ridge b
     </div>
 </TwoColumn>
 
-I won't stop talking about the meadow! It is so nice and in late June it was filled with beautiful wild flowers and so few people. Most of the tourists stop at the ridge! The hike to the back was blissful! You want to aim for the large headwall on your hike. I love an easy target and it is easy to hit the bull's-eye here!
+I won't stop talking about the meadow! It is so nice and in late June it was filled with beautiful wildflowers and so few people. Most of the tourists stop at the ridge! The hike to the back was blissful! You want to aim for the large headwall on your hike. I love an easy target and it is easy to hit the bull's-eye here!
 
 <CenteredImage image={headwall} altText={"O'Malley Headwall"} title={"Bull's Eye!!"} width={1000} height={500} />
 

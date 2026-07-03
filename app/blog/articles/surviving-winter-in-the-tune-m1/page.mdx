@@ -2,41 +2,37 @@ import { generateMetadata } from '@/lib/seo';
 
 export const postMetadata = {
     title: "Surviving Winter in the Tune M1",
-    published: "2026-04-05",
-    updated: "2026-04-05",
+    published: "2026-07-01",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fthumbnail-5.jpeg?alt=media&token=987d8f8b-11a5-4109-8f03-e5e52c7a90d1',
     description: "A complete guide to surviving winter van life in the Tune M1 truck camper — 125 days, 10,357 miles, and 56 ski days across 11 states and 3 countries. Real-world tips on heating with the Truma VarioHeat, managing power with the EcoFlow Delta Pro, insulation, propane, parking, and living on the road all winter.",
     keywords: ['Tune M1 camper', 'winter van life', 'truck camper winter living', 'van life ski trip', 'Truma VarioHeat review', 'EcoFlow Delta Pro van life', 'winter truck camping tips', 'ski van life', 'van life propane tips', 'stealth camping', 'truck camper insulation', 'van life power system'],
-    tags: ['test', 'test', 'test', 'test', 'test', 'test'],
-    isActive: false,
+    tags: ['Tune M1', 'Winter Camping', 'Truck Camper', 'Van Life', 'Skiing', 'Road Trip'],
+    isActive: true,
 };
 
 export const metadata = generateMetadata({...postMetadata});
 
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="surviving-winter-in-the-tune-m1" />
+
 import { 
     MdxLayout,
-    OneColumn,
     TwoColumn,
     CenteredImage, 
+    CallOut,
     TwoCenteredImages, 
-    Footer, 
-    TravelFeature, 
-    Gif, 
-    BlogMapWrapper,
+    ThreeCenteredImages,
     TLDR,
     BlogStatsSection,
     Stat,
     ImageFeature,
-    BlackTieTitle,
-    PhotoCarousel,
+    ContinueReading,
+    YoutubeAd,
 } from '@/components/blog'
-
-import { 
-    ReflectiveInsulation,
-} from '@/products/product-links'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { 
     faCalendarDays,
@@ -47,33 +43,17 @@ import {
     faPersonSkiLift,
     faPersonSkiingNordic,
     faRv,
-    faRoad,
 } from '@awesome.me/kit-237330da78/icons/classic/regular'
 
 export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ffeature-image%20(2).jpg?alt=media&token=093cb616-6904-481f-a98f-3531a1657538";
 export const route = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fthe-big-trip-route.jpeg?alt=media&token=b0bd47bc-293c-4540-a8dd-91ae5ad84084";
-export const backBar = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fback-bar.jpeg?alt=media&token=be328dbc-61a6-4b5d-a358-96a57d48d2b0";
-export const backSeatStorage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fback-seat-storage.jpeg?alt=media&token=b7397dc6-9ca1-457f-9ec1-bff6cc948b2b";
-export const backback = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbackback.jpeg?alt=media&token=52e62dd7-a967-4140-be7f-e2ceb64ba31d";
-export const backpack = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbackpack.jpeg?alt=media&token=98ec0d1e-486c-4ca3-b678-226a84d3c62c";
-export const bagHooks = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbag-hooks.jpeg?alt=media&token=5f6a8aad-ad1b-4fbd-9093-e5af682d8463";
 export const bathroom = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbathroom.jpeg?alt=media&token=bb762097-457b-42dc-a43c-b7ce3b4849f0";
 export const batteryCharger = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbattery-charger.jpeg?alt=media&token=9f1ebaff-382f-4801-a520-40ff065fefee";
-export const batteryTieDown = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbattery-tie-down.jpeg?alt=media&token=7b35e523-7b18-43a1-b6a9-0940b57c5158";
 export const battery = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbattery.jpeg?alt=media&token=5661cc49-2ec5-4055-b556-b72ff64c4deb";
-export const bedStiffiners = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbed-stiffiners.jpeg?alt=media&token=ca00f284-2ef3-4b25-ad60-ddad254186ce";
-export const cableMgmt = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcable-mgmt.jpeg?alt=media&token=5550f526-8c78-4ac7-bf94-97284cc88274";
-export const cableStorage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcable-storage.jpeg?alt=media&token=be39402d-c06e-49db-af49-8456d76fc100";
-export const caseyNeistat = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcasey-neistat.jpeg?alt=media&token=dfb49c6d-a18a-46cc-acb5-68d96fcb498d";
-export const closet1 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcloset-1.jpeg?alt=media&token=52cfd146-4494-4015-b2fc-c76fa410bd21";
-export const closet2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcloset-2.jpeg?alt=media&token=c3547fe1-4d5f-4d75-9e3a-d7a50dbd2762";
 export const closet3 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcloset-3.jpeg?alt=media&token=d68dc3e3-379d-46c5-af5c-23ec9976436b";
 export const closet4 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcloset-4.jpeg?alt=media&token=7d783e4d-fea6-49f5-90ed-e8b227549085";
 export const closet = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcloset.jpeg?alt=media&token=fe09062b-e0fa-4e82-b1e3-f987c6696631";
-export const co2Sensor = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fco2-sensor.jpeg?alt=media&token=73e44032-afd5-40b4-bef1-3da44fdec957";
 export const condensation1 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcondensation-1.jpeg?alt=media&token=1f698546-8c70-4039-b365-eb8ec60ef655";
-export const condensation2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcondensation-2.jpeg?alt=media&token=a18a8065-d622-4480-8342-7f523cfd37dd";
-export const condensation3 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcondensation-3.jpeg?alt=media&token=0ae4923d-83ab-4fe3-b8b2-43eac6c4aeba";
 export const condensation4 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcondensation-4.jpeg?alt=media&token=d26ee780-965e-4049-93c4-f964afbeab62";
 export const condensation5 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fcondensation-5.jpeg?alt=media&token=6cbacf20-d201-4e04-9bf9-c855a2302f19";
 export const desert1 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fdesert-1.jpg?alt=media&token=c7314cdf-7e0f-4662-9d16-a3cdd2b0df4a";
@@ -83,50 +63,45 @@ export const dishStorage = "https://firebasestorage.googleapis.com/v0/b/nash-bro
 export const fridge = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ffridge.jpeg?alt=media&token=9137896e-5b22-4a62-862a-352091f69278";
 export const gloveDrying = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fglove-drying.jpeg?alt=media&token=d9aa1589-5eef-44ee-8bf0-698a0376c33f";
 export const heaterHoseProtection = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-hose-protection.jpeg?alt=media&token=8519967d-f9a6-40c2-b8db-142f5a4480b3";
-export const heaterIcicle1 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-1.jpeg?alt=media&token=96b3ec70-83a4-48c5-8590-05403d0940b4";
-export const heaterIcicle2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-2.jpeg?alt=media&token=334c1643-d88f-4c8f-bd33-d04b18060253";
 export const heaterIcicle3 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-3.jpeg?alt=media&token=a87a160f-7c86-40a0-abb3-ce52041231dd";
-export const heaterIcicle4 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-4.jpeg?alt=media&token=b223a079-b3ab-4d9d-b1d9-97d3b8060214";
 export const heaterIcicle5 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-5.jpeg?alt=media&token=045038eb-2afd-4b01-af5a-6355da909c9f";
 export const heaterIcicle6 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-6.jpeg?alt=media&token=e60fd97e-dd65-4d92-9a50-4773b8439884";
-export const heaterIcicle7 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-7.jpeg?alt=media&token=24ade3fc-0f26-4f33-b423-7fb9c8465d36";
-export const heaterIcicle8 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-8.jpeg?alt=media&token=4e9278e0-4e94-45aa-8932-dc1e412a5c45";
-export const heaterIcicle9 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-9.jpeg?alt=media&token=48f6cdca-af3b-48d8-bb9b-df7aa674b627";
-export const heaterIcicle10 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-10.jpeg?alt=media&token=fd958cdb-4c68-4370-98f9-5a225891dfb3";
 export const heaterProtection = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-protection.jpeg?alt=media&token=d8da7ea3-28c8-4daa-9a4d-ea0cf29eeb26";
 export const heaterVentSnowCovered = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-vent-snow-covered.jpeg?alt=media&token=0557b6e2-f074-4f11-94fc-ffad2849dc03";
-export const heaterVent = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-vent.jpeg?alt=media&token=05711f9e-c3c4-4451-9878-0b4adf1884d4";
 export const heater = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater.jpeg?alt=media&token=5cfcf004-f258-4f42-971e-3ca081f2b55a";
-export const kitchen3 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fkitchen-3.jpeg?alt=media&token=478cb0d4-69d5-48c6-ab8d-744dfffa19a0";
 export const kitchenFull = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fkitchen-full.jpeg?alt=media&token=8978e4ec-0f1f-4987-a05d-86d5ae2c3525";
 export const kitchen = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fkitchen.jpeg?alt=media&token=854e6a41-4355-4c94-84ac-f7e86f49911e";
-export const ladderHooks = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fladder-hooks.jpeg?alt=media&token=e5834d41-ca95-4fae-b921-50e68e864c59";
-export const ladderStorage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fladder-storage.jpeg?alt=media&token=a779b66c-bede-4176-a19f-1f8687a25a28";
+export const kitchenCounter = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fkitchen-counter.jpg?alt=media&token=3ee0cb7d-5547-416a-9149-4f78ff26c4d3";
 export const medicenCabnet = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fmedicen-cabnet.jpeg?alt=media&token=6113370c-fb29-46e4-9a35-144ea0cfce29";
 export const miscStorage2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fmisc-storage-2.jpeg?alt=media&token=3fe28822-0d1a-4b6d-b3c9-65ec09c559d4";
-export const miscStorage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fmisc-storage.jpeg?alt=media&token=7fe72290-453b-4841-9d8a-b2637065bf44";
 export const parkingGurageParking = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fparking-gurage-parking.jpeg?alt=media&token=0f7d899e-1ef3-4172-976d-7419d5e6e172";
-export const pillowStorage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fpillow-storage.jpeg?alt=media&token=3a14f853-25cc-4add-8199-b1455e2c3870";
+export const pillowStorage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fpillow-storage.jpeg?alt=media&token=dd631b3e-74f1-4e1f-a577-bf7cbae2bcef";
 export const prppane = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fprppane.jpeg?alt=media&token=c64e4bad-92d9-4766-a372-36b21c6b2a9b";
 export const redBag1 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fred-bag-1.jpeg?alt=media&token=2dfd8a24-9650-470a-8dd6-d4c408e52359";
-export const redBag2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fred-bag-2.jpeg?alt=media&token=bba87e63-9f58-4deb-8f82-f892505e8761";
-export const rug2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Frug-2.jpeg?alt=media&token=e66321e1-ddcf-46b7-9bca-7e43ba241977";
 export const rug = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Frug.jpeg?alt=media&token=10f2a151-aabb-4e17-a448-0ed4303cdb91";
 export const shoeStorage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fshoe-storage.jpeg?alt=media&token=bbe4664e-2173-45cd-92a9-212178a4e523";
-export const skiRack = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fski-rack.jpeg?alt=media&token=43d062fb-fb8d-4b9b-afcf-a1d04ca51a38";
-export const tailgateFlap = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ftailgate-flap.jpeg?alt=media&token=75b29175-3ebb-4326-a38f-79544df67bbe";
-export const tarpHooks = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ftarp-hooks.jpeg?alt=media&token=2a8f0985-f36e-46f0-ade4-15c9ba1cf884";
-export const tempSensor = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ftemp-sensor.jpeg?alt=media&token=42bae279-f1eb-4148-a083-87cb5c5d1997";
-export const thumbnail1 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fthumbnail-1.png?alt=media&token=86f888f0-f5a2-421e-afe2-8c9d984474b3";
-export const thumbnail2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fthumbnail-2.jpg?alt=media&token=7c289df3-8ee8-47c2-a8c5-b7918b67668e";
-export const thumbnail3 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fthumbnail-3.jpg?alt=media&token=babc9f00-8627-4d71-9a20-12537307931e";
-export const thumbnail4 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fthumbnail-4.jpg?alt=media&token=9236590d-c7a0-4924-b9a5-af15b7fc30ad";
-export const thumbnail5 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fthumbnail-5.jpeg?alt=media&token=987d8f8b-11a5-4109-8f03-e5e52c7a90d1";
-export const toolStorage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ftool-storage.jpeg?alt=media&token=5cc42cbb-86bd-48b8-ab65-812a139792a3";
-export const towelHooks = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ftowel-hooks.jpeg?alt=media&token=2efafd69-fe7f-4aa3-a038-33eb80775686";
-export const trash2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ftrash-2.jpeg?alt=media&token=68798767-6747-43b5-b51b-d6e9cde05413";
+export const skisInRack = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fskis-in-rack.jpg?alt=media&token=c71a32fa-4d6d-4df8-8520-9451fae40fd3";
 export const trash = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ftrash.jpeg?alt=media&token=b51b7c8f-6770-48a2-94c7-6c069cb8517d";
 export const velcroHolder = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fvelcro-holder.jpeg?alt=media&token=29f81b47-7b4c-48c0-a51f-2393593d512a";
+export const towel = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ftowel.gif?alt=media&token=8413924d-4be1-493c-adfa-5f751e513a0b";
+export const bugs = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbugs.jpeg?alt=media&token=9c9e41b2-14bd-4470-bd97-6b3a25612d5e";
+export const sleepBigSky = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fsleep-big-sky-night.jpeg?alt=media&token=5828fca8-08fa-4677-8a2f-4075bc08e483";
+export const sleepBC = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fsleep-BC.jpeg?alt=media&token=e7a47d60-d0a8-4422-9029-9b8e8c356100";
+export const ski1 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fski-1.jpeg?alt=media&token=ca3c0c8b-74ec-4c41-a06c-f2a5cc3f0a35";
+export const ski2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fski-2.jpeg?alt=media&token=651cc502-e430-4270-acd4-4f2c27a59435";
+export const hotSprings = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fhot-spring.jpg?alt=media&token=94bf8d2d-1743-45e0-b5a3-e1c964d8b0d7";
+export const showerShoes = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fshower-shoes.jpeg?alt=media&token=55ca67ed-34d7-4446-b4f3-ee721ff3b3db";
+export const waterStorage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fwater-storage.jpeg?alt=media&token=72f5999a-8327-479a-b018-3667ad8edb5a";
+export const insulation2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Finsulation-1.jpeg?alt=media&token=8dbd9540-34d7-4b41-8763-e7ccb6b35cf4";
+export const insulationString = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Finsulation-string.jpeg?alt=media&token=9b553459-516d-405c-bef5-a14fb8bb9c0d";
+export const tailGateFlap = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ftail-gate-flap.jpeg?alt=media&token=1a5d3690-a167-41d3-8516-eb8392b9000d";
+export const bedStiffiner = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fbed-stiffiners.jpeg?alt=media&token=ca00f284-2ef3-4b25-ad60-ddad254186ce";
+export const hoseClamps = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fhose-clamps.jpeg?alt=media&token=806f3a90-247d-4854-8b4d-209dbdb9c3ed";
+export const finalImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Ffinal-image.jpeg?alt=media&token=4476e022-09c1-46e6-8805-0589f6ec87b1";
+
+export const relatedArticleOne = '/blog/articles/tune-heavy-lift-strut-install';
+export const relatedArticleTwo = '/blog/articles/tune-cold-weather-performance';
+export const relatedArticleThree = '/blog/articles/tune-insulation-pack-repair';
 
 <ImageFeature
     title='Surviving Winter in the Tune M1'
@@ -141,69 +116,78 @@ export const velcroHolder = "https://firebasestorage.googleapis.com/v0/b/nash-br
     <Stat title={'Resorts Visited'} stat={'17'} icon={faUmbrellaBeach}/>
     <Stat title={'Ski Days'} stat={'56'} icon={faPersonSkiLift}/>
     <Stat title={'BC Ski Days'} stat={'1'} icon={faPersonSkiingNordic}/>
-    <Stat title={'Nights Tunning'} stat={'103'} icon={faRv}/>
+    <Stat title={'Nights Tuning'} stat={'103'} icon={faRv}/>
 </BlogStatsSection>
 
 
 <MdxLayout>
 
 <TLDR
-text="The Tune M1 does great in the winter. However, there are a few things that I learned on my trip that I wish I knew before I left. Here are the lesson learned from out on the road!" 
+text="The Tune M1 does great in the winter. However, there are a few things that I learned on my trip that I wish I knew before I left. Here are the lessons learned from out on the road!" 
 />
 
 
-# Surviving Winter in the M1
-During the 10,357 mile trip I experienced temps from as low as -8 degrees in British Columbia to 97 degrees in Mexico. The Tune performed great. I didn't have a single breakdown the entire trip. The only learning curve was the heater and we will dive into that as well as some of the other things that I learned along the way. All pictures are from how the truck looked when the trip ended. No special cleaning or setup for the photos. Here is an overview of the trip!
+<TwoColumn>
+<div>
+During the 10,357 mile trip I experienced temps ranging from -8 degrees in British Columbia to 97 degrees in Mexico. The Tune performed great. I didn't have a single breakdown the entire trip. The only learning curve was the heater and we will dive into that as well as some of the other things that I learned along the way. All pictures are from how the truck looked when the trip ended. No special cleaning or setup for the photos. Here is an overview of the trip!
 
 1. Start in Sioux Falls
 2. Drive to Bozeman. Park. Fly to see my mom for Thanksgiving
 3. Stay in Banff for a few weeks. Campground required in the park!
-4. Stay in Airbnb with my mom over Christmas and ski!
+4. Stay in an Airbnb with my mom over Christmas and ski!
 5. Ski a lot
 6. Stay in a campground in San Francisco
 7. Stay in a campground in San Diego
 8. Fly home for a day. Leave truck at Reno Airport
 9. End in Sioux Falls to grab my bike for the trip home.
+</div>
 
 <CenteredImage image={route} altText={'Trip Route'} title={'The Route'} width={600} height={600} />
+</TwoColumn>
 
 This ended up exposing me to a lot of different situations. Leaving the truck in the cold and warm for a few days. Using it as a normal car while staying in an Airbnb. 
 
 # The M1 Specs
 Here's how my camper was set up from the factory:
-- Fan: MaxxAir 00-07500K Fan Installed (remote control)
-- Bed: Hest Mattress & King Extender
-- Power: Solar Port
-- Heat: Truma VarioHeat
-- Insulation Pack: Standard
-- Heavy Lift Struts
+  <div className="text-sm">
+    - Fan: MaxxAir 00-07500K Fan Installed (remote control)
+    - Bed: Hest Mattress & King Extender
+    - Power: Solar Port
+    - Heat: Truma VarioHeat
+    - Insulation Pack: Standard
+    - Heavy Lift Struts
+</div>
 
 Here are the additional items I added to build out the camper for the trip:
-- Battery: [Ecoflow Delta Pro][5]
-- Charging: [Ecoflow 800W Alternator Charger][6]
-- Fridge: [Dometic CFX3 25L][7]
-- Microwave: [Ikea Tillreda Microwave][8]
-- Water Kettle: [Stagg EKG Electric Kettle][9]
-- Internet: [Starlink Mini][10]
-- Decor: [Home Depot Plant][15]
-- Dish Storage: [Dish rack][16]
-- Kitchen: [OXO Outdoor Camp Kitchen Tool Roll][11]
-- Paper Towel holder: [Amazon Paper Towel Holder][17]
-- Toiletry: [REI Shower Roll - Small][12]
-- Toilet Paper Holder: [Amazon Toilet Paper Holder][18]
-- Bathroom Creator: [Trowel][22]
-- Closet: [REI Big Haul 120L][13]
-- Roof Rack: [Thule SnowPack M][14]
-- Pillow storage: [DIY Cargo Net][19]
-- Water storage: 2 [small Nalgenes][20], 1 [large Nalgene][21], 1 2.5 gallon jug
-- Sheets: I just used what I had on hand
+  <div className="text-sm">
+    - Battery: [EcoFlow Delta Pro][5]
+    - Charging: [EcoFlow 800W Alternator Charger][6]
+    - Fridge: [Dometic CFX3 25L][7]
+    - Microwave: [Ikea Tillreda Microwave][8]
+    - Water Kettle: [Stagg EKG Electric Kettle][9]
+    - Internet: [Starlink Mini][10]
+    - Decor: [Home Depot Plant][15]
+    - Dish Storage: [Dish rack][16]
+    - Kitchen: [OXO Outdoor Camp Kitchen Tool Roll][11]
+    - Paper Towel holder: [Amazon Paper Towel Holder][17]
+    - Toiletry: [REI Shower Roll - Small][12]
+    - Toilet Paper Holder: [Amazon Toilet Paper Holder][18]
+    - Bathroom Creator: [Trowel][22]
+    - Closet: [REI Big Haul 120L][13]
+    - Roof Rack: [Thule SnowPack M][14]
+    - Pillow storage: [DIY Cargo Net][19]
+    - Water storage: 2 [small Nalgenes][20], 1 [large Nalgene][21], 1 2.5 gallon jug
+    - Sheets: I just used what I had on hand
+</div>
+
+<YoutubeAd videoID={'fHcHAK9P4A'} description={'Full Camper Tour!'} />
 
 ## Power
 Driving was almost always enough to handle my power needs. There were only a couple of times on the trip that I had to find a plug. Hotels in northern climates usually have plugs for block heaters. 
 
-<CenteredImage image={battery} altText={'Ecoflow Delta Pro Battery'} title={'Battery Setup'} width={500} height={500} />
+<TwoCenteredImages image={[battery, batteryCharger]} altText={['EcoFlow Delta Pro Battery', 'EcoFlow Delta Pro Battery Charger']} titles={['EcoFlow Battery Setup', 'EcoFlow Battery Charger Setup']} width={500} height={500} />
 
-Issue happened when I flew home for Thanksgiving, and accidentally left the lights on. This left the battery dead and cold. If the battery is too cold it won't charge. So I had to pull the battery and put it in the front seat as I drove and plugged it into the cigarette lighter charger. It eventually started taking and I was able to find a plug at a community center to charge it the rest of the way.
+The issue happened when I flew home for Thanksgiving and accidentally left the lights on. This left the battery dead and cold. If the battery is too cold it won't charge. So I had to pull the battery and put it in the front seat as I drove and plugged it into the cigarette lighter charger. It eventually started taking a charge and I was able to find a plug at a community center to charge it the rest of the way.
 
 There were other times the battery got too cold and would not charge. However, it will output power even if it's cold. So you can turn the heater on and it will warm the battery enough to charge. Also, even in negative temps, just running the heater while I slept every night was enough to keep the battery warm enough to charge.
 
@@ -211,56 +195,66 @@ All ways to charge:
 - Driving
 - Wall outlets
 - EV Chargers (future)
-- Solar (future) throw out panels
+- Solar (future): throw-out panels
 
 Solar would also be pretty cool and I almost bought a panel to put on the top of the camper even though I already have a throw-out panel that I'll be adding to the setup this summer. I decided against it because I only wanted the panel if I was parked at a location for a few days without moving, which has been rare. The throw-out panels will work perfectly in that case while also being protected from the elements and portable. I just feel like a mounted panel will be sitting on the truck too much without being used. I don't have a strong opinion here. Having a panel constantly charging that doesn't require any setup would be pretty nice!
 
 ## Insulation
-I utilized both the insulation kit from Tune and the DIY roof insulation that I built. I found both to be invaluable. Not only did it keep the camper warmer, but it kept out light when I slept under street light and kept out the noise when I was sleeping by a road. One other benefit is that it blocked some of the heat from the morning sun during slow mornings in the desert. I also had the factory Tacoma rubber bed liner. I never thought of it as insulation but I was glad that I had it! 
+<TwoColumn>
+I utilized both the insulation kit from Tune and the DIY roof insulation that I built. I found both to be invaluable. Not only did it keep the camper warmer, but it kept out light when I slept under street lights and kept out the noise when I was sleeping by a road. One other benefit is that it blocked some of the heat from the morning sun during slow mornings in the desert. I also had the factory Tacoma rubber bed liner. I never thought of it as insulation but I was glad that I had it! 
 
-<TwoCenteredImages image={[featureImage, featureImage]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={500} height={500} />
+<CenteredImage image={insulation2} altText={'Tune M1 insulation'} title={'Insulation'} width={500} height={500} />
+</TwoColumn>
 
-More reeding on insulation:
+Once you install the insulation pack it is kind of hard to get the little hooks on the bungees hooked onto the canvas loop holes. I saw that someone added little loops on the Facebook group. Easy upgrade, totally worth it!
+<CenteredImage image={insulationString} altText={'Tune M1 insulation'} title={'Insulation'} width={1000} height={1000} />
+
+More reading on insulation:
 -  [Tune M1 Insulation Pack Install][23]
 -  [Tune M1 Roof Insulation][24]
 
 ## Heater
-Truma heater worked great after a learning curve. I used the heater for comfort only. I woke up in Montana and it was -3 in the camper because I ran out of propane. Wool socks, smart wool leggings, and a sweatshirt combined with my bedding was plenty warm. However, getting out of bed is not fun at those temps! If you are looking for hard data on how the Truma performs in the Tune I recommend checking out my other article [Tune M1 Cold Weather Performance][25]!
+The Truma heater worked great after a learning curve. I used the heater for comfort only. I woke up in Montana and it was -3 in the camper because I ran out of propane. Wool socks, smart wool leggings, and a sweatshirt combined with my bedding was plenty warm. However, getting out of bed is not fun at those temps! If you are looking for hard data on how the Truma performs in the Tune I recommend checking out my other article [Tune M1 Cold Weather Performance][25]!
 
-<CenteredImage image={heater} altText={'Truma VarioHeat Heater'} title={'Truma VarioHeat'} width={500} height={500} />
+<CenteredImage image={heater} altText={'Truma VarioHeat Heater'} title={'Truma VarioHeat'} width={1000} height={1000} />
 
 ### Initial Issue
-When I got the heater it didn't work due to a loose fitting. It was a bit hard to track down because I didn't know what was normal for the heater. I tightened it up and haven't had any further issues. Just something to keep in mind.
+When I got the heater it didn't work due to a loose fitting. It was a bit hard to track down because I didn't know what was normal for the heater. I tightened it up and haven't had any further issues. Just something to keep in mind. All of the common issues that I have run across while using the Tune can be found in this article: [Tune M1 Common Issues & Solutions][29].
 
 ### Propane Consumption
 The biggest complaint that I have about the heater is that you can't tell how much fuel you have. I definitely had my fair share of cold mornings. Otherwise, it is great! Here is what I found:
 - 2.5-4 nights per tank, highly dependent on how long you have it on, outdoor temp, and altitude
 - I didn't track how long my "nights" were but 10 hours is probably a fair guess.
 
-<CenteredImage image={prppane} altText={'Propane Fillup!'} title={'The Big Dog'} width={500} height={500} />
-
 ### Icing
 There was a night in Wyoming that my heater quit. I woke up in the cold and was pretty confused because:
 1. I had just filled the propane tank that day
 2. It wasn't that cold, ~30 degrees
 
-When I got out of the camper it had snowed about 10" and all the lines and regulators had about an 1/8 inch of ice on them. I assume this is why the propane stopped flowing. It also could have been that the regulator stopped working. This icing has only happened twice this winter.  I think it takes a combo of snow, warm enough temps where the snow will melt on the roof and a slight angle of the roof towards the propane tank. With all the factors in place, snow from the roof melts, drips on the regulator and lines, then refreezes causing an issue. Unfortunately, I was in a mood that morning and did not take any pictures, but it situation did happen again after I had implement the fix. Here are some pictures to get and idea of the issue.
+When I got out of the camper it had snowed about 10" and all the lines and regulators had about an 1/8 inch of ice on them. I assume this is why the propane stopped flowing. It also could have been that the regulator stopped working. This icing has only happened twice this winter. I think it takes a combo of snow, warm enough temps where the snow will melt on the roof, and a slight angle of the roof towards the propane tank. With all the factors in place, snow from the roof melts, drips on the regulator and lines, then refreezes causing an issue. Unfortunately, I was in a mood that morning and did not take any pictures, but the situation did happen again after I had implemented the fix. Here are some pictures to get an idea of the issue.
 
-<TwoCenteredImages image={[heaterIcicle3, heaterIcicle5]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={300} height={300} />
+<ThreeCenteredImages image={[heaterIcicle3, heaterIcicle6, heaterIcicle5]} altText={['Ice on the propane regulator', 'Ice on the heater lines', 'Iced propane regulator']} titles={['Iced Regulator','Iced Lines', 'Iced Regulator']} width={300} height={300} />
 
-The fix is to use [water pipe insulation][26] on the hoses and a [faucet cover][27] on the regulator. The second time there was icing on the lines and hoses was in South Dakota and the fix worked! Another benefit is that the faucet protector keeps the regulators from failing. I went through 3 regulators, but after using the faucet cover, I have had no issues. All three regulators that I used had a warning not to expose it to the elements printed on the side.
+The fix is to use [water pipe insulation][26] on the hoses and a [faucet cover][27] on the regulator. The second time there was icing on the lines and hoses was in South Dakota and the fix worked! Another benefit is that the faucet protector keeps the regulators from failing. I went through 3 regulators, but after using the faucet cover, I have had no issues. All three regulators that I used had a warning not to expose them to the elements printed on the side.
 
 <TwoCenteredImages image={[heaterProtection, heaterHoseProtection]} altText={['Faucet Cover', 'Water Pipe Insulation']} titles={['Faucet Cover', 'Water Pipe Insulation']} width={500} height={500} />
 
+### Heater Inlet
+You really have to keep this thing closed if you are driving, especially in bad weather. I would put the cap on my seat every night so I wouldn't forget the next morning. I would switch the cap out with [this one][34] so that you don't have to find a screwdriver every time. I bought part number [5215K12][35] and it works but there is a ton of extra room. I would probably recommend [5215K11][36], however I have not tried it!
+
+<TwoCenteredImages image={[hoseClamps, heaterVentSnowCovered]} altText={['Hose clamps on the heater inlet', 'Snow-covered heater vent']} titles={['Hose Clamps', 'Snow-Covered Vent']} width={500} height={500} />
+
+With how finicky the heater is, I would not be surprised if it got really mad about eating a ton of water and snow.
+
 ### Condensation
-When I bought the Tune, I know that condensation was probably going to be an issue. After spending over 100 nights in the Tune I would say that it is and isn't. Here are a few things to keep in mind:
+When I bought the Tune, I knew that condensation was probably going to be an issue. After spending over 100 nights in the Tune I would say that it is and isn't. Here are a few things to keep in mind:
 
 - You pretty much have to run the fan while you sleep even in the dry desert. The lowest setting seemed to work fine the entire time, but when it's really cold the heater and fan definitely are fighting a war.
-- Aluminum is a great conductor and, if its really cold, will collect a lot of condensation though the night.
+- Aluminum is a great conductor and, if it's really cold, will collect a lot of condensation throughout the night.
 - Anything that's wet is going to dry and the water will end up on the camper
-	- swim suits /towels ect
+	- swimsuits/towels, etc.
 	- Try to keep these in the cab where it will just freeze.
-- Don't really have to worry about mold and could clean it because there aren't traditional walls for it to hide in.
+- You don't really have to worry about mold, and it's easy to clean because there aren't traditional walls for it to hide in.
 
 <CenteredImage image={condensation1} altText={'Tune M1 Condensation'} title={'Bed Rail Condensation'} width={500} height={500} />
 <TwoCenteredImages image={[condensation4, condensation5]} altText={['Icicles on Tune M1 Lights', 'Bed Rail Freezing']} titles={['Icicles on Lights', 'Bed Rail Freezing']} width={500} height={500} />
@@ -268,25 +262,56 @@ When I bought the Tune, I know that condensation was probably going to be an iss
 ### Propane Filling
 Finding filling stations ended up being easier than expected. Companies everywhere will do this. It is way harder to do in Canada and they do not like the sleeve that Tune puts on the bottles.
 - [iOverlander][28]: have local places everywhere
-- Tractor Supply: Almost all of them sell propane and are open late and on Sunday.
+- Tractor Supply: Almost all of them sell propane and are open late and on Sundays.
 
-<CenteredImage image={prppane} altText={'Propane Fillup!'} title={'The Big Dog'} width={500} height={500} />
+<CenteredImage image={prppane} altText={'Propane Fillup!'} title={'The Big Dog'} width={1000} height={1000} />
 
 ### Everything Freezes
 Something that is obvious but took some adjusting. I ended up making my purchasing decisions based on how easy it would be to get frozen product out of the container.
 - shampoo, food, drinks, everything.
 - You could run the heater but because of the location of the vent you can't when you are going down the highway.
 
+<CenteredImage image={towel} altText={'Frozen towel'} title={'Frozen Solid'} width={800} height={800} />
+
 ## Eating & Food Prep
-For cooking I used a cutting board on the bed. Try to only use one bowl to make cleanup fast and easy. "Clean" is definitely close to dry cabin or camping clean. I would wipe down bowls with bread to keep trash to a minimum. Microwave was a life saver. Trader Joe's is the best because of all their quick-cook options. The refrigerator did great. It just ran for 3 months straight. Most of the time it would keep food from freezing unless it was super super cold.
+<TwoColumn>
 
-- bowl storage
-- knife storage
+<div>
+For cooking I used a cutting board on the bed. Try to only use one bowl to make cleanup fast and easy. "Clean" is definitely close to dry cabin or camping clean. I would wipe down bowls with bread to keep trash to a minimum. The microwave was a lifesaver. Trader Joe's is the best because of all their quick-cook options. The refrigerator did great. It just ran for 3 months straight. Most of the time it would keep food from freezing unless it was super super cold.
 
-## Showers & Bathrooms
-This is where I take the everything bag. The issue that ended up being annoying is that the everything bag needed to be emptied of the dry food, then filled with the shower stuff. Ended up being annoying and something that I am going to fix before heading back to Alaska. The most basic Tevas seem to be the best shower shoes. I also just ended up wearing them a lot. I tried Crocs too but they are gross. I tried to take one every 4 days and kept about four days of water with me — you can always top off when you shower.
+</div>
+
+<CenteredImage image={kitchen} altText={'Tune M1 kitchen'} title={'The Kitchen'} width={500} height={500} />
+
+</TwoColumn>
+
+<TwoCenteredImages image={[fridge, kitchenCounter]} altText={['Tune M1 kitchen', 'Dish storage']} titles={['The Kitchen', 'Dish Storage']} width={500} height={500} />
+<TwoCenteredImages image={[kitchenFull, dishStorage]} altText={['Tune M1 kitchen', 'Dish storage']} titles={['The Kitchen', 'Dish Storage']} width={500} height={500} />
+
+## Everything Pink Bag
+I used this to hold everything when I took a shower and dry foods that didn't go into the cooler. I am working on a different solution to hold the dry foods. It needs to be big and strong enough to carry all of your water containers into the shower so you can fill them. This ended up being the default storage for all of my water containers. I also used this to get groceries. I think that getting some better storage in place in order to keep this empty when it's not used will be way better! Uses:
+- Fruit hanger
+- Dry food storage
+- Water storage
 
 <CenteredImage image={redBag1} altText={'The Everything Bag'} title={'The Everything Bag'} width={500} height={500} />
+
+This bag was able to hold all of my water containers. Combined, they held about 4 days' worth of water. Hopefully I was able to get a shower in every 4 days so it was enough water to last!
+
+## Showers & Bathrooms
+This is where I take the everything bag. The issue that ended up being annoying is that the everything bag needed to be emptied of the dry food, then filled with the shower stuff. It's something that I am going to fix before heading back to Alaska. The most basic Tevas seem to be the best shower shoes because they dry so fast, pack to nothing, and somehow don't get gross. I also just ended up wearing them a lot. I tried Crocs too but they are gross. 
+
+<CenteredImage image={showerShoes} altText={'Shower shoes (Tevas)'} title={'Shower Shoes'} width={1000} height={1000} />
+
+I tried to take one every 4 days and kept about four days of water with me. The best and most reliable place to fill up water is when you shower. I almost bought a blue water jug but I am so glad that I didn't. It is so much more convenient for a setup like this just to get water as you find it, and fill up inconspicuously. I'm just a dude fillin' a water bottle you know?
+
+<TwoColumn>
+<CenteredImage image={medicenCabnet} altText={'Medicine cabinet'} title={'Medicine Cabinet'} width={325} height={325} />
+<div>
+<CenteredImage image={waterStorage} altText={'Water storage'} title={'Water Storage'} width={500} height={500} />
+<CenteredImage image={bathroom} altText={'Bathroom setup'} title={'The Bathroom'} width={500} height={500} />
+</div>
+</TwoColumn>
 
 When you are staying in the middle of nowhere or a campground, bathrooms aren't an issue. The worst situation is when you are "stealth" camping or camping at a grocery store or casino. I would always keep a bottle on hand for this situation. Everyone seems to care if you whip it out in public, but nobody minds if you dump a bottle out of the back of your truck.
 
@@ -294,107 +319,162 @@ Also, totally possible to pee out the back door without getting out of the truck
 
 Using only public bathrooms took some time to get used to. 3 months without a private shower wasn't fun. Dropping a deuce in public is gross.
 - Planet Fitness: Great option when in a big city
-- Hot Springs: you will smell like sulfur but probably wont be able to smell it yourself. Kinda gross.
-- Aquatic centers: Usually can also swim or hot tub. The shower only price is usually ~$3 anything over $10 is highway robbery.
-- Hostels: usually have a shower only price. Don't pay over $10 that's just nuts!
+- Hot Springs: you will smell like sulfur but probably won't be able to smell it yourself. Kinda gross.
+- Aquatic centers: Usually can also swim or hot tub. The shower-only price is usually ~$3; anything over $10 is highway robbery.
+- Hostels: usually have a shower-only price. Don't pay over $10 — that's just nuts!
 - Outside: Lots of beaches have showers. Use as little biodegradable soap as possible.
 - Rinse Kit: Adding this option for the summer. Would have been impossible to keep unfrozen over the winter.
 
 ## Trash
-Gas stations. Keeping everything small is key. Small trash is no exception. You can dump wherever. Gas station trash can were my go too. I tryied to stay away from dumpsters. People get pissed if they catch you dumping in them.
+Gas stations. Keeping everything small is key. Small trash is no exception. You can dump wherever. Gas station trash cans were my go-to. I tried to stay away from dumpsters. People get pissed if they catch you dumping in them.
 
 <TwoCenteredImages image={[trash, velcroHolder]} altText={['Tune M1 Trashcan', 'Velcro Holder']} titles={['Tune M1 Trashcan', 'Velcro Holder']} width={500} height={500} />
 
-I used used a box with trash bag. The box was just Velcro to the top of my fridge.
+I used a box with a trash bag. The box was just Velcroed to the top of my fridge.
 
-## Everything Pink Bag
-I used this to hold everything when I took a shower and dry foods that didn't go into the cooler. I am working on a different solution to hold the dry foods. This needs to be big and strong enough to carry all of your water in to take a shower in order to fill it. This ended up being the default storage for all of my water containers. I also used this to get groceries. I think that getting some better storage in place in order to keep this empty when its not used will be way better! How:
-- Fruit hanger
-- Dry food storage
-- Water storage
-
-<CenteredImage image={redBag1} altText={'The Everything Bag'} title={'The Everything Bag'} width={500} height={500} />
 
 ## Cleaning
 ### Inside
-Keeping a kitchen mat on the floor makes a big difference. Just wash it when you are washing cloths. I just used surface cleaner and paper towels for the most part. I also got a small blower from my mom and it worked pretty well to get the dust out.
+Keeping a kitchen mat on the floor makes a big difference. Just wash it when you are washing clothes. I just used surface cleaner and paper towels for the most part. I also got a small blower from my mom and it worked pretty well to get the dust out.
 
 <CenteredImage image={rug} altText={'Kitchen Mat'} title={'Kitchen Mat'} width={500} height={500} />
 
 ### Outside
 I was mostly worried about bugs causing issues with the finish so I tried to wash as much as possible. I can't remember the dos and don'ts. To be honest I just foam brushed that thing and never had any issues! Get the bugs off!!
+<CenteredImage image={bugs} altText={'Bugs on the camper'} title={'Bugs!'} width={1000} height={1000} />
 
-## Parking
-Really easy most of the time, but hard if there are parking garages. I picked my mom up in Calgary to ski up in Banff over Christmas and we stayed downtown at a hotel for a night. It was an absolute pain in the ass. Stay out of the city as much as possible!
+
+## My Bed
+I kept it pretty standard here. 2 Pillows and a normal set of sheets. The only thing that I have to add is regarding pillow storage. When I first got the camper this was the first issue I ran into. I would just keep them in the back seat of the truck. No problem. Until I inevitably dropped them on the dirty ground. The bed of the truck is also not the cleanest place and usually liable to be wet. So I made a storage solution. It uses a [cargo net from Harbor Freight][33] and some stick up clips. If I were to get another Tune, I would probably add this before the first night out!
+<CenteredImage image={pillowStorage} altText={'Pillow storage cargo net'} title={'Pillow Storage'} width={1000} height={1000} />
+
+## Parking - Not Sleeping
+Really easy most of the time, but hard if you are in the city. I found it really hard to find a place to park around big cities. Parking in a parking garage is almost always out of the question, although I made it happen a few times. I think the clearance must be 7-foot-plus for my setup. I picked my mom up in Calgary to ski up in Banff over Christmas and we stayed downtown at a hotel for a night. They only had a parking garage to park in, and it turned into a nightmare to be honest. Stay out of the city as much as possible!
+
+I was always a little nervous leaving my truck parked in town, and out of sight, for extended periods of time. The camper no doubt makes it a target for thieves. Thankfully I never had any issues.
 
 ## Places to Sleep
-I slowly got more and more adventurous when it came to sleeping arrangements. It is hard to find places in the city. It is easy to find places in the desert.
+I slowly got more and more adventurous when it came to sleeping arrangements. I was able to sleep in some weird spots, and every place I visited twice, I immediately wanted to visit my old spots, weird, I know. It is hard to find places in the city. It is easy to find places in the desert.
 - [iOverlander][28]: always the first place that I looked and had great options for the most part.
-- Casinos: Great if you are staying in the city. Most requires you to check in with security but are free. I ran into a couple of drunks but there is usually a lot of security so shenanigans are kept to a minimum.
+- Casinos: Great if you are staying in the city. Most require you to check in with security but are free. I ran into a couple of drunks but there is usually a lot of security so shenanigans are kept to a minimum.
 - Airport parking garage: I had an early flight! Worked great!
 - Campgrounds
 	- used in San Francisco and San Diego and Banff
 	- nice because you get power
 	- also added security when you are gone.
-	- when you consider the parking that you would pay in a big city, plus laundry/pool/bathroom/shower/ect it is actually sometimes worth it.
+	- when you consider the parking that you would pay in a big city, plus laundry/pool/bathroom/shower/etc. it is actually sometimes worth it.
 - Just ask people/workers/managers
 	- If you ask most people are cool with it for one night.
 - Just sending it
-	-  People just don't want Methy looking RV's outside
-    - come in after dark leave early
+	-  People just don't want methy-looking RVs outside
+    - come in after dark, leave early
 In all 3 months I only had one issue. I was woken up in the morning at the Taos ski resort and they said I shouldn't have slept there and to just move. People honestly don't give a shit. Just be very nice when they knock!
 
-## Laundry
-The first Laundromat that I went to was in Spokane, and the homeless dude next to me dumped his pockets a crack pipe fell out. That was enough of big city laundries for me. Mountain towns have the best/cleanest laundromats. Doing laundry is actually super expensive. All my sheets and clothes could be upwards of $60. At that price it almost makes sense to rent and airbnb or try to stay at a hostel.
+<CenteredImage image={parkingGurageParking} altText={'Parking garage'} title={'Garage Parking'} width={1000} height={1000} />
+<TwoCenteredImages image={[sleepBigSky, sleepBC]} altText={['Sleeping under big sky', 'Sleeping in British Columbia']} titles={['Big Sky Night', 'Sleeping in BC']} width={500} height={500} />
+
+## Clothes
+### Storage
+I used a 2-stage system. Dirty clothes in the cab to hopefully freeze and not release condensation, clean clothes in the camper for easy access.
+<TwoCenteredImages image={[closet3, dirtyClothsStorage]} altText={['The closet bag', 'Dirty clothes storage']} titles={['The "Closet"', 'Dirty Clothes']} width={500} height={500} />
+
+### Drying Clothes
+<TwoColumn>
+<div>
+This was one of my bigger concerns but really wasn't a big deal. As I mentioned in the condensation section, wet clothes really can cause a problem. I would exhaust all possibilities of getting them as dry as possible before putting them in the warm camper! My setup:
+- I had a drying clippy thing that I would use for gloves (I also had multiple sets of gloves)
+- I would hang wet clothes, like snow pants, off the carabiner over the top of the "closet bag"
+- Other "half used" clothes would get stuffed behind the closet.
+</div>
+
+<CenteredImage image={gloveDrying} altText={'Drying gloves'} title={'Glove Drying'} width={400} height={400} />
+</TwoColumn>
+
+<TwoCenteredImages image={[closet, closet4]} altText={['The closet bag hanging inside the camper', 'Clothes hang drying on the closet bag']} titles={['The "Closet"', 'Hang Drying']} width={500} height={500} />
+
+### Doing Laundry
+The first laundromat that I went to was in Spokane, and the homeless dude next to me dumped his pockets and a crack pipe fell out. That was enough of big city laundries for me. Mountain towns have the best/cleanest laundromats. Doing laundry is actually super expensive. All my sheets and clothes could be upwards of $60. At that price it almost makes sense to rent an Airbnb or try to stay at a hostel.
+
+<CallOut title={'Laundry Hack'}>
+The biggest hack I found in the laundry realm was the [laundry detergent that comes in sheets][30]. Huge game changer. Cheaper than single load detergent at the laundromat and it can be frozen! I kept these at the bottom of the dirty clothes bag. Keep reading to see why!
+</CallOut>
+
+<TwoCenteredImages image={[closet3, dirtyClothsStorage]} altText={['The closet bag', 'Dirty clothes storage']} titles={['The "Closet"', 'Dirty Clothes']} width={500} height={500} />
+
+You can see my system above. My clean clothes are on the left, in the "closet." Dirty clothes are on the right. This keeps everything nice and separated, but the main benefit becomes apparent when you get to the laundromat.
+1. You just pull up and grab the bag out of the back seat. You already have the detergent sheets at the bottom of the bag!
+2. You throw the clothes in the wash, and return the bag to the truck.
+3. When the clothes are done, you just take the "closet" bag in. Fold the clothes, throw them in the back, hook it back on the carabiner and you're heading down the road.
+
+This is the best way to do laundry. Tell me I'm wrong!
+
 
 ## Visiting Cities
-When I was beginning the trip I thought that it was going to be great to knock some of the bigger us cities of my bucket list! While this was true, it wasn't as easy or as cheap as I thought it would be. I found that the cheapest way to see a city was by staying at a campground that is as close to public transit as possible. I was able to accomplish this for about 80-100 dollars a night. That sounds crazy expensive, but by the time you factor in paying for parking, the possibility of your car getting broken into, showers, electricity, and laundry it ends up shaping up to be a pretty good deal.
+When I was beginning the trip I thought that it was going to be great to knock some of the bigger US cities off my bucket list! While this was true, it wasn't as easy or as cheap as I thought it would be. I found that the cheapest way to see a city was by staying at a campground that is as close to public transit as possible. I was able to accomplish this for about 80-100 dollars a night. That sounds crazy expensive, but by the time you factor in paying for parking, the possibility of your car getting broken into, showers, electricity, and laundry, it ends up being a pretty good deal.
 
-I was able to get a better deal by being flexible. Just showing up and asking for a electric only site frequently cut the cost in half! I only stayed in three campgrounds on my trip!
+I was able to get a better deal by being flexible. Just showing up and asking for an electric-only site frequently cut the cost in half! I only stayed in three campgrounds on my trip!
 1. [San Diego][2]
 2. [San Francisco][3]
 3. [Banff][4]
 
-It would be nice to have a bike! I will have one this summer on my trip back to Alaska:)
+It would be nice to have a bike! I will have one this summer on my trip back to Alaska :)
 
 ## Running to the Desert
 The desert is warm even in the winter. I frequently tried to spend a few days out there. It makes the camper feel so much bigger. It's nice to cook outside and air out the camper!
 
 <TwoCenteredImages image={[desert1, desert2]} altText={['High above Moab', 'The Salt Flats']} titles={['High Above Moab', 'The Salt Flats']} width={500} height={500} />
 
-## Summer
-I am adding a few things before the summer trip back to Alaska.
-- Fruit Bag
-- Mirror
-- Water storage
-- dry foods storage
-- Rinse Kit
-- Rod holder and Rod
-- Solar Panel
-- Bike
+## Other Insights
+### [Tailgate Gap Cover][32]
+I bought this tailgate flap as an impulse buy and thought it was going to be kind of stupid. I couldn't have been more wrong. Here's how it helps:
+1. Keeps out snow, dirt, sand, really anything that accumulates on the tailgate.
+2. It makes it easier to sweep or blow off the bed with a leaf blower.
+
+<CenteredImage image={tailGateFlap} altText={'Tailgate gap cover'} title={'Tailgate Flap'} width={1000} height={1000} />
+
+### [Bed Stiffeners][31]
+It's hard to know if these are making a difference. I don't see my bed getting out of square so I guess they are working?
+<CenteredImage image={bedStiffiner} altText={'Bed stiffeners'} title={'Bed Stiffeners'} width={1000} height={1000} />
+
+### Misc Storage
+I kept the skis in ski clamps on the top of the Tune. I think this is alomost required in order to keep mositure out of the camper. It is also just so dang easy to through them up there!
+<CenteredImage image={skisInRack} altText={'Misc storage box'} title={'Misc Storage'} width={1000} height={1000} />
+
+Shoes went in front of the passenger seat. It was easy enough to rearage to fit a passenger if needed!
+<CenteredImage image={shoeStorage} altText={'Misc storage box'} title={'Misc Storage'} width={1000} height={1000} />
+
+Nothing too exciting, just a box wrapped in duct tape. This is where I kept spare parts, extra spices (Costco-size garlic salt), sunscreen, Tylenol, just all that good stuff.
+<CenteredImage image={miscStorage2} altText={'Misc storage box'} title={'Misc Storage'} width={1000} height={1000} />
+
+# Was the Skiing Good?
+<TwoColumn>
+<div>
+2026 wasn't the best season on record but I was able to sneak a few good days in there ;) I think that a ranking of the places that I visited is as follows:
+1. Revelstoke
+2. Alta
+3. Jackson
+
+I definitely had the best powder days of the trip at those resorts so results may be skewed. Even when the snow wasn't falling I was able to visit some hot springs. It really was a win-win situation!
+
+</div>
 
 
-## Other Ighlights
+<CenteredImage image={ski1} altText={'Skiing powder'} title={'Powder Day'} width={400} height={400} />
+</TwoColumn>
 
+<TwoCenteredImages image={[ski2, hotSprings]} altText={['Skiing', 'Soaking in a hot spring']} titles={['Skiing', 'Hot Springs']} width={500} height={500} />
 
-<CenteredImage image={featureImage} altText={'Cedar Niles 3 Corners'} title={'3 Corners'} width={500} height={500} />
-<TwoCenteredImages image={[featureImage, featureImage]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={500} height={500} />
+Otherwise it was great to see the country and take it easy for a few months. This is the first time that I have been able to take an extended period of time off work as an adult and it was much needed!
+<CenteredImage image={finalImage} altText={'The end of the trip'} title={'Until Next Time'} width={1000} height={1000} />
 
-# Other additions - delete after adding
-Tune vs van vs poptop
-You don’t lose the space between the tailgate and wheel wellķ
-Tailgate flap
-Heater clamp
-
+<ContinueReading 
+    articleOne={relatedArticleOne}
+    articleTwo={relatedArticleTwo}
+    articleThree={relatedArticleThree}
+/>
 
 </MdxLayout>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
-[1]: /blog/articals/artical-template
 [2]: https://maps.app.goo.gl/qw3MGLRU6VpJjq1k7
 [3]: https://maps.app.goo.gl/vXSvf4MRihmiwmg27
 [4]: https://maps.app.goo.gl/qyrnor2ciQTTrAWY7
@@ -422,3 +502,11 @@ Heater clamp
 [26]: https://www.amazon.com/dp/B09MYLWN6N
 [27]: https://www.amazon.com/dp/B0FVM4M7DK
 [28]: https://apps.apple.com/us/app/ioverlander/id1486556203
+[29]: /blog/articles/tune-issues
+[30]: https://www.amazon.com/gp/aw/d/B07SPYNRWZ/
+[31]: https://caliraisedled.com/products/2005-2022-toyota-tacoma-bed-channel-supports 
+[32]: https://caliraisedled.com/products/gapshield-tailgate-gap-cover
+[33]: https://www.harborfreight.com/36-in-x-60-in-extended-bed-mini-truck-cargo-net-69618.html 
+[34]: https://www.mcmaster.com/products/work-load-rated-duct-hose-clamps/
+[35]: https://www.mcmaster.com/5215K12/
+[36]: https://www.mcmaster.com/5215K11/

@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Tune Insulation Pack Repair",
     published: "2025-05-23",
-    updated: "2025-05-23",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-insulation-pack-repair%2Ffeature-image.jpg?alt=media&token=afa229a1-4c87-48d4-b6a9-72e62b18e38b',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-insulation-pack-repair%2Fhippy-hokusai-feature-image.jpg?alt=media&token=43f931e4-5abe-4197-9614-92b006febf1e',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="tune-insulation-pack-repair" />
 
 import { 
     MdxLayout,
@@ -76,10 +81,10 @@ export const relatedArticleThree = '/blog/articles/tune-starlink-install';
 text="Unfortunately, my insulation pack ripped. Fortunately, it was cheap, fast, and easy to repair. I think this is a one-off stitching issue. However, I am extremely careful when installing or removing the kit now." 
 />
 
-I picked up the Tune in Denver and it headed to the mountains to ski. Aspen had always been a little rich for my blood, but with lodging solved, I was heading that way. I stayed in the parking lot for the weekend but when it was time to go I noticed that the insulation kit had caused a gap (this eventually goes away). I thought it best to remove the insulation before the drive back to Kansas City. I started taking off the kit, but when I started removing the front section disaster struck!
+I picked up the Tune in Denver and headed to the mountains to ski. Aspen had always been a little rich for my blood, but with lodging solved, I was heading that way. I stayed in the parking lot for the weekend but when it was time to go I noticed that the insulation kit had caused a gap (this eventually goes away). I thought it best to remove the insulation before the drive back to Kansas City. I started taking off the kit, but when I started removing the front section disaster struck!
 <TwoCenteredImages image={[ripOne, ripThree]} altText={['Tune Insulation Pack Rip', 'Tune Insulation Pack Rip']}  width={500} height={500} />
 
-You are going to say I was in a rush to get on the road and wasn't being careful, I swear on everything that I wasn't being rough with the insulation and I had removed all three other sections without issue. At the time of writing, I have removed the insulation kit about a dozen times without issue. I believe this section had some faulty stitching that caused the issue, but I am no seamstress.
+You are going to say I was in a rush to get on the road and wasn't being careful, but I swear on everything that I wasn't being rough with the insulation, and I had removed all three other sections without issue. At the time of writing, I have removed the insulation kit about a dozen times without issue. I believe this section had some faulty stitching that caused the issue, but I am no seamstress.
 
 ## Tune Support
 It's worth saying that Tune support is second to none in the camper industry. These guys take care of you and this situation was no different! They said they had never seen this issue, further leading me to believe that this was caused by defective stitching.
@@ -95,10 +100,10 @@ Supplies:
 The Process: 
 
 1. I stuffed the insulation back in using a credit card.
-2. Cleaned the area with alcohol based on the directions supplied with the tape
-3. Applied tape
-4. Weighed the area overnight
-5. Repeat on the other side!
+2. Cleaned the area with alcohol based on the directions supplied with the tape.
+3. Applied tape.
+4. Weighed the area down overnight.
+5. Repeated on the other side!
 <TwoCenteredImages image={[prepOne, bookOne]} altText={['Tune Insulation Pack Repair Prep', 'Insulation Pack Weighing']} width={500} height={500} />
 
 Here is the end result:

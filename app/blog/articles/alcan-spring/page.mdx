@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Alcan Spring Installation",
     published: "2026-05-28",
-    updated: "2026-05-28",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/alcan-spring%2Fthumbnail-2.jpg?alt=media&token=847c3843-33bf-4bc8-ae8f-783ba34bdc06',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/alcan-spring%2Fthumbnail-2.jpg?alt=media&token=847c3843-33bf-4bc8-ae8f-783ba34bdc06',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="alcan-spring" />
 
 import { 
     MdxLayout,
@@ -58,7 +63,7 @@ text="After installing the Tune M1 on my 3rd Gen Toyota Tacoma, the rear end was
 
 <ImageDiff imageBefore={truckBefore} imageAfter={truckAfter} beforeAltText="Tacoma Before Alcan Spring Install" afterAltText="Tacoma After Alcan Spring Install"/>
 
-So ya. A bit of a difference!!
+So yeah. A bit of a difference!!
 
 ## Process
 Keep in mind that the springs are custom made in the USA for your truck by Alcan Spring. The process is pretty straightforward! Start by emailing the guys over at Alcan Spring directly with the following information:
@@ -75,7 +80,7 @@ You need to have all the information for the truck that you are upfitting!
 ### 2. Weigh Your Truck
 <TwoColumn>
 
-I wish that I would have gotten my truck weight before installing the Tune M1, but I didn't know how easy it was! Knowing the weight of your truck, with the normal gear inside, is critical for the guys over at the shop to recommend the correct spring. I recommend going to a [CAT Scale][1]. They can be found at almost any truck stop in the United States. Just pull onto the scale and they will give you a sheet that looks like this:
+I wish that I would have gotten my truck's weight before installing the Tune M1, but I didn't know how easy it was! Knowing the weight of your truck, with the normal gear inside, is critical for the guys over at the shop to recommend the correct spring. I recommend going to a [CAT Scale][1]. They can be found at almost any truck stop in the United States. Just pull onto the scale and they will give you a sheet that looks like this:
 
 <CenteredImage image={weightTicketFront} altText={'CAT Weight ticket Toyota Tacoma with Tune M1'} title={'CAT Weight Ticket'} width={600} height={600} />
 
@@ -108,7 +113,7 @@ This was actually what I was most excited about fixing! I think that the truck l
 There’s a lot less yawing/rolling side to side. I didn't realize to what extent this was happening until the new springs were installed.
 
 ### Bucking
-I found that some roads with rhythmic rolling bumps would cause the truck to "buck". Interstate 229 south of Sioux Falls and the San Mateo Bridge near San Francisco instantly come to mind. Slowing down and varying speed were the only options to make the bucking stop. I have driven both sections of road post install and they do not cause the truck to buck anymore!
+I found that some roads with rhythmic rolling bumps would cause the truck to "buck". Interstate 229 south of Sioux Falls and the San Mateo Bridge near San Francisco instantly come to mind. Slowing down and varying speed were the only options to make the bucking stop. I have driven both sections of road post-install and they do not cause the truck to buck anymore!
 
 ### Bouncing
 Similar to bucking, bouncing is a single bump/jolt. Think getting on and off bridges or hitting a pothole. The truck's leaf springs would feel like they were bottoming out in these scenarios. After installing the Alcan Springs, the truck acts like it did before installing the Tune M1.
@@ -132,22 +137,22 @@ Here are the recommended things to do after install:
 
 Tools:
 - Torque Wrench
-- Deep well Socket set with big sizes!
+- Deep well socket set with big sizes!
 - Ratchet
 
-Big and deep sockets are definitely worth mentioning again. The bolts are long, I was lucky to have a pass through socket set, and the biggest socket was the needed 7/8ths. The "Spring Bolts" are another story. The bolts are huge, and I did not have the appropriate socket or adjustable wrench. Luckily, they never backed off their marks.
+Big and deep sockets are definitely worth mentioning again. The bolts are long, I was lucky to have a pass-through socket set, and the biggest socket was the needed 7/8ths. The "Spring Bolts" are another story. The bolts are huge, and I did not have the appropriate socket or adjustable wrench. Luckily, they never backed off their marks.
 
 <CenteredImage image={alcanSpringAfterCare} altText={'Alcan Spring After Care Instructions'} title={'After Care Instructions'} width={500} height={500} />
 
 Don't skip this step!!! My U-bolts definitely needed tightening! It only takes about 5 minutes.
 
 ## Cost Breakdown
-The total cost was **$1,668.80**. A little pricey but I plan to keep the rig for some time! I could have saved **$514.33** by installing them myself. Unfortunately I don't have a shop available to use right now!
+The total cost was **$1,668.80**. A little pricey but I plan to keep the rig for some time! I could have saved **$514.33** by installing them myself. Unfortunately, I don't have a shop available to use right now!
 
 <CenteredImage image={alcanSpringInvoice} altText={'Alcan Spring Invoice'} title={'Alcan Spring Invoice'} width={500} height={500} />
 
 ## Other Upgrades
-Alcan recommended that I upgrade the shackles and hangers to [BAMF HD Hangers & Shackles][2] next. They said this would stiffen up the rear of the truck even more. I am 90% highway 10% off road so I'm not sure if this is necessary. I honestly wish they would have done this before the install because I might have just had them do it at the same time. They just really know what they are talking about and I trust them!
+Alcan recommended that I upgrade the shackles and hangers to [BAMF HD Hangers & Shackles][2] next. They said this would stiffen up the rear of the truck even more. I am 90% highway, 10% off-road, so I'm not sure if this is necessary. I honestly wish they would have recommended this before the install because I might have just had them do it at the same time. They just really know what they are talking about and I trust them!
 <CenteredImage image={bamf} altText={'BAMF HD Hanger'} title={'BAMF HD Hanger'} width={500} height={500} />
 
 <br/>

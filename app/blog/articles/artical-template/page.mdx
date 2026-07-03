@@ -15,6 +15,11 @@ export const postMetadata = {
 
 export const metadata = generateMetadata({...postMetadata});
 
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="artical-template" />
+
 import { 
     MdxLayout,
     OneColumn,

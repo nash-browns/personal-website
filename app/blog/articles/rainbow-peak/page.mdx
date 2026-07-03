@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Rainbow Peak Climb Report",
     published: "2025-03-24",
-    updated: "2025-03-24",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/rainbow-peak%2Ffeature-image.jpg?alt=media&token=23412f36-9e15-4245-b189-ba08bfda79cb',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/rainbow-peak%2Fhippy-hokusai-feature-image.jpg?alt=media&token=acfd6a53-d326-4c63-bcbb-67b4e5ba3ffb',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="rainbow-peak" />
 
 import { 
     MdxLayout,
@@ -73,7 +78,7 @@ export const relatedArticleThree = '/blog/articles/north-yuyanq-chex';
 
 <MdxLayout>
 
-I was able to summit Rainbow Peak for the second time on March 22nd, 2025. It was a beautiful ~40 degree early spring day. This peak is usually one of the first snowless peaks of the year and 2025 was no different. I was able to get to the top with minimal potholing. The view from the top is awesome!
+I was able to summit Rainbow Peak for the second time on March 22nd, 2025. It was a beautiful ~40-degree early spring day. This peak is usually one of the first snowless peaks of the year and 2025 was no different. I was able to get to the top with minimal postholing. The view from the top is awesome!
 
 <CenteredImage image={map} altText={'Rainbow Ridge 3D Map'} width={750} height={750} />
 
@@ -82,7 +87,7 @@ The way up is pretty easy. There might be some 3rd class terrain on the ridge le
 
 <CenteredImage image={rainbowRidge2} altText={'Rainbow Ridge'} title={'Rainbow Ridge'} width={500} height={500} />
 
-There is one place where the trail Y's off and you can go right. On the way up I went climber's right and it led to excessive side-hilling and steeper climbing. Stick to the right, it goes!
+There is one place where the trail Y's off and you can go right. On the way up I went climber's right and it led to excessive side-hilling and steeper climbing. Stick to the left, it goes!
 
 <Strava
     stravaId='13959161837'

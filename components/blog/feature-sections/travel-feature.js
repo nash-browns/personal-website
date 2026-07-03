@@ -11,6 +11,8 @@ export function TravelFeature({title, subheading, imageUrl, altText, imgWidth, i
                     width={imgWidth}
                     height={imgHeight}
                     alt={altText}
+                    sizes={imgWidth ? `(max-width: ${imgWidth}px) 100vw, ${imgWidth}px` : undefined}
+                    priority
                 />
             </div>
         </>

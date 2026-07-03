@@ -1,7 +1,9 @@
 'use client'
 // import { readFiles } from "@/lib/next-path"
 
-import { MdxLayout, ArtNav, ArtCollection } from "@/components/blog"
+import { MdxLayout } from "../mdx-layout"
+import { ArtNav } from "./art-nav"
+import { ArtCollection } from "./art-collection"
 import { Suspense } from "react";
 import { SimpleSpinner } from "@/components/loading"
 

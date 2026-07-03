@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Indianhouse",
     published: "2026-06-20",
-    updated: "2026-06-20",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/indianhouse%2Fthumb-1-original.jpg?alt=media&token=77c1a243-abcf-4072-9f53-02a7439cdf5f',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/indianhouse%2Fthumb-1.jpg?alt=media&token=1b5d6e58-b083-48b9-8265-a70210a2867c',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="indianhouse" />
 
 import { 
     MdxLayout,
@@ -40,6 +45,8 @@ import {
 } from '@awesome.me/kit-237330da78/icons/classic/light'
 
 export const threeSixtyImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/indianhouse%2F360-summit-view.JPG?alt=media&token=683e8548-86ca-4993-8935-e74283887083";
+export const approachOne = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/indianhouse%2Fapproach-1.jpeg?alt=media&token=9be08943-cd1f-4c19-9c1f-3855699871c9";
+export const approachTwo = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/indianhouse%2Fapproach-2.jpeg?alt=media&token=ffdf8ff9-0b49-4856-9231-8fc2f5531ceb";
 export const goat = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/indianhouse%2Fgoat-main.jpeg?alt=media&token=37662022-9afb-420b-93b3-522513ab4146";
 export const kanye = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/indianhouse%2Fkanye.jpeg?alt=media&token=ec62148d-8e76-40a3-bd29-8bb76af2f043";
 export const goat2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/indianhouse%2Fgoat-2.jpeg?alt=media&token=cea70dc6-e985-417c-a96e-9a0767eed1fe";
@@ -84,25 +91,27 @@ text="Indianhouse is a steep, mostly off-trail scramble above Turnagain Arm just
 ## The Approach
 Non-existent. You park at the small turnout; there will be a slope that starts on the inland-facing side of the turnout. Meet Indianhouse!
 
-The climb is split into 3ish parts. To me, the woods and the ridge are kind of the same section. Honestly, let's just go with 4: The Woods, The Ridge, The Sidehill, and The Gully. Keep in mind that this is an out and back, so each must be completed two times.
+<TwoCenteredImages image={[approachOne, approachTwo]} altText={['Indianhouse Pulloff', 'Indianhouse approach']} titles={['Indianhouse Pulloff', 'Indianhouse Approach']} width={'300'} height={'300'} />
+
+The climb is split into 3ish parts. To me, the woods and the ridge are kind of the same section. Honestly, let's just go with 4: The Woods, The Ridge, The Sidehill, and The Gully. Keep in mind that this is an out-and-back, so each must be completed two times.
 
 ## The Woods
-This starts from the turnout and isn't too hard to follow. On the day I climbed, the initial trail that led into the woods was probably the hardest to find, but honestly it was more of a "Is that really it?". This section is by far the least steep. I made some noise in this section. I would bring some spray with you. Along the Turnagain Arm is bear central!
+This starts from the turnout and isn't too hard to follow. On the day I climbed, the initial trail that led into the woods was probably the hardest to find, but honestly it was more of a "Is that really it?". This section is by far the least steep. I made some noise in this section. I would bring some spray. Along the Turnagain Arm is bear central!
 ## The Ridge
-This section comes quickly and is the first real ascent. It's not too bad, very similar to Bird Ridge, which you can see across the valley. I was lucky, this was an amazing day and the view kept slowing me down! Don't turn your brain off, it's time to go off trail!
+This section comes quickly and is the first real ascent. It's not too bad, very similar to Bird Ridge, which you can see across the valley. I was lucky — this was an amazing day and the view kept slowing me down! Don't turn your brain off, it's time to go off trail!
 ## The Sidehill
-So you get to the top of the ridge and it looks straightforward. Make the saddle thing, then head climbers right and follow the ridge to the top. 
+So you get to the top of the ridge and it looks straightforward. Make the saddle thing, then head climber's right and follow the ridge to the top. 
 
 <CenteredImage image={ridgeDrawing} altText={'Route drawing up the ridge toward the summit of Indianhouse'} title={'The Ridge'} width={1000} height={1000} />
 
-Yea don't do that. You actually need to side hill over to the base of the protrusion and head up one of the gullies. You want to stay climbers right in the gully. Definitely stay to the right. The image below is taken about halfway through the sidehill. You see that yellow line? Don't go there. You still can't see the gully you are aiming for in this image.
+Yeah, don't do that. You actually need to sidehill over to the base of the protrusion and head up one of the gullies. You want to stay climber's right in the gully. Definitely stay to the right. The image below is taken about halfway through the sidehill. You see that yellow line? Don't go there. You still can't see the gully you are aiming for in this image.
 
 <CenteredImage image={sideHillDrawing} altText={'Drawing of the sidehill traverse on Indianhouse, with the yellow line marking where not to go'} title={'The Sidehill'} width={1000} height={1000} />
 
 AHHHHHHHHHHH
 <CenteredImage image={goat} altText={'A mountain goat on the slopes of Indianhouse'} title={'A Goat!'} width={1000} height={1000} />
 
-I encountered Kanye West in the wild. A real treat. I don't normally listen to music while I'm out in the nature but obviously Ye was blasted for a lil bit.
+I encountered Kanye West in the wild. A real treat. I don't normally listen to music while I'm out in nature but obviously Ye was blasted for a lil bit.
 
 If you find yourself in a similar situation, I would really recommend the following:
 <TwoColumn>
@@ -130,7 +139,7 @@ Gotta hit em with that deep track. Really a natural feel. Not one of my favorite
 
 </TwoColumn>
 
-Really just the best to do it.
+Really just the best way to do it.
 
 <CenteredImage image={goat2} altText={'Mountain goat standing on the rocks of Indianhouse'} title={'The Goat'} width={1000} height={1000} />
 <TwoCenteredImages image={[goat4, goat3]} altText={['Mountain goat on the slopes of Indianhouse', 'Mountain goat watching from the rocks']} titles={['The Locals', 'Up Close']} width={300} height={300} />
@@ -143,7 +152,7 @@ This was my legs' least favorite section on the way down. It felt longer than I 
 ## The Gully
 <TwoColumn>
 <div>
-So once you are in the gully you will want to stay climbers right. Going left leads to a sharp drop. The gully is pretty standard for the Chugach. I ran into a little snow and was glad to have an ice axe. I think that a helmet would be nice, especially if you have multiple people in your group. The gully is narrow and loose. It would be hard to hide from some falling rock. 
+So once you are in the gully you will want to stay climber's right. Going left leads to a sharp drop. The gully is pretty standard for the Chugach. I ran into a little snow and was glad to have an ice axe. I think that a helmet would be nice, especially if you have multiple people in your group. The gully is narrow and loose. It would be hard to hide from some falling rock. 
 
 At the top, you will need to head to the right, up a steeper section of the gully. I was a little worried at the beginning due to some snow at the top, but was able to finagle across onto the backside of the ridge into another gully and then it was an easy up. 
 </div>

@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Tune M1 Cold Weather Performance",
     published: "2024-12-01",
-    updated: "2024-12-01",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-cold-weather-performance%2Ffeature-image.jpg?alt=media&token=4363bfcc-5598-43b7-823d-5b130a62ad78',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-cold-weather-performance%2Fhippy-hokusai-feature-image.jpg?alt=media&token=0ee7f912-1dcf-4219-afd1-87837a2e2965',
@@ -15,6 +15,11 @@ export const postMetadata = {
 }; 
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="tune-cold-weather-performance" />
 
 import { 
     MdxLayout,
@@ -72,10 +77,10 @@ The obvious goal when running the Tune in the cold is to have the heater run as 
 ### Observation
 Turning the heater on and feeling for the coldest parts of the camper is dumb science, but I think it is useful to see where the biggest performance improvements might be hiding. Here is what I found:
 
-1. The cloth section(by far the coldest)(Est. R-value: ~1.5)
-2. Exposed Aluminum(Est. R-value: ~0)
-3. Truck Bed(Est. R-value: ~0)
-4. FRP Panels([Est. R-value: 2.1][5]) 
+1. The cloth section (by far the coldest) (Est. R-value: ~1.5)
+2. Exposed Aluminum (Est. R-value: ~0)
+3. Truck Bed (Est. R-value: ~0)
+4. FRP Panels ([Est. R-value: 2.1][5]) 
 
 I think the cloth seems the coldest because some of the wind is able to pass through the fabric. Just a guess—I'm not a scientist. When you are lying in bed, you can feel the cold on your head!
 
@@ -99,7 +104,7 @@ The first part of the test is heating the camper from ambient temperature to 65 
 </TwoColumn>
 
 <div className="w-full bg-gray-400 pb-10 rounded-xl">
-    <LineGraph title={'Ambient to 65 Degrees(empty)'} data={timeToTempNoInsulationData} />
+    <LineGraph title={'Ambient to 65 Degrees (empty)'} data={timeToTempNoInsulationData} />
 </div>
 
 It took about 90 minutes to get the camper up to temperature. The temperature sensor for the heater thermostat is very close to the heater. I also have the king-size bed extension that overhangs the heater and forms a cubby. I thought these factors would lead to a large temperature difference between what the heater was sensing versus what the temperature sensor in the sleeping section of the camper was reading. This was clearly not the case! The difference in temperature was only about 2.5–3 degrees.
@@ -114,7 +119,7 @@ The difference between ambient and camper temperature was kept at 40 degrees, wh
 This test involves heating the camper from ambient temperature to 65 degrees. The camper has the insulation kit installed, no roof insulation, the windows closed, and the heater set to boost mode. You can see the setup on the right.
 
 <div className="w-full bg-gray-400 pb-10 rounded-xl">
-    <LineGraph title={'Ambient to 65 Degrees(empty)'} data={noRoofInsulationInsulationPackDataTimeToTemp} />
+    <LineGraph title={'Ambient to 65 Degrees (empty)'} data={noRoofInsulationInsulationPackDataTimeToTemp} />
 </div>
 
 It took about 60 minutes to get the camper up to temperature. It was noticeably faster than without the kit installed. Without the insulation kit, the camper can get drafty due to all the zippers and openings. The insulation kit eliminates the drafts, making it much more comfortable! As you can see, the heater is still kicking on and off a decent amount.
@@ -132,7 +137,7 @@ This test is with the roof insulation only, with the windows closed. The heater 
 
 The first part of the test is heating the camper from ambient temperature to 65 degrees.
 <div className="w-full bg-gray-400 pb-10 rounded-xl">
-    <LineGraph title={'Ambient to 65 Degrees(empty)'} data={roofInsulationNoInsulationPackDataTimeToTemp} />
+    <LineGraph title={'Ambient to 65 Degrees (empty)'} data={roofInsulationNoInsulationPackDataTimeToTemp} />
 </div>
 
 It took about 60 minutes to get the camper up to temperature. Note that the ambient temperature was a little warmer than in the other tests! You can see that the heater turned on less frequently than without the roof insulation. I love the roof insulation! It helps keep light out, parking lot lights are awful without it, and it also helps cut down on noise. I think it looks really nice as well! The test results aren't much different from the full insulation test.
@@ -150,7 +155,7 @@ This test is with the Tune Insulation Pack and roof insulation, the windows clos
 This is by far the best setup. It's not only warm, but it also makes the camper feel like a den. It's dark, quiet, and there are no drafts able to get in. Even when it's cold, the night setting on the heater is warm enough to keep the camper comfortable. Having the heater in night mode is a huge deal because it is very quiet! I wake up every time I hear the heater kick on when it's in Auto mode.
 
 <div className="w-full bg-gray-400 pb-10 rounded-xl">
-    <LineGraph title={'Ambient to 65 Degrees(empty)'} data={timeToTempRoofInsulationPackData} />
+    <LineGraph title={'Ambient to 65 Degrees (empty)'} data={timeToTempRoofInsulationPackData} />
 </div>
 <br/>
 <div className="w-full bg-gray-400 pb-10 rounded-xl">
@@ -158,18 +163,18 @@ This is by far the best setup. It's not only warm, but it also makes the camper 
 </div>
 
 #### Hest Mattress Specs
-This is by far the test with the least amount of data. It is more of a feel. My honest feeling is that the Hest mattress that the Tune comes with is enough insulation for sleeping. It is cold when you get into bed, but you warm it up quickly. Hest foam seems to have an R-Value of 8.8 seen below:
+This is by far the test with the least amount of data. It is more of a feel. My honest feeling is that the Hest mattress that the Tune comes with is enough insulation for sleeping. It is cold when you get into bed, but you warm it up quickly. Hest foam seems to have an R-Value of 8.8, as seen below:
 <CenteredImage image={hestSpecs} altText={'Hest Mattress Specs'} title={'Hest Specs'} width={1280} height={518} />
 
 I believe that Tune buys the Dually Pads from Hest. They have their branding all over the page. Here are the links to the info:
-* [Hest Dually(No R-Value Spec)][3]
-* [Hest Foamy(Has R-Value Spec)][3]
+* [Hest Dually (No R-Value Spec)][3]
+* [Hest Foamy (Has R-Value Spec)][4]
 
 #### Adding Material Under the Mattress
-I have seen some trying to add insulation under the mattress to try to boost the R-Value of the sleep system. Unfortunately, I have not found this to work(> 10 degrees). If you were wanting to boost the value, I would honestly just put a quality wool blanket under the mattress. That could boost the R-Value to ~11, is easily removable, and can be utilized for other things if needed! I tried a wool blanket and saw no difference when testing down to 10 degrees Fahrenheit.
+I have seen some trying to add insulation under the mattress to try to boost the R-Value of the sleep system. Unfortunately, I have not found this to work (> 10 degrees). If you were wanting to boost the value, I would honestly just put a quality wool blanket under the mattress. That could boost the R-Value to ~11, is easily removable, and can be utilized for other things if needed! I tried a wool blanket and saw no difference when testing down to 10 degrees Fahrenheit.
 
 #### Heating Blanket
-If you were wanting to have a warm bed when you get in. I would look at a heated blanket. That made a huge difference for me. I placed the blanket below the comforter and turn it on the lowest heat setting!
+If you were wanting to have a warm bed when you get in, I would look at a heated blanket. That made a huge difference for me. I placed the blanket below the comforter and turned it to the lowest heat setting!
 
 
 ### Summary

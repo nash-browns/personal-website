@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { CSS3DRenderer, CSS3DObject } from "three/examples/jsm/renderers/CSS3DRenderer";
-import { HashBrownsLoader } from "../";
+import { HashBrownsLoader } from "../loaders/hash-browns-loader";
 
 export function ThreeSixtyImage({image}) {
     const containerRef = useRef(null);

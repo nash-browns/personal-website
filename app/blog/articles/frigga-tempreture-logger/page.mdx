@@ -19,6 +19,11 @@ export const postMetadata = {
 
 export const metadata = generateMetadata({...postMetadata});
 
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="frigga-tempreture-logger" />
+
 import { 
     MdxLayout,
     CenteredImage, 

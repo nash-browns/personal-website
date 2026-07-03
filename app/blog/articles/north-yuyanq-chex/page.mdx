@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "North Yuyanq' Ch'ex",
     published: "2026-06-15",
-    updated: "2026-06-15",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/north-south-yuyanq-cheex%2Fnorth-thumbnail-2.JPG?alt=media&token=12179584-7c1b-4968-8415-662778a34ae9',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/north-south-yuyanq-cheex%2Fnorth-1-thumbnail.jpg?alt=media&token=c0dc805a-a88d-4bee-963b-16d1060e79c7',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="north-yuyanq-chex" />
 
 import { 
     MdxLayout,
@@ -77,7 +82,7 @@ export const relatedArticleThree = '/blog/articles/indianhouse';
 <MdxLayout>
 
 <TLDR>
-North Yuyanq' Ch'ex (you-yonk cheh)(soft J's only), formerly known as North Suicide Peak, is a generally easy climb right outside of Anchorage. Apparently the Athabascan translation is 'Heaven’s Breath'. All that goofy stuff is above my pay grade. It would be terrible if someone looked at the name of the peak next to these. You can read more about it in this <a href="https://alaskabeacon.com/briefs/a-two-year-drive-successfully-renames-two-southcentral-alaska-mountains/" target="_blank" rel="noopener noreferrer" className="underline">Alaska Beacon Article</a>.
+North Yuyanq' Ch'ex (you-yonk cheh) (soft J's only), formerly known as North Suicide Peak, is a generally easy climb right outside of Anchorage. Apparently the Athabascan translation is 'Heaven’s Breath'. All that goofy stuff is above my pay grade. It would be terrible if someone looked at the name of the peak next to these. You can read more about it in this <a href="https://alaskabeacon.com/briefs/a-two-year-drive-successfully-renames-two-southcentral-alaska-mountains/" target="_blank" rel="noopener noreferrer" className="underline">Alaska Beacon Article</a>.
 </TLDR>
 
 <RelatedArticles 
@@ -102,16 +107,16 @@ You can approach via the Falls Creek Trail and trailhead. This would be hiking o
 </TwoColumn>
 
 ## The Approach
-I took option 1. I set out via bike from the trail head. My only concern was the snow situation, and my lack of footwear, in this case trail runners, but I was open to giving it a look.
+I took option 1. I set out via bike from the trailhead. My only concern was the snow situation, and my lack of footwear, in this case trail runners, but I was open to giving it a look.
 
-After biking to the lake, which is always more uphill than I remember, I had to backtrack a bit to find a snow bridge that could be crossed. No problem, I ditched the bike by a large rock and started for the mountains and after a short walk I was there!
+After biking to the lake, which is always more uphill than I remember, I had to backtrack a bit to find a snow bridge that could be crossed. No problem, I ditched the bike by a large rock and started for the mountains, and after a short walk I was there!
 <CenteredImage image={overview} altText={"View of North and South Yuyanq' Ch'ex rising above Rabbit Lake"} title={'The Objective'} width={800} height={800} />
 
 I was pleasantly surprised by the snow situation. My plan was to climb the large gully on South Suicide, then walk to North Suicide, then backtrack and climb South Suicide and then bomb back down the gully. That's about what ended up happening.
 
 <TwoColumn>
 <div>
-The gully was snow free except for a 100 foot section pretty close to the bottom. It's always a nice peace of mind having a friend when you are on the snow, but I was feeling pretty good about it. Only some of the snow was on the verge of avalanche terrain (in my opinion). After crossing the snow patch, the slog up the gully began. 
+The gully was snow-free except for a 100-foot section pretty close to the bottom. It's always a nice peace of mind having a friend when you are on the snow, but I was feeling pretty good about it. Only some of the snow was on the verge of avalanche terrain (in my opinion). After crossing the snow patch, the slog up the gully began. 
 </div>
 
 <CenteredImage image={snowPortion} altText={"Snow patch crossing the lower section of the gully on Yuyanq' Ch'ex"} title={'The Snow'} width={500} height={500} />
@@ -132,9 +137,9 @@ The top requires some climbing. I'm no rock classification expert, but I have se
 
 <CenteredImage image={top} altText={"The class 3 summit scramble on North Yuyanq' Ch'ex with my route drawn in blue and an alternate in yellow"} title={'The Crux'} width={1000} height={1000} />
 
-You can see my route over in blue. I used this both on the ascent and descent. The route in yellow would probably be much easier, but it is exposed to a very large fall. Note that on climbers right of my route there is also exposure, although scary, I think it would be hard to fall that direction.
+You can see my route in blue. I used this both on the ascent and descent. The route in yellow would probably be much easier, but it is exposed to a very large fall. Note that on climber's right of my route there is also exposure — although scary, I think it would be hard to fall that direction.
 
-After making it through this section above, you can pretty much eliminate any exposure by staying climbers left. I took the ridge on the ascent and there were some unnecessary spots, but I just didn't know. If you are using my GPX, the down route is the best route to use for both directions!
+After making it through this section above, you can pretty much eliminate any exposure by staying climber's left. I took the ridge on the ascent and there were some unnecessary spots, but I just didn't know. If you are using my GPX, the down route is the best route to use for both directions!
 
 I don't really know how or why you would want to bring a dog up here but I've heard that it's been done. It would freak me out hahahaha. Dogs and out-of-towners are terrifying in the mountains. jkjk
 
@@ -152,7 +157,7 @@ Here is a bounce pic from the summit of Indianhouse! I climbed it a few days lat
 <CenteredImage image={fromIndianhouse} altText={"North and South Yuyanq' Ch'ex viewed from Indianhouse Peak on the Falls Creek side"} title={'From Indianhouse'} width={800} height={800} />
 
 
-You can read about the South ascent and return to the trailhead here -> [South Yuyanq' Ch'ex][1] . It's important to read, I guess snow melts.
+You can read about the South ascent and return to the trailhead here -> [South Yuyanq' Ch'ex][1]. It's important to read, I guess snow melts.
 
 <Strava
     stravaId='18937835762'

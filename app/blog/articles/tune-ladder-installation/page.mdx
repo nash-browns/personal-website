@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Tune M1 Ladder Installation",
     published: "2025-12-22",
-    updated: "2025-12-22",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-ladder-installation%2Ffeature-img.jpg?alt=media&token=a393ce4c-d36a-4c37-b9cd-a38054b1881f',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-ladder-installation%2Ffeature-image%20(1).png?alt=media&token=721f38ba-f544-40b0-8dcb-5793f1c2f30e',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="tune-ladder-installation" />
 
 import { 
     MdxLayout,
@@ -43,7 +48,7 @@ export const relatedArticleThree = '/blog/articles/alcan-spring';
 
 
 <MdxLayout>
-I decided not to buy the ladder from Tune. This ended up being a bad decision. There isn't much information out there on the dementions for what ladder is needed and I hope this helps!
+I decided not to buy the ladder from Tune. This ended up being a bad decision. There isn't much information out there on the dimensions for what ladder is needed and I hope this helps!
 
 # Ladder Options
 
@@ -56,32 +61,32 @@ You can buy the hooks from Tune without the ladder here ->  [Tune Hooks][2]
 3rd party ladder options:
 * [TeleStep][4] (Recommended)
 * [Coso 12.5][5]
-* [Tune Ladder][3]  You can actually just buy the ladder from Tune as well! This is the ladder only not the kit with the hooks!
+* [Tune Ladder][3]  You can actually just buy the ladder from Tune as well! This is the ladder only, not the kit with the hooks!
 
-I ended up with the Coso 12.5 foot ladder, but then ended up getting the TeleStep 10.5 foot ladder. The TeleStep ladder is a far better choice
+I started with the Coso 12.5-foot ladder, but then ended up getting the TeleStep 10.5-foot ladder. The TeleStep ladder is a far better choice.
 
 <YoutubeAd videoID={'Rh_121YBvok'} description={'I made a video outlining this install.'} />
 
 # Truck Measurements
-All measurements were taken using a 2022 Toyota Tacoma. I would assume there would be similar to a full sized truck but not exact.
+All measurements were taken using a 2022 Toyota Tacoma. I would assume they would be similar for a full-sized truck but not exact.
 
 <TwoColumn>
 <div>
 ### Camper Closed
-It is 7 feet from the ground to the hooks when the camper is closed
+It is 7 feet from the ground to the hooks when the camper is closed.
 <CenteredImage image={camperClosed} altText={'Tune M1 Closed'} width={'500'} height={'500'} />
 </div>
 
 <div>
 ### Camper Open
-It is 9' 6" feet from the ground to the hooks when the camper is open
+It is 9' 6" from the ground to the hooks when the camper is open.
 <CenteredImage image={camperOpen} altText={'Tune M1 Open'} width={'500'} height={'500'} />
 </div>
 
 </TwoColumn>
 
 # Final Thoughts
-I should have just bought the ladder from Tune. The searching just isn't worth it. I ended up bringing the 10.5 foot Telestep home and it was exactly what I needed.
+I should have just bought the ladder from Tune. The searching just isn't worth it. I ended up bringing the 10.5-foot TeleStep home and it was exactly what I needed.
 
 <ContinueReading 
     articleOne={relatedArticleOne}

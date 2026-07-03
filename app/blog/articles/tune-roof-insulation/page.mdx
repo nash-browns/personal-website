@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Tune M1 Roof Insulation Install",
     published: "2024-12-01",
-    updated: "2024-12-01",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-roof-insulation%2Ffeature-image.JPEG?alt=media&token=c049372f-b403-4359-82b2-0934d9bae26d',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-roof-insulation%2Fhippy-hokusai-feature-image.jpg?alt=media&token=053bdf5a-1d8c-45c5-8072-b72edcf4d8f3',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="tune-roof-insulation" />
 
 import { 
     MdxLayout,
@@ -67,7 +72,7 @@ You will see that I did not include the Reflective Insulation that Noah had in h
     | Quantity  | Item                      | Description          | Cost              | HomeDepot          | Menards           | Amazon                                         |
     | :-------: | :-------------------:     | :------------------: | :---------------: | :----------------: | :---------------: | :--------------------------------------------: |
     | ~~1 Roll~~| ~~Reflective Insulation~~ | ~~(48 in. x 25 ft)~~ | ~~$59.97 (Each)~~ |  ~~[Shop Now][2]~~ | ~~[Shop Now][2]~~ | ~~<ReflectiveInsulation title={'Shop Now'}/>~~ | 
-    | 1 Roll    | Outdoor Carpet            | 8' X 12'             | $55.869 (Total)   |  [Shop Now][3]     | [Shop Now][2]     | <OutdoorCarpet title={'Shop Now'}/>            | 
+    | 1 Roll    | Outdoor Carpet            | 8' X 12'             | $55.86 (Total)    |  [Shop Now][3]     | [Shop Now][2]     | <OutdoorCarpet title={'Shop Now'}/>            | 
     | 3 Cans    | Spray Adhesive             | Hi-Strength 90       | $15.66 (Each)     |  [Shop Now][4]     | [Shop Now][2]     | <HiStrengthAdhesive title={'Shop Now'}/>       | 
     | 3 Sheets  | Foam Insulation           | 4' x 8'              | $20.86 (Each)     |  [Shop Now][5]     | [Shop Now][2]     |                                                | 
     | 30 Feet   | Velcro                    | High Strength        | $21.97 (Each)     |  [Shop Now][6]     | [Shop Now][2]     | <VelcroRoll title={'Shop Now'}/>               | 
@@ -91,13 +96,12 @@ Borrow as much as you can! This is a quick project and probably not worth buying
 ### Measure & Cut Foam
 The front and back alcoves in the Tune M1 ceiling measure approximately 70 1/4" x 35 3/4" and the middle alcove is 70 1/4" x 36 3/5". I made some extra cuts to alleviate some of the pressure on the locking mechanism and to make room for the roof port wiring. You can see more exact measurements below that include the fan section.
 
-<CenteredImage image={measurements} altText={'Tune M1 Insulation Carpet'} title={'No Backing'} width={'500'} height={'500'} />
-You will need one 4x8 sheet of plastic for each indent. If you have a longer truck this may vary!
+<CenteredImage image={measurements} altText={'Tune M1 roof insulation panel measurements'} title={'Measurements'} width={'500'} height={'500'} />
+You will need one 4x8 sheet of foam for each indent. If you have a longer truck this may vary!
 
 At this point, I cut and test-fitted all of the panels. I tried both a hot knife and a rotary tool, and both worked well to make the cuts. A box cutter would take longer but work just the same!
 ### Install Reflective Insulation
 Originally done in Noah's post, but I opted to save some time and money and not do this step. I bought foam panels with a reflective backing in hopes it would keep some of the heat out!
-(add pics)
 
 ### Install Carpet
 When buying the carpet, make sure that it does not have a backing material. This will make the panels much heavier and the adhesive won't work as well!
@@ -119,7 +123,7 @@ Install both sides of the Velcro on the backs of the panels. I did three strips 
 Just push and hold so the Velcro adhesive has time to bond. The Velcro makes them easily removable in the future!
 
 ## Testing
-The panels only add minimal performance increases over the stock roof in cold weather conditions. You can read more here: [Tune Cold Weather Performance][7]
+The panels only add minimal performance increases over the stock roof in cold weather conditions. You can read more here: [Tune Cold Weather Performance][7].
 The camper was noticeably darker after installing the panels. A plus if that's what you're into!
 
 The only other thing to note is that there was an adhesive smell for a few days coming from the panels. I would recommend letting them air out before spending the weekend in the camper!

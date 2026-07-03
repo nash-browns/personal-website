@@ -1,15 +1,10 @@
-'use client'
-
-import { useWindowSize } from '/lib/hooks';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { 
+import {
     faArrowRight,
     faArrowDown,
 } from '@awesome.me/kit-237330da78/icons/classic/light'
 
 export function YoutubeAd({videoID, description}) {
-    const { width, height } = useWindowSize();
     const videoURL = `https://www.youtube.com/watch?v=${videoID}`;
 
     const autoPlay = 'autoplay=0'
@@ -26,10 +21,9 @@ export function YoutubeAd({videoID, description}) {
                     <span className="text-sm sm:text-base">{description}</span>
                 </div>
                 <div className='flex flex-col items-center justify-center'>
-                    { width > 768 ?
-                        <FontAwesomeIcon icon={faArrowRight} className='h-8 w-8 sm:h-10 sm:w-10'/> :
-                        <FontAwesomeIcon icon={faArrowDown} className='h-8 w-8 sm:h-10 sm:w-10'/>
-                    }
+                    {/* The layout switches to a row at md:, so the arrow must too */}
+                    <FontAwesomeIcon icon={faArrowRight} className='hidden md:block h-8 w-8 sm:h-10 sm:w-10'/>
+                    <FontAwesomeIcon icon={faArrowDown} className='md:hidden h-8 w-8 sm:h-10 sm:w-10'/>
                     <span className="text-xs sm:text-sm">Click the video to go to YouTube</span>
                 </div>
                 <div className="w-full md:w-[45%]">

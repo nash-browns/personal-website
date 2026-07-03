@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Big Sioux River Kayak",
     published: "2025-04-19",
-    updated: "2025-04-19",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/big-sioux-river-kayak%2Ffeature-image.jpg?alt=media&token=39eb2a7e-7b62-48c2-b205-f44711550741',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/big-sioux-river-kayak%2Fhippy-hokusai-feature-image.jpg?alt=media&token=e7ea740d-b6d0-4026-aa8d-fe0206ed04dc',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="big-sioux-river-kayak" />
 
 import { 
     MdxLayout,
@@ -97,7 +102,7 @@ I have walked down by the river a decent amount and always noticed a place to ta
 
 <div>
 Basically nothing. I found this map, which is great if you wanted to view the entire river system, not great for a quick and precise city trip. Imagine my mom: 
-where will I drop you off? 
+Where will I drop you off? 
 Where will I pick you up?
 How long will this take?
 Will you die?
@@ -109,7 +114,7 @@ Another great resource for kayaking in Sioux Falls is this webpage run by the st
 </TwoColumn>
 
 <TwoColumn>
-One other thing I looked at is this AllTrails track. I don't know that this did much, but I did use it to be able to judge some distances to try to come up with a ballpark of how long this was going to take. You can see this on AllTrails [here][1]
+One other thing I looked at is this AllTrails track. I don't know that this did much, but I did use it to be able to judge some distances to try to come up with a ballpark of how long this was going to take. You can see this on AllTrails [here][1].
 
 <iframe className="alltrails" src="https://www.alltrails.com/widget/trail/us/south-dakota/big-sioux-river-kayaking-route-ward-to-brandon?elevationDiagram=false" width="100%" height="400" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" title="AllTrails: Trail Guides and Maps for Hiking, Camping, and Running"></iframe>
 </TwoColumn>
@@ -149,13 +154,13 @@ You can check the current flow [here][2]!
 I put in at Elmwood Park. I had never been to Elmwood Park and it was easy enough to find a place on the bank to launch from. I would say this is the case with this entire portion of the river. If you walked on top of the levee at any given point, I'm sure you would see a decent place to launch!
 
 ## Elmwood -> Madison Street
-Not much water. There was a significant amount of dragging on the bottom. I had to get out of the boat to cross the rip rap under the Madison Street Bridge.
+Not much water. There was a significant amount of dragging on the bottom. I had to get out of the boat to cross the riprap under the Madison Street Bridge.
 
 ## Madison Street -> Zoo
 There was water on this section. I found out why at the end!
 <CenteredImage image={rocks} altText={'Big Sioux Rock Crossing'} title={'Rock Crossing'} width={1000} height={500} />
 
-These rocks / dam are labeled on the official map. Here is a more exact location:
+These rocks/dam are labeled on the official map. Here is a more exact location:
 <TwoColumn>
     <CenteredImage image={rockMap} altText={'Big Sioux Rock Crossing Location'} title={'Rock Crossing'} width={500} height={1000} />
     <GoogleMap
@@ -176,7 +181,7 @@ I would bring shoes for the walk. You never know what you are going to find down
 The water came and went. There was still a significant amount of dragging. The closer to Farm Field Park I got the better the water. There were a few small rapids on this section. If that's not your thing I would skip!
 
 ## Farm Field Park -> Pasley Park
-Probably the best water of the trip. There is also a fun little rapid at Tuthill Park. Some asshole decided to park his plane in the woods. Not sure what that is all about?
+Probably the best water of the trip. There is also a fun little rapid at Tuthill Park. Some asshole decided to park his plane in the woods. Not sure what that is all about.
 <CenteredImage image={airplane} altText={'Airplane in the Woods'}  width={500} height={500} />
 
 ## Taking Out
@@ -189,7 +194,7 @@ Taking out can be done almost anywhere along the river. I chose Pasley Park on t
 </div>
 </TwoColumn>
 
-## Wild Life
+## Wildlife
 <TwoColumn>
 <CenteredImage image={mussle} altText={'Big Mussel'} title={'Big Mussel'} width={500} height={500} />
 I was able to see a ton of waterfowl: birds, ducks, geese sitting on eggs, and Sandhill cranes. I was also able to see turtles and a couple of deer. The most exciting thing was a river otter. Am I sure that I saw this? No. Did I get a picture? No. However, I am pretty sure this is what I saw! Big mussels were also spotted.
@@ -217,7 +222,7 @@ Right now there is construction at the top of the falls. This could change in th
 <TwoColumn>
 
 <div className='w-full sm:w-1/2'>
-It was a beautiful day to be out on the water! I would like to continue to kayak more sections of the river. Pasley Park to Brandon is something that I have in mind for the future! If you are really into kayaking this might not be something you would be into. It is definitely a stupid activity, but those are my favorite!
+It was a beautiful day to be out on the water! I would like to continue to kayak more sections of the river. Pasley Park to Brandon is something that I have in mind for the future! If you are really into kayaking, this might not be something you would be into. It is definitely a stupid activity, but those are my favorite!
 </div>
 
 <div className='w-full sm:w-1/2'>

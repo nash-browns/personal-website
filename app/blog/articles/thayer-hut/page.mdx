@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Thayer Hut",
     published: "2024-09-01",
-    updated: "2024-09-01",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/thayer-hut%2Ffeature-image.JPEG?alt=media&token=2b6943ad-6210-4b7a-a67b-607e8707a17f',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/thayer-hut%2Fhippy-hokusai-feature-image.jpg?alt=media&token=359c2162-c087-48de-8b2d-7939afa8d93a',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="thayer-hut" />
 
 import { 
     MdxLayout,
@@ -51,7 +56,7 @@ export const relatedArticleThree = '/blog/articles/rock-island-katy-trail';
 ## The Ice Cave
 Unfortunately, the ice cave that was at the toe of the glacier is no longer there. In fact, it fell 4 days after my first visit to the area. Today, it is unrecognizable :(
 <TwoCenteredImages image={[iceCave, noIceCave]} altText={['Castner Glacier Ice Cave', 'Castner Glacier Ice Cave Fallen']} titles={['The Old Ice Cave', 'Fallen Ice Cave']} width={'500'} height={'500'} />
-<CenteredImage image={glacierToday} altText={'Recent Caster Glacier Picture'} title={'Recent Picture'} width={'750'} height={'500'} />
+<CenteredImage image={glacierToday} altText={'Recent Castner Glacier Picture'} title={'Recent Picture'} width={'750'} height={'500'} />
 
 
 <TwoColumn>
@@ -61,13 +66,13 @@ My first attempt to get out to Thayer was unsuccessful and I ended up pitching m
 
 <TwoColumn>
 <CenteredImage image={truckCamper} altText={'Truck Parking'} title={'Parking for the Night'} width={'500'} height={'500'} />
-I spent the night in the parking lot after the long drive from Anchorage. It is a beautiful and mostly quiet spot! I have spent the night other places closer to Glennallen but the mosquitoes are so much worse down there!
+I spent the night in the parking lot after the long drive from Anchorage. It is a beautiful and mostly quiet spot! I have spent the night at other places closer to Glennallen but the mosquitoes are so much worse down there!
 </TwoColumn>
 
 The walk up the moraine is quite awful. I probably won't be going back out to the hut again without skis. The goal is to stay on the south side of the valley as long as possible and to cross over to the north side when you are close to the final climb. The creek running down the center of the glacier is the only thing I would be concerned about. If it is a warmer day it may be hard to cross the creek, and you might be forced to make the crossing earlier than is ideal. On a beautiful early September day, the crossing was not an issue!
 <CenteredImage image={glacierCreek} altText={'Castner Glacier River'} title={'Water Crossing'} width={'500'} height={'500'} />
 
-As I said this is not a fun hike. You are constantly walking over rocks and so you can't really look around or just turn off your brain. I found that walking straight is the best strategy if you are trying to get to the back quickly and efficiently. It's hard to prove that this is effective, but you can see my case study below:
+As I said, this is not a fun hike. You are constantly walking over rocks, so you can't really look around or just turn off your brain. I found that walking straight is the best strategy if you are trying to get to the back quickly and efficiently. It's hard to prove that this is effective, but you can see my case study below:
 <TwoColumn>
 
 <Strava

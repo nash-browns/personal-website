@@ -1,6 +1,7 @@
 'use client'
 import { readFiles } from "@/lib/next-path"
-import { MdxLayout, ArtCollection } from "@/components/blog"
+import { MdxLayout } from "../mdx-layout"
+import { ArtCollection } from "./art-collection"
 
 export function Photos() {
     const allArt = readFiles('public/art', 1);

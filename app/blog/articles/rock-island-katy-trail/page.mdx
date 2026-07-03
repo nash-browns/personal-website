@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Rock Island & Katy Trail",
     published: "2025-05-05",
-    updated: "2025-06-05",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/rock-island-katy-trail%2Ffeature-image.jpg?alt=media&token=49958d6e-b0c6-44ae-9712-cb6449fe3fae',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/rock-island-katy-trail%2Fhippy-hokusai-feature-image.jpg?alt=media&token=60b8b2bd-9607-4664-b3d0-2b21c6ad7244',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="rock-island-katy-trail" />
 
 import { 
     MdxLayout,
@@ -90,7 +95,7 @@ text="The Rock Island and Katy Trail rail to trail system crosses the state of M
 
 
 ## Planning
-I had a lot of initial thoughts about how I would plan the route for this trip. I ended up with a goal to ride from my house in Olathe, Kansas to Gateway National Park with a "complete as much as makes sense mindset". I found a couple of useful tools when planning the trip. The first being the old faithful [How Far Did I Run?][1] website. The second and more trip specific is the [The Katy Trail and Rock Island Trail Website][2]. I am not sure who maintains this but it is pretty cool! I am not going to recreate the wheel.
+I had a lot of initial thoughts about how I would plan the route for this trip. I ended up with a goal to ride from my house in Olathe, Kansas to Gateway National Park with a "complete as much as makes sense mindset". I found a couple of useful tools when planning the trip. The first being the old faithful [How Far Did I Run?][1] website. The second and more trip-specific is [The Katy Trail and Rock Island Trail Website][2]. I am not sure who maintains this but it is pretty cool! I am not going to reinvent the wheel.
 
 <div className="w-full h-[600px] border-8 border-black">
   <iframe
@@ -103,14 +108,14 @@ I had a lot of initial thoughts about how I would plan the route for this trip. 
   />
 </div>
 
-I decided to take 143rd east through south Kansas City to Pleasant Hill where Rock Island trail begins would be my best bet. Then I could ride straight through to the Katy and onto St. Louis where I would exit at the [Missouri Bluffs Trail Trailhead][3] and follow Google Maps to Gateway National Park.
+I decided that taking 143rd east through south Kansas City to Pleasant Hill, where the Rock Island trail begins, would be my best bet. Then I could ride straight through to the Katy and onto St. Louis where I would exit at the [Missouri Bluffs Trail Trailhead][3] and follow Google Maps to Gateway National Park.
 
-The biggest assumption, that fortunately ended up being correct, was that there were enough towns with water, food, camping scattered along the way and no other plan was needed other than the classic "ride until you're tired".
+The biggest assumption, that fortunately ended up being correct, was that there were enough towns with water, food, and camping scattered along the way and no other plan was needed other than the classic "ride until you're tired".
 
 I left Thursday, May 1st, at noon and needed to be on the Sunday train leaving from St. Louis at 3pm.
 
 ## The Trail
-The trail is about 8ft wide almost completely flat for the entire 200+ miles, and consists of finely crushed gravel. The trail is mostly elevated, I assume this is due to it being an old rail line, and has a nice crown that helps shed water quickly. The week prior to my trip was rainy and I was worried this would be an issue. Fortunately, the trail was mostly dry and rode fast. Some soggy sections slowed me down a little but were more than manageable!
+The trail is about 8ft wide, almost completely flat for the entire 200+ miles, and consists of finely crushed gravel. The trail is mostly elevated, I assume this is due to it being an old rail line, and has a nice crown that helps shed water quickly. The week prior to my trip was rainy and I was worried this would be an issue. Fortunately, the trail was mostly dry and rode fast. Some soggy sections slowed me down a little but were more than manageable!
 
 <ThreeCenteredImages image={[trailOne, trailTwo, trailThree]} altText={['Katy Trail Conditions', 'Katy Trail Bridge', 'Katy Trail Conditions']}  width={'500'} height={'500'} />
 
@@ -138,10 +143,10 @@ I didn't have any mosquito issues. I think some of this was because I was early 
 <div>
 
 ### Spiders
-On day one I saw a massive spider while I was riding. I got a little closer than I should and this thing jumped 6-8 inches in the air and almost landed on my leg. Later, this was confirmed this was a wolf spider. Keep some room between these guys.
+On day one I saw a massive spider while I was riding. I got a little closer than I should have and this thing jumped 6-8 inches in the air and almost landed on my leg. Later, it was confirmed that this was a wolf spider. Keep some room between these guys.
 
 ### Snakes
-After dark on day one I turned on my light and not 5 minutes later I almost ran over a black snake stretched across the trail. If it wasn't for the light I would have ran it over. I probably did about 4 total hours of night riding and was very glad to have a bright head light.
+After dark on day one I turned on my light and not 5 minutes later I almost ran over a black snake stretched across the trail. If it wasn't for the light I would have run it over. I probably did about 4 total hours of night riding and was very glad to have a bright headlight.
 
 </div>
 <CenteredImage image={spider} altText={'Katy Trail Wolf Spider'} title={'Wolf Spider'} width={'500'} height={'500'} />
@@ -151,7 +156,7 @@ On Saturday night I was riding by headlight and saw lots of opossums and armadil
 
 ## Traffic
 <TwoColumn>
-Everyone has a different idea of what isolated means. The vast majority of the time I didn't see many people, but I never felt isolated on the trip. However the trail was hardly ever busy. The busiest sections were near Pleasant Hill, Sedalia, Jeff City, and St. Louis.
+Everyone has a different idea of what isolated means. The vast majority of the time I didn't see many people, but I never felt isolated on the trip. However, the trail was hardly ever busy. The busiest sections were near Pleasant Hill, Sedalia, Jeff City, and St. Louis.
 <CenteredImage image={trailFour} altText={'Katy Trail'}  width={'500'} height={'500'} />
 </TwoColumn>
 
@@ -166,7 +171,7 @@ I found that the trail is more geared towards renting a cabin or Airbnb by the t
 <CenteredImage image={camping} altText={'Katy Rock Junction Camping'} title={'Katy Rock Junction Campground'} width={'500'} height={'500'} />
 </TwoColumn>
 
-It might seem tempting to walk off the trail and camp but I probably wouldn't. There are tons of ticks! I found out how bad the ticks can get while working for the Missouri DNR in college. However, I would camp at almost any trailhead. I think further from town the better. I don't know the legality of this, but If you pitched as the sun was going down I don't think you would have an issue.
+It might seem tempting to walk off the trail and camp but I probably wouldn't. There are tons of ticks! I found out how bad the ticks can get while working for the Missouri DNR in college. However, I would camp at almost any trailhead. I think further from town the better. I don't know the legality of this, but if you pitched as the sun was going down I don't think you would have an issue.
 
 ## Safety
 I think the main danger is having something go wrong with your bike causing you to have to limp in or walk to the next town. Almost all of the people I saw were clearly out for an evening walk, riding the trail, or maintenance workers. I did see one "character" out mushroom hunting that I wasn't looking to hang out with for any amount of time and another very strange man at the Coopers Landing campsite that was most likely on drugs.
@@ -177,9 +182,9 @@ Overall this is a very safe activity, but I always carry bear spray!
 I wouldn't do this trip in the heat and humidity. Most of the trail is surrounded by trees, which helps dudes like me with pasty white skin hide from the sun but would trap humidity. 
 
 ## Olathe -> Windsor
-My mindset was to not push to hard and ride in the dark a little if needed and that is exactly what happened. The trip started with some road riding and ended at the eastern terminus of the Rock Island trail. This is a fun section. Some of the road riding was on the shoulder of Highway 150 which might make some people uncomfortable. It's not my favorite type of riding, but it was necessary to get to the trailhead. 
+My mindset was to not push too hard and ride in the dark a little if needed and that is exactly what happened. The trip started with some road riding and ended at the eastern terminus of the Rock Island trail. This is a fun section. Some of the road riding was on the shoulder of Highway 150 which might make some people uncomfortable. It's not my favorite type of riding, but it was necessary to get to the trailhead. 
 
-There is a night path on the north side of Highway 150 that stretched most of the route and got me off of the shoulder. Eventually I had to jump on Outer Belt Road. It was okay, but a lot of traffic. Smart Road is quiet and takes you by some great mountain biking that I have written about: [Mopac Single Track Mountain Biking][4].
+There is a nice path on the north side of Highway 150 that stretched most of the route and got me off of the shoulder. Eventually I had to jump on Outer Belt Road. It was okay, but there was a lot of traffic. Smart Road is quiet and takes you by some great mountain biking that I have written about: [Mopac Single Track Mountain Biking][4].
 
 <TwoColumn>
 <div>
@@ -220,7 +225,7 @@ I was very lucky that the sock was still covering the heel of my foot!
 
 <TwoColumn>
 <div className='w-full sm:w-1/2'>
-I rode into Sedalia, got coffee and some food at Woods, and went to the bike shop to get a new set of socks. The name of the shop is Pro-Velo and it is right off the trail next to the Katy Depot. The dude working was super nice and we shot the shit for 20min. After hearing I had no plans he insisted that I stay the night at Coopers Landing even though it was cutting the day a little short. He filled my head with stories of college women from Mizzou, live music, beer and all overlooking the big muddy. How could I resist?
+I rode into Sedalia, got coffee and some food at Woods, and went to the bike shop to get a new set of socks. The name of the shop is Pro-Velo and it is right off the trail next to the Katy Depot. The dude working was super nice and we shot the shit for 20min. After hearing I had no plans he insisted that I stay the night at Coopers Landing even though it was cutting the day a little short. He filled my head with stories of college women from Mizzou, live music, and beer, all overlooking the Big Muddy. How could I resist?
     
 </div>
 <GoogleMap
@@ -228,22 +233,22 @@ I rode into Sedalia, got coffee and some food at Woods, and went to the bike sho
     />
 </TwoColumn>
 
-Rocheport is a cool little town that I wish I had more time to explore. You come into town by riding through a long old railroad tunnel and are quickly greeted by a roadside stand. The town is right on the bank of the big muddy. Explore!!!
+Rocheport is a cool little town that I wish I had more time to explore. You come into town by riding through a long old railroad tunnel and are quickly greeted by a roadside stand. The town is right on the bank of the Big Muddy. Explore!!!
 
-<TwoCenteredImages image={[tunnel, stand]} altText={['Rochport Tunnel', 'Rochport Trailside Stand']} titles={['Rochport Tunnel', 'Trailside Stand']} width={'500'} height={'500'} />
+<TwoCenteredImages image={[tunnel, stand]} altText={['Rocheport Tunnel', 'Rocheport Trailside Stand']} titles={['Rocheport Tunnel', 'Trailside Stand']} width={'500'} height={'500'} />
 
-I rode into Coopers Landing and did in fact have a great time and slurped down a couple of beers. I highly recommend staying the night if you can. As mentioned in the safety section I did run into a weird dude that was under some kind of chemically induced trance that required river worship at 3am. In the morning I felt culturally enriched but a little light on sleep!
+I rode into Coopers Landing and did in fact have a great time and slurped down a couple of beers. I highly recommend staying the night if you can. As mentioned in the safety section, I did run into a weird dude that was under some kind of chemically induced trance that required river worship at 3am. In the morning I felt culturally enriched but a little light on sleep!
 <CenteredImage image={cooperLanding} altText={"Cooper's Landing Sunset"} title={"Cooper's Landing"} width={'1000'} height={'500'} />
 
 ## Coopers Landing -> Chesterfield
-I got to pay the price for an easier Friday. 126 miles to a hot shower and some shitty toxic hell(Taco Bell) The last 30 was in the dark and the rain. Lucky my light lasted and it wasn't a downpour or too cold! I'm not going to lie, a low point was reached Saturday night. Push push push!
+I got to pay the price for an easier Friday. 126 miles to a hot shower and some shitty toxic hell (Taco Bell). The last 30 was in the dark and the rain. Luckily my light lasted and it wasn't a downpour or too cold! I'm not going to lie, a low point was reached Saturday night. Push push push!
 <CenteredImage image={jeffCity} altText={'Jeff City from the Katy Trail'} title={'Jeff City Views'} width={'1000'} height={'500'} />
 
 ## Chesterfield -> Gateway National Park
 <TwoColumn>
 <div className='w-full sm:w-3/5'>
 
-I was worried about soreness from the big push the day before but this ended up not being an issue. It started out as a great. I was riding the high of feeling way better than expected. I was making good time though the first 10 miles so I stopped for a coffee. I sat at a 4 person table, crazy haired, covered in 4 day old clothes, and quickly shoveling food into my mouth. I was surrounded by a variety of uninterested people. A group of guys had driven their "cool cars" to the shop and talked loudly about cool cars they didn't have. A group of geriatric walkers in brand new athleisure clothes and many others looked on. Impatiently waiting for me to leave. They wanted to take my table but were not too afraid to ask. It was so good to be back to the big pretentious city. The food was like rocket fuel. The rest of the ride to the arch was pure bliss through some beautiful parts of St. Louis. I was even able to push it a little through traffic which was shocking after the previous day! 
+I was worried about soreness from the big push the day before but this ended up not being an issue. It started out great. I was riding the high of feeling way better than expected. I was making good time through the first 10 miles so I stopped for a coffee. I sat at a 4 person table, crazy haired, covered in 4 day old clothes, and quickly shoveling food into my mouth. I was surrounded by a variety of uninterested people. A group of guys had driven their "cool cars" to the shop and talked loudly about cool cars they didn't have. A group of geriatric walkers in brand new athleisure clothes and many others looked on, impatiently waiting for me to leave. They wanted to take my table but were too afraid to ask. It was so good to be back to the big pretentious city. The food was like rocket fuel. The rest of the ride to the arch was pure bliss through some beautiful parts of St. Louis. I was even able to push it a little through traffic which was shocking after the previous day! 
 
 </div>
 <div className='w-2/5'>
@@ -258,29 +263,29 @@ I was worried about soreness from the big push the day before but this ended up 
 Riding Amtrak on the way back was an interesting experience! Once I figured out how the bike situation worked it was smooth sailing. Make sure that you purchase a ticket that has a bike endorsement!
 
 </div>
-<CenteredImage image={train} altText={'Amtrack from St. Louis to Kansas City'} width={500} height={500} />
+<CenteredImage image={train} altText={'Amtrak from St. Louis to Kansas City'} width={500} height={500} />
 </TwoColumn>
 
-I was quickly yelled at to not use the bike storage. This is what was agreed upon between the conductor and I. It worked, not sure why the bike storage was out of the question though.
-<CenteredImage image={bikeTrain} altText={'Amtrack Bike Storage'} title={'Bike Storage'} width={1000} height={500} />
+I was quickly yelled at to not use the bike storage. This is what was agreed upon between the conductor and me. It worked, not sure why the bike storage was out of the question though.
+<CenteredImage image={bikeTrain} altText={'Amtrak Bike Storage'} title={'Bike Storage'} width={1000} height={500} />
 
 ## The Trip 
-<iframe src="https://ridewithgps.com/embeds?type=route&id=50658216&sampleGraph=true&hideSurface=true" style={{width: '1px', 'min-width': '100%', height: '700px', border: 'none'}} scrolling="no"></iframe>
+<iframe src="https://ridewithgps.com/embeds?type=route&id=50658216&sampleGraph=true&hideSurface=true" style={{width: '1px', minWidth: '100%', height: '700px', border: 'none'}} scrolling="no"></iframe>
 
 ## Alternate Trips
-There are a couple of options that I think would be fun to slim this trip down. All of the suggestions start and end in towns that connect to Amtrak! I would try to hit Coopers Landing, Rochport, or Defiance. They were the coolest little towns!
+There are a couple of options that I think would be fun to slim this trip down. All of the suggestions start and end in towns that connect to Amtrak! I would try to hit Coopers Landing, Rocheport, or Defiance. They were the coolest little towns!
 
 ### Sedalia to Jefferson City - 1 Night
 I met 2 women from Colorado doing this exact trip! Definitely doable for almost anyone. I would spend the night at Coopers Landing and take the quick ride to Jefferson City in the morning!
 
-### Herman to St. Louis. - 1 Night
+### Hermann to St. Louis - 1 Night
 This would be great if you lived in St. Louis and were trying to impress an adventurous woman with a fun overnight date. I would stay in Defiance. Camping is limited but I'm sure there are rentals available!
 
-### Sedalia to Herman. - 2 Nights
-This offers a little more riding. I would stay in Rocheport or Coopers Landing for the first night. Then Steamboat Junction Campground or rent a place in Herman for night 2.
+### Sedalia to Hermann - 2 Nights
+This offers a little more riding. I would stay in Rocheport or Coopers Landing for the first night. Then stay at Steamboat Junction Campground or rent a place in Hermann for night 2.
 
 
-I can't recommend the Rock Island and Katy Trails enough! The riding is so flat and you can camp in so many different towns.  You can really dial intensity to whatever fits your pace!
+I can't recommend the Rock Island and Katy Trails enough! The riding is so flat and you can camp in so many different towns. You can really dial intensity to whatever fits your pace!
 
 <ContinueReading 
     articleOne={relatedArticleOne}

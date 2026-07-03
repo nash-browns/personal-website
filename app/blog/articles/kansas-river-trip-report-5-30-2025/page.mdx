@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Kansas River Kayaking Trip Report",
     published: "2025-05-30",
-    updated: "2025-05-30",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-trip-report-05-30-25%2Ffeature-image.jpg?alt=media&token=ad61d90d-2d7b-42ad-ac43-7cdc82d01659',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-trip-report-05-30-25%2Fhippy-hokusai-feature-image.jpg?alt=media&token=90f83252-a200-4c0e-91d5-8b3a168cf8f9',
@@ -15,6 +15,11 @@ export const postMetadata = {
 
 export const metadata = generateMetadata({...postMetadata});
 
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="kansas-river-trip-report-5-30-2025" />
 
 import { 
     OneColumn,
@@ -64,7 +69,7 @@ image={featureImage}
 <BlogStatsSection>
     <Stat title={'Distance'} stat={'11 Mi'} icon={faRoute}/>
     <Stat title={'Days'} stat={'2'} icon={faCalendarDays}/>
-    <Stat title={'Speed(CFS)'} stat={'3900'} icon={faGauge}/>
+    <Stat title={'Speed (CFS)'} stat={'3900'} icon={faGauge}/>
     <Stat title={'Paddle Time'} stat={'4:20:16'} icon={faClock}/>
     <Stat title={'Difficulty'} stat={'Easy'} icon={faShip}/>
     <Stat title={'Put In'} stat={'Eudora'} icon={faPlaneArrival}/>
@@ -79,16 +84,16 @@ image={featureImage}
 text="It was great to get out on the Kansas River with a couple of old friends from high school. We set out after work on Friday and were done with the trip Saturday afternoon. We have had a wet start to the summer. Plenty of flowing water made the trip easy and fun!"
 />
 
-We put in on the Wakarusa River launch in Eudora. The Kaw is about 0.8 miles downriver. It was a beautiful 70 degree day. We were definitely stealing a couple of cool days from the summer for this quick trip.
+We put in on the Wakarusa River launch in Eudora. The Kaw is about 0.8 miles downriver. It was a beautiful 70-degree day. We were definitely stealing a couple of cool days from the summer for this quick trip.
 
 <CenteredImage image={wak} altText={'Wakarusa River'} title={'Wakarusa River'} width={1100} height={619}/>
 
-Looking at the map, I deemed this a launch only location for people paddling. Who could possibly paddle against the mighty flow of the Wak? This theory was quickly disproved, by a guy pulling up to the launch in an old aluminum canoe. I was quickly reminded how limiting an inexperienced brain can be. While I was talking to the guy — who had come from Lawrence — the first catastrophe of the trip emerged.
+Looking at the map, I deemed this a launch-only location for people paddling. Who could possibly paddle against the mighty flow of the Wak? This theory was quickly disproved by a guy pulling up to the launch in an old aluminum canoe. I was quickly reminded how limiting an inexperienced brain can be. While I was talking to the guy — who had come from Lawrence — the first catastrophe of the trip emerged.
 
 <TwoColumn>
 <div className={'w-full sm:w-1/2'}>
-The trip consisted of a packraft(my boat), a normal hard sided kayak, and an inflatable kayak. As my buddy filled the port side of his boat with air, it sounded like a snake was under his boat. Luckily, this was not the case. Unluckily, his boat was leaking air and even worse was the location. It was right next to a seam. A patch wouldn't be able to fit squarely on the hole. We did the best we could to seal the hole and it seemed to hold fine. All boats leak anyway, right?
-<CenteredImage image={leakyBoat} altText={'West Bottoms Levee'} title={'West Bottoms Levee'} width={400} height={640}/>
+The trip consisted of a packraft (my boat), a normal hard-sided kayak, and an inflatable kayak. As my buddy filled the port side of his boat with air, it sounded like a snake was under his boat. Luckily, this was not the case. Unluckily, his boat was leaking air and even worse was the location. It was right next to a seam. A patch wouldn't be able to fit squarely on the hole. We did the best we could to seal the hole and it seemed to hold fine. All boats leak anyway, right?
+<CenteredImage image={leakyBoat} altText={'Patching the leaky inflatable kayak'} title={'The Leaky Boat'} width={400} height={640}/>
 
 The next thing I knew, I was pointed down the Wak with a yellow Coors can between my legs. Both of my friends were close behind. The Wak was a little slow and might be a little shallow later in the summer when it is drier.
 

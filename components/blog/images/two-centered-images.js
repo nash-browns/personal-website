@@ -1,4 +1,4 @@
-import { MdxImage } from '@/components/blog'
+import { MdxImage } from './MdxImage'
 
 export function TwoCenteredImages({image, titles, subtitles, altText, width, height}) {
 

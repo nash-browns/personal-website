@@ -1,5 +1,3 @@
-import dynamic from 'next/dynamic';
-
 export { MdxLayout } from "./mdx-layout";
 export { MdxPageWidth } from "./mdx-layout";
 
@@ -41,7 +39,7 @@ export { TwoCenteredImages } from "./images/two-centered-images"
 export { ThreeCenteredImages } from "./images/three-centered-images"
 export { PhotoCarousel } from "./images/photo-carousel/photo-carousel"
 export { ImageDiff } from "./images/image-diff"
-export const ThreeSixtyImage = dynamic(() => import('./images/three-sixty-image').then(m => m.ThreeSixtyImage), { ssr: false })
+export { ThreeSixtyImage } from "./images/three-sixty-image-lazy"
 
 //Videos
 export { BasicVideo } from './videos/basic-video';
@@ -69,7 +67,7 @@ export { Strava } from "./activity-trackers/strava";
 export { BlackTieTitle } from "./section-headers/black-tie";
 
 //Charts
-export const LineGraph = dynamic(() => import('./charts/line-chart').then(m => m.LineGraph), { ssr: false });
+export { LineGraph } from "./charts/line-chart-lazy";
 
 //Forms
 export { ContactUs } from "./forms/contact-us";

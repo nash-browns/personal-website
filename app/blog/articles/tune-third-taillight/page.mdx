@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Tune M1 Third Brake Light Install",
     published: "2025-06-20",
-    updated: "2025-06-20",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: `https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-third-taillight-install%2Ffeature-image%20(1).jpg?alt=media&token=10b40880-0f90-46fc-a159-c88ba8715c84`,
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-third-taillight-install%2Fhippy-hokusai-feature-image.jpg?alt=media&token=4e002811-187f-42a3-954c-3b9a419cecea',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="tune-third-taillight" />
 
 import { 
     MdxLayout,
@@ -76,7 +81,7 @@ If the Tune M1 had been installed on any of my previous trucks, I wouldn't have 
 
 ## Tune's Recommended Method (I didn't do this)
 Tune does not provide instructions on how to wire up the 3rd brake light. I can't really blame them for this. There are so many different cars, you are bound to leave someone out! Their advice: "Take this bag of wires to any mechanic and they will wire it for you". Obviously, I'm not doing that. Fortunately, it was very easy to decipher the intent behind the bag of wires!
-<CenteredImage image={tuneWiring} altText={'Tune M1 Recommended Wiring Example'} title={'Wiring Example'} width={500} height={5000} />
+<CenteredImage image={tuneWiring} altText={'Tune M1 Recommended Wiring Example'} title={'Wiring Example'} width={500} height={500} />
 <TwoCenteredImages image={[taillightWiringOne, taillightWiringTwo]} altText={["Tune's Recommended Wiring", '2022 Tacoma Brake Light Power and Ground Wires']} titles={['Wire Tapping', 'Blue -> Hot / White -> Ground']} width={500} height={500} />
 
 The connector on the left plugs into the Tune. The black wire goes to ground, the red goes to power. It's that simple! They also included a fuse which I feel is unneeded because the truck already has a fuse on that circuit, but I ended up installing it in my final setup as a precaution! I had a few thoughts on where to get power for this setup:
@@ -85,9 +90,9 @@ The connector on the left plugs into the Tune. The black wire goes to ground, th
 
 ### The Brake Light
 This is almost certainly what Tune had in mind when they supplied the wires. You could run them out near the tailgate, right into the back of the brake light. Ultimately, this is where I ended up getting power from, but I didn't want to have the wire exposed. It would be a matter of time before I caught it with something. Also, I was not big on the aesthetics!
-<CenteredImage image={lightWiring} altText={'2022 Toyota Tacoma Trailer Port'} title={'2022 Toyota Tacoma Trailer Port'} width={600} height={600} />
+<CenteredImage image={lightWiring} altText={'2022 Toyota Tacoma Brake Light Wiring'} title={'Brake Light Wiring'} width={600} height={600} />
 
-<CallOut title={'2022 Toyota Tacoma Wiring'} text={"You should verify everything you read on the internet with a volt meter! On my truck, the brake light was the middle bulb in the taillight group. If you are looking at the wiring harness side of the brake light connection, the blue wire is power and the white wire with the black tracer is the ground! Best of luck!"} />
+<CallOut title={'2022 Toyota Tacoma Wiring'} text={"You should verify everything you read on the internet with a voltmeter! On my truck, the brake light was the middle bulb in the taillight group. If you are looking at the wiring harness side of the brake light connection, the blue wire is power and the white wire with the black tracer is the ground! Best of luck!"} />
 
 ### The Trailer Light Port
 This was my plan for about 2 weeks while thinking about this project. The idea being that I would wire in a trailer port using something like this: <TrailerConnector/>. I decided to go a different route primarily for aesthetic reasons. I also didn't want the truck's trailer port open and exposed to the elements all the time. Lastly, you can't hook in a trailer anymore. Do I pull trailers often? Nope, but I like the idea of just plugging one in if needed and not having to think about the Tune! 
@@ -103,9 +108,9 @@ I ended up combining the above ideas. I would tie into the driver's side brake l
 
 <TwoCenteredImages image={[connectorOne, connectorTwo]} altText={['Toyota Connectors 90980-11016 & 90980-11015', 'Amazon 12V DC Connectors']} titles={['90980-11016 & 90980-11015', '12V DC Connectors']} width={500} height={500} />
 
-This ended up costing me about $30. Not bad! If you had some spare connectors lying about, you could probably get the cost down a little lower. I wouldn't even bother trying to get the connectors from Toyota unless you know a parts guy that is really good and are ready to shell out some serious cash. I estimate the cost would be around $120 just for the Toyota connectors. I spent nearly an hour arguing with a parts rep who said that they can't look up connectors using the part number? I haven't heard of something like that before. Who knows! It ended up being faster and far cheaper to purchase the parts on eBay!
+This ended up costing me about $30. Not bad! If you had some spare connectors lying about, you could probably get the cost down a little lower. I wouldn't even bother trying to get the connectors from Toyota unless you know a really good parts guy and are ready to shell out some serious cash. I estimate the cost would be around $120 just for the Toyota connectors. I spent nearly an hour arguing with a parts rep who said that they can't look up connectors using the part number? I haven't heard of something like that before. Who knows! It ended up being faster and far cheaper to purchase the parts on eBay!
 
-<CallOut title={'No Running Lights'} text={"Keep in mind that all of the methods listed in this article will only illuminate the light when you press the brake. When you turn the headlights on, nothing will happen. I originally didn't like this, I wanted both brake and running lights, but everything was pointing me away from this. Tune's wiring, SmartCap's wiring, and the 3rd light on the truck itself only illuminates when the brake pedal is pressed. So in the end I decided to keep it simple. I'm sure that with a little extra thought, you could make something that wires into the running lights as well!"} />
+<CallOut title={'No Running Lights'} text={"Keep in mind that all of the methods listed in this article will only illuminate the light when you press the brake. When you turn the headlights on, nothing will happen. I originally didn't like this, I wanted both brake and running lights, but everything was pointing me away from this. Tune's wiring, SmartCap's wiring, and the 3rd light on the truck itself only illuminate when the brake pedal is pressed. So in the end I decided to keep it simple. I'm sure that with a little extra thought, you could make something that wires into the running lights as well!"} />
 
 ## The Pigtail
 I used the above connectors to wire up the pigtail seen below:

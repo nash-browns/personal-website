@@ -5,7 +5,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Pepper Peak Climb Report",
     published: "2025-06-27",
-    updated: "2025-07-10",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/pepper-peak%2Fpepper-peper-view-from-salt.jpeg?alt=media&token=133df8ad-4b07-4757-9f41-c37d049a2884',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/pepper-peak%2Fhippy-hokusai-feature-image.jpg?alt=media&token=5066f119-2020-4f4f-aacd-6aadb0fa0d76',
@@ -16,6 +16,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="pepper-peak" />
 
 import { 
     MdxLayout,
@@ -57,7 +62,7 @@ export const pepperCairn = "https://firebasestorage.googleapis.com/v0/b/nash-bro
 export const goats = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/pepper-peak%2Fgoat-vid.mov?alt=media&token=5102a5a6-a5ce-43b9-8801-873e5f91f15f";
 
 export const relatedArticleOne = '/blog/articles/thayer-hut';
-export const relatedArticleTwo = '/blog/articles/pepper-peak';
+export const relatedArticleTwo = '/blog/articles/shaker-peak';
 export const relatedArticleThree = '/blog/articles/salt-peak';
 
 <ImageFeature
@@ -80,7 +85,7 @@ export const relatedArticleThree = '/blog/articles/salt-peak';
 <MdxLayout>
 
 <TLDR
-text="Pepper Peak is the first part of the Condiment Traverse; a 3 peak outing over Eklutna Lake. If you like walking on ridges and non-technical climbing in the Chugach, you will find this trip fun!"
+text="Pepper Peak is the first part of the Condiment Traverse, a 3-peak outing over Eklutna Lake. If you like walking on ridges and non-technical climbing in the Chugach, you will find this trip fun!"
 />
 
 <RelatedArticles 
@@ -92,7 +97,7 @@ text="Pepper Peak is the first part of the Condiment Traverse; a 3 peak outing o
 
 <h2 className='text-center font-mono mb-2'>Pepper Peak</h2>
 
-With little planning I headed up to Eklutna Lake. Rain peppered my windshield the entire drive. The mountains were hiding and I was prepared for a soggy Alaskan summer day. I loaded the gpx file for the route into my watch. This ended up being a huge help! Here is an overview of the route.
+With little planning I headed up to Eklutna Lake. Rain peppered my windshield the entire drive. The mountains were hiding and I was prepared for a soggy Alaskan summer day. I loaded the GPX file for the route into my watch. This ended up being a huge help! Here is an overview of the route.
 
 <CenteredImage image={route} altText={"Pepper Peak 3D Map"} width={1000} height={500} />
 
@@ -129,9 +134,9 @@ It is an easy and straightforward climb to the top. I ascended into some intense
     </div>
 </TwoColumn>
 
-<CallOut title={'Naming Conventions'} text={"The order of the names is annoying to me. I believe that Salt, Pepper, Shaker rolls off the tongue in a way Pepper, Shaker, Salt does not. However, looking at the mountains, I like that shaker is more rounded, less prominent, and all around much more shaker shaped. Looking at the mountains, I can see why and fully agree why each peak received its name. I was wrestling with this the entire afternoon and am only starting to feel comfortable with the situation as a whole."} />
+<CallOut title={'Naming Conventions'} text={"The order of the names is annoying to me. I believe that Salt, Pepper, Shaker rolls off the tongue in a way Pepper, Shaker, Salt does not. However, looking at the mountains, I like that Shaker is more rounded, less prominent, and all around much more shaker-shaped. Looking at the mountains, I can see and fully agree with why each peak received its name. I was wrestling with this the entire afternoon and am only starting to feel comfortable with the situation as a whole."} />
 
-Lots of people stop at the top of Pepper Peak and do not finish the whole Traverse! I can see why, it is beautiful on a clear day you can see Eklutna Lake and deep into the Chugach. Maybe even a glacier? It would be impossible to know!
+Lots of people stop at the top of Pepper Peak and do not finish the whole Traverse! I can see why — it is beautiful. On a clear day you can see Eklutna Lake and deep into the Chugach. Maybe even a glacier? It would be impossible to know!
 
 I continued on to Shaker Peak. You can read about it here: [Shaker Peak][1]
 

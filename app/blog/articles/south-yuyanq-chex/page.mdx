@@ -3,7 +3,7 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "South Yuyanq' Ch'ex",
     published: "2026-06-15",
-    updated: "2026-06-15",
+    updated: "2026-07-02",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/north-south-yuyanq-cheex%2Fsouth-thumbnail-2.JPG?alt=media&token=bc60b0ac-d1e0-4db6-8da9-0aa6a4e996e3',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/north-south-yuyanq-cheex%2Fsouth-1-thumbnail.jpg?alt=media&token=0abdefeb-af60-4311-a13e-590fc46adcaa',
@@ -14,6 +14,11 @@ export const postMetadata = {
 };
 
 export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="south-yuyanq-chex" />
 
 import { 
     MdxLayout,
@@ -70,7 +75,7 @@ export const relatedArticleThree = '/blog/articles/indianhouse';
 <MdxLayout>
 
 <TLDR>
-South Yuyanq' Ch'ex (you-yonk cheh)(soft J's only), formerly known as South Suicide Peak, is an easy climb right outside of Anchorage. Apparently the Athabascan translation is 'Heaven’s Breath'. All that goofy stuff is above my pay grade. It would be terrible if someone looked at the name of the peak next to these. You can read more about it in this <a href="https://alaskabeacon.com/briefs/a-two-year-drive-successfully-renames-two-southcentral-alaska-mountains/" target="_blank" rel="noopener noreferrer" className="underline">Alaska Beacon Article</a>.
+South Yuyanq' Ch'ex (you-yonk cheh) (soft J's only), formerly known as South Suicide Peak, is an easy climb right outside of Anchorage. Apparently the Athabascan translation is 'Heaven’s Breath'. All that goofy stuff is above my pay grade. It would be terrible if someone looked at the name of the peak next to these. You can read more about it in this <a href="https://alaskabeacon.com/briefs/a-two-year-drive-successfully-renames-two-southcentral-alaska-mountains/" target="_blank" rel="noopener noreferrer" className="underline">Alaska Beacon Article</a>.
 </TLDR>
 
 <RelatedArticles 
@@ -93,7 +98,7 @@ I summited the peak and immediately realized one thing: the ice bridge that I cr
 
 After some more food I headed down. The portion above the gully is equally as annoying to descend, if not more so. Then I entered the top of the gully. Honestly, not my favorite gully, but before I knew it I was at the bottom. The snowy sections were softer than they were earlier in the day, but still fine!
 
-I started crossing the flat section back to my bike. The melted snow had turned this into a swamp, so many post holes. My feet were quickly soaked. Nevertheless, I quickly got to my bike.
+I started crossing the flat section back to my bike. The melted snow had turned this into a swamp — so many postholes. My feet were quickly soaked. Nevertheless, I quickly got to my bike.
 
 Unfortunately, I didn't get as many photos or videos of this as I would have liked because, well, I was a little nervous haha. Nothing like something new to get you to focus on the task at hand. I had never forded with a bike. The water wasn't especially deep, I think it hit my knees once, but it was moving and probably 20-30 ft across.
 
@@ -103,7 +108,7 @@ Unfortunately, I didn't get as many photos or videos of this as I would have lik
 </TwoColumn>
 
 
-It only took one attempt to get across. The main thing I learned was that the bike wanted to "flag" around once I got about a quarter of the way across the river. I was just taking my time, and was able to start side stepping and point the front wheel upriver and let the river push the back wheel around.
+It only took one attempt to get across. The main thing I learned was that the bike wanted to "flag" around once I got about a quarter of the way across the river. I was just taking my time, and was able to start sidestepping and point the front wheel upriver and let the river push the back wheel around.
 
 <CenteredImage image={overview} altText={"View of North and South Yuyanq' Ch'ex rising above Rabbit Lake"} title={'The Objective'} width={800} height={800} />
 

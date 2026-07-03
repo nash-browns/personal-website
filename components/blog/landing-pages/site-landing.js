@@ -13,6 +13,8 @@ export function SiteLanding() {
                             width={500}
                             height={500}
                             className='animate-spin-smooth'
+                            sizes="(max-width: 500px) 100vw, 500px"
+                            priority
                         />
                     </div>
                 </div>

@@ -1,5 +1,8 @@
+//TODO: Remove this component. GIF's can be displied with any of the image components.
+
+
+
 export function Gif({video, topTitle, bottomTitle, height, width}){
-    console.log(video);
 
     return(
         <>
