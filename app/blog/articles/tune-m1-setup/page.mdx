@@ -21,52 +21,234 @@ import { ArticleSeo } from '@/components/seo'
 
 import { 
     MdxLayout,
+    OneColumn,
+    TwoColumn,
+    CenteredImage, 
+    CallOut,
+    TwoCenteredImages, 
+    ThreeCenteredImages,
+    TLDR,
+    BlogStatsSection,
+    Stat,
     ImageFeature,
+    ContinueReading,
+    YoutubeAd,
+    YoutubeVideo,
 } from '@/components/blog'
 
 import { 
     ReflectiveInsulation,
 } from '@/products/product-links'
 
+export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-cold-weather-performance%2Fthumbnail.jpg?alt=media&token=ed7facc8-8f93-470b-a807-f4bbdfeccfae";
 
 <ImageFeature
     title='My Tune M1 Setup'
-    image={'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-cold-weather-performance%2Fthumbnail.jpg?alt=media&token=ed7facc8-8f93-470b-a807-f4bbdfeccfae'}
+    image={featureImage}
 />
 
 <MdxLayout>
 
-This is how I setup my Tune M1. My idea was to have a system that is compartmentalized. This means that my truck/camper is closer to a large backpack than a camper. I also decided that there are two main modes: Traveling and Daily Driver. These modes will be referenced in the rest of this article! This setup is great for one person or a couple. I find that the Tune is not ideal for more than one single person or a couple. It gets small fast and gear storage for more than two people is almost impossible.
+<TLDR
+text="This is a running list of all the issues I have encountered while owning the Tune camper. There are going to be issues with any camper, so this is not a knock on Tune. In fact the oposit, if I contacted them about an issue they went above and beyond to help me with a solution!" 
+/>
+
+I think of the Tune as a big backpack for my truck that can be easily filled or emptyed depending on the ocasion. Wether that living in it for 4 months, a Home Depot run, or a day trip to the mountains I just want it to be easy!
 
 The truck that I used is a 2022 Toyota Tacoma!
 
 This setup is fluid and likely to change in the future when I discover new ideas of have different needs.
 
-## Outside
-I wanted to keep the outside of the camper as clean and minimalistic as possible. I thought this would be easy, but it was not. I needed to be able to haul skis and bikes on the outside of the truck. Here are the solutions that I came up with!
-### Ski
-I wanted to be able to hold 2 sets of skis.
-1. They don't fit straight in the back of the truck(super lame)
-2. If they are stored in the camper while I'm in the camper, snow melt gets everywhere and I end up walking all over them.
+## Wooden Shelf
+## Power
+### Battery
+The battery that I went with was the [EcoFlow Delta Pro][5]. It's not the cheapest, actually its one of the more expensive batteries. Its not because its the lightest or the best sized unit for the truck, it's actually quite heave (100lbs) and has probably 3x-4x more capacity than I need. It's because it is easy, the app is great, and extending the system is all plug and play. This makes it easy to switch out components based on the occasion.
 
-### Bike
-I wanted to be able to hold 2 bikes.
+### Alternator Charging
+Also a plug and play Ecoflow product. This is the [EcoFlow 800W Alternator Charger][6]. It can charge the batter in about 2ish hours if you have the output on full capacity.
 
-## Truck Backseat
-I wanted to have the ability for 4 people to ride in the cab in both travel and daily driver modes. So a backseat delete was not an option. I decided that some rearranging would be okay while in travel mode in order to accommodate more people because this would not be something that is super common while I am on the road with the camper and more of an emergency thing.
-## Battery/Heater/Fridge/Microwave/Starlink
+### Solar Charging
+This is something that I added recently. I went with throw out panels. I don't know if this is the best option.
+
+On one hand it would be nice to have a permanent panel that would just passively charge without me doing anything. Like if I park to go into the library for the day. However, I had to get to the Library and I have to get back to the campsite. That drive will almost completely charge the battery back up from what was used the night before. During the winter I don't want to have to clean them off.
+
+On the other hand throw out panels would be nice. It seems like parking in the shade with the panels in the sun is the dream! I don't have yet another valuable thing hanging from my truck. I don't have to get onto the roof to clean them. However, could someone just steal them off the ground? I hate "setting up camp", will i ever even use them?
+
+This isn't a decision for the faint of heart, I went with the throw out panels. After buying them, I think I made the right decision. I really only use them when I have my bike, "setup camp" for a few days and use the truck as a base camp to bike from. It is actually something that I really enjoy.
+
+### Shore Charging
+I bought a really long shore cable and ran it to the rear of the truck to make it easy to plug in. The EcoFlow charges super fast on fast charging. Having this as an option really comes in handy sometimes! Like anything, the easier it is to plug in, the more that you will actually do it when you happen to see an outlet.
+
+### EV Charger Charging
+I got the plug from EcoFlow, but it was mainly to make a video about. We simply don't have many of these plugs in Alaska. Honestly, for a budget build, you could just get this instead of the alternator charger and solar panels and it would probably work pretty darn well!
+
+## Heat
+I have the Truma Heater from Tune and love it! You can read more about some of the "quirks" in this article -> [Surviving Winter in the Tune M1](/blog/surviving-winter-in-the-tune-m1). You can see the performance of the heater here -> [Tune M1 Cold Weather Performance](/blog/tune-m1-cold-weather-performance).
+
+## Kitchen
+### Fridge
+I used the [Dometic CFX3 25L][7]. I plugged this in for 4 months straight and it just did it's thing. I think this is the perfect size for a small camper. It is also really nice when I am not living in the camper. Ice sucks dude!
+### Microwave
+The [Ikea Tillreda Microwave][8] is the cheapest, low power microwave that does not have a digital screen. That is why I bought it. If this is the option you go with make sure you get a battery that can handle the surge power!
+
+### Kettle
+I had an expensive kettle from my house but have since replaced it with a much cheaper version called the [Toastmaster Electric Plastic Kettle][37]. I mean it works. Having a electric kettle makes coffee and tea so easy and that is what I want most when it is cold. Hugh producer of condensation though haha I would kick the fan on. Another reason to get a battery that you can draw some serious power from for a short period of time!
+
+### Water Storage
+I thought about getting the blue jugs that everyone has but I am team small jugs. I just think they are better in every situation, other than if you are at a place where you are allowed, and probably paying for, large amounts of what. If you are in the small jug gang, you can pretty much fill them everywhere. I can definitely fill the Nalgeans up in any gym, fast casual restaurant, and most people will fill them if you are nice and just ask! This was is my standard setup:
+
+2 [small Nalgenes][20], 1 [large Nalgene][21], 1 2.5 gallon jug
+
 ## Trash
+I don't think that I have nailed this down in any serious way but small is the way to go. Same reason as the water bottles, you can just dump at gas stations, dumpsters, and the like.
+
+## Clothes
+### Clean Clothes
+I use a [REI Big Haul 120L][13] bag. I hang it on a caribiner, zipper side up!
+
+### Dirty Clothes
+I use basically the same [REI Big Haul 120L][13] bag. It might be a North Face but the impootant thing is that it is the same size! It spends its life in the back seat of the truck.
+
+### Wear Again Clothes
+These are stuffed behind the clean cloths bag. They are squezzed together and heald in place by the bag and the camper.
+
+### Drying Wet Clothes
+I hang these on the carbiner that holds the clean clothes bag. This puts them in line with the heater.
+
+I also have a glove hanger that is tottally awesome.
+
+If it is nice out I can also just hang the cloths on the hooks I mounted on the exterior of the camper!
+
+### Laundyng Clothes
+It's easy.:
+1. You take the dirty cloths bag into the laundry mart. Dup everything in the wash. Return the dirty cloths bag to the truck.
+2. Do all the washing...
+3. You take the clean cloths bag into the laundry mart. Fold everything in the wash. Return the clean cloths bag to the truck.
+
+Tell me there is a better way. TELL ME!!
+
 ## Bedroom
+I just use sheets man.
+
+### Pillow Storage
+This was something that I had to add fast because I kept dropping my pillows on the dirty camper floor or the dirty ground of the outside would. I made a [DIY Cargo Net][19] that is under the bed extension to hold the pillows. I love it!
+
+
 ## Bathroom
 The Tune doesn't have a bathroom. There are 2 situations that I commonly found myself in:
 1. I am 'Stealth Camping' and need to run into a building to use the bathroom/shower, but will probably brush my teeth in the camper.
 2. I am in the middle of nowhere and the bathroom is right outside.
 
-The hanging toiletry bag was awesome for this. It hooks right on the rear lever of the camper and can stay on in both the up and down position. It is also easily detachable if I need to go in and take a shower. It is basically a super portable medicine cabinet that I also use when I travel out of a backpack!
+The hanging toiletry bag, [REI Shower Roll - Small][12], was awesome for this. It hooks right on the rear lever of the camper and can stay on in both the up and down position. It is also easily detachable if I need to go in and take a shower. It is basically a super portable medicine cabinet that I also use when I travel out of a backpack!
+I also have TP and a trowel.
+I have a bottle on hand as well. You cant really just pee in the parking lot of a grocery store or casino they get mad.
+
+## Entertainment
+### Storage
+I use a matching setup as the Clean Cloths bag, but with a packpack. That way I can take all my electronics with me to charge, keep out of the heat, or keep safe. I use the Patagonia 30L packpack because the pocket is side acccess instead of top access. I actully hate that about the bag, but it works perfect in this situation so I havent changed it.
+
+### Starlink
+I honestly think this is so awesome I want to add it to any future vehicles that I get. You just flip it on and have full internet everywhere. I also use it for a hat home backup because my provider, GCI, is horrendous. You can see the install here -> [Tune M1 Satlink Installation][23]
+
+
+     Battery: [EcoFlow Delta Pro][5]
+     Charging: [EcoFlow 800W Alternator Charger][6]
+     Fridge: [Dometic CFX3 25L][7]
+    - Microwave: [Ikea Tillreda Microwave][8]
+    - Water Kettle: [Stagg EKG Electric Kettle][9]
+    - Internet: [Starlink Mini][10]
+    - Decor: [Home Depot Plant][15]
+    - Dish Storage: [Dish rack][16]
+    - Kitchen: [OXO Outdoor Camp Kitchen Tool Roll][11]
+    - Paper Towel holder: [Amazon Paper Towel Holder][17]
+    - Toiletry: [REI Shower Roll - Small][12]
+    - Toilet Paper Holder: [Amazon Toilet Paper Holder][18]
+    - Bathroom Creator: [Trowel][22]
+    - Closet: [REI Big Haul 120L][13]
+    - Roof Rack: [Thule SnowPack M][14]
+    - Pillow storage: [DIY Cargo Net][19]
+    - Water storage: 2 [small Nalgenes][20], 1 [large Nalgene][21], 1 2.5 gallon jug
+    - Sheets: I just used what I had on hand
+
+
+
+## Outside
+I wanted to keep the outside of the camper as clean and minimalistic as possible. I thought this would be easy, but it was not. I needed to be able to haul skis and bikes on the outside of the truck. Here are the solutions that I came up with!
+
+### Ski
+I wanted to be able to hold 2 sets of skis.
+1. They don't fit straight in the back of the truck(super lame)
+2. If they are stored in the camper while I'm in the camper, snow melt gets everywhere and I end up walking all over them.
+3. If snow gets in the camper condensation becomes an issue.
+4. It would be great if it locked.
+
+Here is what I went with: [Thule SnowPack M][14]. This will only hold 2 sets of skis though. Reason is that I was unable to get the clamp to sit high enough, to gain enough clearance for my binding to fit.
+
+### Rod Holder
+See ski section
+
+### Dipnet Holder
+See ski section
+
+Actually what can the clamps not hold???
+
+### Bike
+I guess a bike can not be safely held with a ski clamp. I had 3 requirements for the bike storage:
+1. I wanted to be able to hold 2 bikes
+2. I didn't want to have to remove the bikes to get into the camper.
+3. I wanted to be able to store a bike in the camper if I want extra security.
+4. It has to lock
+
+This was accomplished 2 ways:
+
+I ended up going with the [Rocky Mounts Backstage][1]. After using this for awhile I would have probably went with the [After Party][2]. This is due to how the rack connects to the bike. Sometime I get some rubbing on the bike forks on longer drives. On the way from San Francisco to Anchorage, I had to devise a fix on the road after I noticed some rubbing. I haven't personal tried the [After Party][2] or know anyone that has, but it just looks better! Otherwise I am happy with how the swing arm works, and If I add a sock to the wheel holder, it creates enough friction to hold the tire without working down to the fork!
+
+To fix number 3 I actually bought this really simple [Bike Fork Mount Block][3] from Amazon and mounted it on the wooden holder in the camper.
+
+## Truck Backseat
+I wanted to have the ability for 4 people to ride in the cab in both travel and daily driver modes. So a backseat delete was not an option. I decided that some rearranging would be okay while in travel mode in order to accommodate more people because this would not be something that is super common while I am on the road with the camper and more of an emergency thing.
 
 ## Decor
+I have 1 plant. This plant is fake. I bought this one fake plant at Home Depot.
+
+That is all. For now...
 
 </MdxLayout>
 
-[1]: /blog/articals/artical-template
-
+[1]: https://rockymounts.com/products/backstage-swing-away-hitch-bike-rack
+[2]: https://rockymounts.com/products/afterparty-swing-away-platform-hitch-rack
+[3]: https://maps.app.goo.gl/vXSvf4MRihmiwmg27
+[4]: https://maps.app.goo.gl/qyrnor2ciQTTrAWY7
+[5]: https://us.ecoflow.com/products/delta-pro-portable-power-station
+[6]: https://us.ecoflow.com/products/800w-alternator-charger
+[7]: https://www.dometic.com/en-us/product/dometic-cfx3-25-9600028370
+[8]: https://www.ikea.com/us/en/p/tillreda-microwave-oven-white-40493420/
+[9]: https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle
+[10]: https://starlink.com/
+[11]: https://www.oxo.com/oxo-outdoor-camp-kitchen-tool-roll.html
+[12]: https://www.rei.com/product/195310/rei-co-op-shower-roll-small
+[13]: https://www.rei.com/product/235563/rei-co-op-big-haul-120-duffel
+[14]: https://www.thule.com/en-us/winter-racks/ski-and-snowboard-racks/thule-snowpack-m-_-7234
+[15]: https://www.homedepot.com/b/Home-Decor-Artificial-Plants/Indoor/N-5yc1vZbpdgZ1z17lgm
+[16]: https://www.amazon.com/dp/B07RJWL8HK
+[17]: https://www.amazon.com/dp/B08Y55R783
+[18]: https://www.amazon.com/dp/B0F1N254F9
+[19]: https://www.harborfreight.com/6-ft-x-4-ft-heavy-duty-trailer-net-93671.html
+[20]: https://nalgene.com/product/32oz-wide-mouth-thrill-motion/
+[21]: https://nalgene.com/product/48oz-wide-mouth-ultralite-bottle/
+[22]: https://www.amazon.com/dp/B004S0PGPM
+[23]: /blog/articles/tune-insulation-pack-install
+[24]: /blog/articles/tune-roof-insulation
+[25]: /blog/articles/tune-cold-weather-performance
+[26]: https://www.amazon.com/dp/B09MYLWN6N
+[27]: https://www.amazon.com/dp/B0FVM4M7DK
+[28]: https://apps.apple.com/us/app/ioverlander/id1486556203
+[29]: /blog/articles/tune-issues
+[30]: https://www.amazon.com/gp/aw/d/B07SPYNRWZ/
+[31]: https://caliraisedled.com/products/2005-2022-toyota-tacoma-bed-channel-supports 
+[32]: https://caliraisedled.com/products/gapshield-tailgate-gap-cover
+[33]: https://www.harborfreight.com/36-in-x-60-in-extended-bed-mini-truck-cargo-net-69618.html 
+[34]: https://www.mcmaster.com/products/work-load-rated-duct-hose-clamps/
+[35]: https://www.mcmaster.com/5215K12/
+[36]: https://www.mcmaster.com/5215K11/
+[37]: https://www.fredmeyer.com/p/toastmaster-electric-plastic-kettle-black/0065577201732?fulfillment=PICKUP&searchType=default_search

@@ -25,6 +25,7 @@ import {
     TwoColumn,
     CenteredImage, 
     TwoCenteredImages, 
+    ThreeCenteredImages,
     ImageFeature,
     TLDR,
     ContinueReading,
@@ -40,6 +41,11 @@ export const badCord = "https://firebasestorage.googleapis.com/v0/b/nash-browns.
 export const starlinkCable = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-issues%2Fstarlink-cable.JPEG?alt=media&token=80beb446-c5db-4f62-816a-752a80b57ffb";
 export const tearOne = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-issues%2Ftear-one.JPEG?alt=media&token=b6ea8d00-623c-4633-ab86-0a41c486d1fc";
 export const tearTwo = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-issues%2Ftear-two.JPEG?alt=media&token=9a9d8468-9889-415f-bfe6-73598f4b81f2";
+export const heaterHoseProtection = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-hose-protection.jpeg?alt=media&token=8519967d-f9a6-40c2-b8db-142f5a4480b3";
+export const heaterIcicle3 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-3.jpeg?alt=media&token=a87a160f-7c86-40a0-abb3-ce52041231dd";
+export const heaterIcicle5 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-5.jpeg?alt=media&token=045038eb-2afd-4b01-af5a-6355da909c9f";
+export const heaterIcicle6 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-icicle-6.jpeg?alt=media&token=e60fd97e-dd65-4d92-9a50-4773b8439884";
+export const heaterProtection = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/surviving-winter-in-the-tune-m1%2Fheater-protection.jpeg?alt=media&token=d8da7ea3-28c8-4daa-9a4d-ea0cf29eeb26";
 
 export const relatedArticleOne = '/blog/articles/tune-heavy-lift-strut-install';
 export const relatedArticleTwo = '/blog/articles/tune-cold-weather-performance';
@@ -53,7 +59,7 @@ export const relatedArticleThree = '/blog/articles/tune-starlink-install';
 <MdxLayout>
 
 <TLDR
-text="This is a list of all the issues I have encountered while owning the Tune camper. There are going to be issues with any camper, so this is not a knock on Tune." 
+text="This is a running list of all the issues I have encountered while owning the Tune camper. There are going to be issues with any camper, so this is not a knock on Tune. In fact the oposit, if I contacted them about an issue they went above and beyond to help me with a solution!" 
 />
 
 ## Loose Heater Fittings
@@ -93,6 +99,20 @@ While uninstalling the Tune Insulation Kit, it just tore. I am not sure how this
 Luckily, Tune sent a replacement, and I was also able to repair the tear! You can read about the repair here: [Tune Insulation Pack Repair][1]
 <TwoCenteredImages image={[tearOne, tearTwo]} altText={['Tune Insulation Tear', 'Tune Insulation Tear']} titles={['Tune Insulation Tear', 'Tune Insulation Tear']} width={'500'} height={'500'} />
 
+### Icing And Regulator Failures
+There was a night in Wyoming that my heater quit. I woke up in the cold and was pretty confused because:
+1. I had just filled the propane tank that day
+2. It wasn't that cold, ~30 degrees
+
+When I got out of the camper it had snowed about 10" and all the lines and regulators had about an 1/8 inch of ice on them. I assume this is why the propane stopped flowing. It also could have been that the regulator stopped working. This icing has only happened twice this winter. I think it takes a combo of snow, warm enough temps where the snow will melt on the roof, and a slight angle of the roof towards the propane tank. With all the factors in place, snow from the roof melts, drips on the regulator and lines, then refreezes causing an issue. Unfortunately, I was in a mood that morning and did not take any pictures, but the situation did happen again after I had implemented the fix. Here are some pictures to get an idea of the issue.
+
+<ThreeCenteredImages image={[heaterIcicle3, heaterIcicle6, heaterIcicle5]} altText={['Ice on the propane regulator', 'Ice on the heater lines', 'Iced propane regulator']} titles={['Iced Regulator','Iced Lines', 'Iced Regulator']} width={300} height={300} />
+
+The fix is to use water pipe insulation on the hoses and a faucet cover on the regulator. The second time there was icing on the lines and hoses was in South Dakota and the fix worked! Another benefit is that the faucet protector keeps the regulators from failing. I went through 3 regulators, but after using the faucet cover, I have had no issues. All three regulators that I used had a warning not to expose them to the elements printed on the side.
+
+<TwoCenteredImages image={[heaterProtection, heaterHoseProtection]} altText={['Faucet Cover', 'Water Pipe Insulation']} titles={['Faucet Cover', 'Water Pipe Insulation']} width={500} height={500} />
+
+You can read more about the heater propane consumption and other heater related information here: [Surviving Winter in the Tune M1][2]
 
 <ContinueReading 
     articleOne={relatedArticleOne}
@@ -103,4 +123,5 @@ Luckily, Tune sent a replacement, and I was also able to repair the tear! You ca
 </MdxLayout>
 
 [1]: /blog/articles/tune-insulation-pack-repair
+[2]: /blog/articles/surviving-winter-in-the-tune-m1
 
