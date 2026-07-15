@@ -45,6 +45,7 @@ export function ClientDashboard({tenantData, tenantVideos, tenantArticles}) {
                             alt={"Artical Featured Image"}
                             style={{ objectFit: 'cover', margin: '0' }} // navbar, lineheight, paddding, padding, padding?
                             fill={true}
+                            sizes="(min-width: 948px) 50vw, 100vw"
                         />
                     </div>
                     <button className='btn btn-secondary w-full'>Order Content</button>
@@ -174,6 +175,7 @@ function Articles({articles}) {
                                                         alt={"Artical Featured Image"}
                                                         style={{ objectFit: 'cover', margin: '0' }} // navbar, lineheight, paddding, padding, padding?
                                                         fill={true}
+                                                        sizes="40px"
                                                     />
                                                 </div>
                                             </Link>

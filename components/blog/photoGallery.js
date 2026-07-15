@@ -35,6 +35,7 @@ function Gallery({title, photos}) {
                             <Image
                                 src={photo.nextImg}
                                 alt={title}
+                                sizes="(min-width: 1280px) 400px, 33vw"
                             />
                         </PhotoView>
                     ))

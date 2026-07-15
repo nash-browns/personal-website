@@ -5,6 +5,8 @@ import remarkGfm from 'remark-gfm';
 const nextConfig = {
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     images: {
+        formats: ['image/avif', 'image/webp'],
+        minimumCacheTTL: 2678400, // 31 days — floor for optimized-image caching when the source sends short/no cache headers
         // domains: ['images.unsplash.com'],
         remotePatterns: [
             {
