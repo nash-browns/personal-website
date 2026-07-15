@@ -28,7 +28,7 @@ export function Footer() {
                             <a target='_blank' href={"https://www.instagram.com/nashtheflash/"}>
                                 <FontAwesomeIcon icon={faInstagram} className='h-12 w-12'/>
                             </a>
-                            <a target='_blank' href={"https://www.youtube.com/@nash_brownss"}>
+                            <a target='_blank' href={"https://www.youtube.com/@nashbrowns"}>
                                 <FontAwesomeIcon icon={faYoutube} className='h-12 w-12'/>
                             </a>
                             <a target='_blank' href={"https://www.strava.com/athletes/111233131"}>
