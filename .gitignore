@@ -41,3 +41,4 @@ next-env.d.ts
 
 #SEO
 /public/sitemap.xml
+/public/sitemap-0.xml
