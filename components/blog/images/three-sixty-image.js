@@ -189,7 +189,7 @@ ${point.label}
     }, [image]); // Add image to dependency array
 
     return (
-        <div ref={containerRef} style={{ width: "100%", height: "80vh", position: "relative", overflow: "hidden" }}>
+        <div ref={containerRef} style={{ width: "100%", height: "100%", position: "relative", overflow: "hidden" }}>
             {/* Loading State */}
             {isLoading && (
                 <HashBrownsLoader loadingText={'360° Image'} color={'white'}/>

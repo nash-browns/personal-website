@@ -1,0 +1,132 @@
+import { generateMetadata } from '@/lib/seo';
+
+export const postMetadata = {
+    title: "McHugh Peak",
+    published: "2026-07-05",
+    updated: "2026-07-20",
+    author: 'Nash Bostwick',
+    thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Fflower-2.jpeg?alt=media&token=0a4e4f4a-b57a-4405-9ac1-81db87dc7213',
+    thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Fthumbnail.jpg?alt=media&token=c5f71260-dc6b-4c42-994f-9fa53dc3b956',
+    description:"A fun, non-technical hike up McHugh Peak in Chugach State Park near Anchorage, Alaska. Trip report with trailhead parking tips and route beta for the ridge and summit block.",
+    keywords: ['McHugh Peak', 'McHugh Peak Alaska', 'McHugh Peak trail', 'Golden View Trailhead', 'Anchorage hiking', 'Anchorage mountains', 'Chugach State Park', 'Chugach Mountains', 'Anchorage front range', 'Bear Valley Alaska', 'Alaska peak bagging', 'mountain goats Alaska', 'Alaska trip report'],
+    tags: ['Alaska', 'Anchorage', 'Chugach State Park', 'Hiking', 'Scrambling', 'Peak Bagging', 'Trip Report'],
+    isActive: true,
+};
+
+export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="mchugh-peak" />
+
+import { 
+    MdxLayout,
+    CenteredImage, 
+    TwoCenteredImages, 
+    TLDR,
+    BlogStatsSection,
+    Stat,
+    ImageFeature,
+    ContinueReading,
+    Strava,
+} from '@/components/blog'
+
+import { 
+    faRoute,
+    faArrowTrendUp,
+    faArrowTrendDown,
+    faMountain,
+    faTimer,
+    faCalendarDays,
+    faLocationDot,
+    faPickaxe,
+} from '@awesome.me/kit-237330da78/icons/classic/light'
+
+export const threeSixtyImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2F360-summit.jpeg?alt=media&token=2076e490-5d64-4abf-af3f-9f373b51b650";
+export const bird2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Fbird-2.jpeg?alt=media&token=27368110-139d-4799-90ff-7b8c827ef19c";
+export const flower2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Fflower-2.jpeg?alt=media&token=0a4e4f4a-b57a-4405-9ac1-81db87dc7213";
+export const flower = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Fflower.jpeg?alt=media&token=84fc869c-f89b-45cb-ab0b-57f3f58b49e4";
+export const goatGif = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Fgoat.gif?alt=media&token=9493980d-c91a-4127-8e84-734604e3fe0d";
+export const mchughRidgeDrawing = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Fmchugh-ridge-drawing.jpg?alt=media&token=644a65c1-9d39-4812-a582-bc02f27f7dfc";
+export const mchughTopDrawing = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Fmchugh-top-drawing.jpg?alt=media&token=0d3ae9ae-3abf-4601-b3c4-18be12d1c599";
+export const porcupine = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Fporcupine.gif?alt=media&token=9b16c307-17b3-4813-91b7-dac843694982";
+export const threeDGPX = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2F3d-gpx.jpg?alt=media&token=5bebd707-02aa-42a9-b527-ed2153e547b1";
+export const trailheadMarkup = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2Ftrailhead-markup.jpg?alt=media&token=2e9b4c52-a4fa-4dd1-a4a2-32f479f95f9a";
+
+export const relatedArticleOne = '/blog/articles/indianhouse';
+export const relatedArticleTwo = '/blog/articles/north-yuyanq-chex';
+export const relatedArticleThree = '/blog/articles/salt-peak';
+
+<ImageFeature
+    title="McHugh Peak"
+    image={threeSixtyImage}
+    threeSixty={true}
+/>
+
+<BlogStatsSection>
+    <Stat title={'Distance (Mi)'} stat={'5.92'} icon={faRoute}/>
+    <Stat title={'Summit Elevation'} stat={'4,307'} icon={faMountain}/>
+    <Stat title={'Elevation Gain'} stat={'2,779'} icon={faArrowTrendUp}/>
+    <Stat title={'Elevation Loss'} stat={'2,779'} icon={faArrowTrendDown}/>
+    <Stat title={'Duration'} stat={'01:45:55'} icon={faTimer}/>
+    <Stat title={'Summit Date'} stat={'July 5, 2026'} icon={faCalendarDays}/>
+    <Stat title={'Difficulty'} stat={'Non-Technical'} icon={faPickaxe}/>
+    <Stat title={'Trailhead'} stat={<a href="https://maps.app.goo.gl/8NY6aJ3DN5inN6LA7" target="_blank">Golden View Trailhead</a>} icon={faLocationDot}/>
+</BlogStatsSection>
+
+
+<MdxLayout>
+
+<TLDR
+text="McHugh Peak sits at the far end of the front range. My last time up there was on a beautiful day! It is non-technical with a really fun little top section, and it can make for a great outing. The only downside is that parking can be a bit tricky on a busy day." 
+/>
+
+<CenteredImage image={threeDGPX} altText={'3D GPX track of the route up McHugh Peak'} title={'The Route'} width={1000} height={1000} />
+
+## The Trailhead
+It can get tight out there. This isn't a huge touristy place, but the trailhead is small. You can see the trailhead circled below in red. I have seen more and more people parking in the blue box. However, I am not 100% sure if it is allowed. 
+
+<CenteredImage image={trailheadMarkup} altText={'Golden View Trailhead parking circled in red with overflow parking marked in blue'} title={'The Trailhead'} width={1000} height={1000} />
+
+## The Approach
+There is no approach. Well, I guess there could be a small approach if you started further down Honey Bear Lane (blue box). From the main trailhead, you start heading up the ridge right from the parking lot.
+
+## The Ridge
+It's a fun one, and an easy run. You can cruise up the ridge to the obvious next incline.
+<CenteredImage image={mchughRidgeDrawing} altText={'Route drawing up the ridge toward the summit of McHugh Peak'} title={'The Ridge'} width={1000} height={1000} />
+
+
+## The Top
+It looks technical, but it is easy to pick your way up. Maybe not for small kids? I can't really be sure about that. This is the path that I took, but obviously there are other routes — use judgment! The view from the saddle at the base of the thumb is the same!
+<CenteredImage image={mchughTopDrawing} altText={'Route drawing of the path up the summit block of McHugh Peak'} title={'The Top'} width={1000} height={1000} />
+
+
+I was able to see some wildlife while I was out there. Bear Valley always seems wild. I love it out here. Can you even see that ptarmigan? I won't lie, I almost ran right by it. The goats are just hanging around the area this summer. A blessing of the highest order!
+
+<CenteredImage image={goatGif} altText={'Mountain goats hanging around on McHugh Peak'} title={'The Goats'} width={500} height={500} />
+<TwoCenteredImages image={[bird2, porcupine]} altText={['Ptarmigan blending into the rocks', 'Porcupine up close']} titles={['Skinny Ptarmigan', 'Up Close']} width={500} height={500} />
+
+Ohh, and the flowers. These bright pink ones with the mossy base are some of my favorites!
+<TwoCenteredImages image={[flower, flower2]} altText={['Bright pink flowers growing on a mossy base', 'Close-up of bright pink flowers on McHugh Peak']} titles={['The Flowers', 'Up Close']} width={500} height={500} />
+
+I was able to make decent time up this one!
+
+<Strava
+    stravaId='19196346115'
+    token='n_NdOG_uqv9_hXiUw20lpi-PZ_b6bKNqJUs6lyMNORY'
+/>
+
+Just one GPX file on this guy! -> [McHugh Peak GPX][1]
+
+
+<ContinueReading 
+    articleOne={relatedArticleOne}
+    articleTwo={relatedArticleTwo}
+    articleThree={relatedArticleThree}
+/>
+
+</MdxLayout>
+<br/>
+
+[1]: https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/mchugh-peak%2FMcHugh_Peak.gpx?alt=media&token=d60b2837-599b-405c-8798-a4526f6ceb83
