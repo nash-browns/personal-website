@@ -1,0 +1,127 @@
+
+import { generateMetadata } from '@/lib/seo';
+
+export const postMetadata = {
+    title: "The Wedge",
+    published: "2026-08-02",
+    updated: "2026-08-03",
+    author: 'Nash Bostwick',
+    thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/the-wedge%2Fgreat-view.jpeg?alt=media&token=bd00c1cb-be09-495a-b16d-b094cfe89fd1',
+    thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/the-wedge%2Fthumbnail.jpg?alt=media&token=316dfaa0-75a0-443f-b14a-2626aa117aaa',
+    description:"Trip report from The Wedge (4,660 ft) in Chugach State Park near Anchorage, Alaska. An easy, non-technical peak from the Glen Alps trailhead via Powerline Pass and the Hidden Lake Trail, with route photos, a GPX file, and summit goats.",
+    keywords: ['The Wedge', 'The Wedge Alaska', 'The Wedge Chugach', 'The Wedge trail', 'Glen Alps Trailhead', 'Powerline Pass', 'Hidden Lake Trail', 'Anchorage hiking', 'Anchorage mountains', 'Chugach State Park', 'Chugach Mountains', 'Alaska peak bagging', 'mountain goats Alaska', 'Alaska trip report'],
+    tags: ['Alaska', 'Anchorage', 'Chugach State Park', 'Hiking', 'Trail Running', 'Peak Bagging', 'Trip Report'],
+    isActive: true,
+};
+
+export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="the-wedge" />
+
+import { 
+    MdxLayout,
+    CenteredImage, 
+    TwoCenteredImages, 
+    TwoColumn,
+    TLDR,
+    BlogStatsSection,
+    Stat,
+    ImageFeature,
+    ContinueReading,
+    Strava,
+    Gif,
+} from '@/components/blog'
+
+import { 
+    faRoute,
+    faArrowTrendUp,
+    faArrowTrendDown,
+    faMountain,
+    faTimer,
+    faCalendarDays,
+    faLocationDot,
+    faPickaxe,
+} from '@awesome.me/kit-237330da78/icons/classic/light'
+
+export const threeSixtyImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/the-wedge%2F360-summit-2.jpeg?alt=media&token=9549966d-3e57-42c5-adf8-21bf3e5f2946";
+export const threeDGPX = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/the-wedge%2FthreeDGPX.jpg?alt=media&token=4456ed26-39c2-42fc-b1b6-5f090c787b45";
+export const goatVid2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/the-wedge%2Fgoat-vid.mov?alt=media&token=55266407-13a7-4bc4-80cd-c178d8b9f15a";
+export const theWedgeDrawing = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/the-wedge%2Fthe-wedge-drawing.jpg?alt=media&token=f971b781-abc9-422c-8dfa-38bc4cf3adb1";
+export const theWedgePano = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/the-wedge%2Fthe-wedge-pano.jpeg?alt=media&token=4f770e89-7c8a-4b0c-aab3-c32371ddb19b";
+
+export const relatedArticleOne = '/blog/articles/indianhouse';
+export const relatedArticleTwo = '/blog/articles/north-yuyanq-chex';
+export const relatedArticleThree = '/blog/articles/salt-peak';
+
+<ImageFeature
+    title="The Wedge"
+    image={threeSixtyImage}
+    threeSixty={true}
+/>
+
+<BlogStatsSection>
+    <Stat title={'Distance (Mi)'} stat={'12.67'} icon={faRoute}/>
+    <Stat title={'Summit Elevation'} stat={'4,660'} icon={faMountain}/>
+    <Stat title={'Elevation Gain'} stat={'2,677'} icon={faArrowTrendUp}/>
+    <Stat title={'Elevation Loss'} stat={'2,677'} icon={faArrowTrendDown}/>
+    <Stat title={'Duration'} stat={'02:23:38'} icon={faTimer}/>
+    <Stat title={'Summit Date'} stat={'June 27, 2026'} icon={faCalendarDays}/>
+    <Stat title={'Difficulty'} stat={'Non-Technical'} icon={faPickaxe}/>
+    <Stat title={'Trailhead'} stat={<a href="https://maps.app.goo.gl/G8HQFgGPgrHPBmRU8" target="_blank">Glen Alps / Flattop Trailhead</a>} icon={faLocationDot}/>
+</BlogStatsSection>
+
+
+<MdxLayout>
+
+<TLDR>
+This one is an easy one! I recommend combining it with its neighbor, The Ramp! I was able to meet some goats on the peak!
+</TLDR>
+
+<CenteredImage image={threeDGPX} altText={'3D GPX track of the route up The Wedge'} title={'The Route'} width={1000} height={1000} />
+
+## The Trailhead
+Prepare yourself! This one can get really busy. It's a nice one though!
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.7687642219616!2d-149.6840599!3d61.1030473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x56c89a9f0e760871%3A0x41551d96dba29326!2sGlen%20Alps%20%2F%20Flattop%20Trailhead!5e1!3m2!1sen!2sus!4v1785743912052!5m2!1sen!2sus" width="100%" height="450" style={{border: 0}} allowFullScreen loading="lazy" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+
+
+## The Approach
+You just head up Powerline Pass until you get to the bike rack. Then turn down the Hidden Lake Trail and follow it to the back of the valley!
+
+## The Saddle and Peak
+While going up the valley, it really looks like the peak would be on the south side of the ridge, but that is not the case!
+<TwoCenteredImages image={[theWedgePano, theWedgeDrawing]} altText={['Panorama of The Wedge and the surrounding valley in Chugach State Park', 'Route drawing showing the path up The Wedge']} titles={['The Wedge Pano', 'The Route Up']} width={500} height={500} />
+
+
+## The Top
+While on the summit, I had some goats emerge from the fog and walk right up to me. Pretty cool! This is an easy climb that I frequently run after work!
+
+<TwoColumn>
+    <Gif video={goatVid2} width={500} height={889}/>
+
+<div className="flex flex-col justify-center items-center h-[889px]">
+    <Strava
+    stravaId='19100329202'
+    token='Xh0zDhluhg9rWT6AN3twLnSFn6_MYaM8489TmnzvNaQ'
+    />
+</div>
+</TwoColumn>
+
+
+
+Here is the GPX! This one is easy to follow! My watch died on the way back! -> [The Wedge GPX][1]
+
+
+<ContinueReading 
+    articleOne={relatedArticleOne}
+    articleTwo={relatedArticleTwo}
+    articleThree={relatedArticleThree}
+/>
+
+</MdxLayout>
+<br/>
+
+[1]: https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/the-wedge%2FThe_Wedge.gpx?alt=media&token=63a93bcf-0924-431f-bf88-dd014220e082
