@@ -1,0 +1,102 @@
+import { generateMetadata } from '@/lib/seo';
+
+export const postMetadata = {
+    title: "Bomber Traverse",
+    published: "2026-08-04",
+    updated: "2026-08-04",
+    author: 'Nash Bostwick',
+    thumbnail: '/blog/artical-template/thumbnail.JPEG',
+    thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-heavy-lift-strut-install%2Fhippy-hokusai-feature-image.jpg?alt=media&token=ddb151c0-09c7-4c4b-9c91-186e379839ea',
+    description:"description",
+    keywords: ['test', 'test', 'test', 'test', 'test', 'test'],
+    tags: ['Alaska', 'Bomber Traverse', 'Talkeetna Mountains', 'Hatcher Pass', 'Backcountry', 'Trip Report'],
+    isActive: true,
+};
+
+export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="artical-template" />
+
+import { 
+    MdxLayout,
+    OneColumn,
+    TwoColumn,
+    CenteredImage, 
+    TwoCenteredImages, 
+    Footer, 
+    TravelFeature, 
+    Gif, 
+    BlogMapWrapper,
+    TLDR,
+    BlogStatsSection,
+    Stat,
+    ImageFeature,
+    BlackTieTitle,
+    PhotoCarousel,
+    ContinueReading,
+} from '@/components/blog'
+
+import { 
+    faRoute,
+    faArrowTrendUp,
+    faArrowTrendDown,
+    faMountain,
+    faTimer,
+    faCalendarDays,
+    faLocationDot,
+    faPickaxe,
+} from '@awesome.me/kit-237330da78/icons/classic/light'
+
+export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-cold-weather-performance%2Fthumbnail.jpg?alt=media&token=ed7facc8-8f93-470b-a807-f4bbdfeccfae";
+
+export const relatedArticleOne = '/blog/articles/pepper-peak';
+export const relatedArticleTwo = '/blog/articles/north-yuyanq-chex';
+export const relatedArticleThree = '/blog/articles/salt-peak';
+
+<ImageFeature
+    title='Bomber Traverse'
+    image={featureImage}
+/>
+
+<BlogStatsSection>
+    <Stat title={'Distance (Mi)'} stat={'6.8'} icon={faRoute}/>
+    <Stat title={'Summit Elevation'} stat={'4,300'} icon={faMountain}/>
+    <Stat title={'Elevation Gain'} stat={'4,898'} icon={faArrowTrendUp}/>
+    <Stat title={'Elevation Loss'} stat={'4,973'} icon={faArrowTrendDown}/>
+    <Stat title={'Duration'} stat={'07:10:21'} icon={faTimer}/>
+    <Stat title={'Summit Date'} stat={'June 20, 2026'} icon={faCalendarDays}/>
+    <Stat title={'Difficulty'} stat={'Non-Technical'} icon={faPickaxe}/>
+    <Stat title={'Trailhead'} stat={<a href="https://maps.app.goo.gl/VKjMMuhGSrwHxcF97" target="_blank">The Pullout</a>} icon={faLocationDot}/>
+</BlogStatsSection>
+
+
+<MdxLayout>
+
+<TLDR
+text="This is a summary of the of the artical that will be writen bad spellin" 
+/>
+
+# This is the template
+[Kansas River Hazard Information][1]
+
+<CenteredImage image={featureImage} altText={'Cedar Niles 3 Corners'} title={'3 Corners'} width={500} height={500} />
+<TwoCenteredImages image={[featureImage, featureImage]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={500} height={500} />
+
+<ContinueReading 
+    articleOne={relatedArticleOne}
+    articleTwo={relatedArticleTwo}
+    articleThree={relatedArticleThree}
+/>
+
+</MdxLayout>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+[1]: /blog/articals/artical-template
+

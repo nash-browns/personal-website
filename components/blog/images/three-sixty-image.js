@@ -12,6 +12,7 @@ export function ThreeSixtyImage({image}) {
     const [activeAnnotation, setActiveAnnotation] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [hasInteracted, setHasInteracted] = useState(false);
 
     const annotations = [
         // { id: "door", position: new THREE.Vector3(0, 0, -200), label: "Door", size: 1 },
@@ -114,6 +115,15 @@ export function ThreeSixtyImage({image}) {
         controls.enablePan = false;
         controls.rotateSpeed = -0.2;
 
+        // Gently auto-rotate until the user grabs the image
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.4;
+        const handleFirstInteraction = () => {
+            controls.autoRotate = false;
+            setHasInteracted(true);
+        };
+        controls.addEventListener("start", handleFirstInteraction);
+
         // Create and add annotations as CSS3DObjects
         const annotationGroup = new THREE.Group();
         annotations.forEach((point) => {
@@ -176,6 +186,7 @@ ${point.label}
         return () => {
             if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
             window.removeEventListener("click", handleOutsideClick);
+            controls.removeEventListener("start", handleFirstInteraction);
             if (container) {
                 if (webGLRenderer.domElement.parentNode === container) {
                     container.removeChild(webGLRenderer.domElement);
@@ -214,6 +225,53 @@ ${point.label}
                 </div>
             )}
             
+            {/* 360° drag hint — fades out after the first click-and-drag */}
+            {!isLoading && !error && (
+                <div
+                    style={{
+                        position: "absolute",
+                        inset: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        pointerEvents: "none",
+                        zIndex: 5,
+                        opacity: hasInteracted ? 0 : 0.55,
+                        transition: "opacity 0.6s ease",
+                    }}
+                >
+                    <svg
+                        width="140"
+                        height="140"
+                        viewBox="0 0 120 120"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2.5"
+                        style={{ filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.55))" }}
+                    >
+                        <circle cx="60" cy="60" r="52" />
+                        <ellipse cx="60" cy="60" rx="24" ry="52" />
+                        <ellipse cx="60" cy="60" rx="44" ry="52" />
+                        <ellipse cx="60" cy="60" rx="52" ry="20" />
+                        <ellipse cx="60" cy="60" rx="52" ry="38" />
+                        <text
+                            x="60"
+                            y="60"
+                            textAnchor="middle"
+                            dominantBaseline="central"
+                            stroke="none"
+                            fill="white"
+                            fontSize="26"
+                            fontWeight="bold"
+                            fontFamily="sans-serif"
+                            style={{ paintOrder: "stroke", stroke: "rgba(0,0,0,0.35)", strokeWidth: 5 }}
+                        >
+                            360°
+                        </text>
+                    </svg>
+                </div>
+            )}
+
             {/* Hidden Labels Controlled by State */}
             {annotations.map((annotation) => (
                 <style key={annotation.id}>
