@@ -227,36 +227,36 @@ function CitiesSection() {
             <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8 content-evenly p-4 sm:py-4 sm:pr-12">
                 <PlaceCard name="Tokyo">
                     Tokyo was everything that I expected. Small side streets. Amazing food. The culture shock
-                    was interesting. Ive never been surrounded by so many people, but felt completely alone.
+                    was interesting. I&apos;ve never been surrounded by so many people, but felt completely alone.
                     I walked 20+ miles a day soaking it all in.
                 </PlaceCard>
                 <PlaceCard name="Yokohama">
-                    I was here as a day trip out of Tokyo. I met some americans and went to a bar with tons of
+                    I was here as a day trip out of Tokyo. I met some Americans and went to a bar with tons of
                     vinyl. Hearing Willie Nelson at a bar in Japan is a fun experience.
                 </PlaceCard>
-                <PlaceCard name="Mt. Fiji">
+                <PlaceCard name="Mt. Fuji">
                     Beautiful. Slow. I saw a family at a bonfire as I was walking to get ramen that made my
-                    heart happy. Mt. Fiji made my heart happy. The slowness was much needed after a few days
+                    heart happy. Mt. Fuji made my heart happy. The slowness was much needed after a few days
                     in Tokyo.
                 </PlaceCard>
                 <PlaceCard name="Nagoya">
-                    The &quot;dirtiest&quot; city I went to, but it would be the cleanest city in america. I went to the
-                    bars with a few americans that I met. Interesting to say the least...
+                    The &quot;dirtiest&quot; city I went to, but it would be the cleanest city in America. I went to the
+                    bars with a few Americans that I met. Interesting to say the least...
                 </PlaceCard>
                 <PlaceCard name="Osaka">
-                    Hugh. Osaka, Kyoto, and Nara all run together in my mind. I like the bay, the food. I went
-                    to a bakery I saw on instagram 5 years prior. It was worth the wait.
+                    Huge. Osaka, Kyoto, and Nara all run together in my mind. I liked the bay, the food. I went
+                    to a bakery I saw on Instagram 5 years prior. It was worth the wait.
                 </PlaceCard>
                 <PlaceCard name="Kyoto">
-                    I need a redo. I had a blast walking around, but where is the &quot;Old City&quot;? I was hopping to
+                    I need a redo. I had a blast walking around, but where is the &quot;Old City&quot;? I was hoping to
                     see some more old stuff you know?
                 </PlaceCard>
                 <PlaceCard name="Nara">
-                    DEER!! That is all. Some tourists as well. Too many tourist in fact. Great little
+                    DEER!! That is all. Some tourists as well. Too many tourists in fact. Great little
                     &quot;hikes&quot; and some amazing food!
                 </PlaceCard>
                 <PlaceCard name="Kitakyushu">
-                    My Ferry landed here. It was a fun ride, but I am glad that I only stayed a day or so. I
+                    My ferry landed here. It was a fun ride, but I am glad that I only stayed a day or so. I
                     went to a church that had a goofy pastor that was helped by 3 little girls. Very funny.
                     Maybe even more so because I couldn&apos;t understand anything.
                 </PlaceCard>
@@ -368,19 +368,19 @@ export default function JapanApril2026() {
             <Land src={peaceParkStop} alt="Tram stop sign for Peace Park and the Atomic Bomb Museum" sizes="100vw" />
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-8 p-6 sm:p-10 w-full">
                 <PlaceCard name="Nagasaki">
-                    Powerful. This was the first &quot;atomic stop&quot;. When I got off the shenkenson, I dind&apos;t
-                    know how to feel. Sorry? Embarised? Somber? I hadent been stoped by anyone in Japan up
-                    until this point, but as soon as I got off the first tram an old laddy cam up with a big
-                    smile asking where I was from. Soon after, a man in a park flying a kit that said
-                    &quot;PRAY FOR WORLD PEACE&quot; Yelled out to me, &quot;Welcome to Nagasaki&quot;. Im sitll not sure what
+                    Powerful. This was the first &quot;atomic stop&quot;. When I got off the shinkansen, I didn&apos;t
+                    know how to feel. Sorry? Embarrassed? Somber? I hadn&apos;t been stopped by anyone in Japan up
+                    until this point, but as soon as I got off the first tram an old lady came up with a big
+                    smile asking where I was from. Soon after, a man in a park flying a kite that said
+                    &quot;PRAY FOR WORLD PEACE&quot; yelled out to me, &quot;Welcome to Nagasaki&quot;. I&apos;m still not sure what
                     to think.
                 </PlaceCard>
                 <PlaceCard name="Hiroshima">
-                    The second &quot;atomic stop&quot;. I liked peace park and the overall scenery in Nagasaki better,
-                    but the museaum was much better here. The hypocenter memorial in a back ally right next
-                    to an appartment complex is such a strange experience. To stand where the bomb went off
-                    was wild. Seeing shadows of humans burnned into wood was terrifying. What a strange
-                    justpostion from Omaha Beach, where I would be standing one month later.
+                    The second &quot;atomic stop&quot;. I liked Peace Park and the overall scenery in Nagasaki better,
+                    but the museum was much better here. The hypocenter memorial in a back alley right next
+                    to an apartment complex is such a strange experience. To stand where the bomb went off
+                    was wild. Seeing shadows of humans burned into wood was terrifying. What a strange
+                    juxtaposition from Omaha Beach, where I would be standing one month later.
                 </PlaceCard>
             </section>
             <section className="grid grid-cols-2 gap-2 py-2">
