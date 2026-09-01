@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Anton, Fira_Sans } from 'next/font/google';
 import { generateMetadata } from '@/lib/seo';
 import { ArticleSeo } from '@/components/seo';
+import { ContinueReading } from '@/components/blog';
 
 export const postMetadata = {
     title: "Japan 2026",
@@ -399,6 +400,21 @@ export default function JapanApril2026() {
                 <Land src={azaleaStatues} alt="Statue in a garden of blooming azaleas" sizes="50vw" />
                 <Land src={peaceStatue} alt="The Nagasaki Peace Statue against the sky" sizes="50vw" />
             </section>
+
+            {/* related articles — MdxLayout's structure without its parchment background */}
+            <div className="w-full flex flex-col justify-center items-center my-3 px-2 sm:px-0">
+                <div className="w-full max-w-6xl">
+                    <div className="prose prose-sm sm:prose-lg lg:prose-xl">
+                        <div className="p-2 sm:p-3 lg:p-4">
+                            <ContinueReading
+                                articleOne={'/blog/articles/rock-island-katy-trail'}
+                                articleTwo={'/blog/articles/thayer-hut'}
+                                articleThree={'/blog/articles/kodiak-island-explore'}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
