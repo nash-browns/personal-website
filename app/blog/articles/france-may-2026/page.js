@@ -282,7 +282,7 @@ function CinestillSection() {
                             <Label>SOOOOO Much Red</Label>
                         </div>
                         <div className="absolute" style={{ top: '66%', left: '2%' }}>
-                            <Label>Why is the Eiffel tower red?</Label>
+                            <Label>Why is the Eiffel Tower red?</Label>
                         </div>
                         <div className="absolute" style={{ top: '84%', left: '37%' }}>
                             <Label>Why is this angel red?</Label>
@@ -291,7 +291,7 @@ function CinestillSection() {
                     {/* mobile fallback — plain chips */}
                     <div className="flex flex-wrap justify-center gap-3 py-2 sm:hidden">
                         <Label>SOOOOO Much Red</Label>
-                        <Label>Why is the Eiffel tower red?</Label>
+                        <Label>Why is the Eiffel Tower red?</Label>
                         <Label>Why is this angel red?</Label>
                     </div>
                 </div>

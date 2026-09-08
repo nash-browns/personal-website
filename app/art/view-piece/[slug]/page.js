@@ -155,7 +155,7 @@ export function Art({art}) {
         <div className="relative w-full h-full">
             <Image
                 src={image}
-                alt={"Artical Featured Image"}
+                alt={"Article Featured Image"}
                 style={{ objectFit: 'cover', margin: '0' }} // navbar, lineheight, paddding, padding, padding?
                 fill={true}
             />

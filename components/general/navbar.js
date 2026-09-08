@@ -41,7 +41,7 @@ export function NavBar() {
                 <Link className="" href='/' >
                     <Image
                         src={hokuasiWordLogo}
-                        alt='Nash Borowns Logo Long'
+                        alt='Nash Browns Logo Long'
                         width={248}
                         height={48}
                         className="w-48 h-auto"

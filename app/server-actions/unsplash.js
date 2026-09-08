@@ -25,7 +25,7 @@ export async function parseUnsplashText(text) {
     if(!text){
         return {
             title: 'Untitled',
-            description: 'A picture is worth a thousnd words. This picture does not need a description!',
+            description: 'A picture is worth a thousand words. This picture does not need a description!',
         };
     }
 

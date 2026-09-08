@@ -30,7 +30,7 @@ export function ClientDashboard({tenantData, tenantVideos, tenantArticles}) {
                 <div className='flex justify-center items-center w-1/2 hidden min-[948px]:block'>
                     <Image
                         src={companyCoverPhoto}
-                        alt='Nash Borowns Logo Long'
+                        alt='Nash Browns Logo Long'
                         width={500}
                         height={750}
                         className='rounded-xl'
@@ -42,7 +42,7 @@ export function ClientDashboard({tenantData, tenantVideos, tenantArticles}) {
                     <div className='relative flex flex-col w-full h-56'>
                         <Image
                             src={moreExposureMan}
-                            alt={"Artical Featured Image"}
+                            alt={"Article Featured Image"}
                             style={{ objectFit: 'cover', margin: '0' }} // navbar, lineheight, paddding, padding, padding?
                             fill={true}
                             sizes="(min-width: 948px) 50vw, 100vw"
@@ -172,7 +172,7 @@ function Articles({articles}) {
                                                 <div className='relative h-6 w-6 sm:h-10 sm:w-10'>
                                                     <Image
                                                         src={nashBrownsHokusaiLogo}
-                                                        alt={"Artical Featured Image"}
+                                                        alt={"Article Featured Image"}
                                                         style={{ objectFit: 'cover', margin: '0' }} // navbar, lineheight, paddding, padding, padding?
                                                         fill={true}
                                                         sizes="40px"

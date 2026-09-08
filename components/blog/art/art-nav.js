@@ -34,7 +34,7 @@ export function ArtToggle({ type, setType }) {
             </div>
             <div className='flex items-center justify-center gap-3'>
                 <input type="radio" name="radio-10" className="radio checked:bg-blue-500" onClick={() => setType('Photos')} defaultChecked />
-                <input type="radio" name="radio-10" className="radio checked:bg-red-500" onClick={() => setType('Illistrations')} />
+                <input type="radio" name="radio-10" className="radio checked:bg-red-500" onClick={() => setType('Illustrations')} />
             </div>
         </div>
     )

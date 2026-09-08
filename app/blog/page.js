@@ -4,7 +4,7 @@ import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
     title:"Blog",
-    description:"All Blog Articals",
+    description:"All Blog Articles",
     keywords: ['Projects', 'Art', 'Outdoor', 'Travel', 'Blog', 'Alaska', 'Nash Bostwick']
 });
 
