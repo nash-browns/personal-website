@@ -252,3 +252,44 @@ npm run dev
 npm run build
 npm start
 ```
+
+## Security rules and tests
+
+Admin API routes require a valid Firebase ID token and a `users/{email}` record
+assigned to tenant `0`. Changing the tenant in the URL does not grant access.
+
+`firestore.rules` applies the following policy to Firebase client SDK requests:
+
+- Members can read their own profile and records assigned to their tenant.
+  Collection queries must filter by that tenant (`tenant == id` for users and
+  `tenant array-contains id` for content). Use the same number/string type stored
+  in the user's profile.
+- Users without an assigned tenant can read only their own profile.
+- Only tenant `0` administrators can modify users, tenant assignments, tenants,
+  and content, or access the email queue. Admin IDs may be stored as `0` or `"0"`.
+- Visitors can create contact messages with the expected fields and bounded
+  lengths. Client requests cannot read, overwrite, or delete contact messages.
+- Other collections and nested documents are denied by default.
+
+Firebase Admin SDK calls bypass these rules and must enforce authorization on
+the server. Server actions using the Firebase client SDK do not inherit the
+browser's login; these rules do not give those actions privileged access.
+
+Install dependencies with `npm ci`. The API tests require Node.js 18 or later;
+the rules tests also require the Firebase CLI on `PATH` and Java 21. Then run:
+
+```bash
+npm run test:security
+```
+
+The rules suite uses only the local emulator and the
+`demo-nashbrowns-security` project. It does not use production data or credentials.
+Run just the API tests with `npm run test:security:api`.
+
+Deploy the application normally to activate the API changes. Firestore rules
+require a separate deployment; an application deployment does not publish them.
+After selecting the intended Firebase project, deploy only the rules:
+
+```bash
+firebase deploy --only firestore:rules --project YOUR_FIREBASE_PROJECT_ID
+```

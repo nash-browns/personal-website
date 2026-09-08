@@ -2,47 +2,78 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    
-    // Helper function to check if user is authenticated
     function isAuthenticated() {
-      return request.auth != null;
+      return request.auth != null && request.auth.token.email is string;
     }
 
-    // Users collection
+    function hasUserProfile() {
+      return isAuthenticated()
+        && exists(/databases/$(database)/documents/users/$(request.auth.token.email));
+    }
+
+    function userTenant() {
+      return get(/databases/$(database)/documents/users/$(request.auth.token.email)).data.get('tenant', null);
+    }
+
+    function hasTenant() {
+      return hasUserProfile()
+        && (userTenant() is int || userTenant() is string)
+        && string(userTenant()).size() > 0;
+    }
+
+    function isAdmin() {
+      return hasTenant() && userTenant() in [0, '0'];
+    }
+
+    function belongsToTenant(tenant) {
+      return hasTenant() && tenant == userTenant();
+    }
+
     match /users/{email} {
-      // Allow all operations for authenticated users
-      allow read, write: if isAuthenticated();
+      allow get: if (isAuthenticated() && request.auth.token.email == email)
+        || isAdmin() || belongsToTenant(resource.data.tenant);
+      allow list: if isAdmin() || belongsToTenant(resource.data.tenant);
+      // Membership controls every other permission. Users must not grant themselves access.
+      allow create, update, delete: if isAdmin();
     }
 
-    // Tenants collection
     match /tenants/{tenantId} {
-      // Allow all operations for authenticated users
-      allow read, write: if isAuthenticated();
+      allow read: if isAdmin() || (hasTenant() && tenantId == string(userTenant()));
+      allow create, update, delete: if isAdmin();
     }
 
-    // Content collection
     match /content/{contentId} {
-      // Allow all operations for authenticated users
-      allow read, write: if isAuthenticated();
+      allow read: if isAdmin()
+        || (hasTenant() && userTenant() in resource.data.tenant);
+      allow create, update, delete: if isAdmin();
     }
 
-    // Email queue collection
     match /email_queue/{emailId} {
-      // Allow all operations for authenticated users
-      allow read, write: if isAuthenticated();
+      allow read, write: if isAdmin();
     }
 
-    // Incoming requests collection (contact form submissions)
+    function validContactRequest() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['email', 'first_name', 'last_name', 'message', 'phone', 'type', 'site', 'created_at'])
+        && data.keys().hasOnly(['email', 'first_name', 'last_name', 'message', 'phone', 'type', 'site', 'created_at'])
+        && data.email is string && data.email.size() <= 254
+        && data.email.matches('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$')
+        && data.first_name is string && data.first_name.size() > 0 && data.first_name.size() <= 100
+        && data.last_name is string && data.last_name.size() > 0 && data.last_name.size() <= 100
+        && data.message is string && data.message.size() > 0 && data.message.size() <= 10000
+        && data.phone is string && data.phone.size() <= 50
+        && data.type == 'work_with_us'
+        && data.site == 'nash_browns'
+        && data.created_at is timestamp;
+    }
+
     match /incoming_request/{requestId} {
-      // Allow anyone to write (submit contact forms)
-      // No read access needed for public contact forms
-      allow write: if true;
-      allow read: if false;
+      allow create: if validContactRequest();
+      allow read, update, delete: if false;
     }
 
-    // Default rule - deny all other access
     match /{document=**} {
       allow read, write: if false;
     }
   }
-} 
+}
