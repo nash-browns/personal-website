@@ -20,24 +20,16 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="omalley-peak" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    Footer, 
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    Strava,
-    YoutubeVideo,
-    ContinueReading,
-    HashBrownsLoader,
-    Gif,
-    CallOut,
-    TLDR,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { Strava } from '@/components/blog/activity-trackers/strava';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { Gif } from '@/components/blog/videos/gif';
+import { CallOut } from '@/components/blog/callout-feature/callout';
+import { TLDR } from '@/components/blog/layout/tldr';
 
 import { 
     faRoute,
@@ -85,7 +77,7 @@ text="O'Malley is an easy non-technical climb in the front range. It is very fun
 
 I made it up O'Malley Peak on a dreary day in late June. I was lucky; when I left the truck it was starting to sprinkle and it looked like a rainy day was in my future. Fortunately, the mountains kept the rain further back in the range. I would say that it was very pleasant on the summit. It is funny how often this happens to me in the great Chugach. The map below illustrates the route nicely!
 
-<CenteredImage image={route} altText={"O'Malley Peak 3D Map"} width={1000} height={500} />
+<CenteredImage image={route} altText={"O'Malley Peak 3D Map"} width={1000} />
 
 <CallOut title={'Tourist Reroute'}>
     <p className="m-0">There is a big push to divert some of the traffic from Flattop to O'Malley or maybe Little O'Malley. It is hard to tell what the plan is but it is easy to see all of the work that has been put in. Wood planks over delicate areas, exceptional signage, and absence of loneliness abound!</p>
@@ -107,13 +99,13 @@ After I parted ways with the porcupine I was standing on Little O'Malley ridge b
     </div>
 
     <div className={'w-full sm:w-1/2'}>
-        <Gif video={porcupine} width={500}/>
+        <Gif video={porcupine} width={500} height={889}/>
     </div>
 </TwoColumn>
 
 I won't stop talking about the meadow! It is so nice and in late June it was filled with beautiful wildflowers and so few people. Most of the tourists stop at the ridge! The hike to the back was blissful! You want to aim for the large headwall on your hike. I love an easy target and it is easy to hit the bull's-eye here!
 
-<CenteredImage image={headwall} altText={"O'Malley Headwall"} title={"Bull's Eye!!"} width={1000} height={500} />
+<CenteredImage image={headwall} altText={"O'Malley Headwall"} title={"Bull's Eye!!"} width={1000} />
 
 Climb the headwall, turn left and you are at the top! It is that easy. This is my favorite place to take out-of-towners for a few reasons:
 
@@ -140,6 +132,5 @@ Climb the headwall, turn left and you are at the top! It is that easy. This is m
 />
 
 </MdxLayout>
-
 
 

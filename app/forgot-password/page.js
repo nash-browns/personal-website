@@ -1,14 +1,18 @@
+import { generateMetadata } from '@/lib/seo';
 import { Suspense } from "react"
-import { ForgotPassword } from "@/components/auth";
+import { ForgotPassword } from '@/components/auth/forgot-password';
 import { AddBackground } from "@/components/styles";
 import { SimpleSpinner } from "@/components/loading"
 
 
-export default function ForgotPasswordPage({ searchParams }) {
-    const mode = searchParams?.mode;
-    const oobCode = searchParams?.oobCode;
-    const apiKey = searchParams?.apiKey;
-    const lang = searchParams?.lang;
+export const metadata = generateMetadata({
+    title: 'Reset Password',
+    description: 'Reset your Nash Browns account password.',
+    index: false,
+});
+
+export default async function ForgotPasswordPage({ searchParams }) {
+    const { mode, oobCode, apiKey, lang } = await searchParams;
 
     return (
         <Suspense fallback={<SimpleSpinner/>}>
@@ -34,5 +38,4 @@ export default function ForgotPasswordPage({ searchParams }) {
         </Suspense>
     );
 }
-
 

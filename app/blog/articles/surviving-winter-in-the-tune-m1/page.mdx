@@ -19,22 +19,19 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="surviving-winter-in-the-tune-m1" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    CallOut,
-    TwoCenteredImages, 
-    ThreeCenteredImages,
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    ContinueReading,
-    YoutubeAd,
-    YoutubeVideo,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { OneColumn } from '@/components/blog/layout/one-column';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { CallOut } from '@/components/blog/callout-feature/callout';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { ThreeCenteredImages } from '@/components/blog/images/three-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { YoutubeAd } from '@/components/blog/ads/youtube-video';
+import { YoutubeVideo } from '@/components/blog/videos/youtube-video';
 
 import { 
     faCalendarDays,
@@ -145,7 +142,7 @@ During the 10,357-mile trip I experienced temps ranging from -8 degrees in Briti
 9. End in Sioux Falls to grab my bike for the trip home.
 </div>
 
-<CenteredImage image={route} altText={'Trip Route'} title={'The Route'} width={600} height={600} />
+<CenteredImage image={route} altText={'Trip Route'} title={'The Route'} width={600} />
 </TwoColumn>
 
 This ended up exposing me to a lot of different situations. Leaving the truck in the cold and warm for a few days. Using it as a normal car while staying in an Airbnb. 
@@ -189,7 +186,7 @@ Here are the additional items I added to build out the camper for the trip:
 ## Power
 Driving was almost always enough to handle my power needs. There were only a couple of times on the trip that I had to find a plug. Hotels in northern climates usually have plugs for block heaters. 
 
-<TwoCenteredImages image={[battery, batteryCharger]} altText={['EcoFlow Delta Pro Battery', 'EcoFlow Delta Pro Battery Charger']} titles={['EcoFlow Battery Setup', 'EcoFlow Battery Charger Setup']} width={500} height={500} />
+<TwoCenteredImages image={[battery, batteryCharger]} altText={['EcoFlow Delta Pro Battery', 'EcoFlow Delta Pro Battery Charger']} titles={['EcoFlow Battery Setup', 'EcoFlow Battery Charger Setup']} width={500} />
 
 The issue happened when I flew home for Thanksgiving and accidentally left the lights on. This left the battery dead and cold. If the battery is too cold it won't charge. So I had to pull the battery and put it in the front seat as I drove and plugged it into the cigarette lighter charger. It eventually started taking a charge and I was able to find a plug at a community center to charge it the rest of the way.
 
@@ -207,11 +204,11 @@ Solar would also be pretty cool and I almost bought a panel to put on the top of
 <TwoColumn>
 I utilized both the insulation kit from Tune and the DIY roof insulation that I built. I found both to be invaluable. Not only did they keep the camper warmer, but they kept out light when I slept under street lights and kept out the noise when I was sleeping by a road. One other benefit is that they blocked some of the heat from the morning sun during slow mornings in the desert. I also had the factory Tacoma rubber bed liner. I never thought of it as insulation but I was glad that I had it!
 
-<CenteredImage image={insulation2} altText={'Tune M1 insulation'} title={'Insulation'} width={500} height={500} />
+<CenteredImage image={insulation2} altText={'Tune M1 insulation'} title={'Insulation'} width={500} />
 </TwoColumn>
 
 Once you install the insulation pack it is kind of hard to get the little hooks on the bungees hooked onto the canvas loop holes. I saw that someone added little loops on the Facebook group. Easy upgrade, totally worth it!
-<CenteredImage image={insulationString} altText={'Tune M1 insulation'} title={'Insulation'} width={1000} height={1000} />
+<CenteredImage image={insulationString} altText={'Tune M1 insulation'} title={'Insulation'} width={1000} />
 
 More reading on insulation:
 -  [Tune M1 Insulation Pack Install][23]
@@ -220,7 +217,7 @@ More reading on insulation:
 ## Heater
 The Truma heater worked great after a learning curve. I used the heater for comfort only. I woke up in Montana and it was -3 in the camper because I ran out of propane. Wool socks, smart wool leggings, and a sweatshirt combined with my bedding were plenty warm. However, getting out of bed is not fun at those temps! If you are looking for hard data on how the Truma performs in the Tune I recommend checking out my other article [Tune M1 Cold Weather Performance][25]!
 
-<CenteredImage image={heater} altText={'Truma VarioHeat Heater'} title={'Truma VarioHeat'} width={1000} height={1000} />
+<CenteredImage image={heater} altText={'Truma VarioHeat Heater'} title={'Truma VarioHeat'} width={1000} />
 
 ### Initial Issue
 When I got the heater it didn't work due to a loose fitting. It was a bit hard to track down because I didn't know what was normal for the heater. I tightened it up and haven't had any further issues. Just something to keep in mind. All of the common issues that I have run across while using the Tune can be found in this article: [Tune M1 Common Issues & Solutions][29].
@@ -237,16 +234,16 @@ There was a night in Wyoming that my heater quit. I woke up in the cold and was 
 
 When I got out of the camper it had snowed about 10" and all the lines and regulators had about 1/8 of an inch of ice on them. I assume this is why the propane stopped flowing. It also could have been that the regulator stopped working. This icing has only happened twice this winter. I think it takes a combo of snow, warm enough temps where the snow will melt on the roof, and a slight angle of the roof towards the propane tank. With all the factors in place, snow from the roof melts, drips on the regulator and lines, then refreezes causing an issue. Unfortunately, I was in a mood that morning and did not take any pictures, but the situation did happen again after I had implemented the fix. Here are some pictures to get an idea of the issue.
 
-<ThreeCenteredImages image={[heaterIcicle3, heaterIcicle6, heaterIcicle5]} altText={['Ice on the propane regulator', 'Ice on the heater lines', 'Iced propane regulator']} titles={['Iced Regulator','Iced Lines', 'Iced Regulator']} width={300} height={300} />
+<ThreeCenteredImages image={[heaterIcicle3, heaterIcicle6, heaterIcicle5]} altText={['Ice on the propane regulator', 'Ice on the heater lines', 'Iced propane regulator']} titles={['Iced Regulator','Iced Lines', 'Iced Regulator']} width={300} />
 
 The fix is to use [water pipe insulation][26] on the hoses and a [faucet cover][27] on the regulator. The second time there was icing on the lines and hoses was in South Dakota and the fix worked! Another benefit is that the faucet protector keeps the regulators from failing. I went through 3 regulators, but after using the faucet cover, I have had no issues. All three regulators that I used had a warning not to expose them to the elements printed on the side.
 
-<TwoCenteredImages image={[heaterProtection, heaterHoseProtection]} altText={['Faucet Cover', 'Water Pipe Insulation']} titles={['Faucet Cover', 'Water Pipe Insulation']} width={500} height={500} />
+<TwoCenteredImages image={[heaterProtection, heaterHoseProtection]} altText={['Faucet Cover', 'Water Pipe Insulation']} titles={['Faucet Cover', 'Water Pipe Insulation']} width={500} />
 
 ### Heater Inlet
 You really have to keep this thing closed if you are driving, especially in bad weather. I would put the cap on my seat every night so I wouldn't forget the next morning. I would switch the cap out with [this one][34] so that you don't have to find a screwdriver every time. I bought part number [5215K12][35] and it works but there is a ton of extra room. I would probably recommend [5215K11][36], however I have not tried it!
 
-<TwoCenteredImages image={[hoseClamps, heaterVentSnowCovered]} altText={['Hose clamps on the heater inlet', 'Snow-covered heater vent']} titles={['Hose Clamps', 'Snow-Covered Vent']} width={500} height={500} />
+<TwoCenteredImages image={[hoseClamps, heaterVentSnowCovered]} altText={['Hose clamps on the heater inlet', 'Snow-covered heater vent']} titles={['Hose Clamps', 'Snow-Covered Vent']} width={500} />
 
 With how finicky the heater is, I would not be surprised if it got really mad about eating a ton of water and snow.
 
@@ -260,22 +257,22 @@ When I bought the Tune, I knew that condensation was probably going to be an iss
 	- Try to keep these in the cab where it will just freeze.
 - You don't really have to worry about mold, and it's easy to clean because there aren't traditional walls for it to hide in.
 
-<CenteredImage image={condensation1} altText={'Tune M1 Condensation'} title={'Bed Rail Condensation'} width={500} height={500} />
-<TwoCenteredImages image={[condensation4, condensation5]} altText={['Icicles on Tune M1 Lights', 'Bed Rail Freezing']} titles={['Icicles on Lights', 'Bed Rail Freezing']} width={500} height={500} />
+<CenteredImage image={condensation1} altText={'Tune M1 Condensation'} title={'Bed Rail Condensation'} width={500} />
+<TwoCenteredImages image={[condensation4, condensation5]} altText={['Icicles on Tune M1 Lights', 'Bed Rail Freezing']} titles={['Icicles on Lights', 'Bed Rail Freezing']} width={500} />
 
 ### Propane Filling
 Finding filling stations ended up being easier than expected. Companies everywhere will do this. It is way harder to do in Canada and they do not like the sleeve that Tune puts on the bottles.
 - [iOverlander][28]: have local places everywhere
 - Tractor Supply: Almost all of them sell propane and are open late and on Sundays.
 
-<CenteredImage image={prppane} altText={'Propane Fillup!'} title={'The Big Dog'} width={1000} height={1000} />
+<CenteredImage image={prppane} altText={'Propane Fillup!'} title={'The Big Dog'} width={1000} />
 
 ### Everything Freezes
 Something that is obvious but took some adjusting. I ended up making my purchasing decisions based on how easy it would be to get frozen product out of the container.
 - shampoo, food, drinks, everything.
 - You could run the heater but because of the location of the vent you can't when you are going down the highway.
 
-<CenteredImage image={towel} altText={'Frozen towel'} title={'Frozen Solid'} width={800} height={800} />
+<CenteredImage image={towel} altText={'Frozen towel'} title={'Frozen Solid'} width={800} />
 
 ## Eating & Food Prep
 <TwoColumn>
@@ -285,12 +282,12 @@ For cooking I used a cutting board on the bed. Try to only use one bowl to make 
 
 </div>
 
-<CenteredImage image={kitchen} altText={'Tune M1 kitchen'} title={'The Kitchen'} width={500} height={500} />
+<CenteredImage image={kitchen} altText={'Tune M1 kitchen'} title={'The Kitchen'} width={500} />
 
 </TwoColumn>
 
-<TwoCenteredImages image={[fridge, kitchenCounter]} altText={['Tune M1 kitchen', 'Dish storage']} titles={['The Kitchen', 'Dish Storage']} width={500} height={500} />
-<TwoCenteredImages image={[kitchenFull, dishStorage]} altText={['Tune M1 kitchen', 'Dish storage']} titles={['The Kitchen', 'Dish Storage']} width={500} height={500} />
+<TwoCenteredImages image={[fridge, kitchenCounter]} altText={['Tune M1 kitchen', 'Dish storage']} titles={['The Kitchen', 'Dish Storage']} width={500} />
+<TwoCenteredImages image={[kitchenFull, dishStorage]} altText={['Tune M1 kitchen', 'Dish storage']} titles={['The Kitchen', 'Dish Storage']} width={500} />
 
 ## Everything Pink Bag
 I used this to hold everything when I took a shower and dry foods that didn't go into the cooler. I am working on a different solution to hold the dry foods. It needs to be big and strong enough to carry all of your water containers into the shower so you can fill them. This ended up being the default storage for all of my water containers. I also used this to get groceries. I think that getting some better storage in place in order to keep this empty when it's not used will be way better! Uses:
@@ -298,22 +295,22 @@ I used this to hold everything when I took a shower and dry foods that didn't go
 - Dry food storage
 - Water storage
 
-<CenteredImage image={redBag1} altText={'The Everything Bag'} title={'The Everything Bag'} width={500} height={500} />
+<CenteredImage image={redBag1} altText={'The Everything Bag'} title={'The Everything Bag'} width={500} />
 
 This bag was able to hold all of my water containers. Combined, they held about 4 days' worth of water. Hopefully I was able to get a shower in every 4 days so it was enough water to last!
 
 ## Showers & Bathrooms
 This is where I take the everything bag. The issue that ended up being annoying is that the everything bag needed to be emptied of the dry food, then filled with the shower stuff. It's something that I am going to fix before heading back to Alaska. The most basic Tevas seem to be the best shower shoes because they dry so fast, pack to nothing, and somehow don't get gross. I also just ended up wearing them a lot. I tried Crocs too but they are gross. 
 
-<CenteredImage image={showerShoes} altText={'Shower shoes (Tevas)'} title={'Shower Shoes'} width={1000} height={1000} />
+<CenteredImage image={showerShoes} altText={'Shower shoes (Tevas)'} title={'Shower Shoes'} width={1000} />
 
 I tried to take one every 4 days and kept about four days of water with me. The best and most reliable place to fill up water is when you shower. I almost bought a blue water jug but I am so glad that I didn't. It is so much more convenient for a setup like this just to get water as you find it, and fill up inconspicuously. I'm just a dude fillin' a water bottle you know?
 
 <TwoColumn>
-<CenteredImage image={medicenCabnet} altText={'Medicine cabinet'} title={'Medicine Cabinet'} width={325} height={325} />
+<CenteredImage image={medicenCabnet} altText={'Medicine cabinet'} title={'Medicine Cabinet'} width={325} />
 <div>
-<CenteredImage image={waterStorage} altText={'Water storage'} title={'Water Storage'} width={500} height={500} />
-<CenteredImage image={bathroom} altText={'Bathroom setup'} title={'The Bathroom'} width={500} height={500} />
+<CenteredImage image={waterStorage} altText={'Water storage'} title={'Water Storage'} width={500} />
+<CenteredImage image={bathroom} altText={'Bathroom setup'} title={'The Bathroom'} width={500} />
 </div>
 </TwoColumn>
 
@@ -332,7 +329,7 @@ Using only public bathrooms took some time to get used to. 3 months without a pr
 ## Trash
 Gas stations. Keeping everything small is key. Small trash is no exception. You can dump wherever. Gas station trash cans were my go-to. I tried to stay away from dumpsters. People get pissed if they catch you dumping in them.
 
-<TwoCenteredImages image={[trash, velcroHolder]} altText={['Tune M1 Trashcan', 'Velcro Holder']} titles={['Tune M1 Trashcan', 'Velcro Holder']} width={500} height={500} />
+<TwoCenteredImages image={[trash, velcroHolder]} altText={['Tune M1 Trashcan', 'Velcro Holder']} titles={['Tune M1 Trashcan', 'Velcro Holder']} width={500} />
 
 I used a box with a trash bag. The box was just Velcroed to the top of my fridge.
 
@@ -341,16 +338,16 @@ I used a box with a trash bag. The box was just Velcroed to the top of my fridge
 ### Inside
 Keeping a kitchen mat on the floor makes a big difference. Just wash it when you are washing clothes. I just used surface cleaner and paper towels for the most part. I also got a small blower from my mom and it worked pretty well to get the dust out.
 
-<CenteredImage image={rug} altText={'Kitchen Mat'} title={'Kitchen Mat'} width={500} height={500} />
+<CenteredImage image={rug} altText={'Kitchen Mat'} title={'Kitchen Mat'} width={500} />
 
 ### Outside
 I was mostly worried about bugs causing issues with the finish so I tried to wash as much as possible. I can't remember the dos and don'ts. To be honest I just foam brushed that thing and never had any issues! Get the bugs off!!
-<CenteredImage image={bugs} altText={'Bugs on the camper'} title={'Bugs!'} width={1000} height={1000} />
+<CenteredImage image={bugs} altText={'Bugs on the camper'} title={'Bugs!'} width={1000} />
 
 
 ## My Bed
 I kept it pretty standard here. 2 Pillows and a normal set of sheets. The only thing that I have to add is regarding pillow storage. When I first got the camper this was the first issue I ran into. I would just keep them in the back seat of the truck. No problem. Until I inevitably dropped them on the dirty ground. The bed of the truck is also not the cleanest place and usually liable to be wet. So I made a storage solution. It uses a [cargo net from Harbor Freight][33] and some stick up clips. If I were to get another Tune, I would probably add this before the first night out!
-<CenteredImage image={pillowStorage} altText={'Pillow storage cargo net'} title={'Pillow Storage'} width={1000} height={1000} />
+<CenteredImage image={pillowStorage} altText={'Pillow storage cargo net'} title={'Pillow Storage'} width={1000} />
 
 ## Parking - Not Sleeping
 Really easy most of the time, but hard if you are in the city. I found it really hard to find a place to park around big cities. Parking in a parking garage is almost always out of the question, although I made it happen a few times. I think the clearance must be 7-foot-plus for my setup. I picked my mom up in Calgary to ski up in Banff over Christmas and we stayed downtown at a hotel for a night. They only had a parking garage to park in, and it turned into a nightmare to be honest. Stay out of the city as much as possible!
@@ -374,13 +371,13 @@ I slowly got more and more adventurous when it came to sleeping arrangements. I 
     - come in after dark, leave early
 In all 3 months I only had one issue. I was woken up in the morning at the Taos ski resort and they said I shouldn't have slept there and to just move. People honestly don't give a shit. Just be very nice when they knock!
 
-<CenteredImage image={parkingGurageParking} altText={'Parking garage'} title={'Garage Parking'} width={1000} height={1000} />
-<TwoCenteredImages image={[sleepBigSky, sleepBC]} altText={['Sleeping under big sky', 'Sleeping in British Columbia']} titles={['Big Sky Night', 'Sleeping in BC']} width={500} height={500} />
+<CenteredImage image={parkingGurageParking} altText={'Parking garage'} title={'Garage Parking'} width={1000} />
+<TwoCenteredImages image={[sleepBigSky, sleepBC]} altText={['Sleeping under big sky', 'Sleeping in British Columbia']} titles={['Big Sky Night', 'Sleeping in BC']} width={500} />
 
 ## Clothes
 ### Storage
 I used a 2-stage system. Dirty clothes in the cab to hopefully freeze and not release condensation, clean clothes in the camper for easy access.
-<TwoCenteredImages image={[closet3, dirtyClothsStorage]} altText={['The closet bag', 'Dirty clothes storage']} titles={['The "Closet"', 'Dirty Clothes']} width={500} height={500} />
+<TwoCenteredImages image={[closet3, dirtyClothsStorage]} altText={['The closet bag', 'Dirty clothes storage']} titles={['The "Closet"', 'Dirty Clothes']} width={500} />
 
 ### Drying Clothes
 <TwoColumn>
@@ -391,10 +388,10 @@ This was one of my bigger concerns but really wasn't a big deal. As I mentioned 
 - Other "half used" clothes would get stuffed behind the closet.
 </div>
 
-<CenteredImage image={gloveDrying} altText={'Drying gloves'} title={'Glove Drying'} width={400} height={400} />
+<CenteredImage image={gloveDrying} altText={'Drying gloves'} title={'Glove Drying'} width={400} />
 </TwoColumn>
 
-<TwoCenteredImages image={[closet, closet4]} altText={['The closet bag hanging inside the camper', 'Clothes hang drying on the closet bag']} titles={['The "Closet"', 'Hang Drying']} width={500} height={500} />
+<TwoCenteredImages image={[closet, closet4]} altText={['The closet bag hanging inside the camper', 'Clothes hang drying on the closet bag']} titles={['The "Closet"', 'Hang Drying']} width={500} />
 
 ### Doing Laundry
 The first laundromat that I went to was in Spokane, and the homeless dude next to me dumped his pockets and a crack pipe fell out. That was enough of big city laundries for me. Mountain towns have the best/cleanest laundromats. Doing laundry is actually super expensive. All my sheets and clothes could be upwards of $60. At that price it almost makes sense to rent an Airbnb or try to stay at a hostel.
@@ -403,7 +400,7 @@ The first laundromat that I went to was in Spokane, and the homeless dude next t
 The biggest hack I found in the laundry realm was the [laundry detergent that comes in sheets][30]. Huge game changer. Cheaper than single-load detergent at the laundromat and it can be frozen! I kept these at the bottom of the dirty clothes bag. Keep reading to see why!
 </CallOut>
 
-<TwoCenteredImages image={[closet3, dirtyClothsStorage]} altText={['The closet bag', 'Dirty clothes storage']} titles={['The "Closet"', 'Dirty Clothes']} width={500} height={500} />
+<TwoCenteredImages image={[closet3, dirtyClothsStorage]} altText={['The closet bag', 'Dirty clothes storage']} titles={['The "Closet"', 'Dirty Clothes']} width={500} />
 
 You can see my system above. My clean clothes are on the left, in the "closet." Dirty clothes are on the right. This keeps everything nice and separated, but the main benefit becomes apparent when you get to the laundromat.
 1. You just pull up and grab the bag out of the back seat. You already have the detergent sheets at the bottom of the bag!
@@ -414,7 +411,7 @@ This is the best way to do laundry. Tell me I'm wrong!
 
 ## Entertainment
 I stored everything in a backpack. Chargers, cords, my computer, a book. This was a grab-and-go for the library or coffee shop. I used the [Black Hole Mini MLC Pack][37], which I actually hate because you load the smaller pocket from the side instead of the top. The one I linked to is top-loading — I can't even find the one I have anymore. I hate the one I have, but it happens to work well with the Tune setup because it hangs sideways. I would still get the new version though!
-<CenteredImage image={entertainmentBag} altText={'Entertainment Bag'} title={'Entertainment Bag'} width={1000} height={1000} />
+<CenteredImage image={entertainmentBag} altText={'Entertainment Bag'} title={'Entertainment Bag'} width={1000} />
 
 ## Visiting Cities
 When I was beginning the trip I thought that it was going to be great to knock some of the bigger US cities off my bucket list! While this was true, it wasn't as easy or as cheap as I thought it would be. I found that the cheapest way to see a city was by staying at a campground that is as close to public transit as possible. I was able to accomplish this for about 80-100 dollars a night. That sounds crazy expensive, but by the time you factor in paying for parking, the possibility of your car getting broken into, showers, electricity, and laundry, it ends up being a pretty good deal.
@@ -429,7 +426,7 @@ It would be nice to have a bike! I will have one this summer on my trip back to 
 ## Running to the Desert
 The desert is warm even in the winter. I frequently tried to spend a few days out there. It makes the camper feel so much bigger. It's nice to cook outside and air out the camper!
 
-<TwoCenteredImages image={[desert1, desert2]} altText={['High above Moab', 'The Salt Flats']} titles={['High Above Moab', 'The Salt Flats']} width={500} height={500} />
+<TwoCenteredImages image={[desert1, desert2]} altText={['High above Moab', 'The Salt Flats']} titles={['High Above Moab', 'The Salt Flats']} width={500} />
 
 ## Other Insights
 ### [Tailgate Gap Cover][32]
@@ -437,22 +434,22 @@ I bought this tailgate flap as an impulse buy and thought it was going to be kin
 1. Keeps out snow, dirt, sand, really anything that accumulates on the tailgate.
 2. It makes it easier to sweep or blow off the bed with a leaf blower.
 
-<CenteredImage image={tailGateFlap} altText={'Tailgate gap cover'} title={'Tailgate Flap'} width={1000} height={1000} />
+<CenteredImage image={tailGateFlap} altText={'Tailgate gap cover'} title={'Tailgate Flap'} width={1000} />
 
 ### [Bed Stiffeners][31]
 It's hard to know if these are making a difference. I don't see my bed getting out of square so I guess they are working?
-<CenteredImage image={bedStiffiner} altText={'Bed stiffeners'} title={'Bed Stiffeners'} width={1000} height={1000} />
+<CenteredImage image={bedStiffiner} altText={'Bed stiffeners'} title={'Bed Stiffeners'} width={1000} />
 
 ### Ski Storage
 I kept the skis in ski clamps on the top of the Tune. I think this is almost required in order to keep moisture out of the camper. It is also just so dang easy to throw them up there!
-<CenteredImage image={skisInRack} altText={'Skis in ski clamps on top of the Tune M1'} title={'Ski Clamps'} width={1000} height={1000} />
+<CenteredImage image={skisInRack} altText={'Skis in ski clamps on top of the Tune M1'} title={'Ski Clamps'} width={1000} />
 
 ### Misc Storage
 Shoes went in front of the passenger seat. It was easy enough to rearrange to fit a passenger if needed!
-<CenteredImage image={shoeStorage} altText={'Shoe storage in front of the passenger seat'} title={'Shoe Storage'} width={1000} height={1000} />
+<CenteredImage image={shoeStorage} altText={'Shoe storage in front of the passenger seat'} title={'Shoe Storage'} width={1000} />
 
 Nothing too exciting, just a box wrapped in duct tape. This is where I kept spare parts, extra spices (Costco-size garlic salt), sunscreen, Tylenol, just all that good stuff.
-<CenteredImage image={miscStorage2} altText={'Misc storage box wrapped in duct tape'} title={'Misc Storage'} width={1000} height={1000} />
+<CenteredImage image={miscStorage2} altText={'Misc storage box wrapped in duct tape'} title={'Misc Storage'} width={1000} />
 
 # Was the Skiing Good?
 <TwoColumn>
@@ -467,13 +464,13 @@ I definitely had the best powder days of the trip at those resorts so results ma
 </div>
 
 
-<CenteredImage image={ski1} altText={'Skiing powder'} title={'Powder Day'} width={400} height={400} />
+<CenteredImage image={ski1} altText={'Skiing powder'} title={'Powder Day'} width={400} />
 </TwoColumn>
 
-<TwoCenteredImages image={[ski2, hotSprings]} altText={['Skiing', 'Soaking in a hot spring']} titles={['Skiing', 'Hot Springs']} width={500} height={500} />
+<TwoCenteredImages image={[ski2, hotSprings]} altText={['Skiing', 'Soaking in a hot spring']} titles={['Skiing', 'Hot Springs']} width={500} />
 
 Otherwise it was great to see the country and take it easy for a few months. This is the first time that I have been able to take an extended period of time off work as an adult and it was much needed!
-<CenteredImage image={finalImage} altText={'The end of the trip'} title={'Until Next Time'} width={1000} height={1000} />
+<CenteredImage image={finalImage} altText={'The end of the trip'} title={'Until Next Time'} width={1000} />
 
 <OneColumn>
     <YoutubeVideo videoId='-fHcHAK9P4A'/>

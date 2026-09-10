@@ -44,6 +44,8 @@ export function ImageDiff({ imageBefore, imageAfter, beforeAltText, afterAltText
             {/* Before image — in normal flow when no height set, so container grows to fit */}
             <img
                 src={imageAfter}
+                loading="lazy"
+                decoding="async"
                 alt={afterAltText}
                 className={`w-full pointer-events-none ${fixedHeight ? 'absolute inset-0 h-full object-cover' : 'block h-auto'}`}
                 draggable={false}
@@ -51,6 +53,8 @@ export function ImageDiff({ imageBefore, imageAfter, beforeAltText, afterAltText
             {/* After image — always absolutely positioned, clipped to left of slider */}
             <img
                 src={imageBefore}
+                loading="lazy"
+                decoding="async"
                 alt={beforeAltText}
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                 style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}

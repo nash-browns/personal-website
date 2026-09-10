@@ -20,18 +20,15 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-heavy-lift-strut-install" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    Gif, 
-    TLDR,
-    ImageFeature,
-    YoutubeVideo,
-    YoutubeAd,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { Gif } from '@/components/blog/videos/gif';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { YoutubeVideo } from '@/components/blog/videos/youtube-video';
+import { YoutubeAd } from '@/components/blog/ads/youtube-video';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { 
     ReflectiveInsulation,
@@ -76,7 +73,7 @@ This is what I ended up using to get the struts installed:
 * **Strap** -> I used the pull type, but the ratchet style might work too
 * **Small block of wood**
 * **Pliers**
-<CenteredImage image={tools} altText={'Tune M1 Strut Install Tools'}  width={1000} height={500} />
+<CenteredImage image={tools} altText={'Tune M1 Strut Install Tools'}  width={1000} />
     
 <YoutubeAd videoID={'H_NeBTkCW64'} description={'I made a video outlining this install.'} />
 
@@ -89,19 +86,19 @@ The struts have a small wire that holds the strut onto the ball. You rotate the 
 </div>
 
 <div className={'w-full sm:w-2/3'}>
-<CenteredImage image={strutClipSeated} altText={'The Strut Retainer Fully Seated'} title={'Fully Seated'} width={500} height={500} />
-<Gif video={strutVid} width={500}/>
+<CenteredImage image={strutClipSeated} altText={'The Strut Retainer Fully Seated'} title={'Fully Seated'} width={500} />
+<Gif video={strutVid} width={500} height={281}/>
 
 </div>
 </TwoColumn>
 
 ## Rear Strut Install
 The rear struts are much easier to install than the front. You are able to stand directly under the struts and use your legs for leverage. The only thing that made the rear strut install easier was using a piece of wood to distribute the pressure over a larger portion of your hand.
-<CenteredImage image={strutsThree} altText={'Rear Struts Installed on the Tune M1'} width={1000} height={500} />
+<CenteredImage image={strutsThree} altText={'Rear Struts Installed on the Tune M1'} width={1000} />
 
 ## Front Strut Install
 The front is much harder to install because you can't get enough leverage to depress the strut. I tried installing them from a ladder and there was no chance. The next thing I tried was from the roof of the camper. No dice! The only thing that worked was to use a strap to hold the struts in a depressed position. Then install them onto the camper. 
-<CenteredImage image={strutStrap} altText={'Strut Strap Config'} title={'Strut Strap Config'} width={1000} height={500} />
+<CenteredImage image={strutStrap} altText={'Strut Strap Config'} title={'Strut Strap Config'} width={1000} />
 
 The strut installation wasn't easy. It was actually pretty hard. You can use the straps for the front and the back to make things significantly easier. I would budget about 90 minutes to do this job! If you would like to watch me install the struts, you can click on the video below!
 
@@ -118,4 +115,3 @@ It looks like Tune came out with instructions for this procedure. It looks like 
 </MdxLayout>
 
 [1]: https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-heavy-lift-strut-install%2Froof-gas-strut-replacment-guide.pdf?alt=media&token=f0dd4ce7-866e-4121-adb4-4985a98b0c74
-

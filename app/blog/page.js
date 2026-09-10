@@ -1,5 +1,5 @@
 import { folderPaths, getBlogPostMetadata } from "@/lib/next-path"
-import { BlogBrowser } from "@/components/blog"
+import { BlogBrowser } from '@/components/blog/blog-browser';
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({

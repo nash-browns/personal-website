@@ -19,14 +19,12 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="kansas-river-all-hazards" />
 
-import { 
-    CookBookDivider,
-    CenteredImage, 
-    TwoCenteredImages, 
-    OneColumn,
-    TwoColumn,
-    MdxLayout,
-} from '@/components/blog'
+import { CookBookDivider } from '@/components/blog/cookbook-divider';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { OneColumn } from '@/components/blog/layout/one-column';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { MdxLayout } from '@/components/blog/mdx-layout';
 
 export const belvueLowHeadDam = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-all-hazards%2Fbelvue-low-head-dam.png?alt=media&token=85f15e1b-5372-476a-b853-005085413d46";
 export const topekaLowHeadDam = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-all-hazards%2Ftopeka-water-plant-low-head-dam-1.png?alt=media&token=f06198bc-81f4-4e37-ad3a-5fc530f3c67a";
@@ -63,7 +61,7 @@ Approximately 8 miles downriver from the Wamego access ramp.
         * Stay river left to avoid this dam
     </div>
     <div>
-        <CenteredImage image={belvueLowHeadDam} altText={'Belvue Low Head Dam Picture'} width={500} height={500} />
+        <CenteredImage image={belvueLowHeadDam} altText={'Belvue Low Head Dam Picture'} width={500} />
     </div>
 </TwoColumn>
 
@@ -90,13 +88,13 @@ This is a low-head dam, and you should not go over it in any vessel. Portage the
         * Stay river left to portage
     </div>
     <div className='shrink'>
-        <CenteredImage image={topekaLowHeadDam} altText={'Topeka Water Plant Low-Head Dam'} width={500} height={500} />
+        <CenteredImage image={topekaLowHeadDam} altText={'Topeka Water Plant Low-Head Dam'} width={500} />
     </div>
 </TwoColumn>
 
 The Topeka water plant has a low-head dam (often referred to as the Topeka weir) about 2/3 mile downstream from the U.S. 75 bridge.  **YOU SHOULD NOT GO OVER THE DAM IN ANY VESSEL**.  There are two wide concrete access ramps on the north (river left) side of the river, one above the dam and one below the dam, where paddlers can portage.  There is a large gravel parking lot at the ramps, allowing river users to park cars for shuttling and to launch boats both upstream and downstream. In 2021, a paddler's chute and fish ladder were installed on the north bank (river left) between the two access ramps, allowing paddlers to continue through this section of the river without portaging. 
 
-<TwoCenteredImages image={[topekaLowHeadDam2, topekaLowHeadDam3]} altText={['Topeka Water Plant Low-Head Dam', 'Topeka Water Plant Low-Head Dam']} width={500} height={500} />
+<TwoCenteredImages image={[topekaLowHeadDam2, topekaLowHeadDam3]} altText={['Topeka Water Plant Low-Head Dam', 'Topeka Water Plant Low-Head Dam']} width={500} />
 
 Here is a video of the approach:
 <OneColumn>
@@ -115,7 +113,7 @@ Friends of the Kaw Info -> [Topeka Water Plant Low-Head Dam][2]
         * There are no river bank portages
     </div>
     <div className='shrink'>
-        <CenteredImage image={tecumsehLowHeadDam} altText={'Topeka Water Plant Low-Head Dam'} width={500} height={500} />
+        <CenteredImage image={tecumsehLowHeadDam} altText={'Topeka Water Plant Low-Head Dam'} width={500} />
     </div>
 </TwoColumn>
 
@@ -135,7 +133,7 @@ Friends of the Kaw Info -> [Tecumseh Low-Head Dam][5]
         * Stay river right
     </div>
     <div className='shrink'>
-        <CenteredImage image={lawrenceEnergyCenterLowHeadDam} altText={'Topeka Water Plant Low-Head Dam'} width={500} height={500} />
+        <CenteredImage image={lawrenceEnergyCenterLowHeadDam} altText={'Topeka Water Plant Low-Head Dam'} width={500} />
     </div>
 </TwoColumn>
 
@@ -158,13 +156,13 @@ This is a dam and you should not go over it in any vessel. All portage should be
         * Consider car shuttle
     </div>
     <div className='shrink'>
-        <CenteredImage image={bowersock} altText={'Bowersock Dam'} width={500} height={500} />
+        <CenteredImage image={bowersock} altText={'Bowersock Dam'} width={500} />
     </div>
 </TwoColumn>
 
 The dam is one mile below Burcham Park (river right and not recommended for use) and 1.7 miles below Lawrence Riverfront Park (river left). The dam is owned by the City of Lawrence and operated by Bowersock Mills and Power Company.  It is used to generate hydroelectric power and to maintain the pool level for the City of Lawrence drinking water intake, which is upstream.  Most paddlers traveling downriver take boats out at Lawrence Riverfront Park above the dam and launch again on the Kansas at the Lawrence Riverfront Park East/8th Street Access Ramp. This requires a shuttle vehicle.  A small, steep, gravel kayak/canoe takeout exists just above the dam on river left.  Paddlers can take out at that point, portage around the dam and north powerhouse, and put back onto the Kansas River on the east side of the powerhouse.  This involves a steep climb to the top of the levee, a 200-yard walk to the put-in location, and a steep descent on gravel back down to river level.
 
-<TwoCenteredImages image={[bowersockTakeOut, bowersockPutIn]} altText={['Bowersock Take Out', 'Bowersock Put In']} width={500} height={500} />
+<TwoCenteredImages image={[bowersockTakeOut, bowersockPutIn]} altText={['Bowersock Take Out', 'Bowersock Put In']} width={500} />
 
 Friends of the Kaw Info -> [Bowersock Dam][7]
 <CookBookDivider/>
@@ -180,7 +178,7 @@ This is a dam and you should not go over it in any vessel. All portage should be
         * Stay river left
     </div>
     <div className='shrink'>
-        <CenteredImage image={waterone3} altText={'WaterOne Dam'} width={500} height={500} />
+        <CenteredImage image={waterone3} altText={'WaterOne Dam'} width={500} />
     </div>
 </TwoColumn>
 
@@ -188,7 +186,7 @@ This is a rough, 100+ yard portage that requires carrying boats over large, loos
 
 **AVOID THE LOW WATER NOTCH ON RIVER RIGHT NEAR THE SOUTH BANK**. Do not attempt to go over the dam or through the water notch. Portage this dam on river left only. There is no other portage access.  **Currents in this area are dangerous, so use caution**.
 
-<TwoCenteredImages image={[waterone1, waterone2]} altText={['WaterOne Dam', 'WaterOne Dam']} width={500} height={500} />
+<TwoCenteredImages image={[waterone1, waterone2]} altText={['WaterOne Dam', 'WaterOne Dam']} width={500} />
 
 Friends of the Kaw Info -> [WaterOne Low Head Dam][9]
 <CookBookDivider/>
@@ -208,7 +206,7 @@ Sand Dredge. Watch for a cable crossing the river that connects the dredge to bo
         * Stay river left to portage
     </div>
     <div className='shrink'>
-        <CenteredImage image={topekaBridge} altText={'West Old Railroad Bridge'} width={500} height={500} />
+        <CenteredImage image={topekaBridge} altText={'West Old Railroad Bridge'} width={500} />
     </div>
 </TwoColumn>
 
@@ -227,7 +225,7 @@ Friends of the Kaw Info -> [West Old Railroad Bridge][3]
         * Stay river left to portage
     </div>
     <div className='shrink'>
-        <CenteredImage image={topekaBridge2} altText={'Topeka Water Plant Low-Head Dam'} width={500} height={500} />
+        <CenteredImage image={topekaBridge2} altText={'Topeka Water Plant Low-Head Dam'} width={500} />
     </div>
 </TwoColumn>
 

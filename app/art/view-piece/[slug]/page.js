@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchUnsplashImageById, parseUnsplashText } from '@/app/server-actions/unsplash';
 import { generateMetadata as gmd } from '@/lib/seo';
-import { UnsplashDownloader } from '@/components/blog';
+import { UnsplashDownloader } from '@/components/blog/art/download-unsplash';
 
 import { 
     faBitcoin,
@@ -21,10 +21,9 @@ export async function generateMetadata({ params }) {
 
 
         metadata = gmd({
-            title,
+            title: title || 'Untitled',
             description,
-            thumbnail: urls.thumb,
-            localThumb: false,
+            thumbnail: urls.regular,
             keywords: [...tags]
         });
 

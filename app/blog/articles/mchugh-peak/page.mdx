@@ -20,17 +20,14 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="mchugh-peak" />
 
-import { 
-    MdxLayout,
-    CenteredImage, 
-    TwoCenteredImages, 
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    ContinueReading,
-    Strava,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { Strava } from '@/components/blog/activity-trackers/strava';
 
 import { 
     faRoute,
@@ -82,33 +79,33 @@ export const relatedArticleThree = '/blog/articles/salt-peak';
 text="McHugh Peak sits at the far end of the front range. My last time up there was on a beautiful day! It is non-technical with a really fun little top section, and it can make for a great outing. The only downside is that parking can be a bit tricky on a busy day." 
 />
 
-<CenteredImage image={threeDGPX} altText={'3D GPX track of the route up McHugh Peak'} title={'The Route'} width={1000} height={1000} />
+<CenteredImage image={threeDGPX} altText={'3D GPX track of the route up McHugh Peak'} title={'The Route'} width={1000} />
 
 ## The Trailhead
 It can get tight out there. This isn't a huge touristy place, but the trailhead is small. You can see the trailhead circled below in red. I have seen more and more people parking in the blue box. However, I am not 100% sure if it is allowed. 
 
-<CenteredImage image={trailheadMarkup} altText={'Golden View Trailhead parking circled in red with overflow parking marked in blue'} title={'The Trailhead'} width={1000} height={1000} />
+<CenteredImage image={trailheadMarkup} altText={'Golden View Trailhead parking circled in red with overflow parking marked in blue'} title={'The Trailhead'} width={1000} />
 
 ## The Approach
 There is no approach. Well, I guess there could be a small approach if you started further down Honey Bear Lane (blue box). From the main trailhead, you start heading up the ridge right from the parking lot.
 
 ## The Ridge
 It's a fun one, and an easy run. You can cruise up the ridge to the obvious next incline.
-<CenteredImage image={mchughRidgeDrawing} altText={'Route drawing up the ridge toward the summit of McHugh Peak'} title={'The Ridge'} width={1000} height={1000} />
+<CenteredImage image={mchughRidgeDrawing} altText={'Route drawing up the ridge toward the summit of McHugh Peak'} title={'The Ridge'} width={1000} />
 
 
 ## The Top
 It looks technical, but it is easy to pick your way up. Maybe not for small kids? I can't really be sure about that. This is the path that I took, but obviously there are other routes — use judgment! The view from the saddle at the base of the thumb is the same!
-<CenteredImage image={mchughTopDrawing} altText={'Route drawing of the path up the summit block of McHugh Peak'} title={'The Top'} width={1000} height={1000} />
+<CenteredImage image={mchughTopDrawing} altText={'Route drawing of the path up the summit block of McHugh Peak'} title={'The Top'} width={1000} />
 
 
 I was able to see some wildlife while I was out there. Bear Valley always seems wild. I love it out here. Can you even see that ptarmigan? I won't lie, I almost ran right by it. The goats are just hanging around the area this summer. A blessing of the highest order!
 
-<CenteredImage image={goatGif} altText={'Mountain goats hanging around on McHugh Peak'} title={'The Goats'} width={500} height={500} />
-<TwoCenteredImages image={[bird2, porcupine]} altText={['Ptarmigan blending into the rocks', 'Porcupine up close']} titles={['Skinny Ptarmigan', 'Up Close']} width={500} height={500} />
+<CenteredImage image={goatGif} altText={'Mountain goats hanging around on McHugh Peak'} title={'The Goats'} width={500} />
+<TwoCenteredImages image={[bird2, porcupine]} altText={['Ptarmigan blending into the rocks', 'Porcupine up close']} titles={['Skinny Ptarmigan', 'Up Close']} width={500} />
 
 Ohh, and the flowers. These bright pink ones with the mossy base are some of my favorites!
-<TwoCenteredImages image={[flower, flower2]} altText={['Bright pink flowers growing on a mossy base', 'Close-up of bright pink flowers on McHugh Peak']} titles={['The Flowers', 'Up Close']} width={500} height={500} />
+<TwoCenteredImages image={[flower, flower2]} altText={['Bright pink flowers growing on a mossy base', 'Close-up of bright pink flowers on McHugh Peak']} titles={['The Flowers', 'Up Close']} width={500} />
 
 I was able to make decent time up this one!
 

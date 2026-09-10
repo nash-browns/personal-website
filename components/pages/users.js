@@ -5,19 +5,30 @@ import Link from "next/link";
 
 import { useForm } from 'react-hook-form';
 
-import { useAggressiveAuth } from '@/lib/firebase';
+import { useAggressiveAuth } from '@/lib/firebase/auth-hooks';
 import { getAuth, updatePassword, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import { useServerAuth, useAuthenticatedApi } from '@/lib/firebase/auth-hooks';
 
-import { RequireAuth } from '@/components/auth';
-import { AddUserModal } from '@/components/general';
+import { RequireAuth } from '@/components/auth/require-auth';
+import { AccountDataState } from '@/components/auth/account-data-state';
+import { AddUserModal } from '@/components/general/add-user';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@awesome.me/kit-237330da78/icons/classic/regular';
 
-export function Users({ users: initialUsers }) {
+export function Users({ data }) {
+    return (
+        <RequireAuth>
+            <AccountDataState data={data}>
+                <UsersContent key={JSON.stringify([data.userId, data.users])} initialUsers={data.users}/>
+            </AccountDataState>
+        </RequireAuth>
+    );
+}
+
+function UsersContent({ initialUsers }) {
     const [users, setUsers] = useState(initialUsers);
-    // You can implement client-side updates to users here if needed
+    // Remount when refreshed server data changes, while preserving local add/delete updates.
 
     return(
         <RequireAuth>

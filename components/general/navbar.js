@@ -1,14 +1,8 @@
-'use client'
-
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useAggressiveAuth } from '@/lib/firebase';
-import { SignOut } from '@/components/general';
-
 import { AddBackground } from '@/components/styles';
 
-import nashBrwonsWhite from '@/public/nashbrowns-logo-white.png'
 import hokuasiWordLogo from '@/public/hokusai-nashborwns-logo.png'
 
 const menuItems = [
@@ -19,14 +13,14 @@ const menuItems = [
     // {name: 'Travel', href: '/blog/travel'},
 ]
 
-export function NavBar() {
+export function NavBar({ partnerLinks = <PartnerLink/>, mobilePartnerLinks = <PartnerLink/> }) {
 
     return(
         <AddBackground bgColor='bg-base-300'>
         <div className="navbar h-11 max-h-11 border-b-4 border-black text-base-content">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" aria-label="Open navigation" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-base">
@@ -35,7 +29,7 @@ export function NavBar() {
                                 <li key={item.name}><Link href={item.href}>{item.name}</Link></li>
                             ))
                         }
-                        <MobilePartnerSignOutButton/>
+                        {mobilePartnerLinks}
                     </ul>
                 </div>
                 <Link className="" href='/' >
@@ -60,7 +54,7 @@ export function NavBar() {
             </div>
             <div className="navbar-end">
                 <ul className='menu menu-horizontal px-1 text-2xl text-base-content font-didot hidden lg:flex'>
-                    <PartnerSignOutButton/>
+                    {partnerLinks}
                 </ul>
             </div>
         </div>
@@ -68,38 +62,8 @@ export function NavBar() {
     )
 }
 
-function PartnerSignOutButton() {
-    const { user, loading, isAssumed, hasError } = useAggressiveAuth()
-
-    if(user) {
-        return (
-            <div className='flex flex-row gap-1'>
-                <li><Link href='/partners/dashboard'>Dashboard</Link></li>
-                <li><SignOut/></li>
-            </div>
-        )
-    }
-
+function PartnerLink() {
     return (
-        <li><Link href='/partners'>Partners</Link></li>
+        <li><Link href='/partners' prefetch={false}>Partners</Link></li>
     )
-
-}
-
-function MobilePartnerSignOutButton() {
-    const { user, loading, isAssumed, hasError } = useAggressiveAuth()
-
-    if(user) {
-        return (
-            <>
-                <li><Link href='/partners/dashboard'>Dashboard</Link></li>
-                <li><SignOut className="text-base"/></li>
-            </>
-        )
-    }
-
-    return (
-        <li><Link href='/partners'>Partners</Link></li>
-    )
-
 }

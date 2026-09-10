@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.nashbrowns.com
+
+# Sitemaps
+Sitemap: https://www.nashbrowns.com/sitemap.xml

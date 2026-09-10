@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { signInWithEmailAndPassword, sendPasswordResetEmail, getAuth } from "firebase/auth"
 import { auth } from "@/firebase"
+import { syncServerSession } from "@/lib/firebase/client-session"
 import { handleGoogleAuth } from "@/lib/firebase/auth-utils"
 import { useRouter } from "next/navigation"
 
@@ -32,19 +33,13 @@ export function Login() {
     })
 
     const onSubmit = async (data) => {
+        setLoginError(null);
         try {
             const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password)
-            const user = userCredential.user;
-            if (user) {
-                const idToken = await user.getIdToken();
-                // Call API to set the cookie
-                await fetch('/api/auth/set-token-cookie', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ idToken }),
-                });
-            }
-            router.push("/partners/dashboard") // Navigate to the home page
+            const session = await syncServerSession(userCredential.user);
+            if (session.skipped) throw new Error('Your sign-in changed. Please try again.');
+            router.replace("/partners/dashboard");
+            router.refresh();
         } catch (error) {
             console.error("Error logging in:", error)
             setLoginError(error.message)
@@ -58,8 +53,8 @@ export function Login() {
         await handleGoogleAuth(
             // Success callback
             (result) => {
-                console.log('Google Auth successful:', result);
-                router.push("/partners/dashboard");
+                router.replace("/partners/dashboard");
+                router.refresh();
             },
             // Error callback
             (error) => {

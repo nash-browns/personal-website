@@ -22,17 +22,14 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="salt-peak" />
 
-import { 
-    MdxLayout,
-    CenteredImage, 
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    Strava,
-    ContinueReading,
-    RelatedArticles,
-    TLDR,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { Strava } from '@/components/blog/activity-trackers/strava';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { RelatedArticles } from '@/components/blog/navigation/related-articles';
+import { TLDR } from '@/components/blog/layout/tldr';
 
 import { 
     faRoute,
@@ -87,16 +84,16 @@ text="Salt is the final stop on the Condiment Traverse. Maybe the furthest stop 
 />
 
 The route to Salt! The track closer to the lake was me "saving tons of time" on the way back after I had mastered this route!
-<CenteredImage image={route} altText={"Route from Shaker Peak to Salt Peak"} width={1000} height={500} />
+<CenteredImage image={route} altText={"Route from Shaker Peak to Salt Peak"} width={1000} />
 
 You must go lower to get higher! Down Shaker I went. The descent was a nice break but ultimately annoying, not steep enough to scree surf, but steep enough to burn the legs! Beautiful views of the Miter once I got to the saddle!
-<CenteredImage image={miter} altText={"The Miter from the saddle between Shaker and Salt"} width={500} height={500} />
+<CenteredImage image={miter} altText={"The Miter from the saddle between Shaker and Salt"} width={500} />
 
 The nice thing about this outing is that it is very straightforward. I shimmied up Salt as the weather finally broke! The views were nice. Heck, you could even see Palmer from here. Most of the biggest mountains were being bashful and hiding in the clouds!
-<CenteredImage image={palmer} altText={"View toward Palmer from the summit of Salt Peak"} width={1000} height={500} />
+<CenteredImage image={palmer} altText={"View toward Palmer from the summit of Salt Peak"} width={1000} />
 
 The whole trip was uneventful other than the goats. A good thing I guess? The route back was more of the same. It's weird that in order to get back to the trailhead you have to re-climb everything! I of course had to get some Moose's Tooth Za to both celebrate a fun day in the Chugach and wish farewell to Alaska. I'll be back in August.
-<CenteredImage image={pizza} altText={"Mooses Tooth Pizza"} width={500} height={500} />
+<CenteredImage image={pizza} altText={"Mooses Tooth Pizza"} width={500} />
 
 <div className={`w-full`}>
     <h2 className='text-center font-mono'>KPIs (Full Traverse)</h2>

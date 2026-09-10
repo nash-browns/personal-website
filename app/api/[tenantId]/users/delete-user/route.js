@@ -3,7 +3,7 @@ import { adminAuth, adminDb } from '@/lib/firebase/admin';
 
 export async function DELETE(request, { params }) {
   try {
-    const { tenantId } = params;
+    const { tenantId } = await params;
     
     // Get the authorization header
     const authHeader = request.headers.get('authorization');
@@ -86,5 +86,4 @@ export async function DELETE(request, { params }) {
     );
   }
 } 
-
 

@@ -5,8 +5,9 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 
 import { auth } from "@/firebase"
-import { createUserWithEmailAndPassword, signOut, confirmPasswordReset } from "firebase/auth"
-import { useAuth } from "@/lib/firebase";
+import { syncServerSession, signOutSession } from "@/lib/firebase/client-session"
+import { createUserWithEmailAndPassword, confirmPasswordReset } from "firebase/auth"
+import { useAuth } from '@/lib/firebase/auth-context';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@awesome.me/kit-237330da78/icons/classic/regular'
@@ -37,9 +38,8 @@ export function ForgotPassword({ mode, oobCode, apiKey, lang }) {
     const password = watch("password")
 
     const onSubmit = async (data) => {
-        if(user) await signOut(auth);
-
         try {
+            if(user) await signOutSession();
             if (mode === 'resetPassword' && oobCode) {
                 // Handle password reset with oobCode
                 await confirmPasswordReset(auth, oobCode, data.password);
@@ -51,8 +51,11 @@ export function ForgotPassword({ mode, oobCode, apiKey, lang }) {
                 // Handle new user signup (existing logic)
                 const userCredential = await createUserWithEmailAndPassword(auth, newUserEmail, data.password)
                 if (!userCredential) throw new Error("User not created")
+                const session = await syncServerSession(userCredential.user);
+                if (session.skipped) throw new Error("Your sign-in changed. Please try again.");
 
-                router.push("/partners/dashboard") // Navigate to the tenant dashboard
+                router.replace("/partners/dashboard");
+                router.refresh();
             }
         } catch (error) {
             console.error("Error:", error)

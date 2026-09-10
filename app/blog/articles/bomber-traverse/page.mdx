@@ -18,26 +18,15 @@ export const metadata = generateMetadata({...postMetadata});
 
 import { ArticleSeo } from '@/components/seo'
 
-<ArticleSeo post={postMetadata} slug="artical-template" />
+<ArticleSeo post={postMetadata} slug="bomber-traverse" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    Footer, 
-    TravelFeature, 
-    Gif, 
-    BlogMapWrapper,
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    BlackTieTitle,
-    PhotoCarousel,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { 
     faRoute,
@@ -82,8 +71,8 @@ text="This is a summary of the article that will be written with bad spelling."
 # This is the template
 [Kansas River Hazard Information][1]
 
-<CenteredImage image={featureImage} altText={'Cedar Niles 3 Corners'} title={'3 Corners'} width={500} height={500} />
-<TwoCenteredImages image={[featureImage, featureImage]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={500} height={500} />
+<CenteredImage image={featureImage} altText={'Cedar Niles 3 Corners'} title={'3 Corners'} width={500} />
+<TwoCenteredImages image={[featureImage, featureImage]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={500} />
 
 <ContinueReading 
     articleOne={relatedArticleOne}
@@ -99,4 +88,3 @@ text="This is a summary of the article that will be written with bad spelling."
 <br/>
 
 [1]: /blog/articals/artical-template
-

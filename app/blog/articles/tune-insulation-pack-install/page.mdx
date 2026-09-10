@@ -19,17 +19,15 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-insulation-pack-install" />
 
-import { 
-    MdxLayout,
-    ImageFeature,
-    CenteredImage,
-    TwoCenteredImages, 
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
 
-import featureImage from "@/public/blog/tune-insulation-pack-install/feature-image.JPEG";
-import overlap from "@/public/blog/tune-insulation-pack-install/overlap.JPEG";
-import gap from "@/public/blog/tune-insulation-pack-install/gap.JPEG";
-import noGap from "@/public/blog/tune-insulation-pack-install/no-gap.JPEG";
+export const featureImage = "/blog/tune-insulation-pack-install/feature-image.JPEG";
+export const overlap = "/blog/tune-insulation-pack-install/overlap.JPEG";
+export const gap = "/blog/tune-insulation-pack-install/gap.JPEG";
+export const noGap = "/blog/tune-insulation-pack-install/no-gap.JPEG";
 
 <ImageFeature
     title='Tune M1 Insulation Pack Install'
@@ -60,12 +58,12 @@ The side sections are much easier because you don't have the lifting bar in the 
 
 ### Insulation Pack Trimming
 I used the insulation pack for about a month before committing to trimming it back. Why even trim then? The trim is needed because it blocks the side windows if you don't!
-<CenteredImage image={overlap} altText={'OZ Jump Line Jump'} title={'Dirt Jump'} width={'750'} height={'750'} />
+<CenteredImage image={overlap} altText={'OZ Jump Line Jump'} title={'Dirt Jump'} width={'750'} />
 
 
 ## Roof Gap
 After installing the insulation pack, I noticed that the gap between the camper roof and body increased a pretty significant amount. Note that this is with the mattress and roof insulation installed and an untrimmed insulation pack.
-<TwoCenteredImages image={[noGap, gap]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={'h-2/3'} height={'w-2/3'} />
+<TwoCenteredImages image={[noGap, gap]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={750} />
 
 At first, I thought this was due to the roof insulation that I added, and is installed in both of the above pictures. I also saw people on the [Tune Facebook Page][1] talking about the mattress and/or sheets contributing to the gap. With the roof down, I was able to feel around between the mattress and the roof and it didn't feel all that tight. I removed the mattress and was able to immediately see that there was enough room, and the roof was not closing. I contacted Tune, and here was the recommendation:
 

@@ -1,5 +1,5 @@
 import { AddBackground } from '@/components/styles';
-import { Footer } from '@/components/blog';
+import { Footer } from '@/components/blog/footer';
 
 /*
  * Keep this layout free of request-time data (headers, cookies, next-extra's

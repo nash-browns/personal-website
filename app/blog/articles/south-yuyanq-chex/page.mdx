@@ -20,18 +20,15 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="south-yuyanq-chex" />
 
-import { 
-    MdxLayout,
-    TwoColumn,
-    CenteredImage, 
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    RelatedArticles,
-    ContinueReading,
-    Strava,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { RelatedArticles } from '@/components/blog/navigation/related-articles';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { Strava } from '@/components/blog/activity-trackers/strava';
 
 import { 
     faRoute,
@@ -86,10 +83,10 @@ South Yuyanq' Ch'ex (you-yonk cheh) (soft J's only), formerly known as South Sui
 />
 
 This one starts on the saddle after summiting North Yuyanq' Ch'ex. You can read all about the approach [here][1]. The main idea is that I took the yellow line up and the blue line down. 
-<CenteredImage image={drawing} altText={"Route drawing of South Yuyanq' Ch'ex showing the yellow ascent line and blue descent line"} title={'The Route'} width={1000} height={1000} />
+<CenteredImage image={drawing} altText={"Route drawing of South Yuyanq' Ch'ex showing the yellow ascent line and blue descent line"} title={'The Route'} width={1000} />
 
 From the saddle up to the summit couldn't be any easier. You can see the whole path. However, the path is very annoying. Up to the top of the gully, which I eventually used to get back down to Rabbit Lake, it's pretty easy and what you would expect, but above the gully the rocks get bigger and are annoying to get through.
-<CenteredImage image={southTop} altText={"The final rocky climb to the summit of South Yuyanq' Ch'ex above the gully"} title={'The Summit Block'} width={1000} height={1000} />
+<CenteredImage image={southTop} altText={"The final rocky climb to the summit of South Yuyanq' Ch'ex above the gully"} title={'The Summit Block'} width={1000} />
 
 <TwoColumn>
 <div>
@@ -104,19 +101,19 @@ Unfortunately, I didn't get as many photos or videos of this as I would have lik
 
 </div>
 
-<CenteredImage image={backToTheBike} altText={'Fording the river back to my bike below Rabbit Lake'} title={'The Ford'} width={500} height={500} />
+<CenteredImage image={backToTheBike} altText={'Fording the river back to my bike below Rabbit Lake'} title={'The Ford'} width={500} />
 </TwoColumn>
 
 
 It only took one attempt to get across. The main thing I learned was that the bike wanted to "flag" around once I got about a quarter of the way across the river. I was just taking my time, and was able to start sidestepping and point the front wheel upriver and let the river push the back wheel around.
 
-<CenteredImage image={overview} altText={"View of North and South Yuyanq' Ch'ex rising above Rabbit Lake"} title={'The Objective'} width={800} height={800} />
+<CenteredImage image={overview} altText={"View of North and South Yuyanq' Ch'ex rising above Rabbit Lake"} title={'The Objective'} width={800} />
 
 I think this crossing would be mandatory to get over to the mountains, but you could also maybe walk around the back of the lake? Also, this would be very dependent on the time of year. It appears I was there on the day that most of the snow bridges melted, June 15. Earlier, you could probably snow bridge. Late August, there might not be much of a river and you could just walk on the natural dam at the southernmost portion of the lake. Who knows though.
 
 ## From the Back
 Here is a bounce pic from the summit of Indianhouse! I climbed it a few days later! This would be the approach from the Falls Creek side.
-<CenteredImage image={fromIndianhouse} altText={"North and South Yuyanq' Ch'ex viewed from Indianhouse Peak on the Falls Creek side"} title={'From Indianhouse'} width={800} height={800} />
+<CenteredImage image={fromIndianhouse} altText={"North and South Yuyanq' Ch'ex viewed from Indianhouse Peak on the Falls Creek side"} title={'From Indianhouse'} width={800} />
 
 
 <Strava

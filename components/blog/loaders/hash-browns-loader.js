@@ -8,7 +8,9 @@ export function HashBrownsLoader({loadingText, color}) {
                     src={"/loading.svg"}
                     alt='NashBrowns Logo'
                     width={150}
-                    height={150}
+                    height={75}
+                    loading="eager"
+                    style={{ width: 150, height: 'auto' }}
                     className={`-mb-9 ${color == 'white' ? 'invert' : ''}`}
                 />
                 <Image
@@ -16,6 +18,8 @@ export function HashBrownsLoader({loadingText, color}) {
                     alt='NashBrowns Logo'
                     width={150}
                     height={150}
+                    loading="eager"
+                    style={{ width: 150, height: 'auto' }}
                     className='animate-spin-smooth mt-0'
                 />
             </div>

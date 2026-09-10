@@ -31,8 +31,9 @@ export function EmblaCarousel({ slides, options, photos }) {
                                 <div className='relative group w-full'>
                                     <Image
                                         src={photo.photoUrl}
-                                        width={1240}
-                                        height={1240}
+                                        width={photo.photoUrl.width ?? 1240}
+                                        height={photo.photoUrl.height ?? 1240}
+                                        style={{ width: '100%', height: 'auto' }}
                                         sizes="(min-width: 800px) 768px, 100vw"
                                         alt={photo.title ? photo.title : "Photo Gallery Picture"}
                                     />
@@ -90,7 +91,6 @@ function SubTitle({subtitle}) {
         <span className='text-md font-semibold'>{subtitle}</span>
     )
 }
-
 
 
 

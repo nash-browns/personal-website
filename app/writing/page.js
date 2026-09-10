@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { folderPaths, getBlogPostMetadata } from "@/lib/next-path"
-import { MdxLayout} from "@/components/blog"
+
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
-    title:"Wrtiting",
+    title:"Writing",
     description:"All Short Stories",
     keywords: ['Writing','Nash Browns', 'Nash Bostwick']
 });

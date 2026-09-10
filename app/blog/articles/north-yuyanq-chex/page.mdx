@@ -20,19 +20,16 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="north-yuyanq-chex" />
 
-import { 
-    MdxLayout,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    RelatedArticles,
-    ContinueReading,
-    Strava,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { RelatedArticles } from '@/components/blog/navigation/related-articles';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { Strava } from '@/components/blog/activity-trackers/strava';
 
 import { 
     faRoute,
@@ -102,7 +99,7 @@ You can approach the peaks from the northish via Rabbit Creek Trail. You would p
 You can approach via the Falls Creek Trail and trailhead. This would be hiking only. It's pretty easy getting up there. Note that you would be starting the hike substantially lower than the Rabbit Creek trailhead, so there would be more elevation gain.
 </div>
 
-<CenteredImage image={map} altText={"Map showing the two approach options to North Yuyanq' Ch'ex via the Rabbit Creek and Falls Creek trails"} title={'The Decision'} width={500} height={500} />
+<CenteredImage image={map} altText={"Map showing the two approach options to North Yuyanq' Ch'ex via the Rabbit Creek and Falls Creek trails"} title={'The Decision'} width={500} />
 
 </TwoColumn>
 
@@ -110,7 +107,7 @@ You can approach via the Falls Creek Trail and trailhead. This would be hiking o
 I took option 1. I set out via bike from the trailhead. My only concern was the snow situation, and my lack of footwear, in this case trail runners, but I was open to giving it a look.
 
 After biking to the lake, which is always more uphill than I remember, I had to backtrack a bit to find a snow bridge that could be crossed. No problem, I ditched the bike by a large rock and started for the mountains, and after a short walk I was there!
-<CenteredImage image={overview} altText={"View of North and South Yuyanq' Ch'ex rising above Rabbit Lake"} title={'The Objective'} width={800} height={800} />
+<CenteredImage image={overview} altText={"View of North and South Yuyanq' Ch'ex rising above Rabbit Lake"} title={'The Objective'} width={800} />
 
 I was pleasantly surprised by the snow situation. My plan was to climb the large gully on South Suicide, then walk to North Suicide, then backtrack and climb South Suicide and then bomb back down the gully. That's about what ended up happening.
 
@@ -119,23 +116,23 @@ I was pleasantly surprised by the snow situation. My plan was to climb the large
 The gully was snow-free except for a 100-foot section pretty close to the bottom. It always brings peace of mind to have a friend when you are on the snow, but I was feeling pretty good about it. Only some of the snow was on the verge of avalanche terrain (in my opinion). After crossing the snow patch, the slog up the gully began.
 </div>
 
-<CenteredImage image={snowPortion} altText={"Snow patch crossing the lower section of the gully on Yuyanq' Ch'ex"} title={'The Snow'} width={500} height={500} />
+<CenteredImage image={snowPortion} altText={"Snow patch crossing the lower section of the gully on Yuyanq' Ch'ex"} title={'The Snow'} width={500} />
 
 </TwoColumn>
 
 You could climb this all the way up, but because I was heading for the north peak, I exited a little early. The exit seemed obvious to me, and was a little sketchier than I would have guessed but nothing too crazy!
-<CenteredImage image={gullyClimb} altText={"Looking up the rocky gully climb on North Yuyanq' Ch'ex"} title={'The Gully'} width={1000} height={1000} />
+<CenteredImage image={gullyClimb} altText={"Looking up the rocky gully climb on North Yuyanq' Ch'ex"} title={'The Gully'} width={1000} />
 
 <TwoColumn>
 Crossing the saddle is very easy and it was a beautiful day to stop and take lunch! Next, the climb to North Suicide. Nothing to report, you just follow the ridge until it gets a little more technical about 200 feet from the top.
 
-<CenteredImage image={lunch} altText={"Lunch stop on the saddle between North and South Yuyanq' Ch'ex"} title={'The Saddle'} width={500} height={500} />
+<CenteredImage image={lunch} altText={"Lunch stop on the saddle between North and South Yuyanq' Ch'ex"} title={'The Saddle'} width={500} />
 
 </TwoColumn>
 
 The top requires some climbing. I'm no rock classification expert, but I have seen this rated as class 3. I found scrambling up and back down to be easy and fun. However, I probably wouldn't take someone that's not accustomed to the mountains. It may be easy climbing that they are totally capable of doing, and I think you could argue about the amount of exposure involved, but I think the perceived exposure could be a lot for some people. Here is the hardest part of the section:
 
-<CenteredImage image={top} altText={"The class 3 summit scramble on North Yuyanq' Ch'ex with my route drawn in blue and an alternate in yellow"} title={'The Crux'} width={1000} height={1000} />
+<CenteredImage image={top} altText={"The class 3 summit scramble on North Yuyanq' Ch'ex with my route drawn in blue and an alternate in yellow"} title={'The Crux'} width={1000} />
 
 You can see my route in blue. I used this both on the ascent and descent. The route in yellow would probably be much easier, but it is exposed to a very large fall. Note that on climber's right of my route there is also exposure — although scary, I think it would be hard to fall that direction.
 
@@ -144,17 +141,17 @@ After making it through this section above, you can pretty much eliminate any ex
 I don't really know how or why you would want to bring a dog up here but I've heard that it's been done. It would freak me out hahahaha. Dogs and out-of-towners are terrifying in the mountains. jkjk
 
 Amazing views from the summit! I descended back through the exposure (easier than I expected on the way up) and made my way back to the saddle. On the way, I saw the large gully that I read most people take back to the lake. This had more snow on it than I was ready to deal with and was the main reason I decided to climb the North Peak first!
-<TwoCenteredImages image={[summit, summitTwo]} altText={["Summit ridge view from North Yuyanq' Ch'ex", "Panorama from the summit of North Yuyanq' Ch'ex"]} titles={['The Summit', 'Summit Views']} width={500} height={500} />
+<TwoCenteredImages image={[summit, summitTwo]} altText={["Summit ridge view from North Yuyanq' Ch'ex", "Panorama from the summit of North Yuyanq' Ch'ex"]} titles={['The Summit', 'Summit Views']} width={500} />
 
 
 ## The Descent
 The normal descent route, as far as I have read, is a gully on the northish side of the mountain. It looks like you could in fact descend this gully in all of five minutes and pretty much just walk out. However, there was some snow to deal with on the day I was out there, and this is the main reason I decided to climb the South Peak second and descend the gully that I originally ascended.
-<TwoCenteredImages image={[topGully, gullyDrawing]} altText={["Looking down the standard descent gully on North Yuyanq' Ch'ex", "The same descent gully with the route drawn in"]} titles={['The Descent Gully', 'Descent Route']} width={500} height={500} />
+<TwoCenteredImages image={[topGully, gullyDrawing]} altText={["Looking down the standard descent gully on North Yuyanq' Ch'ex", "The same descent gully with the route drawn in"]} titles={['The Descent Gully', 'Descent Route']} width={500} />
 
 
 ## From the Back
 Here is a bounce pic from the summit of Indianhouse! I climbed it a few days later! This would be the approach from the Falls Creek side.
-<CenteredImage image={fromIndianhouse} altText={"North and South Yuyanq' Ch'ex viewed from Indianhouse Peak on the Falls Creek side"} title={'From Indianhouse'} width={800} height={800} />
+<CenteredImage image={fromIndianhouse} altText={"North and South Yuyanq' Ch'ex viewed from Indianhouse Peak on the Falls Creek side"} title={'From Indianhouse'} width={800} />
 
 
 You can read about the South ascent and return to the trailhead here -> [South Yuyanq' Ch'ex][1]. It's important to read, I guess snow melts.

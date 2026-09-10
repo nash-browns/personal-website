@@ -22,25 +22,15 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="shaker-peak" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    Footer, 
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    Strava,
-    YoutubeVideo,
-    ContinueReading,
-    RelatedArticles,
-    HashBrownsLoader,
-    Gif,
-    Callout,
-    TLDR,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { Strava } from '@/components/blog/activity-trackers/strava';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { RelatedArticles } from '@/components/blog/navigation/related-articles';
+import { TLDR } from '@/components/blog/layout/tldr';
 
 import { 
     faRoute,
@@ -94,12 +84,12 @@ text="Shaker Peak is the second stop on the Condiment Traverse. It is more of a 
 />
 
 The route to Shaker is short and straightforward:
-<CenteredImage image={route} altText={"Route from Pepper Peak to Shaker Peak"} width={1000} height={500} />
+<CenteredImage image={route} altText={"Route from Pepper Peak to Shaker Peak"} width={1000} />
 
 When I got to the massive pile of rocks on the peak, I was levitating among the clouds. I couldn't see shit. I took a few steps beyond the cairn before I heard my watch start beeping. I was off course! I had the customary first thought, "Why is my watch fucked up?" I couldn't be going the wrong way. As always, after getting my bearings, I was in fact going the wrong way! At the cairn you must take a hard right. I started a blind descent into the abyss. It looked like I was walking towards a cliff!
 
 The clouds occasionally would open up enough for me to get some sort of bearing. I was quickly assured that this was the correct route when I saw the ridge, Shaker, and Pepper. Also, no cliff! Eklutna Lake even made an appearance from time to time!
-<CenteredImage image={thePoint} altText={"View of Eklutna Lake from Shaker Ridge"} width={1000} height={500} />
+<CenteredImage image={thePoint} altText={"View of Eklutna Lake from Shaker Ridge"} width={1000} />
 
 
 <TwoColumn>
@@ -110,7 +100,7 @@ In the image to the right I need to start to veer to the right! I don't know if 
     </div>
 
     <div className={'w-full sm:w-1/2'}>
-        <CenteredImage image={garminWatch} altText={"O'Malley Peak 3D Map"} width={1000} height={500} />
+        <CenteredImage image={garminWatch} altText={"O'Malley Peak 3D Map"} width={1000} />
     </div>
 </TwoColumn>
 

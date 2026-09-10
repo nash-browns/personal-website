@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Image from 'next/image'
 import {
     faArrowRight,
     faArrowDown,
@@ -6,12 +7,6 @@ import {
 
 export function YoutubeAd({videoID, description}) {
     const videoURL = `https://www.youtube.com/watch?v=${videoID}`;
-
-    const autoPlay = 'autoplay=0'
-    const mute = 'mute=0'
-    const loop = 'loop=0'
-    const playlist = `playlist=${videoID}`
-    const origin = 'origin=https://nashbrowns.com'
 
     return(
         <div className="not-prose h-fit w-full my-6 sm:my-8 bg-[#1E4C8A] bg-[url('/textures/default-noise-8.png')] bg-repeat bg-[length:25px] sm:bg-[length:50px] border-[3px] border-black rounded-lg shadow-[5px_5px_0_0_#E0386F] p-3 sm:p-4">
@@ -27,21 +22,22 @@ export function YoutubeAd({videoID, description}) {
                     <span className="text-xs sm:text-sm">Click the video to go to YouTube</span>
                 </div>
                 <div className="w-full md:w-[45%]">
-                    <a href={videoURL} className='block border-[3px] border-black rounded-md overflow-hidden'>
-                        <div className='pointer-events-none w-full'>
-                            <iframe
-                                src={`https://www.youtube.com/embed/${videoID}?si=1plKHiXuvLu5gtVo&${autoPlay}&${mute}&${loop}&${playlist}&${origin}`}
-                                title="YouTube video player"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                allowFullScreen
-                                className="block w-full h-auto pointer-events-none"
-                                style={{
-                                    aspectRatio: '16 / 9',
-                                    maxWidth: '100%'
-                                }}
+                    <a href={videoURL} aria-label={`Watch on YouTube${description ? `: ${description}` : ''}`} className='group block border-[3px] border-black rounded-md overflow-hidden'>
+                        <div className='relative aspect-video w-full'>
+                            <Image
+                                src={`https://img.youtube.com/vi/${videoID}/hqdefault.jpg`}
+                                alt={description || 'YouTube video preview'}
+                                fill
+                                sizes="(min-width: 768px) 400px, 100vw"
+                                className="object-cover"
+                                loading="lazy"
                             />
+                            <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
+                                <svg viewBox="0 0 68 48" className="w-16 drop-shadow-lg transition-transform group-hover:scale-110">
+                                    <rect width="68" height="48" rx="12" fill="#f00" />
+                                    <path d="M28 14v20l18-10z" fill="#fff" />
+                                </svg>
+                            </span>
                         </div>
                     </a>
                 </div>

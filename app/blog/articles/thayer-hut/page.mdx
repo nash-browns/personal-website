@@ -20,17 +20,14 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="thayer-hut" />
 
-import { 
-    MdxLayout,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    MdxImage,
-    ImageFeature,
-    Strava,
-    PhotoCarousel,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { Strava } from '@/components/blog/activity-trackers/strava';
+import { PhotoCarousel } from '@/components/blog/images/photo-carousel/photo-carousel';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/thayer-hut%2Ffeature-image.JPEG?alt=media&token=2b6943ad-6210-4b7a-a67b-607e8707a17f";
 export const tent = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/thayer-hut%2Ftent.JPEG?alt=media&token=5db67af8-4cbc-4111-9e38-3387dbb12181";
@@ -55,22 +52,22 @@ export const relatedArticleThree = '/blog/articles/rock-island-katy-trail';
 
 ## The Ice Cave
 Unfortunately, the ice cave that was at the toe of the glacier is no longer there. In fact, it fell 4 days after my first visit to the area. Today, it is unrecognizable :(
-<TwoCenteredImages image={[iceCave, noIceCave]} altText={['Castner Glacier Ice Cave', 'Castner Glacier Ice Cave Fallen']} titles={['The Old Ice Cave', 'Fallen Ice Cave']} width={'500'} height={'500'} />
-<CenteredImage image={glacierToday} altText={'Recent Castner Glacier Picture'} title={'Recent Picture'} width={'750'} height={'500'} />
+<TwoCenteredImages image={[iceCave, noIceCave]} altText={['Castner Glacier Ice Cave', 'Castner Glacier Ice Cave Fallen']} titles={['The Old Ice Cave', 'Fallen Ice Cave']} width={'500'} />
+<CenteredImage image={glacierToday} altText={'Recent Castner Glacier Picture'} title={'Recent Picture'} width={'750'} />
 
 
 <TwoColumn>
 My first attempt to get out to Thayer was unsuccessful and I ended up pitching my tent out on the moraine. I didn't make it to the hut because I could not find where it was. I thought it would be obvious. I had read something that said you can see the meadow from the parking lot and the approach was steeper than they expected. This continued to run through my head and I was sure the hut was on the ledge directly at the back of the valley. This is not the case!
-<CenteredImage image={tent} altText={'Tent on Castner Glacier'} title={'Not Many Tent Spots'} width={'500'} height={'500'} />
+<CenteredImage image={tent} altText={'Tent on Castner Glacier'} title={'Not Many Tent Spots'} width={'500'} />
 </TwoColumn>
 
 <TwoColumn>
-<CenteredImage image={truckCamper} altText={'Truck Parking'} title={'Parking for the Night'} width={'500'} height={'500'} />
+<CenteredImage image={truckCamper} altText={'Truck Parking'} title={'Parking for the Night'} width={'500'} />
 I spent the night in the parking lot after the long drive from Anchorage. It is a beautiful and mostly quiet spot! I have spent the night at other places closer to Glennallen but the mosquitoes are so much worse down there!
 </TwoColumn>
 
 The walk up the moraine is quite awful. I probably won't be going back out to the hut again without skis. The goal is to stay on the south side of the valley as long as possible and to cross over to the north side when you are close to the final climb. The creek running down the center of the glacier is the only thing I would be concerned about. If it is a warmer day it may be hard to cross the creek, and you might be forced to make the crossing earlier than is ideal. On a beautiful early September day, the crossing was not an issue!
-<CenteredImage image={glacierCreek} altText={'Castner Glacier River'} title={'Water Crossing'} width={'500'} height={'500'} />
+<CenteredImage image={glacierCreek} altText={'Castner Glacier River'} title={'Water Crossing'} width={'500'} />
 
 As I said, this is not a fun hike. You are constantly walking over rocks, so you can't really look around or just turn off your brain. I found that walking straight is the best strategy if you are trying to get to the back quickly and efficiently. It's hard to prove that this is effective, but you can see my case study below:
 <TwoColumn>
@@ -89,11 +86,11 @@ As I said, this is not a fun hike. You are constantly walking over rocks, so you
 
 ## The Final Climb
 The final climb is way steeper than I thought but it is relatively easy to see how to make it up the main chute on the west face. If you are comfortable with some crevasse exposure, going further up the glacier and then backtracking / side-hilling up to the hut is much easier! The picture below is the steep route that basically looks flat in the picture.
-<CenteredImage image={finalClimb} altText={'Climb up to the hut'} title={'Final Climb'} width={'500'} height={'500'} />
+<CenteredImage image={finalClimb} altText={'Climb up to the hut'} title={'Final Climb'} width={'500'} />
 
 <TwoColumn>
 This is a very cool place to go and I am excited to go back for longer than an overnight. It would be awesome to carve out enough time to do some climbing! Remember to stop at Tok Thai on the way home!
-<CenteredImage image={tokTai} altText={'Tok Thai'} title={'Tok Thai'} width={'500'} height={'500'} />
+<CenteredImage image={tokTai} altText={'Tok Thai'} title={'Tok Thai'} width={'500'} />
 </TwoColumn>
 
 <PhotoCarousel 

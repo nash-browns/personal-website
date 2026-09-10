@@ -23,6 +23,7 @@ export function YoutubeVideo({videoId}){
                 <div className="flex justify-center items-center w-full">
                     <div className="w-full max-w-full overflow-hidden border-[3px] border-black rounded-md">
                         <iframe
+                            loading="lazy"
                             src={`https://www.youtube.com/embed/${videoId}?si=1plKHiXuvLu5gtVo&${autoPlay}&${mute}&${loop}&${playlist}&${origin}`}
                             title="YouTube video player"
                             frameBorder="0"

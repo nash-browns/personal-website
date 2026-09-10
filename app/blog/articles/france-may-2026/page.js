@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Anton, Fira_Sans } from 'next/font/google';
 import { generateMetadata } from '@/lib/seo';
 import { ArticleSeo } from '@/components/seo';
-import { ContinueReading } from '@/components/blog';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 export const postMetadata = {
     title: "France 2026",
@@ -111,7 +111,7 @@ const libertyBarge = "https://firebasestorage.googleapis.com/v0/b/nash-browns.fi
  * Empty src strings render as gray placeholder tiles until the photos
  * are uploaded to Firebase Storage under france-may-2026/.
  */
-function Photo({ src, alt, className = '', priority = false, eager = false, sizes = '100vw' }) {
+function Photo({ src, alt, className = '', priority = false, sizes = '100vw' }) {
     if (!src) {
         return <div className={`relative overflow-hidden bg-neutral-300 ${className}`} aria-label={alt} />;
     }
@@ -122,7 +122,6 @@ function Photo({ src, alt, className = '', priority = false, eager = false, size
                 alt={alt}
                 fill
                 priority={priority}
-                loading={eager && !priority ? 'eager' : undefined}
                 sizes={sizes}
                 className="object-cover"
             />
@@ -130,12 +129,12 @@ function Photo({ src, alt, className = '', priority = false, eager = false, size
     );
 }
 
-function Land({ src, alt, sizes = '33vw', priority = false, eager = false, className = '' }) {
-    return <Photo src={src} alt={alt} className={`aspect-[3/2] w-full ${className}`} sizes={sizes} priority={priority} eager={eager} />;
+function Land({ src, alt, sizes = '33vw', priority = false, className = '' }) {
+    return <Photo src={src} alt={alt} className={`aspect-[3/2] w-full ${className}`} sizes={sizes} priority={priority} />;
 }
 
-function Port({ src, alt, sizes = '25vw', eager = false, className = '' }) {
-    return <Photo src={src} alt={alt} className={`aspect-[2/3] w-full ${className}`} sizes={sizes} eager={eager} />;
+function Port({ src, alt, sizes = '25vw', className = '' }) {
+    return <Photo src={src} alt={alt} className={`aspect-[2/3] w-full ${className}`} sizes={sizes} />;
 }
 
 function Chip({ children }) {
@@ -360,9 +359,9 @@ export default function FranceMay2026() {
 
             {/* café row */}
             <section className="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2">
-                <Land src={cafeRed} alt="Red café corner with tables on the sidewalk" sizes="33vw" eager />
-                <Land src={cafeFloreAcross} alt="Café de Flore from across the boulevard" sizes="33vw" eager />
-                <Land src={cafeGreen} alt="Green café terrace behind the hedge" sizes="33vw" eager />
+                <Land src={cafeRed} alt="Red café corner with tables on the sidewalk" sizes="33vw" />
+                <Land src={cafeFloreAcross} alt="Café de Flore from across the boulevard" sizes="33vw" />
+                <Land src={cafeGreen} alt="Green café terrace behind the hedge" sizes="33vw" />
             </section>
 
             <Land src={cafeFloreBig} alt="The crowd outside Café de Flore" sizes="100vw" />

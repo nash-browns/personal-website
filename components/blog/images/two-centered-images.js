@@ -10,7 +10,7 @@ export function TwoCenteredImages({image, titles, subtitles, altText, width, hei
 
     return (
         <div className='flex flex-col sm:flex-row justify-center items-center gap-2 w-full h-fit'>
-            <div className='grid group w-fit not-prose'>
+            <div className='grid group w-fit max-w-full min-w-0 not-prose'>
                 <div className='col-start-1 row-start-1'>
                     <MdxImage src={imageOne} alt={altTextOne} height={height} width={width}/>
                 </div>
@@ -20,7 +20,7 @@ export function TwoCenteredImages({image, titles, subtitles, altText, width, hei
                     }
                 </div>
             </div>
-            <div className='grid group w-fit not-prose'>
+            <div className='grid group w-fit max-w-full min-w-0 not-prose'>
                 <div className='col-start-1 row-start-1'>
                     <MdxImage src={imageTwo} alt={altTextTwo} height={height} width={width}/>
                 </div>

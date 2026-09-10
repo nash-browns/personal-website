@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET(req, { params }) {
-    const { slug } = params;
+    const { slug } = await params;
 
     // Define your redirect mapping
     const redirectMap = {
@@ -13,4 +13,3 @@ export async function GET(req, { params }) {
 
     return NextResponse.redirect(new URL(destination, req.url), 307);
 }
-

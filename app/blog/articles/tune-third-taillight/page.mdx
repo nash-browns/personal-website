@@ -20,18 +20,16 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-third-taillight" />
 
-import { 
-    MdxLayout,
-    CenteredImage, 
-    TwoCenteredImages, 
-    TLDR,
-    ImageFeature,
-    Gif,
-    CallOut,
-    ContinueReading,
-    YoutubeVideo,
-    YoutubeAd,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { Gif } from '@/components/blog/videos/gif';
+import { CallOut } from '@/components/blog/callout-feature/callout';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { YoutubeVideo } from '@/components/blog/videos/youtube-video';
+import { YoutubeAd } from '@/components/blog/ads/youtube-video';
 
 import { 
     TrailerConnector,
@@ -81,8 +79,8 @@ If the Tune M1 had been installed on any of my previous trucks, I wouldn't have 
 
 ## Tune's Recommended Method (I didn't do this)
 Tune does not provide instructions on how to wire up the 3rd brake light. I can't really blame them for this. There are so many different cars, you are bound to leave someone out! Their advice: "Take this bag of wires to any mechanic and they will wire it for you". Obviously, I'm not doing that. Fortunately, it was very easy to decipher the intent behind the bag of wires!
-<CenteredImage image={tuneWiring} altText={'Tune M1 Recommended Wiring Example'} title={'Wiring Example'} width={500} height={500} />
-<TwoCenteredImages image={[taillightWiringOne, taillightWiringTwo]} altText={["Tune's Recommended Wiring", '2022 Tacoma Brake Light Power and Ground Wires']} titles={['Wire Tapping', 'Blue -> Hot / White -> Ground']} width={500} height={500} />
+<CenteredImage image={tuneWiring} altText={'Tune M1 Recommended Wiring Example'} title={'Wiring Example'} width={500} />
+<TwoCenteredImages image={[taillightWiringOne, taillightWiringTwo]} altText={["Tune's Recommended Wiring", '2022 Tacoma Brake Light Power and Ground Wires']} titles={['Wire Tapping', 'Blue -> Hot / White -> Ground']} width={500} />
 
 The connector on the left plugs into the Tune. The black wire goes to ground, the red goes to power. It's that simple! They also included a fuse which I feel is unneeded because the truck already has a fuse on that circuit, but I ended up installing it in my final setup as a precaution! I had a few thoughts on where to get power for this setup:
 
@@ -90,13 +88,13 @@ The connector on the left plugs into the Tune. The black wire goes to ground, th
 
 ### The Brake Light
 This is almost certainly what Tune had in mind when they supplied the wires. You could run them out near the tailgate, right into the back of the brake light. Ultimately, this is where I ended up getting power from, but I didn't want to have the wire exposed. It would be a matter of time before I caught it with something. Also, I was not big on the aesthetics!
-<CenteredImage image={lightWiring} altText={'2022 Toyota Tacoma Brake Light Wiring'} title={'Brake Light Wiring'} width={600} height={600} />
+<CenteredImage image={lightWiring} altText={'2022 Toyota Tacoma Brake Light Wiring'} title={'Brake Light Wiring'} width={600} />
 
 <CallOut title={'2022 Toyota Tacoma Wiring'} text={"You should verify everything you read on the internet with a voltmeter! On my truck, the brake light was the middle bulb in the taillight group. If you are looking at the wiring harness side of the brake light connection, the blue wire is power and the white wire with the black tracer is the ground! Best of luck!"} />
 
 ### The Trailer Light Port
 This was my plan for about 2 weeks while thinking about this project. The idea being that I would wire in a trailer port using something like this: <TrailerConnector/>. I decided to go a different route primarily for aesthetic reasons. I also didn't want the truck's trailer port open and exposed to the elements all the time. Lastly, you can't hook in a trailer anymore. Do I pull trailers often? Nope, but I like the idea of just plugging one in if needed and not having to think about the Tune! 
-<TwoCenteredImages image={[trailerPort, trailerPortTwo]} altText={['2022 Toyota Tacoma Trailer Port', '2022 Toyota Tacoma 4 Way Flat Trailer Port']} titles={['Trailer Port', 'Possible Light Plugin']} width={500} height={500} />
+<TwoCenteredImages image={[trailerPort, trailerPortTwo]} altText={['2022 Toyota Tacoma Trailer Port', '2022 Toyota Tacoma 4 Way Flat Trailer Port']} titles={['Trailer Port', 'Possible Light Plugin']} width={500} />
 
 If Tune ever decides to post instructions for this process, it would be on their [Tune Owners Guide][1] page. I think this is somewhat doubtful.
 
@@ -106,7 +104,7 @@ I ended up combining the above ideas. I would tie into the driver's side brake l
 1. <TacomaConnectors/> Toyota Part Numbers: 90980-11016 & 90980-11015
 2. <GenaricConnector/>
 
-<TwoCenteredImages image={[connectorOne, connectorTwo]} altText={['Toyota Connectors 90980-11016 & 90980-11015', 'Amazon 12V DC Connectors']} titles={['90980-11016 & 90980-11015', '12V DC Connectors']} width={500} height={500} />
+<TwoCenteredImages image={[connectorOne, connectorTwo]} altText={['Toyota Connectors 90980-11016 & 90980-11015', 'Amazon 12V DC Connectors']} titles={['90980-11016 & 90980-11015', '12V DC Connectors']} width={500} />
 
 This ended up costing me about $30. Not bad! If you had some spare connectors lying about, you could probably get the cost down a little lower. I wouldn't even bother trying to get the connectors from Toyota unless you know a really good parts guy and are ready to shell out some serious cash. I estimate the cost would be around $120 just for the Toyota connectors. I spent nearly an hour arguing with a parts rep who said that they can't look up connectors using the part number? I haven't heard of something like that before. Who knows! It ended up being faster and far cheaper to purchase the parts on eBay!
 
@@ -114,18 +112,18 @@ This ended up costing me about $30. Not bad! If you had some spare connectors ly
 
 ## The Pigtail
 I used the above connectors to wire up the pigtail seen below:
-<TwoCenteredImages image={[pigtailBare, pigtailLoomed]} altText={['Bare Pigtail', 'Loomed Pigtail']} width={500} height={500} />
+<TwoCenteredImages image={[pigtailBare, pigtailLoomed]} altText={['Bare Pigtail', 'Loomed Pigtail']} width={500} />
 
 The idea is that I will plug the Toyota connectors into the wiring harness and the brake light, then plug the Tune's wiring into the spare! I would love to take complete credit for this idea, but I was inspired by [SmartCap][2]. My buddy has one and when I asked him how they wired in the 3rd brake light, he showed me something very similar to what I ended up with! I bet that you could get a vehicle-specific premade connector from them! I also bet it won't be ~$30!
 
 ## The Install
 Running the wires was very annoying. As I said before, I wanted the wires to be out of the way. I also want all of my wiring to exit the truck bed in the same location, which is the driver's side gap in the truck bed. This puts the exit on the midpoint of the truck. Then the wiring needs to be routed back to the taillight group. Not hard but it took some fishing!
-<CenteredImage image={wireRoutingOne} altText={'Tune M1 3rd Brake Light Interior Wire Routing'} title={'Interior Wire Routing'} width={500} height={500} />
-<TwoCenteredImages image={[wireRoutingTwo, wireRoutingThree]} altText={['Tune M1 3rd Brake Light Exterior Wire Routing', 'Undercarriage Wire Routing']} titles={['No Holes Needed!', 'Undercarriage Routing']} width={500} height={500} />
+<CenteredImage image={wireRoutingOne} altText={'Tune M1 3rd Brake Light Interior Wire Routing'} title={'Interior Wire Routing'} width={500} />
+<TwoCenteredImages image={[wireRoutingTwo, wireRoutingThree]} altText={['Tune M1 3rd Brake Light Exterior Wire Routing', 'Undercarriage Wire Routing']} titles={['No Holes Needed!', 'Undercarriage Routing']} width={500} />
 
 
 Then just plug everything together! This is one of those projects that ended quickly! I think the usefulness of wiring this in really stands out when you have bikes on a rear bike rack! Finally, the people behind me will be able to see my brake lights and the police have one less reason to pull me over!
-<Gif video={bikes} width={750}/>
+<Gif video={bikes} width={750} height={422}/>
 
 <br/>
 

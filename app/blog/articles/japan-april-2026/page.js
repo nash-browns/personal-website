@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Anton, Fira_Sans } from 'next/font/google';
 import { generateMetadata } from '@/lib/seo';
 import { ArticleSeo } from '@/components/seo';
-import { ContinueReading } from '@/components/blog';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 export const postMetadata = {
     title: "Japan 2026",
@@ -145,7 +145,7 @@ const frameOf = (src) => { const m = src.match(/%2F([^?]+?)\.jpe?g/i); return m 
  * Collage columns are sized in fr units proportional to aspect ratio so
  * rows stay flush without cutting into any photo.
  */
-function Photo({ src, alt, className = '', priority = false, eager = false, sizes = '100vw' }) {
+function Photo({ src, alt, className = '', priority = false, sizes = '100vw' }) {
     const blur = BLUR[frameOf(src)];
     return (
         <div className={`relative overflow-hidden ${className}`}>
@@ -154,7 +154,6 @@ function Photo({ src, alt, className = '', priority = false, eager = false, size
                 alt={alt}
                 fill
                 priority={priority}
-                loading={eager && !priority ? 'eager' : undefined}
                 sizes={sizes}
                 placeholder={blur ? 'blur' : 'empty'}
                 blurDataURL={blur}
@@ -164,12 +163,12 @@ function Photo({ src, alt, className = '', priority = false, eager = false, size
     );
 }
 
-function Land({ src, alt, sizes = '33vw', priority = false, eager = false, className = '' }) {
-    return <Photo src={src} alt={alt} className={`aspect-[3000/2062] w-full ${className}`} sizes={sizes} priority={priority} eager={eager} />;
+function Land({ src, alt, sizes = '33vw', priority = false, className = '' }) {
+    return <Photo src={src} alt={alt} className={`aspect-[3000/2062] w-full ${className}`} sizes={sizes} priority={priority} />;
 }
 
-function Port({ src, alt, sizes = '25vw', eager = false, className = '' }) {
-    return <Photo src={src} alt={alt} className={`aspect-[2062/3000] w-full ${className}`} sizes={sizes} eager={eager} />;
+function Port({ src, alt, sizes = '25vw', className = '' }) {
+    return <Photo src={src} alt={alt} className={`aspect-[2062/3000] w-full ${className}`} sizes={sizes} />;
 }
 
 function Chip({ children }) {
@@ -322,13 +321,13 @@ export default function JapanApril2026() {
 
             {/* mosaic — streets, statues, sea, monkey */}
             <section className="bg-black grid grid-cols-2 sm:grid-cols-[1.46fr_0.69fr_0.73fr_1.46fr] gap-2 p-2 items-start sm:items-stretch">
-                <Land src={berrySign} alt="BERRY sign above a city street" sizes="35vw" className="order-1" eager />
-                <Port src={christAzalea} alt="Stone statue of Christ among azaleas and brick" sizes="16vw" className="order-3 sm:order-2" eager />
+                <Land src={berrySign} alt="BERRY sign above a city street" sizes="35vw" className="order-1" />
+                <Port src={christAzalea} alt="Stone statue of Christ among azaleas and brick" sizes="16vw" className="order-3 sm:order-2" />
                 <div className="grid gap-2 order-4 sm:order-3 sm:grid-rows-2">
-                    <Land src={seaViewTree} alt="Islands in the sea beyond a lone tree" sizes="17vw" className="sm:aspect-auto" eager />
-                    <Land src={ferryDusk} alt="Two silhouettes at the ferry railing at dusk" sizes="17vw" className="sm:aspect-auto" eager />
+                    <Land src={seaViewTree} alt="Islands in the sea beyond a lone tree" sizes="17vw" className="sm:aspect-auto" />
+                    <Land src={ferryDusk} alt="Two silhouettes at the ferry railing at dusk" sizes="17vw" className="sm:aspect-auto" />
                 </div>
-                <Land src={monkeyDirt} alt="Monkey sitting in the dirt among tree roots" sizes="35vw" className="order-2 sm:order-4" eager />
+                <Land src={monkeyDirt} alt="Monkey sitting in the dirt among tree roots" sizes="35vw" className="order-2 sm:order-4" />
             </section>
 
             <RouteSection />

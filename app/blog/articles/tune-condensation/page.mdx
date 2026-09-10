@@ -19,23 +19,11 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-condensation" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    Footer, 
-    TravelFeature, 
-    Gif, 
-    BlogMapWrapper,
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    BlackTieTitle,
-    PhotoCarousel,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
 
 import { 
     ReflectiveInsulation,
@@ -64,8 +52,8 @@ text="The Rock Island and Katy Trail rail-to-trail system crosses the state of M
 # This is the template
 [Kansas River Hazard Information][1]
 
-<CenteredImage image={featureImage} altText={'Cedar Niles 3 Corners'} title={'3 Corners'} width={'h-2/3'} height={'w-2/3'} />
-<TwoCenteredImages image={[featureImage, featureImage]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={'h-2/3'} height={'w-2/3'} />
+<CenteredImage image={featureImage} altText={'Cedar Niles 3 Corners'} title={'3 Corners'} width={800} />
+<TwoCenteredImages image={[featureImage, featureImage]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={800} />
 
 </MdxLayout>
 

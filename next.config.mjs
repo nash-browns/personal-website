@@ -1,5 +1,5 @@
 import createMDX from '@next/mdx';
-import remarkGfm from 'remark-gfm';
+import { fileURLToPath } from 'node:url';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -26,6 +26,10 @@ const nextConfig = {
             },
         ],
     },
+    // Metadata helpers read these source files at runtime instead of importing them.
+    outputFileTracingIncludes: {
+        '/*': ['./app/blog/articles/**/page.{js,mdx}', './app/writing/**/page.mdx'],
+    },
     async redirects() {
         return [
             {
@@ -45,11 +49,14 @@ const nextConfig = {
 const withMDX = createMDX({
     // Add markdown plugins here, as desired
     options: {
-        remarkPlugins: [remarkGfm],
+        remarkPlugins: [
+            'remark-gfm',
+            fileURLToPath(new URL('./lib/mdx/remark-article-images.mjs', import.meta.url)),
+            fileURLToPath(new URL('./lib/mdx/remark-media-defaults.mjs', import.meta.url)),
+        ],
         rehypePlugins: [],
     },
 })
 
 // Merge MDX config with Next.js config
 export default withMDX(nextConfig)
-

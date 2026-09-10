@@ -33,22 +33,18 @@ export const relatedArticleOne = '/blog/articles/kansas-river-trip-report-5-30-2
 export const relatedArticleTwo = '/blog/articles/kansas-river-guide';
 export const relatedArticleThree = '/blog/articles/kansas-river-all-hazards';
 
-import { 
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    BlogMapWrapper,
-    TLDR,
-    BlogStatsSection,
-    ImageFeature,
-    MdxLayout,
-    Strava,
-    BlackTieTitle,
-    PhotoCarousel,
-    Stat,
-    ContinueReading,
-} from '@/components/blog'
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { BlogMapWrapper } from '@/components/blog/map-wrapper';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { Strava } from '@/components/blog/activity-trackers/strava';
+import { BlackTieTitle } from '@/components/blog/section-headers/black-tie';
+import { PhotoCarousel } from '@/components/blog/images/photo-carousel/photo-carousel';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { 
     faRoute,
@@ -87,8 +83,8 @@ text="I had a great late-October trip on the Kaw. The fall colors were beautiful
 ## Turner Bridge Access
 Accessing at Turner Bridge was alright. The actual ramp is pretty secluded. I drove back to check out the parking situation and there were some homeless people making a fire back there. They also had a broken-down truck parked at the bottom of the ramp. I talked to them for a few minutes, drove back to the gravel parking lot near the main road, then walked back down to the river!
 
-<CenteredImage image={parkingEntrance} altText={'Turner Bridge Parking Entrance'} title={'Parking Entrance'} width={640} height={640}/>
-<TwoCenteredImages image={[bridge, launch]} altText={['Turner Bridge River Access', 'Turner Bridge Packraft Launch']} titles={['Turner Bridge Access', 'My Launch Point']} width={640} height={640} />
+<CenteredImage image={parkingEntrance} altText={'Turner Bridge Parking Entrance'} title={'Parking Entrance'} width={640} />
+<TwoCenteredImages image={[bridge, launch]} altText={['Turner Bridge River Access', 'Turner Bridge Packraft Launch']} titles={['Turner Bridge Access', 'My Launch Point']} width={640} />
 
 ## Paddling
 There was more paddling than expected on this trip. I was expecting 1200 CFS to push me along, but if I stopped paddling I was dead in the water. There was some wind but it was sporadic and short-lived. 
@@ -100,7 +96,7 @@ The total trip length was 9.24 miles which was the expected length. The Friends 
 />
 
 I was expecting the paddle through downtown to be pretty cool. I ended up disappointed. There are large levees that surround the river, and they ruin the view. If you are after skyline views I would get on the Missouri River instead! Below you can see what I am talking about!
-<CenteredImage image={levee} altText={'West Bottoms Levee'} title={'West Bottoms Levee'} width={640} height={640}/>
+<CenteredImage image={levee} altText={'West Bottoms Levee'} title={'West Bottoms Levee'} width={640} />
 I was also interested in checking out the "super cool" Rock Island Bridge seen above. At the time of writing it doesn't look close to being completed and honestly looks like it's decaying instead of growing.
 
 Once I was at the end I was jealous of the speed of the Missouri River and think that would be more fun and less work to get down. That might be my next trip!
@@ -120,7 +116,7 @@ I ran into a guy fishing while heading down the river. He mentioned another acce
 <div className={'w-full sm:w-1/2'}>
     <BlogMapWrapper
         mapUrl={'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1330.9936975780722!2d-94.62390219269248!3d39.075721519037145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1730138050344!5m2!1sen!2sus'}
-    />
+ />
 </div>
 </TwoColumn>
 
@@ -128,7 +124,7 @@ I ran into a guy fishing while heading down the river. He mentioned another acce
 
 <TwoColumn>
     There are always some characters hanging out at Kaw Point. As soon as I pulled up some dude started yelling at me wanting to rent my raft? I don't know what he was saying. Maybe I just hate people. Otherwise this park is beautiful. Definitely one of my favorites in Kansas City!
-    <CenteredImage image={kawPoint} altText={'Kaw Point Downtown Kansas City Overlook'} title={'Kaw Point'} width={320} height={320}/>
+    <CenteredImage image={kawPoint} altText={'Kaw Point Downtown Kansas City Overlook'} title={'Kaw Point'} width={320} />
 </TwoColumn>
 
 

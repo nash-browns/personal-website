@@ -21,16 +21,14 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-cold-weather-performance" />
 
-import { 
-    MdxLayout,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    TLDR,
-    ImageFeature,
-    LineGraph,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { LineGraph } from '@/components/blog/charts/line-chart-lazy';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { 
     timeToTempNoInsulationData,
@@ -92,15 +90,15 @@ Each test you find below uses 65 degrees Fahrenheit as the test temperature. Def
 
 The inside temperature sensor is wedged into the T-track next to the fan. The outside sensor is set on a chair right outside the camper. I am using a <FriggaTempLoger/> to record the temperatures. There are surprisingly few options to simply log temperature over a given time.
 
-<TwoCenteredImages image={[sensorLocation, friggaSensor]} altText={['Sensor Location During Test', 'Frigga Temperature Logger']} titles={['Sensor Location', 'Frigga Temp Logger']} width={'500'} height={'500'} /> 
+<TwoCenteredImages image={[sensorLocation, friggaSensor]} altText={['Sensor Location During Test', 'Frigga Temperature Logger']} titles={['Sensor Location', 'Frigga Temp Logger']} width={500} />
 
 In the [Setup Video][1], they show that you could move the heater's sensor around, but this no longer appears to be the case. As seen below, my sensor only has about 4 inches of exposed cord and appears to be permanently attached. Maybe they saw some of the same results and went with the cleaner install. I would have!
-<TwoCenteredImages image={[sensorGif, tempSensor]} altText={['Tune M1 Heater Sensor Relocation', 'New Tune M1 Sensor Install']} width={'500'} height={'500'} />
+<TwoCenteredImages image={[sensorGif, tempSensor]} altText={['Tune M1 Heater Sensor Relocation', 'New Tune M1 Sensor Install']} width={'500'} />
 
 ### Stock Tune (No Insulation)
 <TwoColumn>
 The first part of the test is heating the camper from ambient temperature to 65 degrees. This is with no insulation, the windows closed, and the heater set to boost mode. You can see the setup on the right.
-<CenteredImage image={insideCamperNoInsulation} altText={'Inside Camper Windows Closed'} width={700} height={700} />
+<CenteredImage image={insideCamperNoInsulation} altText={'Inside Camper Windows Closed'} width={700} />
 </TwoColumn>
 
 <div className="w-full bg-gray-400 pb-10 rounded-xl">
@@ -132,7 +130,7 @@ It took about 60 minutes to get the camper up to temperature. It was noticeably 
 
 <TwoColumn>
 This test is with the roof insulation only, with the windows closed. The heater is turned on Boost to get the camper up to temperature, then set to Auto for the rest of the night. You can see the setup on the right.
-<CenteredImage image={insideCamperRoofInsulation} altText={'Inside Camper Windows Closed'} width={700} height={700} />
+<CenteredImage image={insideCamperRoofInsulation} altText={'Inside Camper Windows Closed'} width={700} />
 </TwoColumn>
 
 The first part of the test is heating the camper from ambient temperature to 65 degrees.
@@ -149,7 +147,7 @@ It took about 60 minutes to get the camper up to temperature. Note that the ambi
 ### Tune with Insulation Kit & Roof Insulation
 <TwoColumn>
 This test is with the Tune Insulation Pack and roof insulation, the windows closed, and the heater set to Boost mode. You can see the setup on the right.
-<CenteredImage image={insideCamperFullInsulation} altText={'Inside Camper Windows Closed'} width={700} height={700} />
+<CenteredImage image={insideCamperFullInsulation} altText={'Inside Camper Windows Closed'} width={700} />
 </TwoColumn>
 
 This is by far the best setup. It's not only warm, but it also makes the camper feel like a den. It's dark, quiet, and there are no drafts able to get in. Even when it's cold, the night setting on the heater is warm enough to keep the camper comfortable. Having the heater in night mode is a huge deal because it is very quiet! I wake up every time I hear the heater kick on when it's in Auto mode.
@@ -164,7 +162,7 @@ This is by far the best setup. It's not only warm, but it also makes the camper 
 
 #### Hest Mattress Specs
 This is by far the test with the least amount of data. It is more of a feel. My honest feeling is that the Hest mattress that the Tune comes with is enough insulation for sleeping. It is cold when you get into bed, but you warm it up quickly. Hest foam seems to have an R-Value of 8.8, as seen below:
-<CenteredImage image={hestSpecs} altText={'Hest Mattress Specs'} title={'Hest Specs'} width={1280} height={518} />
+<CenteredImage image={hestSpecs} altText={'Hest Mattress Specs'} title={'Hest Specs'} width={1280} />
 
 I believe that Tune buys the Dually Pads from Hest. They have their branding all over the page. Here are the links to the info:
 * [Hest Dually (No R-Value Spec)][3]

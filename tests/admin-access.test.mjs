@@ -68,7 +68,7 @@ async function loadRoute(collection, {
         calls,
         async request({ authorization = 'Bearer valid-token', tenantId = '0' } = {}) {
             const headers = authorization === null ? {} : { authorization };
-            return route.namespace.GET(new Request('http://localhost/api/admin/0', { headers }), { params: { tenantId } });
+            return route.namespace.GET(new Request('http://localhost/api/admin/0', { headers }), { params: Promise.resolve({ tenantId }) });
         },
         dynamic: route.namespace.dynamic,
     };

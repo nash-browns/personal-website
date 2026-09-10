@@ -20,18 +20,15 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="indianhouse" />
 
-import { 
-    MdxLayout,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    ContinueReading,
-    Strava,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { Strava } from '@/components/blog/activity-trackers/strava';
 
 import { 
     faRoute,
@@ -91,7 +88,7 @@ text="Indianhouse is a steep, mostly off-trail scramble above Turnagain Arm just
 ## The Approach
 Non-existent. You park at the small turnout; there will be a slope that starts on the inland-facing side of the turnout. Meet Indianhouse!
 
-<TwoCenteredImages image={[approachOne, approachTwo]} altText={['Indianhouse Pulloff', 'Indianhouse approach']} titles={['Indianhouse Pulloff', 'Indianhouse Approach']} width={'300'} height={'300'} />
+<TwoCenteredImages image={[approachOne, approachTwo]} altText={['Indianhouse Pulloff', 'Indianhouse approach']} titles={['Indianhouse Pulloff', 'Indianhouse Approach']} width={'300'} />
 
 The climb is split into 3ish parts. To me, the woods and the ridge are kind of the same section. Honestly, let's just go with 4: The Woods, The Ridge, The Sidehill, and The Gully. Keep in mind that this is an out-and-back, so each must be completed two times.
 
@@ -102,14 +99,14 @@ This section comes quickly and is the first real ascent. It's not too bad, very 
 ## The Sidehill
 So you get to the top of the ridge and it looks straightforward. Make the saddle thing, then head climber's right and follow the ridge to the top. 
 
-<CenteredImage image={ridgeDrawing} altText={'Route drawing up the ridge toward the summit of Indianhouse'} title={'The Ridge'} width={1000} height={1000} />
+<CenteredImage image={ridgeDrawing} altText={'Route drawing up the ridge toward the summit of Indianhouse'} title={'The Ridge'} width={1000} />
 
 Yeah, don't do that. You actually need to sidehill over to the base of the protrusion and head up one of the gullies. You want to stay climber's right in the gully. Definitely stay to the right. The image below is taken about halfway through the sidehill. You see that yellow line? Don't go there. You still can't see the gully you are aiming for in this image.
 
-<CenteredImage image={sideHillDrawing} altText={'Drawing of the sidehill traverse on Indianhouse, with the yellow line marking where not to go'} title={'The Sidehill'} width={1000} height={1000} />
+<CenteredImage image={sideHillDrawing} altText={'Drawing of the sidehill traverse on Indianhouse, with the yellow line marking where not to go'} title={'The Sidehill'} width={1000} />
 
 AHHHHHHHHHHH
-<CenteredImage image={goat} altText={'A mountain goat on the slopes of Indianhouse'} title={'A Goat!'} width={1000} height={1000} />
+<CenteredImage image={goat} altText={'A mountain goat on the slopes of Indianhouse'} title={'A Goat!'} width={1000} />
 
 I encountered Kanye West in the wild. A real treat. I don't normally listen to music while I'm out in nature but obviously Ye was blasted for a lil bit.
 
@@ -135,14 +132,14 @@ Scuse my French but I'm in Franceeeeeeeeeeee. I'm just sayin'
 Gotta hit em with that deep track. Really a natural feel. Not one of my favorites but really hit in the moment
 </div>
 
-<CenteredImage image={kanye} altText={'Mountain goat on Indianhouse, my Kanye West encounter'} title={'Ye'} width={500} height={500} />
+<CenteredImage image={kanye} altText={'Mountain goat on Indianhouse, my Kanye West encounter'} title={'Ye'} width={500} />
 
 </TwoColumn>
 
 Really just the best way to do it.
 
-<CenteredImage image={goat2} altText={'Mountain goat standing on the rocks of Indianhouse'} title={'The Goat'} width={1000} height={1000} />
-<TwoCenteredImages image={[goat4, goat3]} altText={['Mountain goat on the slopes of Indianhouse', 'Mountain goat watching from the rocks']} titles={['The Locals', 'Up Close']} width={300} height={300} />
+<CenteredImage image={goat2} altText={'Mountain goat standing on the rocks of Indianhouse'} title={'The Goat'} width={1000} />
+<TwoCenteredImages image={[goat4, goat3]} altText={['Mountain goat on the slopes of Indianhouse', 'Mountain goat watching from the rocks']} titles={['The Locals', 'Up Close']} width={300} />
 
 I usually don't get to have close encounters with the goats, but these guys were pretty friendly and I was able to get about 30-50 feet from them on the way up. On the way down I was being very quiet and came around a rock and they were about 10 ft away! Nice goats. Their eyes were as black as gun barrels and in some ways I felt a satanic vibe. Maybe this is why they are the preferred victim of sacrifice. At least that's what I hear, I'm just a normal dude.
 
@@ -157,14 +154,14 @@ So once you are in the gully you will want to stay climber's right. Going left l
 At the top, you will need to head to the right, up a steeper section of the gully. I was a little worried at the beginning due to some snow at the top, but was able to finagle across onto the backside of the ridge into another gully and then it was an easy up. 
 </div>
 
-<CenteredImage image={gullyDrawing} altText={'Route drawing up the gully on Indianhouse, staying climbers right'} title={'The Gully'} width={500} height={500} />
+<CenteredImage image={gullyDrawing} altText={'Route drawing up the gully on Indianhouse, staying climbers right'} title={'The Gully'} width={500} />
 </TwoColumn>
 
-<CenteredImage image={topGullyDrawing} altText={'Drawing of the route through the top of the gully on Indianhouse'} title={'Top of the Gully'} width={1000} height={1000} />
+<CenteredImage image={topGullyDrawing} altText={'Drawing of the route through the top of the gully on Indianhouse'} title={'Top of the Gully'} width={1000} />
 
 
 The top is amazing!
-<CenteredImage image={summitView} altText={'Summit view from Indianhouse over Turnagain Arm'} title={'The Summit'} width={1000} height={1000} />
+<CenteredImage image={summitView} altText={'Summit view from Indianhouse over Turnagain Arm'} title={'The Summit'} width={1000} />
 
 ## The Left Side of the Gully
 I didn't really read anything before heading up this mountain, so I ended up climbing the left side of the gully and was cliffed out. I am sure that you can see it on my Strava. I was able to cut over to the right side of the gully, but I pretty much had to go back to the bottom. This exploration killed about an hour of time.
@@ -177,7 +174,7 @@ Indianhouse was a fun one. Hopefully this weather continues to hold out!!!!
 <TwoColumn>
 I was up there while they were searching for the guy who was surfing out in the Turnagain Arm. A sad deal. I think this copter is actually out of Kodiak, which is kind of crazy to think about. You wouldn't want to have an issue out there with that type of distance between you and the helicopter / Coast Guard. Stay safe out there! Here is the entire article -> [‘He started getting farther away’: Witnesses recount Anchorage paddleboarder’s struggles in Turnagain Arm][1]
 
-<CenteredImage image={theSearch} altText={'Search and rescue helicopter over Turnagain Arm, seen from Indianhouse'} title={'The Search'} width={250} height={250} />
+<CenteredImage image={theSearch} altText={'Search and rescue helicopter over Turnagain Arm, seen from Indianhouse'} title={'The Search'} width={250} />
 
 </TwoColumn>
 
@@ -190,7 +187,7 @@ Just one GPX file on this guy! -> [Indianhouse GPX][2]
 
 
 ## Okay but just one more
-<CenteredImage image={goatLast} altText={'One last mountain goat on Indianhouse'} title={'One More Goat'} width={1000} height={1000} />
+<CenteredImage image={goatLast} altText={'One last mountain goat on Indianhouse'} title={'One More Goat'} width={1000} />
 
 <ContinueReading 
     articleOne={relatedArticleOne}

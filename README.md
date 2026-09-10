@@ -2,6 +2,14 @@
 
 A Next.js personal website with multi-tenant authentication using Firebase.
 
+## Public-page JavaScript
+
+Public pages use a server-rendered navbar with a Partners link. Authentication and the Dashboard/Sign Out controls are scoped to the `/partners`, `/signup`, and `/forgot-password` layouts through `AccountLayout`. The root's `PublicNavigation` switch hides the public navbar when an account layout renders its own. Public links to the partner area disable prefetching so ordinary browsing does not download account code in advance.
+
+Import components directly from their files, for example `import { CenteredImage } from '@/components/blog/images/centered-image'`. Broad imports from `@/components/blog` or `@/components/general` can include unrelated client components in production scripts, even when the page does not render them. Articles still use the same shared image components and automatic image dimensions.
+
+After building, run `npm run test:bundles` to check that public pages exclude Firebase SDKs, simple pages exclude unrelated widgets, and account pages retain their authentication components.
+
 ## Multi-Tenant Authentication
 
 This application now includes a complete multi-tenant authentication system using Firebase Admin SDK alongside the existing client-side Firebase SDK.
@@ -241,10 +249,84 @@ Visit `/tenant-dashboard` to see the multi-tenant system in action.
 
 ## Development
 
+Use Node.js 22.13 or later and install the versions recorded in the lockfile with
+`npm ci`. The site uses Next.js 16, React 19, and Turbopack. MDX plugins are listed
+by package name in `next.config.mjs` so they can run in the bundler's worker.
+
 ```bash
-npm install
+npm ci
 npm run dev
 ```
+
+## Article images
+
+Use plain URL strings for every article image, whether the file lives in
+`public/` or Firebase Storage. Local paths start at the public root. Do not import
+image files or write `{ src, width, height }` objects in articles.
+
+```mdx
+export const route = "https://firebasestorage.googleapis.com/...";
+export const campsite = "/blog/my-trip/campsite.jpg";
+
+<CenteredImage image={route} altText="Route to the summit" width={1000} />
+<TwoCenteredImages image={[route, campsite]} altText={['Route', 'Campsite']} width={500} />
+```
+
+`width` sets the display width; omit `height`. The shared MDX plugin reads each
+file's actual dimensions and supplies them to the image components, including
+carousel photos. Image constants remain strings, so they also work in 360°
+viewers, comparison sliders, and links. The JavaScript photo essays use the same
+URL strings with their existing cropped image layouts.
+
+`npm run dev` and `npm run build` prepare the dimension cache automatically.
+Commit `data/article-image-dimensions.json` along with article changes. Existing
+remote images use that cache without network requests; local files are measured
+from disk. New images added while the dev server is running are measured when
+their MDX page compiles. Visitors do not download this manifest or run the
+dimension reader.
+
+Run `npm run images:sync` to save newly added images into the tracked cache, or
+`npm run images:sync -- --refresh` after replacing a remote file at the same URL.
+Restart the dev server after refreshing existing remote images. A new or
+refreshed URL must be reachable; errors identify the image that needs attention.
+Run `npm run test:images` for the image compilation checks.
+
+### Article media loading
+
+YouTube link cards use image previews; playable embeds use lazy-loading iframes.
+The MDX media plugin also adds `loading="lazy"` to literal iframe tags unless an
+article explicitly overrides it. Article cover images keep their loading priority.
+
+Strava activities and charts initialize within 300 pixels of the viewport. Strava
+shares one script download and initializes only the activities that have been
+reached. Looping article clips attach their source when visible and pause when
+scrolled out of view. Supply `width` and `height` in the clip's displayed aspect
+ratio to reserve its space before it loads.
+
+Run `npm run test:media` after building to verify these loading defaults and the
+Strava script loader's sharing and failure behavior.
+
+360° viewers auto-rotate only while visible in an active tab. After the first drag,
+they redraw only when moved or resized. Leaving an article cancels pending image
+downloads and releases its graphics resources. All articles use this shared viewer;
+no per-article setup is needed. Run `npm run test:panorama` to check rendering,
+resizing, cancellation, error handling, and cleanup.
+
+### Search and sharing metadata
+
+The shared metadata helper uses `published`, `updated`, and `author` from
+`postMetadata`. Social previews prefer `thumbnailIllustration`, then `thumbnail`,
+then the site logo. JSON-LD keeps the article photo and uses absolute image URLs.
+Canonical and Open Graph URLs resolve to each page's own route automatically.
+Ordinary pages use the `website` type; posts with publication dates use `article`.
+
+`isActive: false` adds `noindex` to draft articles while keeping their URLs usable
+for previews. Account management, signup, password reset, and the placeholder
+blog projects page also use `noindex`; the public Partners contact/login page
+remains indexable. The sitemap reads the built HTML to follow those decisions,
+excludes non-page assets, and uses article update dates instead of build dates.
+The generated `robots.txt` points to the sitemap and allows crawlers to read
+the `noindex` tags. Run `npm run test:seo` after building to verify the output.
 
 ## Building
 
@@ -253,7 +335,50 @@ npm run build
 npm start
 ```
 
+Run `npm run lint` separately; Next.js 16 no longer runs ESLint during builds.
+The existing Hooks checks remain enabled. New React Compiler diagnostics about
+effects, refs, and mutations are reported as warnings during this migration.
+
+To verify the built site locally, start it on a separate port and run the smoke
+tests from another terminal:
+
+```bash
+npm run start -- --hostname 127.0.0.1 --port 3216
+```
+
+```bash
+npm run test:smoke
+```
+
+These tests check page rendering, MDX metadata, redirects, password-reset query
+parameters, rejection of unauthenticated API requests, and AVIF/WebP image
+optimization. They require a local server and do not submit forms or change data.
+
 ## Security rules and tests
+
+Partner logins exchange a verified Firebase ID token for a one-day HttpOnly
+`partnerSession` cookie. The cookie endpoint checks request origin and token
+revocation; server-rendered partner pages verify the session cookie. Existing
+valid `idToken` cookies are accepted during migration and removed when the
+browser synchronizes its session. Login, signup, and sign-out wait for cookie
+updates to succeed. The account-area auth provider observes ID-token changes,
+refreshes while active, and resynchronizes when a tab regains focus or connectivity.
+Firebase's own persisted User is the source of truth; the old plain-object
+`firebase:authUser` cache is no longer treated as authentication.
+
+Partner view tracking uses a restricted Admin SDK transaction that increments
+only `views`, by one, on an existing blog record matching the active article's
+`partners` metadata. It does not create records or grant public database writes.
+The browser suppresses duplicate effect runs for one page visit; later navigation
+back to the article counts as another view. These are page views, not unique
+visitors. Articles remain statically generated and recording stays asynchronous.
+
+Run `npm run test:partners` for the session, race, tenant-data and tracking checks.
+Those tests substitute Firebase boundaries. Run `npm run test:partners:emulator`
+to check real session creation/revocation and concurrent counter increments with
+the local Auth and Firestore emulators (requires Firebase CLI and Java 21+).
+Both suites avoid production accounts and counters. These changes require an
+application deployment, with no new Firestore rules or collections.
 
 Admin API routes require a valid Firebase ID token and a `users/{email}` record
 assigned to tenant `0`. Changing the tenant in the URL does not grant access.

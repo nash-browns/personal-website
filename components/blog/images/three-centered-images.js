@@ -13,7 +13,7 @@ export function ThreeCenteredImages({image, altText, titles, subtitles, width, h
 
     return (
         <div className='flex flex-col sm:flex-row justify-center items-center gap-2 w-full h-fit'>
-            <div className='grid group w-fit not-prose'>
+            <div className='grid group w-fit max-w-full min-w-0 not-prose'>
                 <div className='col-start-1 row-start-1'>
                     <MdxImage src={imageOne} alt={altTextOne} height={height} width={width}/>
                 </div>
@@ -23,7 +23,7 @@ export function ThreeCenteredImages({image, altText, titles, subtitles, width, h
                     }
                 </div>
             </div>
-            <div className='grid group w-fit not-prose'>
+            <div className='grid group w-fit max-w-full min-w-0 not-prose'>
                 <div className='col-start-1 row-start-1'>
                     <MdxImage src={imageTwo} alt={altTextTwo} height={height} width={width}/>
                 </div>
@@ -33,7 +33,7 @@ export function ThreeCenteredImages({image, altText, titles, subtitles, width, h
                     }
                 </div>
             </div>
-            <div className='grid group w-fit not-prose'>
+            <div className='grid group w-fit max-w-full min-w-0 not-prose'>
                 <div className='col-start-1 row-start-1'>
                     <MdxImage src={imageThree} alt={altTextThree} height={height} width={width}/>
                 </div>

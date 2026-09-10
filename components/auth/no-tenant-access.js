@@ -1,6 +1,6 @@
 'use client'
 
-import { useAuth } from "@/lib/firebase"
+import { useAuth } from '@/lib/firebase/auth-context';
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { SimpleSpinner } from "@/components/loading"
@@ -43,8 +43,8 @@ export function NoTenantAccess() {
         </h2>
         
         <p className="text-base-content/70 mb-6">
-          Your account has been created successfully, but you don&apos;t have access to any tenant yet. 
-          Please contact your administrator to assign you to a tenant.
+          Your account is ready, but partner access has not been assigned yet.
+          Please contact Nash to request access.
         </p>
         
         <div className="bg-base-200 rounded-lg p-4 mb-6">
@@ -64,12 +64,11 @@ export function NoTenantAccess() {
           
           <button 
             onClick={() => {
-              // You can add a contact form or email link here
-              window.location.href = "mailto:admin@yourcompany.com?subject=Tenant Access Request&body=Hi, I need access to a tenant. My email is: " + user?.email
+              router.push("/partners#contact")
             }}
             className="btn btn-outline w-full"
           >
-            Contact Administrator
+            Contact Nash
           </button>
         </div>
       </div>

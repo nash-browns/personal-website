@@ -20,8 +20,8 @@ export function Footer() {
                 <div className="w-full h-full p-10">
                     <nav className="grid grid-flow-col gap-4">
                         <Link href={'/blog/articals/nash-browns'} className="link link-hover">About</Link>
-                        <Link href={'/partners'} className="link link-hover">Contact</Link>
-                        <Link href={'/partners'} className="link link-hover">Partners</Link>
+                        <Link href={'/partners'} prefetch={false} className="link link-hover">Contact</Link>
+                        <Link href={'/partners'} prefetch={false} className="link link-hover">Partners</Link>
                     </nav>
                     <nav>
                         <div className="grid grid-flow-col gap-4">

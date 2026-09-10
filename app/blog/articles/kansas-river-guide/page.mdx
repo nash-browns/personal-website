@@ -19,12 +19,10 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="kansas-river-guide" />
 
-import { 
-    OneColumn,
-    ImageFeature, 
-    TLDR,
-    MdxLayout,
-} from '@/components/blog'
+import { OneColumn } from '@/components/blog/layout/one-column';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { MdxLayout } from '@/components/blog/mdx-layout';
 
 export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-trip-report-05-30-25%2Ffeature-image.JPEG?alt=media&token=89247d1f-8ab9-47db-89c8-c0bfed6da780";
 
@@ -54,7 +52,7 @@ The speed that a river is moving is measured in cubic feet per second (CFS). The
       scrolling="no"
       width="638"
       height="448"
-    />
+ />
 </OneColumn>
 
 

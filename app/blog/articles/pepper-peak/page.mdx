@@ -22,26 +22,18 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="pepper-peak" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    Footer, 
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    Strava,
-    YoutubeVideo,
-    ContinueReading,
-    RelatedArticles,
-    HashBrownsLoader,
-    Gif,
-    CallOut,
-    TLDR,
-    GoogleMap,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { Strava } from '@/components/blog/activity-trackers/strava';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { RelatedArticles } from '@/components/blog/navigation/related-articles';
+import { Gif } from '@/components/blog/videos/gif';
+import { CallOut } from '@/components/blog/callout-feature/callout';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { GoogleMap } from '@/components/general/google-map';
 
 import { 
     faRoute,
@@ -99,18 +91,18 @@ text="Pepper Peak is the first part of the Condiment Traverse, a 3-peak outing o
 
 With little planning I headed up to Eklutna Lake. Rain peppered my windshield the entire drive. The mountains were hiding and I was prepared for a soggy Alaskan summer day. I loaded the GPX file for the route into my watch. This ended up being a huge help! Here is an overview of the route.
 
-<CenteredImage image={route} altText={"Pepper Peak 3D Map"} width={1000} height={500} />
+<CenteredImage image={route} altText={"Pepper Peak 3D Map"} width={1000} />
 
 <TwoColumn>
     <div className={'w-full sm:w-1/2'}>
         The day started at the familiar Eklutna Lake Trailhead. The launching point for so many Chugach adventures. I headed over the bridge, past the bike rental shop, and through the bollards onto the Twin Peaks Trail.
-        <CenteredImage image={bridge} altText={"Eklutna Bridge"} width={500} height={500} />
+        <CenteredImage image={bridge} altText={"Eklutna Bridge"} width={500} />
     </div>
 
     <div className={'w-full sm:w-1/2'}>
     <GoogleMap
         url={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8270.495385068169!2d-149.14938538094555!3d61.41122229934596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x56c8fbc4f2cd9a13%3A0x608af17d8ea0b47a!2sEklutna%20Lakeside%20Trail!5e0!3m2!1sen!2sus!4v1752124445649!5m2!1sen!2sus'}
-    />
+ />
     </div>
 </TwoColumn>
 
@@ -120,7 +112,7 @@ Twin Peaks Trail is a fairly easy approach. You may hear or see references to be
 
 If you are descending the trail, keep in mind this is reversed. The first bench becomes the second bench. The second bench would be referred to as the first bench. The view from the first bench is always stunning! Unfortunately, it was too foggy to see the day I climbed! Fortunately, it wasn't too foggy to sneak a peek at a herd of goats across the valley!
 
-<Gif video={goats} width={1000}/>
+<Gif video={goats} width={1000} height={563}/>
 
 <TwoColumn>
     <div className={'w-full sm:w-1/2'}>
@@ -130,7 +122,7 @@ It is an easy and straightforward climb to the top. I ascended into some intense
     </div>
 
     <div className={'w-full sm:w-1/2'}>
-        <CenteredImage image={pepperCairn} altText={"Pepper Peak Trail Cairn"} title={"The Cairn"} width={500} height={500} />
+        <CenteredImage image={pepperCairn} altText={"Pepper Peak Trail Cairn"} title={"The Cairn"} width={500} />
     </div>
 </TwoColumn>
 

@@ -5,9 +5,10 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 
 import { auth } from "@/firebase"
-import { createUserWithEmailAndPassword, signOut } from "firebase/auth"
+import { syncServerSession, signOutSession } from "@/lib/firebase/client-session"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 import { handleGoogleAuth } from "@/lib/firebase/auth-utils"
-import { useAuth } from "@/lib/firebase";
+import { useAuth } from '@/lib/firebase/auth-context';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -44,17 +45,19 @@ export function SignUp() {
     const password = watch("password")
 
     const onSubmit = async (data) => {
-        if(user) await signOut(auth);
-
         try {
+            if(user) await signOutSession();
             //auth does this automatically
             // const userExists = await getUser(data.email)
             // if (userExists) throw new Error("User already exists")
 
             const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password)
             if (!userCredential) throw new Error("User not created")
+            const session = await syncServerSession(userCredential.user);
+            if (session.skipped) throw new Error("Your sign-in changed. Please try again.");
 
-            router.push("/partners/dashboard") // Navigate to the tenant dashboard
+            router.replace("/partners/dashboard");
+            router.refresh() // Navigate to the tenant dashboard
         } catch (error) {
             console.error("Error signing up:", error)
             setSignUpError(error.message)
@@ -62,26 +65,20 @@ export function SignUp() {
     }
 
     const handleGoogleSignUp = async () => {
-        setIsGoogleLoading(true)
-        setSignUpError(null)
-        
-        if(user) await signOut(auth);
-        
-        await handleGoogleAuth(
-            // Success callback
-            (result) => {
-                console.log('Google Auth successful:', result);
-                router.push("/partners/dashboard");
-            },
-            // Error callback
-            (error) => {
-                console.error("Error signing up with Google:", error);
-                setSignUpError(error.message);
-            }
-        );
-        
-        setIsGoogleLoading(false);
-    }
+        setIsGoogleLoading(true);
+        setSignUpError(null);
+        try {
+            if (user) await signOutSession();
+            await handleGoogleAuth(
+                () => { router.replace("/partners/dashboard"); router.refresh(); },
+                error => setSignUpError(error.message),
+            );
+        } catch (error) {
+            setSignUpError(error.message);
+        } finally {
+            setIsGoogleLoading(false);
+        }
+    };
 
     return (
         <form

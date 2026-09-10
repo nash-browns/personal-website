@@ -20,17 +20,14 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-starlink-install" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    ImageFeature,
-    YoutubeVideo,
-    TLDR,
-    YoutubeAd,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { YoutubeVideo } from '@/components/blog/videos/youtube-video';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { YoutubeAd } from '@/components/blog/ads/youtube-video';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { 
     ReflectiveInsulation,
@@ -64,13 +61,13 @@ text="Expensive piece of plastic but it makes mounting the Starlink Mini a breez
 
 I went with the <StarlinkMount/>. I chose the black option without any of the added mounting options. The mount did not come with the bolts needed to screw it together. It looks like the option **"Mini Speedmount Through Bolt Hardware Kit"** might include the necessary bolts, but I'm not paying $10 for something I can get at Home Depot for less than $2. The mount is a little on the expensive side, $150, and to not get the two bolts to screw it together is a little bit of a slap in the face. Overall, I'm happy with the mount. It's very minimalistic and sturdy. It's also easy to shape using an angle grinder.
 
-<CenteredImage image={stockImage} altText={'TRIO Speedmount'} title={'TRIO Speedmount'} width={'500'} height={'500'} />
+<CenteredImage image={stockImage} altText={'TRIO Speedmount'} title={'TRIO Speedmount'} width={'500'} />
 
 ## Supplies
 
 * 2x 8mm-1.25 X 20mm Bolts
 * Tune t-track nuts  
-<CenteredImage image={hardware} altText={'Hardware'} title={'Hardware'} width={'500'} height={'500'} />
+<CenteredImage image={hardware} altText={'Hardware'} title={'Hardware'} width={'500'} />
 
 <YoutubeAd videoID={'T84u08lGEDk'} description={'I made a video outlining this install.'} />
 
@@ -80,7 +77,7 @@ I decided to mount the Starlink on the corner of the panel closest to the tailga
 * The fan was wired on that side  
 * The corner would support the panel on two sides instead of one  
 
-<CenteredImage image={featureImage} altText={'TRIO Speedmount'} title={'TRIO Speedmount'} width={'1000'} height={'1000'} />
+<CenteredImage image={featureImage} altText={'TRIO Speedmount'} title={'TRIO Speedmount'} width={'1000'} />
 
 After mounting, I found that the Starlink Mini makes a high-pitched hum. I'd recommend keeping it as far away from the bed as possible!
 
@@ -88,11 +85,11 @@ After mounting, I found that the Starlink Mini makes a high-pitched hum. I'd rec
 I had to round off one of the mount's corners to allow it to fit around a bracket and mount flush on two sides. If you have a fan, make sure to leave room for the wiring!
 
 I used a **Tiger Paw sanding disk** on an angle grinder, which worked perfectly for shaping the plastic. After a few test fits, I was able to get everything lined up.  
-<CenteredImage image={mountGrinder} altText={'TRIO Speedmount and grinder'} width={750} height={500} />
-<TwoCenteredImages image={[mount, grinder]} altText={['Corner Carving', 'Tiger Paw Grinding Disk']} titles={['Mount Shaping', 'Tiger Paw']} width={500} height={500} />
+<CenteredImage image={mountGrinder} altText={'TRIO Speedmount and grinder'} width={750} />
+<TwoCenteredImages image={[mount, grinder]} altText={['Corner Carving', 'Tiger Paw Grinding Disk']} titles={['Mount Shaping', 'Tiger Paw']} width={500} />
 
 I ended up drilling two holes, one on each side of the mount, for the bolts to mount to the track. I also went ahead and did a test hole, but this is not required.  
-<CenteredImage image={mountHoles} altText={'Hole Locations'} title={'Hole Locations'} width={'500'} height={'500'} />
+<CenteredImage image={mountHoles} altText={'Hole Locations'} title={'Hole Locations'} width={'500'} />
 
 That's it! There weren't any secrets or magic to this one. I also made a video of the install. My videos suck, but I'm just practicing.
 

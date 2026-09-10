@@ -20,14 +20,12 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-ladder-installation" />
 
-import { 
-    MdxLayout,
-    TwoColumn,
-    CenteredImage, 
-    ImageFeature,
-    YoutubeAd,
-    ContinueReading
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { YoutubeAd } from '@/components/blog/ads/youtube-video';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { 
     ReflectiveInsulation,
@@ -74,13 +72,13 @@ All measurements were taken using a 2022 Toyota Tacoma. I would assume they woul
 <div>
 ### Camper Closed
 It is 7 feet from the ground to the hooks when the camper is closed.
-<CenteredImage image={camperClosed} altText={'Tune M1 Closed'} width={'500'} height={'500'} />
+<CenteredImage image={camperClosed} altText={'Tune M1 Closed'} width={'500'} />
 </div>
 
 <div>
 ### Camper Open
 It is 9' 6" from the ground to the hooks when the camper is open.
-<CenteredImage image={camperOpen} altText={'Tune M1 Open'} width={'500'} height={'500'} />
+<CenteredImage image={camperOpen} altText={'Tune M1 Open'} width={'500'} />
 </div>
 
 </TwoColumn>

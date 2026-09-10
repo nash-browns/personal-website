@@ -21,19 +21,16 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="the-wedge" />
 
-import { 
-    MdxLayout,
-    CenteredImage, 
-    TwoCenteredImages, 
-    TwoColumn,
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    ContinueReading,
-    Strava,
-    Gif,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import { Strava } from '@/components/blog/activity-trackers/strava';
+import { Gif } from '@/components/blog/videos/gif';
 
 import { 
     faRoute,
@@ -80,7 +77,7 @@ export const relatedArticleThree = '/blog/articles/salt-peak';
 This one is an easy one! I recommend combining it with its neighbor, The Ramp! I was able to meet some goats on the peak!
 </TLDR>
 
-<CenteredImage image={threeDGPX} altText={'3D GPX track of the route up The Wedge'} title={'The Route'} width={1000} height={1000} />
+<CenteredImage image={threeDGPX} altText={'3D GPX track of the route up The Wedge'} title={'The Route'} width={1000} />
 
 ## The Trailhead
 Prepare yourself! This one can get really busy. It's a nice one though!
@@ -93,7 +90,7 @@ You just head up Powerline Pass until you get to the bike rack. Then turn down t
 
 ## The Saddle and Peak
 While going up the valley, it really looks like the peak would be on the south side of the ridge, but that is not the case!
-<TwoCenteredImages image={[theWedgePano, theWedgeDrawing]} altText={['Panorama of The Wedge and the surrounding valley in Chugach State Park', 'Route drawing showing the path up The Wedge']} titles={['The Wedge Pano', 'The Route Up']} width={500} height={500} />
+<TwoCenteredImages image={[theWedgePano, theWedgeDrawing]} altText={['Panorama of The Wedge and the surrounding valley in Chugach State Park', 'Route drawing showing the path up The Wedge']} titles={['The Wedge Pano', 'The Route Up']} width={500} />
 
 
 ## The Top
@@ -106,7 +103,7 @@ While on the summit, I had some goats emerge from the fog and walk right up to m
     <Strava
     stravaId='19100329202'
     token='Xh0zDhluhg9rWT6AN3twLnSFn6_MYaM8489TmnzvNaQ'
-    />
+ />
 </div>
 </TwoColumn>
 

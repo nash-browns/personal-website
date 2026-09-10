@@ -13,13 +13,13 @@ export async function POST(request) {
     
     // Get user's tenant information
     const tenantId = await getUserTenant(userInfo.email);
-    console.log('User tenant ID:', tenantId);
     
     let tenant = null;
     
-    if (tenantId !== null) {
+    if (tenantId !== null && tenantId !== undefined && tenantId !== '') {
       // Get full tenant information
       tenant = await getTenantInfo(tenantId);
+      if (!tenant && String(tenantId) === '0') tenant = { id: '0', name: 'Nash Browns' };
       // console.log('Tenant info:', tenant);
     }
     
@@ -30,9 +30,8 @@ export async function POST(request) {
       isAuthenticated: true,
     };
     
-    console.log('Auth validation response:', response);
     
-    return Response.json(response);
+    return Response.json(response, { headers: { 'Cache-Control': 'private, no-store' } });
     
   } catch (error) {
     console.error('Auth validation error:', error);

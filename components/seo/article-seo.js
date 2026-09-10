@@ -23,7 +23,7 @@ export function ArticleSeo({ post, slug }) {
     return (
         <>
             <JsonLd schema={jsonLd} />
-            {post.partners && <PageViewTracker contentId={slug} />}
+            {post.isActive && Array.isArray(post.partners) && post.partners.length > 0 && <PageViewTracker contentId={slug} />}
         </>
     )
 }

@@ -1,8 +1,15 @@
+import { generateMetadata } from '@/lib/seo';
 import { Suspense } from "react"
-import { SignUp } from "@/components/general";
+import { SignUp } from '@/components/general/sign-up';
 import { AddBackground } from "@/components/styles";
 import { SimpleSpinner } from "@/components/loading"
 
+
+export const metadata = generateMetadata({
+    title: 'Sign Up',
+    description: 'Create a Nash Browns partner account.',
+    index: false,
+});
 
 export default function SignUpPage() {
     return (

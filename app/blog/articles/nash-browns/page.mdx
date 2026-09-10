@@ -19,15 +19,13 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="nash-browns" />
 
-import { 
-    MdxLayout,
-    TLDR,
-    CenteredImage,
-    ImageFeature,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
 
-import featureImage from "@/public/hippy-hokusai-logo-graphic.png";
-import neovim from "@/public/blog/nash-browns/neovim.gif";
+export const featureImage = "/hippy-hokusai-logo-graphic.png";
+export const neovim = "/blog/nash-browns/neovim.gif";
 
 <ImageFeature
     title='Nash Browns Blog'
@@ -63,7 +61,7 @@ There is currently no backend (I am using Firebase Storage for photos) or databa
 ## What Text Editor Do I Use to Write
 Neovim & Tmux are the only useful tools:)
 
-<CenteredImage image={neovim} altText={'Neovim Gif'}  width={500} height={500} />
+<CenteredImage image={neovim} altText={'Neovim Gif'}  width={500} />
 
 
 </MdxLayout>

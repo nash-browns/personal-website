@@ -19,24 +19,12 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="kodiak-island-explore" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    Footer, 
-    TravelFeature, 
-    Gif, 
-    BlogMapWrapper,
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    BlackTieTitle,
-    PhotoCarousel,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { PhotoCarousel } from '@/components/blog/images/photo-carousel/photo-carousel';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kodaik-island-explore%2Ffeature-image-two.jpeg?alt=media&token=74a817ce-64dc-449a-a743-f42fe45d686d";
 export const boat = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kodaik-island-explore%2Ftut-ferry.jpeg?alt=media&token=bb3b3d7f-0bf9-4586-8045-f46550d65bee";
@@ -68,14 +56,14 @@ This trip started and ended in Anchorage, but for the purpose of this post it st
 
 ## The Ferry
 **Note**: All boats in the fleet are different! We were on the [Tustumena][10]. That is the only boat that I have been on and is the only boat that I can speak about.
-<CenteredImage image={boat} altText={'Tustumena Docked in Kodiak'} title={'Tustumena Docked in Kodiak'} width={1000} height={500} />
+<CenteredImage image={boat} altText={'Tustumena Docked in Kodiak'} title={'Tustumena Docked in Kodiak'} width={1000} />
 
 Unfortunately I don't go on boats often. I went on lakes growing up in the Midwest, but almost never the ocean. The ferry was one of the highlights of the trip for me. The loading, the unloading, the voyage, it was all amazing! We went from Homer to Kodiak on a very calm day, 1-2ft seas, and could see for miles. We saw tons of whales, some of which were orcas, which I had never seen before!
 
 The way back was a different story. The boat left Kodiak at 10:00pm and we would get to Homer the next morning. The weather was bad and the seas were ~12ft and there was a gale warning. The captain ended up taking a longer route that added an additional 2 hours to the trip. We didn't think that this was a possibility. We also didn't understand that it could take up to 2 hours for our car to be unloaded from the ferry. Both of these delays led to us returning the rental car late. Not a huge deal, but something that I will keep in mind on future trips!
 
 You have two options for overnight ferrying. You can rent a stateroom (~$180), a non-negotiable for my mom, or post up anywhere you can on the boat. This is the option I would have gone with if I were solo. You would want a sleeping pad and a bag at minimum. I would bring a head-style bug net (the flies can get overwhelming) and some kind of tarp and towel to keep the moisture away from your area.
-<CenteredImage image={stateRoom} altText={'Tustumena State Room'} title={'Tustumena State Room'} width={1000} height={500} />
+<CenteredImage image={stateRoom} altText={'Tustumena State Room'} title={'Tustumena State Room'} width={1000} />
 
 Booking the ferry is a little tough but makes sense after you dive into it for a few minutes. Here is the site that handles all of the bookings!
 [Alaska Marine Highway][11]
@@ -87,14 +75,14 @@ While waiting for the ferry ride back, I could tell that the weather was going t
 ## Do You Need a Car?
 Yes.
 
-<CenteredImage image={car} altText={'Rav 4'} width={500} height={500} />
+<CenteredImage image={car} altText={'Rav 4'} width={500} />
 
 If you didn't have a car you would be stuck in town the entire time. You can see the whole town in about three hours!
 
 ## Road System
 We were in a rented Toyota Rav4 and made it around just fine! The roads marked on the map below could be gravel but are well maintained.
 
-<CenteredImage image={roadMap} altText={'Kodiak Island Road Map'} title={'Road Map'} width={500} height={500} />
+<CenteredImage image={roadMap} altText={'Kodiak Island Road Map'} title={'Road Map'} width={500} />
 
 Honestly there isn't much here. There is one main road that has a few offshoots. The first day that we were there was absolutely gorgeous so we went out to Fossil Beach and then started the drive back to town. We added the Chiniak Highway to the route on the way back! Then we drove out to Anton Larsen Bay the next afternoon. Then, we were out of places to drive. There isn't a ton here if you are just looking from the car.
 
@@ -118,7 +106,7 @@ You don't have many options — the only restaurants are in Kodiak. Here is my d
 3. [Kodiak Hana][6]: Good sushi! The inside is fancier than the outside.
 4. [Lani's][16]: Filipino BBQ food truck. Soooooo good. Hit this and then take it over to Island Brewing for a beverage.
 
-<CenteredImage image={lanis} altText={"Lani's Food Truck"} title={"Lani's Food Truck"} width={1000} height={500} />
+<CenteredImage image={lanis} altText={"Lani's Food Truck"} title={"Lani's Food Truck"} width={1000} />
 
 ### Breweries
 1. [Kodiak Island Brewing][7]: Good beer. I was super excited to get merch from here but it all kinda sucked... Must visit!
@@ -145,7 +133,7 @@ There are plenty of options to hike on the island. There are also some great spo
 2. [Miller Point][21]: Great views of the ocean and marine life
 3. [Northend][22] / [Rotary Park][23] / [South End Trails][24]: All are on a nearby island and hook together. Just separate parking locations!
 There are a ton more options but I would say these are easy and pretty much in town!
-<CenteredImage image={fort} altText={'Fort Abercrombie'} title={'Fort Abercrombie'} width={500} height={500} />
+<CenteredImage image={fort} altText={'Fort Abercrombie'} title={'Fort Abercrombie'} width={500} />
 
 ## Museums
 The museums are cool, but I would probably save them for a rainy day. If it somehow doesn't rain, I wouldn't feel bad for skipping!
@@ -162,18 +150,18 @@ Hanging out by the ocean for an extended period of time is the best advice I can
 
 ### Bears
 Just go to the dump bro...
-<CenteredImage image={bear} altText={'Kodiak Bear'} title={'Kodiak Bear'} width={500} height={500} />
+<CenteredImage image={bear} altText={'Kodiak Bear'} title={'Kodiak Bear'} width={500} />
 
 ### Whales
 The ferry is probably your best bet. We saw plenty from the beaches too though.
 
 ### Sea Lions
 The ferry or the main harbor downtown. I was reading — Dostoevsky of course, this is Russia man — on a bench by the harbor for about an hour when all of a sudden a massive sea lion surfaced. It was insane!
-<CenteredImage image={seaLion} altText={'Sea Lion in the Kodiak Harbor'} title={'Sea Lion'} width={500} height={500} />
+<CenteredImage image={seaLion} altText={'Sea Lion in the Kodiak Harbor'} title={'Sea Lion'} width={500} />
 
 ### Deer
 So cool to see some deer in Alaska. They are everywhere!
-<CenteredImage image={deer} altText={'Deer on Kodiak Island'} title={'Deer'} width={500} height={500} />
+<CenteredImage image={deer} altText={'Deer on Kodiak Island'} title={'Deer'} width={500} />
 
 We were on the island for 3 full days and that ended up being plenty. Unless you are going for some specific purpose, I wouldn't say that you need to stay for any longer. The beaches here are awesome! The marine life is awesome! Kodiak Island is awesome!
 

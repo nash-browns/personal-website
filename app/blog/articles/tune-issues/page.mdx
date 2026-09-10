@@ -20,16 +20,14 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-issues" />
 
-import { 
-    MdxLayout,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    ThreeCenteredImages,
-    ImageFeature,
-    TLDR,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { ThreeCenteredImages } from '@/components/blog/images/three-centered-images';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { 
     ReflectiveInsulation,
@@ -69,13 +67,13 @@ text="This is a running list of all the issues I have encountered while owning t
     <br/>
     I have used the heater for an entire winter now. The issue definitely damaged my trust in the system, but I haven't had a single other issue with the heater and I love it!
     </div>
-    <CenteredImage image={looseFitting} altText={'Tune M1 Loose Heater Fitting'} title={'Loose Fitting Location'} width={'500'} height={'500'} />
+    <CenteredImage image={looseFitting} altText={'Tune M1 Loose Heater Fitting'} title={'Loose Fitting Location'} width={'500'} />
 </TwoColumn>
 
 ## Bad Light Cord
 <TwoColumn>
     <div className={'w-full sm:w-1/2'}>
-    <CenteredImage image={badCord} altText={'Tune M1 Bad Light Cord'} title={'Bad Cord'} width={'500'} height={'500'} />
+    <CenteredImage image={badCord} altText={'Tune M1 Bad Light Cord'} title={'Bad Cord'} width={'500'} />
     </div>
     <div className={'w-full sm:w-1/2'}>
     I drove from Kansas City to Aspen to ski. When I opened the top, the lights would not come on. Huge bummer. I found that the issue was caused by a bad USB-C to 12V barrel connector.
@@ -83,7 +81,7 @@ text="This is a running list of all the issues I have encountered while owning t
 </TwoColumn>
 <TwoColumn>
     <div className={'w-full sm:w-1/2'}>
-    <CenteredImage image={starlinkCable} altText={'Using Starlink Cable for Tune M1 Lights'} title={'Starlink Cable Into Switch'} width={'500'} height={'500'} />
+    <CenteredImage image={starlinkCable} altText={'Using Starlink Cable for Tune M1 Lights'} title={'Starlink Cable Into Switch'} width={'500'} />
     </div>
     <div className={'w-full sm:w-1/2'}>
     I also found that the included Starlink cable works in a pinch and was extremely helpful in troubleshooting the issue. The Starlink cable is so long, and there are so many barrel connectors in the wire, I was able to plug directly into the system in different places to narrow down the issue!
@@ -97,7 +95,7 @@ If the lights go out, make sure that all of the barrel connectors are plugged in
 While uninstalling the Tune Insulation Kit, it just tore. I am not sure how this could have been prevented. I was being super gentle. I would definitely recommend only pulling from the Velcro and as close to the sticking point as possible!
 
 Luckily, Tune sent a replacement, and I was also able to repair the tear! You can read about the repair here: [Tune Insulation Pack Repair][1]
-<TwoCenteredImages image={[tearOne, tearTwo]} altText={['Tune Insulation Tear', 'Tune Insulation Tear']} titles={['Tune Insulation Tear', 'Tune Insulation Tear']} width={'500'} height={'500'} />
+<TwoCenteredImages image={[tearOne, tearTwo]} altText={['Tune Insulation Tear', 'Tune Insulation Tear']} titles={['Tune Insulation Tear', 'Tune Insulation Tear']} width={'500'} />
 
 ### Icing And Regulator Failures
 There was a night in Wyoming that my heater quit. I woke up in the cold and was pretty confused because:
@@ -106,11 +104,11 @@ There was a night in Wyoming that my heater quit. I woke up in the cold and was 
 
 When I got out of the camper it had snowed about 10" and all the lines and regulators had about 1/8 of an inch of ice on them. I assume this is why the propane stopped flowing. It also could have been that the regulator stopped working. This icing has only happened twice this winter. I think it takes a combo of snow, warm enough temps where the snow will melt on the roof, and a slight angle of the roof towards the propane tank. With all the factors in place, snow from the roof melts, drips on the regulator and lines, then refreezes causing an issue. Unfortunately, I was in a mood that morning and did not take any pictures, but the situation did happen again after I had implemented the fix. Here are some pictures to get an idea of the issue.
 
-<ThreeCenteredImages image={[heaterIcicle3, heaterIcicle6, heaterIcicle5]} altText={['Ice on the propane regulator', 'Ice on the heater lines', 'Iced propane regulator']} titles={['Iced Regulator','Iced Lines', 'Iced Regulator']} width={300} height={300} />
+<ThreeCenteredImages image={[heaterIcicle3, heaterIcicle6, heaterIcicle5]} altText={['Ice on the propane regulator', 'Ice on the heater lines', 'Iced propane regulator']} titles={['Iced Regulator','Iced Lines', 'Iced Regulator']} width={300} />
 
 The fix is to use water pipe insulation on the hoses and a faucet cover on the regulator. The second time there was icing on the lines and hoses was in South Dakota and the fix worked! Another benefit is that the faucet protector keeps the regulators from failing. I went through 3 regulators, but after using the faucet cover, I have had no issues. All three regulators that I used had a warning not to expose them to the elements printed on the side.
 
-<TwoCenteredImages image={[heaterProtection, heaterHoseProtection]} altText={['Faucet Cover', 'Water Pipe Insulation']} titles={['Faucet Cover', 'Water Pipe Insulation']} width={500} height={500} />
+<TwoCenteredImages image={[heaterProtection, heaterHoseProtection]} altText={['Faucet Cover', 'Water Pipe Insulation']} titles={['Faucet Cover', 'Water Pipe Insulation']} width={500} />
 
 You can read more about the heater propane consumption and other heater-related information here: [Surviving Winter in the Tune M1][2]
 

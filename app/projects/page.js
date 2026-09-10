@@ -1,7 +1,14 @@
+import { generateMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import logo from "@/public/hippy-hokusai-logo.png";
+
+export const metadata = generateMetadata({
+    title: 'Projects',
+    description: 'Personal projects by Nash Bostwick, including the Nash Browns website.',
+    index: true,
+});
 
 export default function ProjectsHome() {
 

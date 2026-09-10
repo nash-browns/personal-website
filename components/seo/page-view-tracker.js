@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect } from 'react'
-import { recordArticleView } from '@/lib/server-actions/firebase/firestore/content'
+import { useEffect, useRef } from 'react'
+import { recordArticleView } from '@/lib/server-actions/record-article-view'
 
 /*
  * Fires the partner view counter after the page has loaded in the browser.
@@ -9,8 +9,11 @@ import { recordArticleView } from '@/lib/server-actions/firebase/firestore/conte
  * blocked every article's HTML response and forced dynamic rendering.
  */
 export function PageViewTracker({ contentId }) {
+    const lastContentId = useRef(null)
     useEffect(() => {
-        if (!contentId) return
+        // React Strict Mode can replay effects for the same mounted page.
+        if (!contentId || lastContentId.current === contentId) return
+        lastContentId.current = contentId
         recordArticleView(contentId).catch(() => {})
     }, [contentId])
 

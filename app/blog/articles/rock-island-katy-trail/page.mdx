@@ -20,19 +20,16 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="rock-island-katy-trail" />
 
-import { 
-    MdxLayout,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    ThreeCenteredImages, 
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    GoogleMap,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { ThreeCenteredImages } from '@/components/blog/images/three-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { GoogleMap } from '@/components/general/google-map';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -105,7 +102,7 @@ I had a lot of initial thoughts about how I would plan the route for this trip. 
     style={{ border: "none" }}
     loading="lazy"
     title="Bike Katy Trail Website"
-  />
+ />
 </div>
 
 I decided that taking 143rd east through south Kansas City to Pleasant Hill, where the Rock Island trail begins, would be my best bet. Then I could ride straight through to the Katy and onto St. Louis where I would exit at the [Missouri Bluffs Trail Trailhead][3] and follow Google Maps to Gateway National Park.
@@ -117,7 +114,7 @@ I left Thursday, May 1st, at noon and needed to be on the Sunday train leaving f
 ## The Trail
 The trail is about 8ft wide, almost completely flat for the entire 200+ miles, and consists of finely crushed gravel. The trail is mostly elevated, I assume this is due to it being an old rail line, and has a nice crown that helps shed water quickly. The week prior to my trip was rainy and I was worried this would be an issue. Fortunately, the trail was mostly dry and rode fast. Some soggy sections slowed me down a little but were more than manageable!
 
-<ThreeCenteredImages image={[trailOne, trailTwo, trailThree]} altText={['Katy Trail Conditions', 'Katy Trail Bridge', 'Katy Trail Conditions']}  width={'500'} height={'500'} />
+<ThreeCenteredImages image={[trailOne, trailTwo, trailThree]} altText={['Katy Trail Conditions', 'Katy Trail Bridge', 'Katy Trail Conditions']}  width={'500'} />
 
 <TwoColumn>
 <div>
@@ -129,13 +126,13 @@ I think I came across 2 trees that were blown down on the entire 300+ miles of t
 I rode a gravel bike (Salsa Warbird) and it was fantastic. I think a gravel bike would be the best choice but you could take anything on this trail. I saw a lot of cheap e-bikes running around that were doing fine!
 </div>
 
-<CenteredImage image={blowDown} altText={'Katy Trail Blow Down'} title={'Blow Down'} width={'500'} height={'500'} />
+<CenteredImage image={blowDown} altText={'Katy Trail Blow Down'} title={'Blow Down'} width={'500'} />
 </TwoColumn>
 
 
 ## Wildlife
 I saw a fair amount of wildlife on this trip! Deer, turtles, snakes, spiders, lizards, and more! A few notable interactions:
-<CenteredImage image={turtle} altText={'Katy Trail Turtle'} title={'3 Turtle Crossing'} width={'1000'} height={'500'} />
+<CenteredImage image={turtle} altText={'Katy Trail Turtle'} title={'3 Turtle Crossing'} width={'1000'} />
 
 I didn't have any mosquito issues. I think some of this was because I was early in the year and kept moving. There was quite a bit of standing water lining the trail that is going to be full of them later in the year!
 
@@ -149,7 +146,7 @@ On day one I saw a massive spider while I was riding. I got a little closer than
 After dark on day one I turned on my light and not 5 minutes later I almost ran over a black snake stretched across the trail. If it wasn't for the light I would have run it over. I probably did about 4 total hours of night riding and was very glad to have a bright headlight.
 
 </div>
-<CenteredImage image={spider} altText={'Katy Trail Wolf Spider'} title={'Wolf Spider'} width={'500'} height={'500'} />
+<CenteredImage image={spider} altText={'Katy Trail Wolf Spider'} title={'Wolf Spider'} width={'500'} />
 </TwoColumn>
 
 On Saturday night I was riding by headlight and saw lots of opossums and armadillos. It was nice to have some company!
@@ -157,7 +154,7 @@ On Saturday night I was riding by headlight and saw lots of opossums and armadil
 ## Traffic
 <TwoColumn>
 Everyone has a different idea of what isolated means. The vast majority of the time I didn't see many people, but I never felt isolated on the trip. However, the trail was hardly ever busy. The busiest sections were near Pleasant Hill, Sedalia, Jeff City, and St. Louis.
-<CenteredImage image={trailFour} altText={'Katy Trail'}  width={'500'} height={'500'} />
+<CenteredImage image={trailFour} altText={'Katy Trail'}  width={'500'} />
 </TwoColumn>
 
 ## Camping
@@ -168,7 +165,7 @@ I wasn't able to find much information on camping before the trip. My plan was t
 I found that the trail is more geared towards renting a cabin or Airbnb by the trail. I know this is perfect for lots of people but not my thing!
 
 </div>
-<CenteredImage image={camping} altText={'Katy Rock Junction Camping'} title={'Katy Rock Junction Campground'} width={'500'} height={'500'} />
+<CenteredImage image={camping} altText={'Katy Rock Junction Camping'} title={'Katy Rock Junction Campground'} width={'500'} />
 </TwoColumn>
 
 It might seem tempting to walk off the trail and camp but I probably wouldn't. There are tons of ticks! I found out how bad the ticks can get while working for the Missouri DNR in college. However, I would camp at almost any trailhead. I think the farther from town, the better. I don't know the legality of this, but if you pitched as the sun was going down I don't think you would have an issue.
@@ -196,7 +193,7 @@ In all seriousness, I pulled about 20 ticks out of this dog. Make sure to check 
 
 
 </div>
-<CenteredImage image={tax} altText={'Katy Trail Dog Tax'} width={250} height={500} />
+<CenteredImage image={tax} altText={'Katy Trail Dog Tax'} width={250} />
 </TwoColumn>
 
 <TwoColumn>
@@ -208,7 +205,7 @@ I ended in Windsor with plans to camp at the trailhead. Google Maps brought up a
 </div>
     <GoogleMap
         url={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4034.1548267009057!2d-93.52128434954554!3d38.53587824650126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c40959d86324a1%3A0x9ad5be4836682d3a!2sKaty-Rock%20Junction%2C%20LLC!5e0!3m2!1sen!2sus!4v1746643947346!5m2!1sen!2sus'}
-    />
+ />
 
 </TwoColumn>
 
@@ -220,7 +217,7 @@ The day started with a shower and when I was putting my sock back on it ripped. 
 I was very lucky that the sock was still covering the heel of my foot!
 
 </div>
-<CenteredImage image={rip} altText={'Sock Rip'} title={'NOOOOOOOO!'} width={500} height={500} />
+<CenteredImage image={rip} altText={'Sock Rip'} title={'NOOOOOOOO!'} width={500} />
 </TwoColumn>
 
 <TwoColumn>
@@ -230,19 +227,19 @@ I rode into Sedalia, got coffee and some food at Woods, and went to the bike sho
 </div>
 <GoogleMap
         url={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.801634920812!2d-93.22379462929098!3d38.705050362957195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c385c601bbf351%3A0xe08d4755a45a5035!2sPro-Velo!5e0!3m2!1sen!2sus!4v1746644571337!5m2!1sen!2sus'}
-    />
+ />
 </TwoColumn>
 
 Rocheport is a cool little town that I wish I had more time to explore. You come into town by riding through a long old railroad tunnel and are quickly greeted by a roadside stand. The town is right on the bank of the Big Muddy. Explore!!!
 
-<TwoCenteredImages image={[tunnel, stand]} altText={['Rocheport Tunnel', 'Rocheport Trailside Stand']} titles={['Rocheport Tunnel', 'Trailside Stand']} width={'500'} height={'500'} />
+<TwoCenteredImages image={[tunnel, stand]} altText={['Rocheport Tunnel', 'Rocheport Trailside Stand']} titles={['Rocheport Tunnel', 'Trailside Stand']} width={'500'} />
 
 I rode into Coopers Landing and did in fact have a great time and slurped down a couple of beers. I highly recommend staying the night if you can. As mentioned in the safety section, I did run into a weird dude that was under some kind of chemically induced trance that required river worship at 3am. In the morning I felt culturally enriched but a little light on sleep!
-<CenteredImage image={cooperLanding} altText={"Cooper's Landing Sunset"} title={"Cooper's Landing"} width={'1000'} height={'500'} />
+<CenteredImage image={cooperLanding} altText={"Cooper's Landing Sunset"} title={"Cooper's Landing"} width={'1000'} />
 
 ## Coopers Landing -> Chesterfield
 I got to pay the price for an easier Friday. 126 miles to a hot shower and some shitty toxic hell (Taco Bell). The last 30 miles were in the dark and the rain. Luckily my light lasted and it wasn't a downpour or too cold! I'm not going to lie, a low point was reached Saturday night. Push push push!
-<CenteredImage image={jeffCity} altText={'Jeff City from the Katy Trail'} title={'Jeff City Views'} width={'1000'} height={'500'} />
+<CenteredImage image={jeffCity} altText={'Jeff City from the Katy Trail'} title={'Jeff City Views'} width={'1000'} />
 
 ## Chesterfield -> Gateway National Park
 <TwoColumn>
@@ -252,7 +249,7 @@ I was worried about soreness from the big push the day before but this ended up 
 
 </div>
 <div className='w-2/5'>
-<CenteredImage image={arch} altText={'Me at the St. Louis Arch'} width={300} height={1000} />
+<CenteredImage image={arch} altText={'Me at the St. Louis Arch'} width={300} />
 </div>
 </TwoColumn>
 
@@ -263,11 +260,11 @@ I was worried about soreness from the big push the day before but this ended up 
 Riding Amtrak on the way back was an interesting experience! Once I figured out how the bike situation worked it was smooth sailing. Make sure that you purchase a ticket that has a bike endorsement!
 
 </div>
-<CenteredImage image={train} altText={'Amtrak from St. Louis to Kansas City'} width={500} height={500} />
+<CenteredImage image={train} altText={'Amtrak from St. Louis to Kansas City'} width={500} />
 </TwoColumn>
 
 I was quickly yelled at to not use the bike storage. This is what was agreed upon between the conductor and me. It worked, not sure why the bike storage was out of the question though.
-<CenteredImage image={bikeTrain} altText={'Amtrak Bike Storage'} title={'Bike Storage'} width={1000} height={500} />
+<CenteredImage image={bikeTrain} altText={'Amtrak Bike Storage'} title={'Bike Storage'} width={1000} />
 
 ## The Trip 
 <iframe src="https://ridewithgps.com/embeds?type=route&id=50658216&sampleGraph=true&hideSurface=true" style={{width: '1px', minWidth: '100%', height: '700px', border: 'none'}} scrolling="no"></iframe>

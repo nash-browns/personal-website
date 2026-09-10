@@ -20,16 +20,10 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-roof-insulation" />
 
-import { 
-    MdxLayout,
-    TwoColumn,
-    CenteredImage, 
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    MdxTableWraper,
-    Gif,
-} from '@/components/blog'
+import { MdxLayout, MdxTableWraper } from '@/components/blog/mdx-layout';
+import { TwoColumn } from '@/components/blog/layout/two-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
 
 import { 
     ReflectiveInsulation,
@@ -96,7 +90,7 @@ Borrow as much as you can! This is a quick project and probably not worth buying
 ### Measure & Cut Foam
 The front and back alcoves in the Tune M1 ceiling measure approximately 70 1/4" x 35 3/4" and the middle alcove is 70 1/4" x 36 3/5". I made some extra cuts to alleviate some of the pressure on the locking mechanism and to make room for the roof port wiring. You can see more exact measurements below that include the fan section.
 
-<CenteredImage image={measurements} altText={'Tune M1 roof insulation panel measurements'} title={'Measurements'} width={'500'} height={'500'} />
+<CenteredImage image={measurements} altText={'Tune M1 roof insulation panel measurements'} title={'Measurements'} width={'500'} />
 You will need one 4x8 sheet of foam for each indent. If you have a longer truck this may vary!
 
 At this point, I cut and test-fitted all of the panels. I tried both a hot knife and a rotary tool, and both worked well to make the cuts. A box cutter would take longer but work just the same!
@@ -107,10 +101,10 @@ Originally done in Noah's post, but I opted to save some time and money and not 
 When buying the carpet, make sure that it does not have a backing material. This will make the panels much heavier and the adhesive won't work as well!
 <TwoColumn>
     <div className={'w-full sm:w-1/2'}>
-        <CenteredImage image={carpet} altText={'Menards Carpet'} title={'Menards Product'} width={'500'} height={'500'} />
+        <CenteredImage image={carpet} altText={'Menards Carpet'} title={'Menards Product'} width={'500'} />
     </div>
     <div className={'w-full sm:w-1/2'}>
-        <CenteredImage image={carpetMenards} altText={'Menards Carpet'} title={'Menards Product'} width={'500'} height={'500'} />
+        <CenteredImage image={carpetMenards} altText={'Menards Carpet'} title={'Menards Product'} width={'500'} />
     </div>
 </TwoColumn>
 

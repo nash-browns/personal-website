@@ -20,17 +20,15 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="how-to-reseal-the-tune-m1" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    TLDR,
-    ImageFeature,
-    YoutubeAd,
-    YoutubeVideo,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { OneColumn } from '@/components/blog/layout/one-column';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { YoutubeAd } from '@/components/blog/ads/youtube-video';
+import { YoutubeVideo } from '@/components/blog/videos/youtube-video';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/how-to-reseal-the-tune-m1%2Ffeature-image.jpg?alt=media&token=bb389630-c26a-4ae0-8880-400abb591633";
 export const bedGap = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/how-to-reseal-the-tune-m1%2Fbed-gap.jpg?alt=media&token=a16ac1e1-2a5a-4a6e-8f20-aca266cf0894";
@@ -64,11 +62,11 @@ Here are the products I used or that were recommended by Tune:
 
 ## Finding the Leak
 I was washing my truck one day when I noticed that the wooden shelf that holds my microwave and battery was looking damp — and starting to grow a little mold. When I went looking for how it was getting wet, I found a slow leak coming through one of the bed corners. Funny enough, it only leaked at the car wash; it didn't seem to happen when it was raining.
-<CenteredImage image={moldyShelf} altText={'Mold growing on the wooden shelf that holds the microwave and battery'} title={'The Moldy Shelf'} width={500} height={500} />
+<CenteredImage image={moldyShelf} altText={'Mold growing on the wooden shelf that holds the microwave and battery'} title={'The Moldy Shelf'} width={500} />
 
 ## Bed Corner Reseal
 Toyota Tacoma truck beds have a small gap where the back of the bed and the sides meet. This was great for me, because I used the gap to run all of the external wiring into the camper, saving me from having to drill any holes into my truck! The bad news is: these gaps can leak. Over time, mine did.
-<CenteredImage image={bedGap} altText={'The gap in the Tacoma bed corner where the wiring runs into the camper'} title={'The Bed Corner Gap'} width={500} height={500} />
+<CenteredImage image={bedGap} altText={'The gap in the Tacoma bed corner where the wiring runs into the camper'} title={'The Bed Corner Gap'} width={500} />
 
 <YoutubeAd videoID={'nE98ZA_9Rws'} description={'Resealing the Tune M1'} />
 
@@ -77,16 +75,16 @@ The process is easy, and the camper stays on the truck the whole time. After you
 2. Scrape off any old, crumbly putty from the camper
 3. Reapply the new putty
 
-<CenteredImage image={puddy} altText={'A fresh package of the gray reseal putty'} title={'The Putty'} width={500} height={500} />
+<CenteredImage image={puddy} altText={'A fresh package of the gray reseal putty'} title={'The Putty'} width={500} />
 
 This job took 30 minutes. I applied the [putty][1] and voila, the camper no longer leaks when the hose is pointed at it!
 
 I used barely any of the brick. I think I could reseal the camper 10 times with what is left. The rest went into a Ziploc bag, and hopefully it stays pliable until the next reseal.
-<TwoCenteredImages image={[puddyOutside, puddyOutside2]} altText={['Putty pressed into the bed corner from outside', 'The resealed corner from another angle']} titles={['Putty Applied', 'Sealed Corner']} width={500} height={500} />
+<TwoCenteredImages image={[puddyOutside, puddyOutside2]} altText={['Putty pressed into the bed corner from outside', 'The resealed corner from another angle']} titles={['Putty Applied', 'Sealed Corner']} width={500} />
 
 ## Front Weather Sealing
 I also had a weather sealing issue. It looks like the glue that held the seal to the camper just got old. It doesn't leak at this point, so I am not going to touch it, but if you are looking to replace your seals, here is what Tune uses: a [double D-bulb gasket][3] on the sides, and on the front, almost always a [single 1" D-bulb][2].
-<CenteredImage image={tuneWeatherSeal} altText={'The front weather seal where the adhesive is starting to let go'} title={'Front Weather Seal'} width={500} height={500} />
+<CenteredImage image={tuneWeatherSeal} altText={'The front weather seal where the adhesive is starting to let go'} title={'Front Weather Seal'} width={500} />
 
 ## Final Thoughts
 All in all, I am really happy with the weather resistance the Tune provides. I have never had a wet night. If this is all the maintenance that is needed, I am a happy camper!

@@ -24,12 +24,10 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="frigga-tempreture-logger" />
 
-import { 
-    MdxLayout,
-    CenteredImage, 
-    ImageFeature,
-    TLDR,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { TLDR } from '@/components/blog/layout/tldr';
 
 import { 
     FriggaLogger
@@ -65,7 +63,7 @@ YOU DO NOT NEED TO DOWNLOAD THEIR SOFTWARE!! Just plug the logger into your comp
 
 ## Battery Change
 The battery looks permanently installed, but it's not! Just slide something in alongside the battery—I used a pocket knife—and pry it out. Here is how I did it:
-<CenteredImage image={batteryChange} altText={'Frigga Temperature Logger Battery Change'} width={1000} height={500} />
+<CenteredImage image={batteryChange} altText={'Frigga Temperature Logger Battery Change'} width={1000} />
 
 </MdxLayout>
 

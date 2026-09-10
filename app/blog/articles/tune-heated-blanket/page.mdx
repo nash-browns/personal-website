@@ -19,18 +19,15 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-heated-blanket" />
 
-import { 
-    MdxLayout,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
 
 import { 
     faReact,
 } from '@fortawesome/free-brands-svg-icons';
 
-import featureImage from "@/public/blog/nash-browns/thumbnail.png";
+export const featureImage = "/blog/nash-browns/thumbnail.png";
 
 <ImageFeature
     title='Tune Heated Blanket'

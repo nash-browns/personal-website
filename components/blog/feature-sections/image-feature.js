@@ -27,7 +27,8 @@ export function ImageFeature({ title, image, alt, threeSixty=false, video=false 
                                 style={{ objectFit: 'cover', margin: '0' }} // navbar, lineheight, paddding, padding, padding?
                                 fill={true}
                                 sizes="100vw"
-                                priority
+                                loading="eager"
+                                fetchPriority="high"
                             />
                 }
             </div>

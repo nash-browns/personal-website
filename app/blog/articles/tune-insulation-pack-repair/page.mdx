@@ -20,24 +20,12 @@ import { ArticleSeo } from '@/components/seo'
 
 <ArticleSeo post={postMetadata} slug="tune-insulation-pack-repair" />
 
-import { 
-    MdxLayout,
-    OneColumn,
-    TwoColumn,
-    CenteredImage, 
-    TwoCenteredImages, 
-    Footer, 
-    TravelFeature, 
-    Gif, 
-    BlogMapWrapper,
-    TLDR,
-    BlogStatsSection,
-    Stat,
-    ImageFeature,
-    BlackTieTitle,
-    PhotoCarousel,
-    ContinueReading,
-} from '@/components/blog'
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { 
     ReflectiveInsulation,
@@ -82,7 +70,7 @@ text="Unfortunately, my insulation pack ripped. Fortunately, it was cheap, fast,
 />
 
 I picked up the Tune in Denver and headed to the mountains to ski. Aspen had always been a little rich for my blood, but with lodging solved, I was heading that way. I stayed in the parking lot for the weekend but when it was time to go I noticed that the insulation kit had caused a gap (this eventually goes away). I thought it best to remove the insulation before the drive back to Kansas City. I started taking off the kit, but when I started removing the front section disaster struck!
-<TwoCenteredImages image={[ripOne, ripThree]} altText={['Tune Insulation Pack Rip', 'Tune Insulation Pack Rip']}  width={500} height={500} />
+<TwoCenteredImages image={[ripOne, ripThree]} altText={['Tune Insulation Pack Rip', 'Tune Insulation Pack Rip']}  width={500} />
 
 You are going to say I was in a rush to get on the road and wasn't being careful, but I swear on everything that I wasn't being rough with the insulation, and I had removed all three other sections without issue. At the time of writing, I have removed the insulation kit about a dozen times without issue. I believe this section had some faulty stitching that caused the issue, but I am no seamstress.
 
@@ -95,7 +83,7 @@ Tune took care of the situation, but I was left with an insulation panel that ha
 Supplies:
 1. Tenacious Tape
 2. Rubbing Alcohol
-<CenteredImage image={supplies} altText={'Tune Repair Supplies'} title={'Supplies Needed'} width={500} height={500} />
+<CenteredImage image={supplies} altText={'Tune Repair Supplies'} title={'Supplies Needed'} width={500} />
 
 The Process: 
 
@@ -104,10 +92,10 @@ The Process:
 3. Applied tape.
 4. Weighed the area down overnight.
 5. Repeated on the other side!
-<TwoCenteredImages image={[prepOne, bookOne]} altText={['Tune Insulation Pack Repair Prep', 'Insulation Pack Weighing']} width={500} height={500} />
+<TwoCenteredImages image={[prepOne, bookOne]} altText={['Tune Insulation Pack Repair Prep', 'Insulation Pack Weighing']} width={500} />
 
 Here is the end result:
-<CenteredImage image={featureImage} altText={'Repaired Insulation pack image'}  width={500} height={500} />
+<CenteredImage image={featureImage} altText={'Repaired Insulation pack image'}  width={500} />
 
 The fix has worked well for the last four months. Will it work for the next ten years? Only time will tell!
 

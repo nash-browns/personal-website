@@ -1,5 +1,5 @@
 import { generateMetadata } from '@/lib/seo';
-import { SiteLanding } from "@/components/blog";
+import { SiteLanding } from '@/components/blog/landing-pages/site-landing';
 
 export const metadata = generateMetadata({
     title:"Nash Browns",
