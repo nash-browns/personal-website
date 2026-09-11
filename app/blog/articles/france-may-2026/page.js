@@ -7,7 +7,7 @@ import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 export const postMetadata = {
     title: "France 2026",
     published: "2026-08-31",
-    updated: "2026-08-31",
+    updated: "2026-09-10",
     author: 'Nash Bostwick',
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/france-may-2026%2F000007050036.jpg?alt=media&token=65533058-2a49-4ff1-9564-48b061dbb75c',
     thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/france-may-2026%2Ffeature-image.jpeg?alt=media&token=4fe935d3-c359-4ced-8ad2-2361065b321f',

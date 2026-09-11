@@ -3,13 +3,13 @@ import { generateMetadata } from '@/lib/seo';
 export const postMetadata = {
     title: "Kansas River Hazards",
     published: "2024-12-01",
-    updated: "2024-12-01",
+    updated: "2026-09-10",
     author: 'Nash Bostwick',
-    thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-all-hazards%2Ftopeka-water-plant-low-head-dam-1.png?alt=media&token=f06198bc-81f4-4e37-ad3a-5fc530f3c67a',
-    description: "A paddler's safety guide to every man-made hazard on the Kansas (Kaw) River: low-head dams, old railroad bridges, and sand dredges, with GPS coordinates, river miles, portage tips, photos, and videos.",
-    keywords: ['Kansas River', 'Kaw River', 'kayaking', 'Hazards', 'Low Head Dams', 'Sand Dredges', 'Fallen Rail Road Bridges'],
-    tags: ['Kansas River', 'Kaw River', 'kayaking', 'Hazards', 'Low Head Dams', 'Sand Dredges', 'Fallen Rail Road Bridges', 'Rivers'],
-    isActive: false,
+    thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-all-hazards%2Fthumbnail.png?alt=media&token=d1f29a0f-4541-4ccc-a9db-3f2cf5b683c5',
+    description: "Kansas River paddling hazards, from low-head dams to bridge debris and dredge cables, with river miles, GPS locations, photos, and portage planning resources.",
+    keywords: ['Kansas River', 'Kaw River', 'kayaking', 'Hazards', 'Low-Head Dams', 'Sand Dredges', 'Railroad Bridge Debris'],
+    tags: ['Kansas River', 'Kaw River', 'kayaking', 'Hazards', 'Low-Head Dams', 'Sand Dredges', 'Railroad Bridge Debris', 'Rivers'],
+    isActive: true,
 };
 
 export const metadata = generateMetadata({...postMetadata});
@@ -22,9 +22,12 @@ import { ArticleSeo } from '@/components/seo'
 import { CookBookDivider } from '@/components/blog/cookbook-divider';
 import { CenteredImage } from '@/components/blog/images/centered-image';
 import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
-import { OneColumn } from '@/components/blog/layout/one-column';
 import { TwoColumn } from '@/components/blog/layout/two-column';
 import { MdxLayout } from '@/components/blog/mdx-layout';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+
+export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-all-hazards%2Fkansas-river-all-hazards%252Ftopeka-water-plant-low-head-dam-1.avif?alt=media&token=fc4a5785-c6da-497e-85a7-923ec18d017b";
 
 export const belvueLowHeadDam = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-all-hazards%2Fbelvue-low-head-dam.png?alt=media&token=85f15e1b-5372-476a-b853-005085413d46";
 export const topekaLowHeadDam = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-all-hazards%2Ftopeka-water-plant-low-head-dam-1.png?alt=media&token=f06198bc-81f4-4e37-ad3a-5fc530f3c67a";
@@ -41,207 +44,260 @@ export const waterone1 = "https://firebasestorage.googleapis.com/v0/b/nash-brown
 export const waterone2 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-all-hazards%2Fwaterone-dam-2.JPEG?alt=media&token=468be864-5a39-45b5-921c-14f8f9f0e133";
 export const waterone3 = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/kansas-river-all-hazards%2Fwaterone-dam-3.JPEG?alt=media&token=8e5c5673-0505-43b8-ae5d-29f1d75dedf4";
 
+<ImageFeature
+    title='Kansas River Hazards'
+    image={featureImage}
+    alt='Low-head dam at the Topeka water plant on the Kansas River'
+/>
+
+export const relatedArticleOne = '/blog/articles/kansas-river-trip-report-5-30-2025';
+export const relatedArticleTwo = '/blog/articles/kansas-river-trip-report-10-27-2024';
+export const relatedArticleThree = '/blog/articles/big-sioux-river-kayak';
+
 <MdxLayout>
 
-# Kansas River Hazards
+The Kansas (Kaw) River has dams, old bridge debris, and dredging equipment that are worth locating before you launch. This guide covers the eight fixed hazards listed on the [Friends of the Kaw access map][access-map], followed by notes on sand dredges. It is not an inventory of every obstacle: logs, changing channels, and other hazards can appear between these locations.
 
-Lists and descriptions of all the hazards found on the Kansas River. This list should be complete, but assume that it is not. Always evaluate each obstacle with the current river conditions.
+**Guidance reviewed September 10, 2026.** The source links in each section lead to Friends of the Kaw's detailed access information. Photos and videos show the locations, not today's water conditions.
 
-## Low Head Dams & Weirs
-You should never ride over low head dams or weirs. There are big signs on the Kansas River marking portages around the obstacles.
+## Before You Go
 
-### Belvue Low Head Dam
-Approximately 8 miles downriver from the Wamego access ramp.
+Wear a properly fitted life jacket and check conditions for your planned stretch before launching. Read [Friends of the Kaw's river and sandbar safety guidance][safety] alongside the access map.
+
+**Do not paddle over dams or weirs.** Plan around the structures using the access and portage information below. A partial dam can leave an open channel beside it, but that does not make the structure safe to cross. Do not depend on spotting a sign or exposed rocks at the last moment.
+
+“River left” and “river right” mean left and right **while facing downstream**. River miles decrease toward the Missouri River. The GPS coordinates below identify the hazards; they are **not launch sites or portage landings** unless explicitly labeled.
+
+<nav aria-label="Jump to a Kansas River hazard">
+    <h2>Hazards in Downstream Order</h2>
+    <ol>
+        <li><a href="#belvue">Mile 120: Belvue Low-Head Dam</a></li>
+        <li><a href="#topeka">Mile 87.6: Topeka Water Plant Low-Head Dam</a></li>
+        <li><a href="#west-bridge">Mile 85.3: West Old Railroad Bridge</a></li>
+        <li><a href="#east-bridge">Mile 84.5: East Old Railroad Bridge</a></li>
+        <li><a href="#tecumseh">Mile 76: Tecumseh Low-Head Dam</a></li>
+        <li><a href="#lawrence">Mile 54: Lawrence Energy Center Low-Head Dam</a></li>
+        <li><a href="#bowersock">Mile 52.4: Bowersock Dam</a></li>
+        <li><a href="#waterone">Mile 14.8: WaterOne Low-Head Dam</a></li>
+        <li><a href="#sand-dredges">Sand dredges and cables</a></li>
+    </ol>
+</nav>
+
+<CookBookDivider/>
+
+<h2 id="belvue" className="scroll-mt-24">Belvue Low-Head Dam</h2>
 
 <TwoColumn>
-    <div>
-        * River Mile: 120
-        * GPS: 39.20955, -96.18809
-        * Portage not required
-        * Stay river left to avoid this dam
+    <div className="w-full sm:w-1/2">
+        <ul>
+            <li>River mile: 120</li>
+            <li>Dam GPS: 39.20955, -96.18809</li>
+            <li>Passage guidance: river left, away from the rock structure</li>
+        </ul>
     </div>
-    <div>
-        <CenteredImage image={belvueLowHeadDam} altText={'Belvue Low Head Dam Picture'} width={500} />
+    <div className="w-full sm:w-1/2">
+        <CenteredImage image={belvueLowHeadDam} altText="Belvue Low-Head Dam at the Jeffrey Energy Center" width={500} />
     </div>
 </TwoColumn>
 
-This is a rock low-head dam used to divert water into the water intake structure for the Jeffrey Energy Center.  Note that this is considered a partial low-head dam because it doesn't extend across the entire river. It extends from the right bank, across the point of the island, and over halfway across the left channel of the river.  Stay on river left to avoid this structure.
+About eight river miles below Wamego, this partial rock dam diverts water toward the Jeffrey Energy Center intake. It reaches out from river right, crosses the island tip, and extends into the left channel. Friends of the Kaw directs paddlers to **river left** to avoid it. Submerged rocks can remain dangerous even when the dam is difficult to see. [Belvue location and passage guidance][belvue-source].
 
-This area can be a hazard in low water and paddlers should proceed with caution.  If you see parts (pipe, iron, railroad ties, etc.) sticking up through the water, avoid them.  Do not paddle close to them as they are attached to the old bridge and parts of it may be just below the water.  It would be very dangerous to entangle your boat or yourself in this structure.  Even if you do not see any obstructions, they may be just below the water's surface.  Paddling past this bridge on the right (south) bank is the best option.
+Video of the Belvue approach, by Bill Hughes:
 
-Here is a video of the approach:
-<OneColumn>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cKVA108q84A?si=btGVvnjSbGHa6Ss-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-</OneColumn>
+<div className="mx-auto my-4 aspect-video w-full max-w-2xl">
+    <iframe className="h-full w-full border-0" width="560" height="315" src="https://www.youtube.com/embed/cKVA108q84A" title="Belvue Low-Head Dam approach — Bill Hughes" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+</div>
 
-Friends of the Kaw Info -> [Belvue Low Head Dam][1]
 <CookBookDivider/>
 
-### Topeka Water Plant Low-Head Dam
-This is a low-head dam, and you should not go over it in any vessel. Portage the dam or utilize the paddler chute on the north bank / river left.
+<h2 id="topeka" className="scroll-mt-24">Topeka Water Plant Low-Head Dam</h2>
 
 <TwoColumn>
-    <div className="grow min-w-fit">
-        * River Mile: 87.6
-        * GPS: 39.07231, -95.71573
-        * Portage required
-        * Stay river left to portage
+    <div className="w-full sm:w-1/2">
+        <ul>
+            <li>River mile: 87.6</li>
+            <li>Dam GPS: 39.07231, -95.71573</li>
+            <li>Portage GPS: 39.07421, -95.71637</li>
+            <li>Land portage: river left / north bank</li>
+        </ul>
     </div>
-    <div className='shrink'>
-        <CenteredImage image={topekaLowHeadDam} altText={'Topeka Water Plant Low-Head Dam'} width={500} />
+    <div className="w-full sm:w-1/2">
+        <CenteredImage image={topekaLowHeadDam} altText="Topeka Water Plant Low-Head Dam and north-bank access area" width={500} />
     </div>
 </TwoColumn>
 
-The Topeka water plant has a low-head dam (often referred to as the Topeka weir) about 2/3 mile downstream from the U.S. 75 bridge.  **YOU SHOULD NOT GO OVER THE DAM IN ANY VESSEL**.  There are two wide concrete access ramps on the north (river left) side of the river, one above the dam and one below the dam, where paddlers can portage.  There is a large gravel parking lot at the ramps, allowing river users to park cars for shuttling and to launch boats both upstream and downstream. In 2021, a paddler's chute and fish ladder were installed on the north bank (river left) between the two access ramps, allowing paddlers to continue through this section of the river without portaging. 
+The Topeka weir has concrete access ramps above and below the dam on river left. Friends of the Kaw advises approaching along the north bank and passing **left of the island about one mile upstream**, so you reach the access side of the dam. Do not cross the dam itself. [Topeka approach and portage details][topeka-source].
 
-<TwoCenteredImages image={[topekaLowHeadDam2, topekaLowHeadDam3]} altText={['Topeka Water Plant Low-Head Dam', 'Topeka Water Plant Low-Head Dam']} width={500} />
+A separate paddler chute opened on the north side in 2021. Its existence does not guarantee suitable conditions for your boat or skill level; the land portage remains an option. Review the source's chute information before deciding how to pass this section.
 
-Here is a video of the approach:
-<OneColumn>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2qoPdS71DJE?si=PDQr0i-RxrS31CHl" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-</OneColumn>
-Friends of the Kaw Info -> [Topeka Water Plant Low-Head Dam][2]
+<TwoCenteredImages image={[topekaLowHeadDam2, topekaLowHeadDam3]} altText={['Topeka weir and paddler chute viewed from the north bank', 'Another view of the Topeka weir paddler chute']} width={500} />
+
+Friends of the Kaw's video below shows the chute in **April 2021**, not current conditions:
+
+<div className="mx-auto my-4 aspect-video w-full max-w-2xl">
+    <iframe className="h-full w-full border-0" width="560" height="315" src="https://www.youtube.com/embed/2qoPdS71DJE" title="Topeka weir paddler chute in April 2021 — Friends of the Kaw" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+</div>
+
 <CookBookDivider/>
 
-### Tecumseh Low-Head Dam
-**THIS AREA OF THE RIVER IS NOT RECOMMENDED FOR NOVICE PADDLERS**. This is a challenging area to navigate and should only be paddled by those with extensive river experience.
+<h2 id="west-bridge" className="scroll-mt-24">West Old Railroad Bridge</h2>
 
 <TwoColumn>
-    <div className="grow min-w-fit">
-        * River Mile: 76.0
-        * GPS: 39.05499, -95.57253
-        * There are no river bank portages
+    <div className="w-full sm:w-1/2">
+        <ul>
+            <li>River mile: 85.3</li>
+            <li>Hazard GPS: 39.06434, -95.67542</li>
+            <li>Passage guidance: river right / south bank</li>
+        </ul>
     </div>
-    <div className='shrink'>
-        <CenteredImage image={tecumsehLowHeadDam} altText={'Topeka Water Plant Low-Head Dam'} width={500} />
+    <div className="w-full sm:w-1/2">
+        <CenteredImage image={topekaBridge} altText="West Old Railroad Bridge debris in the Kansas River at Topeka" width={500} />
     </div>
 </TwoColumn>
 
-In low water the bridges can be hazardous and paddlers should proceed with caution.  If you see parts (pipe, iron, railroad ties, etc.) sticking up through the water, avoid them.  Do not paddle close to them as they are attached to the old bridge and parts of it may be just below the water.  It would be dangerous to entangle your boat or yourself in this structure.  Even if you do not see any obstructions, they may be just below the water's surface.  Paddling past the bridge on the right (south) bank is the best option. 
+This is the first of two old bridge remnants between the Topeka weir and Seward Avenue/Fool's Landing. Debris sits immediately downstream of the existing railroad bridge. Steel, timbers, and other pieces can be hidden just below the surface and can trap a boat or paddler.
 
-Friends of the Kaw Info -> [Tecumseh Low-Head Dam][5]
+Friends of the Kaw recommends passing on **river right**, toward the south bank. Assess the channel before approaching; do not weave through exposed pieces or assume that clear-looking water is free of debris. [West bridge location and guidance][west-source].
+
 <CookBookDivider/>
 
-### Lawrence Low-Head Dam
-**THIS AREA OF THE RIVER IS NOT RECOMMENDED FOR NOVICE PADDLERS**. This is a challenging area to navigate and should only be paddled by those with river experience.
+<h2 id="east-bridge" className="scroll-mt-24">East Old Railroad Bridge</h2>
 
 <TwoColumn>
-    <div className="grow min-w-fit">
-        * River Mile: 54.0
-        * GPS: 39.012062, -95.268815
-        * Portage not required
-        * Stay river right
+    <div className="w-full sm:w-1/2">
+        <ul>
+            <li>River mile: 84.5</li>
+            <li>Hazard GPS: 39.06177, -95.6605</li>
+            <li>Passage guidance: river right / south bank</li>
+        </ul>
     </div>
-    <div className='shrink'>
-        <CenteredImage image={lawrenceEnergyCenterLowHeadDam} altText={'Topeka Water Plant Low-Head Dam'} width={500} />
+    <div className="w-full sm:w-1/2">
+        <CenteredImage image={topekaBridge2} altText="East Old Railroad Bridge debris in the Kansas River at Topeka" width={500} />
     </div>
 </TwoColumn>
 
-This is a rock low-head dam used to divert water for the Lawrence Energy Center.  Note that this is considered a partial low-head dam because it doesn't extend across the entire river. It is  located on river left extending halfway into the river.  The purpose is to push water to the Lawrence Energy Center water intake structure.  Stay on the river right to avoid the rock low-head dam.
+The second bridge hazard is another collection of old bridge debris just below an operating railroad bridge. As at the west bridge, submerged metal and timbers can be hard to spot, particularly when only small pieces break the surface.
 
-This area can be hazardous in low water and paddlers should proceed with caution.  If you see rocks sticking up through the water, avoid them.  Do not paddle close to them as additional rocks are just below the water's surface.  It would be very dangerous to entangle your boat or yourself in this structure.  Even if you do not see any rocks or obstructions, stay on river right to avoid potential problems.
+Friends of the Kaw's passage recommendation is **river right**, on the south side. Treat the two bridges as separate obstacles and reassess at each one. [East bridge location and guidance][east-source].
 
-Friends of the Kaw Info -> [Lawrence Low-Head Dam][6]
 <CookBookDivider/>
 
-### Bowersock Dam
-This is a dam and you should not go over it in any vessel. All portage should be completed via land on the north bank (river left).
+<h2 id="tecumseh" className="scroll-mt-24">Tecumseh Low-Head Dam</h2>
 
 <TwoColumn>
-    <div className="grow min-w-fit">
-        * River Mile: 52.4
-        * GPS: –38.97534, -95.23532
-        * Portage required
-        * Stay river left
-        * Consider car shuttle
+    <div className="w-full sm:w-1/2">
+        <ul>
+            <li>River mile: 76</li>
+            <li>Dam GPS: 39.05499, -95.57253</li>
+            <li>No riverbank portage or public road access at the dam</li>
+            <li>Not suitable for novice paddlers</li>
+        </ul>
     </div>
-    <div className='shrink'>
-        <CenteredImage image={bowersock} altText={'Bowersock Dam'} width={500} />
+    <div className="w-full sm:w-1/2">
+        <CenteredImage image={tecumsehLowHeadDam} altText="Tecumseh Low-Head Dam diversion structure" width={500} />
     </div>
 </TwoColumn>
 
-The dam is one mile below Burcham Park (river right and not recommended for use) and 1.7 miles below Lawrence Riverfront Park (river left). The dam is owned by the City of Lawrence and operated by Bowersock Mills and Power Company.  It is used to generate hydroelectric power and to maintain the pool level for the City of Lawrence drinking water intake, which is upstream.  Most paddlers traveling downriver take boats out at Lawrence Riverfront Park above the dam and launch again on the Kansas at the Lawrence Riverfront Park East/8th Street Access Ramp. This requires a shuttle vehicle.  A small, steep, gravel kayak/canoe takeout exists just above the dam on river left.  Paddlers can take out at that point, portage around the dam and north powerhouse, and put back onto the Kansas River on the east side of the powerhouse.  This involves a steep climb to the top of the levee, a 200-yard walk to the put-in location, and a steep descent on gravel back down to river level.
+About one mile below Seward Avenue/Fool's Landing, the former power plant's diversion wall extends roughly two-thirds of the way across the river from the north / left bank. It can be nearly invisible beneath the water.
 
-<TwoCenteredImages image={[bowersockTakeOut, bowersockPutIn]} altText={['Bowersock Take Out', 'Bowersock Put In']} width={500} />
+Friends of the Kaw identifies this as an advanced section, with **no riverbank portage and no public road access at the structure**. Review the site before committing to this stretch. If your group cannot assess and manage the passage, plan a trip that ends upstream instead of expecting to carry around it when you arrive. [Tecumseh structure and access limitations][tecumseh-source].
 
-Friends of the Kaw Info -> [Bowersock Dam][7]
 <CookBookDivider/>
 
-### WaterOne Low Head Dam
-This is a dam and you should not go over it in any vessel. All portage should be completed via land on the north bank (river left).
+<h2 id="lawrence" className="scroll-mt-24">Lawrence Energy Center Low-Head Dam</h2>
 
 <TwoColumn>
-    <div className="grow min-w-fit">
-        * River Mile: 14.8
-        * GPS: 39.04685, -94.78718
-        * Portage required
-        * Stay river left
+    <div className="w-full sm:w-1/2">
+        <ul>
+            <li>River mile: 54</li>
+            <li>Dam GPS: 39.012062, -95.268815</li>
+            <li>Passage guidance: river right, away from the rock structure</li>
+        </ul>
     </div>
-    <div className='shrink'>
-        <CenteredImage image={waterone3} altText={'WaterOne Dam'} width={500} />
+    <div className="w-full sm:w-1/2">
+        <CenteredImage image={lawrenceEnergyCenterLowHeadDam} altText="Lawrence Energy Center partial rock dam" width={500} />
     </div>
 </TwoColumn>
 
-This is a rough, 100+ yard portage that requires carrying boats over large, loose rocks that provide precarious footing. (Wheels and carts are not helpful.) At low water levels, you can take out just above the dam onto the stable rock bank; at high flows when the water is flowing over the dam, you must take out onto a slick mud bank safely upstream.
+This partial dam extends from river left toward the middle of the channel, diverting water toward the Lawrence Energy Center intake. Friends of the Kaw directs paddlers to **river right** to avoid it. Keep away from the rocks: the visible ones may be only part of the submerged structure. [Lawrence Energy Center dam guidance][lawrence-source].
 
-**AVOID THE LOW WATER NOTCH ON RIVER RIGHT NEAR THE SOUTH BANK**. Do not attempt to go over the dam or through the water notch. Portage this dam on river left only. There is no other portage access.  **Currents in this area are dangerous, so use caution**.
-
-<TwoCenteredImages image={[waterone1, waterone2]} altText={['WaterOne Dam', 'WaterOne Dam']} width={500} />
-
-Friends of the Kaw Info -> [WaterOne Low Head Dam][9]
 <CookBookDivider/>
 
-## Sand Dredges
-Sand Dredge. Watch for a cable crossing the river that connects the dredge to both banks. The cable should be lowered upon approach by boaters.
-
-## Old Railroad Bridges
-
-### West Old Railroad Bridge
+<h2 id="bowersock" className="scroll-mt-24">Bowersock Dam</h2>
 
 <TwoColumn>
-    <div className="grow min-w-fit">
-        * River Mile: 85.3
-        * GPS: 39.06434, -95.67542
-        * Portage might be required
-        * Stay river left to portage
+    <div className="w-full sm:w-1/2">
+        <ul>
+            <li>River mile: 52.4</li>
+            <li>Dam GPS: 38.97534, -95.23532</li>
+            <li>Land portage: river left / north bank</li>
+            <li>Consider arranging a vehicle shuttle</li>
+        </ul>
     </div>
-    <div className='shrink'>
-        <CenteredImage image={topekaBridge} altText={'West Old Railroad Bridge'} width={500} />
+    <div className="w-full sm:w-1/2">
+        <CenteredImage image={bowersock} altText="Bowersock Dam in Lawrence" width={500} />
     </div>
 </TwoColumn>
 
-This area can be a hazard in low water and paddlers should proceed with caution.  If you see parts (pipe, iron, railroad ties, etc.) sticking up through the water, avoid them.  Do not paddle close to them as they are attached to the old bridge and parts of it may be just below the water.  It would be very dangerous to entangle your boat or yourself in this structure.  Even if you do not see any obstructions, they may be just below the water's surface.  Paddling past this bridge on the right (south) bank is the best option.
+**Do not run Bowersock Dam.** Friends of the Kaw describes a north-bank portage with a steep climb, a roughly 200-yard carry, and a steep gravel descent. Its listed upstream landing is **38.97684, -95.23674**; the downstream landing is **38.97639, -95.2345**.
 
-Friends of the Kaw Info -> [West Old Railroad Bridge][3]
+A vehicle shuttle provides another way around the dam: take out at Lawrence Riverfront Park upstream and relaunch at Lawrence Riverfront Park East / 8th Street downstream. Plan the carry or shuttle before your trip, and confirm access rather than relying on an improvised landing near the dam. [Bowersock portage and shuttle information][bowersock-source].
+
+<TwoCenteredImages image={[bowersockTakeOut, bowersockPutIn]} altText={['Upstream takeout for the Bowersock Dam portage', 'Downstream put-in area for the Bowersock Dam portage']} width={500} />
+
 <CookBookDivider/>
 
-### East Old Railroad Bridge
+<h2 id="waterone" className="scroll-mt-24">WaterOne Low-Head Dam</h2>
 
 <TwoColumn>
-    <div className="grow min-w-fit">
-        * River Mile: 84.5
-        * GPS: 39.06177, -95.6605
-        * Portage might be required
-        * Stay river left to portage
+    <div className="w-full sm:w-1/2">
+        <ul>
+            <li>River mile: 14.8</li>
+            <li>Dam GPS: 39.04685, -94.78718</li>
+            <li>Land portage: river left / north bank only</li>
+            <li>Do not use the notch on river right</li>
+        </ul>
     </div>
-    <div className='shrink'>
-        <CenteredImage image={topekaBridge2} altText={'Topeka Water Plant Low-Head Dam'} width={500} />
+    <div className="w-full sm:w-1/2">
+        <CenteredImage image={waterone3} altText="WaterOne Low-Head Dam near Kansas City" width={500} />
     </div>
 </TwoColumn>
 
-In low water the bridges can be hazardous and paddlers should proceed with caution.  If you see parts (pipe, iron, railroad ties, etc.) sticking up through the water, avoid them.  Do not paddle close to them as they are attached to the old bridge and parts of it may be just below the water.  It would be dangerous to entangle your boat or yourself in this structure.  Even if you do not see any obstructions, they may be just below the water's surface.  Paddling past the bridge on the right (south) bank is the best option. 
+**Portage on river left. Do not paddle over the dam or through the notch near the south bank.** Friends of the Kaw describes a carry of more than 100 yards over large, loose rocks; a wheeled cart is not useful on this terrain.
 
-Friends of the Kaw Info -> [East Old Railroad Bridge][4]
+The takeout changes with water level. Higher water can mean a slippery mud landing farther upstream instead of an exposed rock bank. Allow enough room above the dam to assess the landing, and plan for a difficult carry. The coordinates above mark the dam, not the takeout. [WaterOne portage details][waterone-source].
+
+<TwoCenteredImages image={[waterone1, waterone2]} altText={['WaterOne Dam and surrounding riverbanks', 'Another view of WaterOne Dam and the portage area']} width={500} />
+
 <CookBookDivider/>
+
+<h2 id="sand-dredges" className="scroll-mt-24">Sand Dredges and Cables</h2>
+
+Dredges remove sand from the riverbed, and their equipment can create obstacles beyond the visible machinery. Friends of the Kaw specifically warns about **cables just below the water's surface**. A quiet or apparently unattended dredge should not be treated as a clear passage. [How dredging affects boaters][dredging-source].
+
+Do not assume an operator has seen your kayak or that a cable will automatically be lowered. Stay well clear of equipment and cables, and assess the situation before drifting into the work area. Do not try to paddle over or duck under a cable.
+
+## Plan Your Route
+
+Use the [Kansas River access map][access-map] to choose put-ins, takeouts, and any shuttle around the hazards on your stretch. Recheck the individual hazard pages before a trip; a photograph, coordinate, or low flow reading cannot confirm that a route is passable today.
+
+<ContinueReading 
+    articleOne={relatedArticleOne}
+    articleTwo={relatedArticleTwo}
+    articleThree={relatedArticleThree}
+/>
 
 </MdxLayout>
 
-[1]: https://kansasriver.org/river-access-map/belvue-low-head-dam/
-[2]: https://kansasriver.org/river-access-map/river-mile-87-topeka-coffer-dam/
-[3]: https://kansasriver.org/river-access-map/river-mile-85-3-old-railroad-bridge/
-[4]: https://kansasriver.org/river-access-map/river-mile-84-5-old-railroad-bridge/
-[5]: https://kansasriver.org/river-access-map/river-mile-76-tecumseh-low-head-dam/
-[6]: https://kansasriver.org/river-access-map/future-access-willard-bridge/
-[7]: https://kansasriver.org/river-access-map/river-mile-52-bowersock-dam/
-[8]: https://kansasriver.org/river-access-map/16312-2/ 
-[9]: https://kansasriver.org/river-access-map/waterone-dam/
+[access-map]: https://kansasriver.org/river-access-map/
+[safety]: https://kansasriver.org/river-and-sandbar-safety/
+[belvue-source]: https://kansasriver.org/river-access-map/belvue-low-head-dam/
+[topeka-source]: https://kansasriver.org/river-access-map/river-mile-87-topeka-coffer-dam/
+[west-source]: https://kansasriver.org/river-access-map/river-mile-85-3-old-railroad-bridge/
+[east-source]: https://kansasriver.org/river-access-map/river-mile-84-5-old-railroad-bridge/
+[tecumseh-source]: https://kansasriver.org/river-access-map/river-mile-76-tecumseh-low-head-dam/
+[lawrence-source]: https://kansasriver.org/river-access-map/lawrence-low-head-dam/
+[bowersock-source]: https://kansasriver.org/river-access-map/river-mile-52-bowersock-dam/
+[waterone-source]: https://kansasriver.org/river-access-map/waterone-dam/
+[dredging-source]: https://kansasriver.org/protect/sand-and-gravel-dredging/faqs/
+[contact]: https://kansasriver.org/get-involved/contact-us/
