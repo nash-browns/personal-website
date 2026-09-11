@@ -312,6 +312,34 @@ downloads and releases its graphics resources. All articles use this shared view
 no per-article setup is needed. Run `npm run test:panorama` to check rendering,
 resizing, cancellation, error handling, and cleanup.
 
+### River flow readings
+
+Replace retired WaterWatch embeds with the shared USGS component:
+
+```mdx
+import { RiverFlow } from '@/components/blog/data-display/river-flow';
+
+<RiverFlow river="big-sioux" />
+```
+
+Supported rivers are `big-sioux` and `kansas`; gauge IDs, names, and time zones
+live in `lib/usgs/river-gauges.mjs`. The component loads near the viewport,
+refreshes every five minutes while visible in an active tab, and cancels work
+when scrolled away or removed. `/api/river-flow/[river]` fetches only these configured
+gauges from USGS's v1 `latest-continuous` API, with a ten-second timeout and
+five-minute Next.js data cache. Article rendering does not wait for USGS.
+
+Each card shows instantaneous discharge in CFS and the USGS measurement time
+in the river's local time zone. Readings over two hours old are labeled; missing
+or nonnumeric values are never displayed as zero. Failed refreshes retain any
+previous readings and their timestamps, with an error message. Official gauge
+links remain available even without JavaScript.
+
+The API works without a key. For higher request limits, optionally set
+`USGS_API_KEY` in the server environment; it is sent only in an upstream request
+header, never to the browser. See the [USGS API key documentation](https://api.waterdata.usgs.gov/docs/ogcapi/keys/).
+Run `npm run test:river-flow` for normalization, request, and polling checks.
+
 ### Search and sharing metadata
 
 The shared metadata helper uses `published`, `updated`, and `author` from

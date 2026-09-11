@@ -20,6 +20,7 @@ import { ArticleSeo } from '@/components/seo'
 <ArticleSeo post={postMetadata} slug="kansas-river-guide" />
 
 import { OneColumn } from '@/components/blog/layout/one-column';
+import { RiverFlow } from '@/components/blog/data-display/river-flow';
 import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
 import { TLDR } from '@/components/blog/layout/tldr';
 import { MdxLayout } from '@/components/blog/mdx-layout';
@@ -38,22 +39,15 @@ text="This guide is intended for someone that wants to get on the Kansas River b
 />
 
 ## Steps In Planning A Trip
-1. Identify the current river speed
+1. Check the current river flow
 2. Be aware of hazards
 3. Entry and exit point
 4. Know any planned reservoir releases
 
 ## Find The River CFS
-The speed that a river is moving is measured in cubic feet per second (CFS). The current readings for the Kansas River are shown below.
+River flow is measured in cubic feet per second (CFS). These USGS gauges show the latest reported flow at Wamego, Topeka, and De Soto.
 
-<OneColumn>
-    <iframe
-      src="https://waterwatch.usgs.gov/new/index.php?st=kansas+river&search.x=0&search.y=0&id=wwlmap_viewer&xft=0&choose=&ssonly=1&sspopup=0&snmfb=0&mt=real&mcf=jsontile#map"
-      scrolling="no"
-      width="638"
-      height="448"
- />
-</OneColumn>
+<RiverFlow river="kansas" />
 
 
 * Min CFS 1,000 (this will be lake-like)
@@ -62,7 +56,7 @@ The speed that a river is moving is measured in cubic feet per second (CFS). The
 
 I found that anything over 3,000 CFS is fun!
 
-You can find the full USGS website here -> [Water Watch][2]
+Open any gauge above for detailed USGS charts and history.
 
 ## Know The Hazards
 The Kansas River has all of the natural hazards that could be found on any river, but also has additional man-made hazards. Those hazards are:
@@ -109,5 +103,4 @@ I haven't ever seen a release that would be noticeable while paddling. It only t
 <br/>
 
 [1]: /blog/articles/kansas-river-all-hazards
-[2]: https://waterwatch.usgs.gov/new/index.php?st=kansas+river&search.x=0&search.y=0&id=wwlmap_viewer&xft=0&choose=&ssonly=1&sspopup=0&snmfb=0&mt=real&mcf=jsontile
 [3]: https://www.nwd-mr.usace.army.mil/rcc/nwk/3_Days_Forecast.pdf

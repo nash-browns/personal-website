@@ -14,6 +14,7 @@
     "images:sync": "node scripts/sync-article-images.mjs",
     "test:images": "node --test tests/article-images.test.mjs",
     "test:media": "node --test tests/article-media.test.mjs",
+    "test:river-flow": "node --test tests/usgs-river-flow.test.mjs",
     "test:panorama": "node --experimental-vm-modules --test tests/panorama-viewer.test.mjs",
     "test:seo": "node --test tests/seo-metadata.test.mjs",
     "test:partners": "node --experimental-vm-modules --test tests/partner-correctness.test.mjs",

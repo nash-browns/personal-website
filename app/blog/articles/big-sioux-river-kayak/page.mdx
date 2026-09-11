@@ -21,7 +21,7 @@ import { ArticleSeo } from '@/components/seo'
 <ArticleSeo post={postMetadata} slug="big-sioux-river-kayak" />
 
 import { MdxLayout } from '@/components/blog/mdx-layout';
-import { OneColumn } from '@/components/blog/layout/one-column';
+import { RiverFlow } from '@/components/blog/data-display/river-flow';
 import { TwoColumn } from '@/components/blog/layout/two-column';
 import { CenteredImage } from '@/components/blog/images/centered-image';
 import { TLDR } from '@/components/blog/layout/tldr';
@@ -70,7 +70,7 @@ export const relatedArticleThree = '/blog/articles/kansas-river-trip-report-10-2
 <BlogStatsSection>
     <Stat title={'Distance'} stat={'8.08 Mi'} icon={faRoute}/>
     <Stat title={'Days'} stat={'1'} icon={faCalendarDays}/>
-    <Stat title={'Speed(CFS)'} stat={'398'} icon={faGauge}/>
+    <Stat title={'Flow (CFS)'} stat={'398'} icon={faGauge}/>
     <Stat title={'Paddle Time'} stat={'4:23:56'} icon={faClock}/>
     <Stat title={'Difficulty'} stat={'Easy'} icon={faShip}/>
     <Stat title={'Put In'} stat={'Elmwood Park'} icon={faPlaneArrival}/>
@@ -125,26 +125,9 @@ Check the flow before you go! I did not. I could not find anything on the intern
 
 The above numbers were not high enough. There were some portions that needed to be walked and other portions that required lots of dragging on the bottom. I would consider the above numbers the minimum in order to have some kind of a good time!
 
-You can check the current flow [here][2]!
+Check the latest USGS readings below, or open a gauge for its full history.
 
-<OneColumn>
-    <div style={{ width: '638px', height: '448px', overflow: 'hidden', position: 'relative' }}>
-          <iframe
-            src="https://waterwatch.usgs.gov/new/index.php?mt=real&st=big+sioux+river&usst=&ushuc=&go=GO&id=wwlmap_viewer&xft=0&choose=&ssonly=1&sspopup=0&snmfb=0&mt=real&mcf=jsontile"
-            style={{
-              position: 'absolute',
-              top: '-474px',     // SMALL move up
-              left: '-356px',   // BIGGER move right
-              width: '1200px',
-              height: '1000px',
-              border: 'none',
-            }}
-            scrolling="no"
-            frameBorder="0"
-            title="USGS Map"
- />
-    </div>
-</OneColumn>
+<RiverFlow river="big-sioux" />
 
 
 ## Putting In
@@ -243,6 +226,4 @@ It was a beautiful day to be out on the water! I would like to continue to kayak
 </MdxLayout>
 
 [1]: https://www.alltrails.com/trail/us/south-dakota/big-sioux-river-kayaking-route-ward-to-brandon
-[2]: https://waterwatch.usgs.gov/new/index.php?mt=real&st=big+sioux+river&usst=&ushuc=&go=GO&id=wwlmap_viewer
 [3]: https://gfp.sd.gov/paddling/
-
