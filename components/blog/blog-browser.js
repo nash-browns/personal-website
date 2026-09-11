@@ -7,16 +7,21 @@ import { BlogCard } from './cards/blog-artical-card';
 const BATCH_SIZE = 8;
 
 const OTHER = '__other';
+const BORING = 'Boring';
 
 const CATEGORIES = [
     { label: 'Trips', tag: 'Trips' },
     { label: 'Alaska', tag: 'Alaska' },
     { label: 'Tune M1', tag: 'Tune M1' },
     { label: 'Other Shenanigans', tag: OTHER },
+    { label: 'Boring', tag: BORING },
 ];
 
 // "Other Shenanigans" catches everything that doesn't fit a real category
 const REAL_CATEGORY_TAGS = CATEGORIES.filter((c) => c.tag !== OTHER).map((c) => c.tag);
+
+// "Boring" articles stay out of every list (All, other categories, search) unless that filter is selected
+const isBoring = (article) => (article.tags || []).includes(BORING);
 
 function inCategory(article, tag) {
     const tags = article.tags || [];
@@ -63,17 +68,19 @@ export function BlogBrowser({ articles }) {
 
     const isFiltering = query.trim().length > 0 || activeTag !== null;
 
+    const browsable = useMemo(() => articles.filter((a) => !isBoring(a)), [articles]);
+
     const filtered = useMemo(() => {
-        let list = articles;
+        let list = activeTag === BORING ? articles : browsable;
         if (activeTag) list = list.filter((a) => inCategory(a, activeTag));
         const q = query.trim().toLowerCase();
         if (q) list = list.filter((a) => matchesQuery(a, q));
         return list;
-    }, [articles, query, activeTag]);
+    }, [articles, browsable, query, activeTag]);
 
     // When filtering, show every match; otherwise page in batches
-    const shown = isFiltering ? filtered : articles.slice(0, visibleCount);
-    const hasMore = !isFiltering && visibleCount < articles.length;
+    const shown = isFiltering ? filtered : browsable.slice(0, visibleCount);
+    const hasMore = !isFiltering && visibleCount < browsable.length;
 
     useEffect(() => {
         if (!hasMore || !sentinelRef.current) return;
@@ -242,7 +249,7 @@ export function BlogBrowser({ articles }) {
                     </nav>
 
                     <p className="mt-auto text-xs text-gray-400">
-                        {filtered.length} of {articles.length} articles
+                        {filtered.length} of {activeTag === BORING ? articles.length : browsable.length} articles
                     </p>
                 </div>
             </aside>

@@ -1,5 +1,5 @@
 {/*
-THIS ARTICLE IS HIDDEN FROM THE BLOG SEARCHER BUT AVAILABLE ON GOOGLE SEARCH RESULTS
+THIS ARTICLE ONLY SHOWS ON /blog UNDER THE "BORING" FILTER BUT IS AVAILABLE ON GOOGLE SEARCH RESULTS
 IT WAS GETTING HITS SO I FINISHED IT!!!
 */}
 
@@ -13,8 +13,8 @@ export const postMetadata = {
     thumbnail: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/frigga-tempreture-logger%2Ffeature-image.JPEG?alt=media&token=c4c715df-f367-47b4-846a-3362ab210283',
     description:"Complete Frigga M2H temperature logger review with setup instructions, battery replacement guide, and data export tips. Perfect for temperature monitoring and data logging.",
     keywords: ['Frigga M2H', 'temperature logger', 'data logger', 'temperature monitoring', 'USB temperature logger', 'temperature data logging', 'Frigga review', 'temperature sensor', 'data collection', 'temperature measurement', 'environmental monitoring'],
-    tags: ['Frigga', 'Temperature Logger', 'Data Logging', 'Review', 'Setup Guide'],
-    isActive: false,
+    tags: ['Frigga', 'Temperature Logger', 'Data Logging', 'Review', 'Setup Guide', 'Boring'],
+    isActive: true,
 };
 
 export const metadata = generateMetadata({...postMetadata});
@@ -28,6 +28,7 @@ import { MdxLayout } from '@/components/blog/mdx-layout';
 import { CenteredImage } from '@/components/blog/images/centered-image';
 import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
 import { TLDR } from '@/components/blog/layout/tldr';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
 import { 
     FriggaLogger
@@ -40,6 +41,10 @@ export const batteryChange = "https://firebasestorage.googleapis.com/v0/b/nash-b
     title='Frigga M2H Temperature Logger Review'
     image={featureImage}
 />
+
+export const relatedArticleOne = '/blog/articles/tune-cold-weather-performance';
+export const relatedArticleTwo = '/blog/articles/tune-roof-insulation';
+export const relatedArticleThree = '/blog/articles/surviving-winter-in-the-tune-m1';
 
 <MdxLayout>
 
@@ -64,6 +69,12 @@ YOU DO NOT NEED TO DOWNLOAD THEIR SOFTWARE!! Just plug the logger into your comp
 ## Battery Change
 The battery looks permanently installed, but it's not! Just slide something in alongside the battery—I used a pocket knife—and pry it out. Here is how I did it:
 <CenteredImage image={batteryChange} altText={'Frigga Temperature Logger Battery Change'} width={1000} />
+
+<ContinueReading 
+    articleOne={relatedArticleOne}
+    articleTwo={relatedArticleTwo}
+    articleThree={relatedArticleThree}
+/>
 
 </MdxLayout>
 

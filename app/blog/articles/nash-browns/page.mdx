@@ -5,11 +5,11 @@ export const postMetadata = {
     published: "2025-01-01",
     updated: "2025-01-01",
     author: 'Nash Bostwick',
-    thumbnail: '/blog/nash-browns/thumbnail.png',
+    thumbnail: '/hippy-hokusai-logo.png',
     description:"Nash Browns project summary. How was the blog built. What is the purpose of the writing.",
     keywords: ['Nash', 'Bostwick'],
-    tags: ['Nash', 'Bostwick'],
-    isActive: false,
+    tags: ['Nash', 'Bostwick', 'Boring'],
+    isActive: true,
 };
 
 export const metadata = generateMetadata({...postMetadata});
@@ -23,14 +23,19 @@ import { MdxLayout } from '@/components/blog/mdx-layout';
 import { TLDR } from '@/components/blog/layout/tldr';
 import { CenteredImage } from '@/components/blog/images/centered-image';
 import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
 
-export const featureImage = "/hippy-hokusai-logo-graphic.png";
+export const featureImage = "/hippy-hokusai-logo.png";
 export const neovim = "/blog/nash-browns/neovim.gif";
 
 <ImageFeature
     title='Nash Browns Blog'
     image={featureImage}
 />
+
+export const relatedArticleOne = '/blog/articles/frigga-tempreture-logger';
+export const relatedArticleTwo = '/blog/articles/surviving-winter-in-the-tune-m1';
+export const relatedArticleThree = '/blog/articles/japan-april-2026';
 
 <MdxLayout>
 
@@ -63,5 +68,11 @@ Neovim & Tmux are the only useful tools:)
 
 <CenteredImage image={neovim} altText={'Neovim Gif'}  width={500} />
 
+
+<ContinueReading 
+    articleOne={relatedArticleOne}
+    articleTwo={relatedArticleTwo}
+    articleThree={relatedArticleThree}
+/>
 
 </MdxLayout>
