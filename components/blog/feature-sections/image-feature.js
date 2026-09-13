@@ -4,8 +4,9 @@ import { ThreeSixtyImage } from '../images/three-sixty-image-lazy'
 
 export function ImageFeature({ title, image, alt, threeSixty=false, video=false }) {
     return(
-        <div className="flex flex-col bg-neutral-800 w-full h-[calc(100vh-63px)]">
-            <div className='relative flex items-center justify-center w-full h-full'>
+        <div className="flex flex-col bg-neutral-800 w-full h-[calc(100vh-64px)]">
+            {/* Let media shrink so its canvas cannot push the title out of the header. */}
+            <div className='relative flex min-h-0 flex-1 items-center justify-center w-full'>
                 {
                     threeSixty ? 
                         <ThreeSixtyImage image={image}/> :
@@ -32,7 +33,7 @@ export function ImageFeature({ title, image, alt, threeSixty=false, video=false 
                             />
                 }
             </div>
-            <div className='bg-neutral-800 w-full h-fit'>
+            <div className='bg-neutral-800 w-full h-fit shrink-0'>
                 <div className='prose p-3 text-xs sm:text-xl '>
                     <h1 className='uppercase text-info-content'>{title}</h1>
                 </div>
