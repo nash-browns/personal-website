@@ -312,6 +312,15 @@ downloads and releases its graphics resources. All articles use this shared view
 no per-article setup is needed. Run `npm run test:panorama` to check rendering,
 resizing, cancellation, error handling, and cleanup.
 
+The panorama image proxy accepts only HTTPS media URLs from the site's
+`nash-browns.firebasestorage.app` Firebase bucket, with `alt=media` and an optional
+download token. It rejects redirects, other sources, SVG/HTML, and mismatched
+image signatures. JPEG, PNG, and WebP downloads have a 32 MiB limit (including
+responses without a size header) and a ten-second deadline covering the whole
+download. Leaving the viewer cancels the upstream request. Errors are not cached,
+and download tokens are not logged. Run `npm run test:proxy-image` for the security
+and existing article URL compatibility checks.
+
 ### River flow readings
 
 Replace retired WaterWatch embeds with the shared USGS component:

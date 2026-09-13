@@ -16,6 +16,7 @@
     "test:media": "node --test tests/article-media.test.mjs",
     "test:river-flow": "node --test tests/usgs-river-flow.test.mjs",
     "test:panorama": "node --experimental-vm-modules --test tests/panorama-viewer.test.mjs",
+    "test:proxy-image": "node --test tests/proxy-image.test.mjs",
     "test:seo": "node --test tests/seo-metadata.test.mjs",
     "test:partners": "node --experimental-vm-modules --test tests/partner-correctness.test.mjs",
     "test:partners:emulator": "firebase emulators:exec --project demo-nashbrowns-security --only auth,firestore --config firebase.partners-test.json \"node --experimental-vm-modules --test tests/partner-emulator.test.mjs\"",
