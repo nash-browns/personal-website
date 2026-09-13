@@ -8,6 +8,17 @@ async function request(path, options = {}) {
     return fetch(new URL(path, base), { redirect: 'manual', signal: AbortSignal.timeout(30000), ...options });
 }
 
+test('browser protections are present and resource policy starts in report-only mode', async () => {
+    const response = await request('/blog');
+    assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
+    assert.equal(response.headers.get('x-frame-options'), 'SAMEORIGIN');
+    assert.match(response.headers.get('content-security-policy'), /frame-ancestors 'self'/);
+    const report = response.headers.get('content-security-policy-report-only');
+    assert.match(report, /default-src 'self'/);
+    assert.match(report, /https:\/\/www.youtube.com/);
+    assert.match(report, /https:\/\/strava-embeds.com/);
+});
+
 for (const path of ['/', '/blog', '/writing', '/partners', '/signup', '/partners/dashboard', '/partners/users']) {
     test(`${path} renders without a server error`, async () => {
         const response = await request(path);

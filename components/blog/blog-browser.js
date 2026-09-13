@@ -42,11 +42,6 @@ const gridItemTemplate = [
     'sm:col-span-1 sm:row-span-2',
 ];
 
-function getGridDems(count) {
-    const blocks = Math.max(1, Math.ceil(count / 4));
-    return { gridHeight: blocks * 80, gridRows: blocks * 3 };
-}
-
 function matchesQuery(article, q) {
     const haystack = [article.title, article.description, ...(article.tags || [])]
         .filter(Boolean)
@@ -122,7 +117,6 @@ export function BlogBrowser({ articles }) {
         setActiveTag(null);
     };
 
-    const { gridHeight, gridRows } = getGridDems(shown.length);
     const activeCategory = CATEGORIES.find((c) => c.tag === activeTag);
 
     const animBase = animBaseRef.current;
@@ -148,11 +142,8 @@ export function BlogBrowser({ articles }) {
 
             {/* card grid */}
             <div
-                className="not-prose grid grid-cols-1 sm:grid-cols-4 gap-2 justify-items-center items-center w-full p-2"
-                style={{
-                    gridTemplateRows: `repeat(${gridRows}, minmax(0, 1fr))`,
-                    minHeight: shown.length > 0 ? `calc(${gridHeight}vh - 64px)` : undefined,
-                }}
+                // Fixed track sizes keep existing cards still when a batch is appended.
+                className="not-prose grid grid-cols-1 sm:grid-cols-4 auto-rows-[20rem] sm:auto-rows-[max(8rem,calc((80svh-60px)/3))] gap-2 justify-items-center items-center w-full p-2"
             >
                 {shown.length > 0 ? (
                     shown.map((article, i) => (

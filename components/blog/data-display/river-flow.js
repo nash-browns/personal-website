@@ -40,7 +40,7 @@ function RiverFlowReadings({ river }) {
                     {state.loading ? 'Refreshing…' : 'Refresh'}
                 </button>
             </div>
-            <div role="status" aria-live="polite">
+            <div role="status" aria-live="polite" className="flow-root min-h-10">
                 {state.error && <p className="mt-4 text-sm">{state.error}{state.readings ? ' Last received readings are shown.' : ''}</p>}
                 {!state.readings && !state.error && <p className="mt-4 text-sm">Loading USGS readings…</p>}
             </div>
@@ -52,13 +52,15 @@ function RiverFlowReadings({ river }) {
                     return (
                         <div key={gauge.id} className="flex min-w-0 flex-col rounded-xl border border-base-content/15 p-4">
                             <h4 className="min-h-12 text-sm font-semibold leading-6">{gauge.name}</h4>
-                            <p className="my-3 text-3xl font-semibold tabular-nums">
+                            <p className="my-3 min-h-9 text-3xl font-semibold tabular-nums">
                                 {hasValue ? <>{numberFormat.format(reading.discharge)} <span className="text-sm font-normal">CFS</span></> : <span className="text-base font-normal">{state.readings || state.error ? 'Reading unavailable' : '—'}</span>}
                             </p>
+                            <div className="min-h-[5.5rem]">
                             {reading?.observedAt && <p className="text-xs leading-5">Measured <time dateTime={reading.observedAt}>{dateFormat.format(new Date(reading.observedAt))}</time></p>}
                             {old && <p className="mt-1 text-xs font-semibold">Reading is over 2 hours old</p>}
                             {reading?.approvalStatus === 'Provisional' && <p className="mt-1 text-xs">Provisional</p>}
                             {reading?.qualifier && <p className="mt-1 break-words text-xs">USGS flag: {reading.qualifier}</p>}
+                            </div>
                             <a className="mt-auto pt-4 text-sm underline underline-offset-4" href={gaugeUrl(gauge.id)} target="_blank" rel="noopener noreferrer" aria-label={`Open ${gauge.name} on USGS (new tab)`}>View gauge on USGS ↗</a>
                         </div>
                     );

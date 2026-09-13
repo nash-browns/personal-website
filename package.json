@@ -5,7 +5,7 @@
   "scripts": {
     "predev": "npm run images:sync",
     "dev": "next dev",
-    "prebuild": "npm run images:sync",
+    "prebuild": "npm run images:sync && npm run check",
     "build": "NODE_OPTIONS=--max_old_space_size=2048 next build",
     "start": "next start",
     "lint": "eslint app components lib firebase.js mdx-components.js next.config.mjs",
@@ -23,7 +23,9 @@
     "test:security": "npm run test:security:api && npm run test:security:rules",
     "test:security:api": "node --experimental-vm-modules --test tests/admin-access.test.mjs",
     "test:security:rules": "firebase emulators:exec --project demo-nashbrowns-security --only firestore \"node --test tests/firestore-rules.test.mjs\"",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap && npm run test:bundles && npm run test:media && npm run test:seo && node scripts/verify-production.mjs",
+    "check": "npm run lint && npm run test:images && npm run test:river-flow && npm run test:panorama && npm run test:proxy-image && npm run test:partners && npm run test:security:api && npm run test:operations",
+    "test:operations": "node --experimental-vm-modules --test tests/operations.test.mjs"
   },
   "dependencies": {
     "@awesome.me/kit-237330da78": "^1.0.7",
@@ -68,6 +70,13 @@
     "tailwindcss": "^3.3.0"
   },
   "engines": {
-    "node": ">=22.13.0"
+    "node": "24.x"
+  },
+  "allowScripts": {
+    "@vercel/speed-insights@1.0.11": false,
+    "@firebase/util@1.12.1": false,
+    "protobufjs@7.5.3": false,
+    "unrs-resolver@1.12.2": true,
+    "fsevents@2.3.3": false
   }
 }

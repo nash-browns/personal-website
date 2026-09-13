@@ -2,6 +2,30 @@
 
 A Next.js personal website with multi-tenant authentication using Firebase.
 
+## Runtime and release checks
+
+Use Node 24 (`nvm use`, or a version manager that reads `.node-version`). Vercel's project setting and `package.json` both select 24.x.
+
+`npm run build` runs image synchronization, lint, image/river/panorama/proxy tests, partner and API access-control tests, and operational regression tests before compilation. After compilation it checks the generated bundles, media and SEO output, then starts an isolated local production server and runs the page/API smoke suite. Any failure fails the build, including on Vercel. `npm run check` runs the checks that do not require a production artifact. The Firestore rules and full Firebase emulator suites remain available through `npm run test:security:rules` and `npm run test:partners:emulator`; these require Java and the Firebase CLI and use the demo project only.
+
+Dependency install scripts are reviewed in `package.json` under `allowScripts`: the pinned native resolver installer is allowed; Speed Insights migration notices, Firebase's unused auto-config generator, protobuf's version notice, and the optional macOS watcher rebuild are denied. Re-review these entries when updating those packages. Browser compatibility data is maintained in `package-lock.json`.
+
+## Browser protections and public caching
+
+Responses enforce same-origin framing, MIME sniffing protection, a restricted base URL and plugin policy, and a referrer policy. The broader resource Content Security Policy is **report-only** while maps, Firebase sign-in, videos and Strava embeds are checked. Reports currently appear in browser diagnostics; there is no remote report collector. Review violations before moving its directives into the enforced policy. The image proxy retains its own stricter response policy.
+
+Successful river readings can be shared by Vercel's CDN for 60 seconds, while browser responses require revalidation. Errors are not cached. The upstream USGS cache remains five minutes; measurement timestamps and client-side old-reading indicators are preserved.
+
+Contact submission logs contain only a random request identifier, outcome and duration. Submitted fields and provider error objects are not logged.
+
+## Vercel operations review (September 2026)
+
+The Firebase private key and Unsplash key are stored as write-only Secrets. This protects access to stored values but does not isolate preview/development from production Firebase data; a separate test project is still needed.
+
+Both Wired Woodsman hostnames and `personal-website-inky-theta.vercel.app` permanently redirect (308) to `www.nashbrowns.com`.
+
+Fluid Compute was evaluated but left unchanged. The application uses Node-compatible Firebase clients and awaited network requests, so it is a plausible candidate. Available traffic is too small and detailed function metrics are unavailable on the current plan to demonstrate savings. Compare execution time, concurrency, errors and cost on a preview before a later migration; retain the image proxy's timeout and size limits. See [Fluid Compute](https://vercel.com/docs/fluid-compute) and [function pricing](https://vercel.com/docs/functions/usage-and-pricing).
+
 ## Public-page JavaScript
 
 Public pages use a server-rendered navbar with a Partners link. Authentication and the Dashboard/Sign Out controls are scoped to the `/partners`, `/signup`, and `/forgot-password` layouts through `AccountLayout`. The root's `PublicNavigation` switch hides the public navbar when an account layout renders its own. Public links to the partner area disable prefetching so ordinary browsing does not download account code in advance.

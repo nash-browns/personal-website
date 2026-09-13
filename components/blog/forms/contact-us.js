@@ -25,8 +25,6 @@ export function ContactUs() {
 
     const onSubmit = async (data) => {
         try {
-            console.log('Form data:', data)
-            
             // Submit to Firestore
             await addIncomingRequest({
                 email: data.email,
@@ -41,8 +39,7 @@ export function ContactUs() {
             // Reset form and show success message
             reset()
             setIsSubmitted(true)
-        } catch (error) {
-            console.error('Error submitting form:', error)
+        } catch {
             alert('Error sending message. Please try again.')
         }
     }

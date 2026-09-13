@@ -4,7 +4,7 @@ import { ThreeSixtyImage } from '../images/three-sixty-image-lazy'
 
 export function ImageFeature({ title, image, alt, threeSixty=false, video=false }) {
     return(
-        <div className="flex flex-col bg-neutral-800 w-full h-[calc(100vh-64px)]">
+        <div className="flex flex-col bg-neutral-800 w-full h-[calc(100svh-64px)]">
             {/* Let media shrink so its canvas cannot push the title out of the header. */}
             <div className='relative flex min-h-0 flex-1 items-center justify-center w-full'>
                 {
