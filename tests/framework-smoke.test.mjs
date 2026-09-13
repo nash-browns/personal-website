@@ -19,6 +19,26 @@ test('browser protections are present and resource policy starts in report-only 
     assert.match(report, /https:\/\/strava-embeds.com/);
 });
 
+test('generated logo images accept deployment query strings without allowing them on arbitrary local paths', async () => {
+    const html = await (await request('/')).text();
+    const logo = [...html.matchAll(/<img\b[^>]*>/g)].find(([tag]) => tag.includes('alt="Nash Browns Logo Long"'))?.[0];
+    assert.ok(logo, 'Expected the navbar logo');
+    const src = logo.match(/\ssrc="([^"]+)"/)?.[1].replaceAll('&amp;', '&');
+    const optimized = new URL(src, base);
+    const asset = new URL(optimized.searchParams.get('url'), base);
+    assert.match(asset.pathname, /^\/_next\/static\/(?:immutable\/)?media\//);
+    asset.searchParams.set('dpl', process.env.NEXT_DEPLOYMENT_ID || 'dpl_smoke_test');
+    optimized.searchParams.set('url', asset.pathname + asset.search);
+    const response = await request(optimized.pathname + optimized.search);
+    assert.equal(response.status, 200);
+    assert.match(response.headers.get('content-type'), /^image\//);
+    assert.ok((await response.arrayBuffer()).byteLength > 100);
+
+    optimized.searchParams.set('url', '/blog/tune-insulation-pack-install/feature-image.JPEG?unexpected=query');
+    const rejected = await request(optimized.pathname + optimized.search);
+    assert.equal(rejected.status, 400);
+});
+
 for (const path of ['/', '/blog', '/writing', '/partners', '/signup', '/partners/dashboard', '/partners/users']) {
     test(`${path} renders without a server error`, async () => {
         const response = await request(path);

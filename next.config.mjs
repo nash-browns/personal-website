@@ -30,6 +30,13 @@ const nextConfig = {
         ] }];
     },
     images: {
+        localPatterns: [
+            { pathname: '/**', search: '' },
+            // Vercel tags generated imports with ?dpl=... for deployment routing.
+            // Keep query-string support scoped to generated image assets.
+            { pathname: '/_next/static/media/**' },
+            { pathname: '/_next/static/immutable/media/**' },
+        ],
         formats: ['image/avif', 'image/webp'],
         minimumCacheTTL: 2678400, // 31 days — floor for optimized-image caching when the source sends short/no cache headers
         // domains: ['images.unsplash.com'],

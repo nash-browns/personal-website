@@ -14,7 +14,11 @@ function initialScripts(html) {
     const urls = new Set([...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)]
         .map(match => match[1]).filter(url => url.startsWith('/_next/')));
     assert.ok(urls.size, 'Expected production script tags');
-    return [...urls].map(url => fs.readFileSync(path.join(build, url.slice('/_next/'.length)), 'utf8')).join('\n');
+    // Deployment routing query strings are not part of the file on disk.
+    return [...urls].map(url => {
+        const pathname = new URL(url, 'http://localhost').pathname;
+        return fs.readFileSync(path.join(build, pathname.slice('/_next/'.length)), 'utf8');
+    }).join('\n');
 }
 
 function clientModules(page) {
