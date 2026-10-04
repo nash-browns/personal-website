@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { PhotoViewer } from '@/components/blog/art/photo-viewer';
 import { Anton, Fira_Sans } from 'next/font/google';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,6 +9,7 @@ import { getPublishedPhoto, getPhotoCollections } from '@/lib/photography/public
 import { photoBackLink } from '@/lib/photography/navigation.mjs';
 import { generateMetadata as gmd } from '@/lib/seo';
 import { PhotoDownload } from '@/components/blog/art/photo-download';
+import { PhotoPurchase } from '@/components/blog/art/photo-purchase';
 
 const heading = Anton({ weight: '400', subsets: ['latin'] });
 const subheading = Fira_Sans({ weight: ['400', '500'], subsets: ['latin'] });
@@ -36,11 +38,16 @@ export default async function Page({ params, searchParams }) {
                     {[['Location',photo.location],['Camera',photo.camera],['Film',photo.film]].map(([label,value])=><div key={label} className="max-w-full"><dt className="text-sm font-normal uppercase text-stone-400">{label}</dt><dd className="overflow-x-auto whitespace-nowrap pt-2 text-base font-medium text-stone-100 lg:text-xl">{value || '—'}</dd></div>)}
                 </dl>
             </div>
-            <div className="row-start-3 mx-auto flex w-full max-w-2xl flex-wrap justify-start gap-4 self-end px-6 pb-8 pt-8 sm:px-10 lg:px-12">
+            <div className="row-start-3 mx-auto grid w-full max-w-2xl grid-cols-[auto_minmax(0,1fr)] items-start gap-2 self-end px-6 pb-8 pt-8 sm:gap-4 sm:px-10 lg:px-12">
                     <PhotoDownload id={photo.id} title={photo.title} />
-                    <button type="button" aria-label="Purchase" title="Print purchasing is coming soon" className="group inline-flex min-h-12 w-48 items-center justify-center rounded px-4 py-3 text-sm font-semibold uppercase tracking-wide text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-                        <span className="group-hover:hidden group-focus-visible:hidden">Purchase</span><span className="hidden items-center gap-2 group-hover:inline-flex group-focus-visible:inline-flex"><span>52,195 Satoshis</span><FontAwesomeIcon icon={faBitcoin} className="h-4 w-4 text-orange-400"/></span>
-                    </button>
+                    <PhotoPurchase headingClassName={heading.className} bodyClassName={subheading.className}>
+                        <span aria-hidden="true" className="col-start-1 row-start-1 transition-opacity duration-200 group-hover:opacity-0 group-focus-visible:opacity-0 motion-reduce:transition-none">Purchase</span>
+                        <span aria-hidden="true" className="col-start-1 row-start-1 flex flex-nowrap items-center justify-center gap-[0.4em] whitespace-nowrap text-[clamp(7px,3.4cqi,16px)] tracking-normal opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none">
+                            <span className="inline-flex items-center gap-[0.4em] whitespace-nowrap"><span>52,195 Satoshis</span><FontAwesomeIcon icon={faBitcoin} className="h-[1.15em] w-[1.15em] text-orange-400"/></span>
+                            <span>/</span>
+                            <span className="inline-flex items-center gap-[0.4em] whitespace-nowrap"><span>11,483,957 Zatoshi</span><span className="h-[1.15em] w-[1.15em] shrink-0 overflow-hidden"><Image src="/z-cash-brandmark-yellow.svg" alt="" width={32} height={32} className="h-full w-full scale-[2]" /></span></span>
+                        </span>
+                    </PhotoPurchase>
             </div>
         </div>
         <div className="relative min-h-[70svh] w-full bg-[#080808] md:min-h-0 md:w-1/2"><PhotoViewer key={photo.webImage.url} src={photo.webImage.url} alt={photo.altText} /></div>

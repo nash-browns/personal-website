@@ -44,7 +44,7 @@ export function PhotoDownload({ id, title }) {
                 type="button"
                 onClick={download}
                 disabled={busy}
-                className="inline-flex min-h-12 w-48 items-center justify-center rounded px-4 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors duration-200 hover:text-stone-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white disabled:cursor-wait disabled:opacity-60"
+                className="inline-flex min-h-12 items-center justify-center rounded px-2 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors duration-200 hover:text-stone-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white disabled:cursor-wait disabled:opacity-60 sm:px-4"
             >
                 {busy ? 'Downloading…' : 'Download'}
             </button>
