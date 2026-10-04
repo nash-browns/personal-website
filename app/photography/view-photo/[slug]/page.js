@@ -28,17 +28,17 @@ export default async function Page({ params, searchParams }) {
     const [photo, collections, query] = await Promise.all([loadPhoto(params), getPhotoCollections().catch(() => []), searchParams]);
     const back = photoBackLink(photo, collections, query?.collection);
     return <div className="flex min-h-[calc(100svh-64px)] flex-col bg-[#080808] text-stone-100 md:flex-row">
-        <div className="grid min-h-[calc(100svh-64px)] w-full grid-rows-[1fr_auto_1fr] bg-[#080808] md:w-1/2">
-            <nav aria-label="Photo navigation" className={`${subheading.className} row-start-1 mx-auto w-full max-w-2xl self-start px-6 pt-6 sm:px-10 lg:px-12`}>
+        <div className="w-full bg-[#080808] md:grid md:min-h-[calc(100svh-64px)] md:w-1/2 md:grid-rows-[1fr_auto_1fr]">
+            <nav aria-label="Photo navigation" className={`${subheading.className} row-start-1 mx-auto w-full max-w-2xl self-start px-6 pt-3 sm:px-10 md:pt-6 lg:px-12`}>
                 <Link href={back.href} className="inline-flex min-h-11 items-center gap-2 text-sm text-stone-400 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"><span aria-hidden="true">←</span>{back.label}</Link>
             </nav>
-            <div className="row-start-2 mx-auto w-full max-w-2xl px-6 py-8 text-left sm:px-10 lg:px-12">
+            <div className="row-start-2 mx-auto w-full max-w-2xl px-6 py-4 text-left sm:px-10 md:py-8 lg:px-12">
                 <h1 className={`${heading.className} text-4xl font-normal leading-tight tracking-wide text-white lg:text-5xl xl:text-6xl`}>{photo.title}</h1>
-                <dl className={`${subheading.className} mt-8 flex flex-wrap gap-x-8 gap-y-5`}>
-                    {[['Location',photo.location],['Camera',photo.camera],['Film',photo.film]].map(([label,value])=><div key={label} className="max-w-full"><dt className="text-sm font-normal uppercase text-stone-400">{label}</dt><dd className="overflow-x-auto whitespace-nowrap pt-2 text-base font-medium text-stone-100 lg:text-xl">{value || '—'}</dd></div>)}
+                <dl className={`${subheading.className} mt-6 flex flex-wrap gap-x-8 gap-y-5 md:mt-8`}>
+                    {[['Location',photo.location],['Camera',photo.camera],['Film',photo.film]].map(([label,value])=><div key={label} className="max-w-full"><dt className="text-sm font-normal uppercase text-stone-400">{label}</dt><dd className="break-words pt-2 text-base md:overflow-x-auto md:whitespace-nowrap font-medium text-stone-100 lg:text-xl">{value || '—'}</dd></div>)}
                 </dl>
             </div>
-            <div className="row-start-3 mx-auto grid w-full max-w-2xl grid-cols-[auto_minmax(0,1fr)] items-start gap-2 self-end px-6 pb-8 pt-8 sm:gap-4 sm:px-10 lg:px-12">
+            <div className="row-start-3 mx-auto grid w-full max-w-2xl grid-cols-[auto_minmax(0,1fr)] items-start gap-2 self-end px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-4 sm:gap-4 sm:px-10 md:pt-8 lg:px-12">
                     <PhotoDownload id={photo.id} title={photo.title} />
                     <PhotoPurchase headingClassName={heading.className} bodyClassName={subheading.className}>
                         <span aria-hidden="true" className="col-start-1 row-start-1 transition-opacity duration-200 group-hover:opacity-0 group-focus-visible:opacity-0 motion-reduce:transition-none">Purchase</span>
@@ -50,6 +50,6 @@ export default async function Page({ params, searchParams }) {
                     </PhotoPurchase>
             </div>
         </div>
-        <div className="relative min-h-[70svh] w-full bg-[#080808] md:min-h-0 md:w-1/2"><PhotoViewer key={photo.webImage.url} src={photo.webImage.url} alt={photo.altText} /></div>
+        <div className="relative order-first aspect-[var(--photo-ratio)] max-h-[80svh] w-full bg-[#080808] md:order-none md:aspect-auto md:max-h-none md:min-h-0 md:w-1/2" style={{ '--photo-ratio': photo.webImage.width && photo.webImage.height ? photo.webImage.width / photo.webImage.height : 1.5 }}><PhotoViewer key={photo.webImage.url} src={photo.webImage.url} alt={photo.altText} /></div>
     </div>;
 }
