@@ -44,6 +44,7 @@ export async function POST(request, { params }) {
         else if (path.join('/') === 'collections/order') await service.reorderCollections(data);
         else if (path.length === 2 && path[0] === 'collections') result = await service.saveCollection(path[1], data);
         else if (path.length === 3 && path[0] === 'collections' && path[2] === 'order') await service.reorderPhotos(path[1], data);
+        else if (path.length === 3 && path[0] === 'collections' && path[2] === 'delete') result = await service.deleteCollection(path[1], data);
         else if (path.length === 2 && path[0] === 'photos') result = await service.savePhoto(path[1], data);
         else if (path.length === 3 && path[0] === 'photos') {
             if (path[2] === 'upload') result = await service.beginUpload(path[1], data);

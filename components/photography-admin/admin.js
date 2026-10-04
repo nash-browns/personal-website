@@ -820,6 +820,7 @@ function Collections({ data, busy, run, setDirty }) {
     );
 }
 function CollectionEditor({ id, data, busy, run, setDirty }) {
+    const router = useRouter();
     const collection = data.collections.find(item => item.id === id);
     const [title, setTitle] = useState(collection?.title || ''),
         [order, setOrder] = useState(null),
@@ -889,6 +890,24 @@ function CollectionEditor({ id, data, busy, run, setDirty }) {
                         {collection.archived ? 'Restore collection' : 'Archive collection'}
                     </button>
                 )}
+                {id !== 'featured' && (
+                    <button
+                        type="button"
+                        className={styles.danger}
+                        disabled={busy || !!order || photos.length > 0}
+                        title={photos.length ? 'Remove all photos from this collection before deleting it.' : undefined}
+                        onClick={async () => {
+                            if (!confirm(`Permanently delete “${collection.title}”? This empty collection will be removed.`)) return;
+                            const result = await run(
+                                () => api(`collections/${id}/delete`, { revision: collection.revision }),
+                                'Collection deleted.',
+                            );
+                            if (result) router.replace('/admin/collections');
+                        }}
+                    >
+                        Delete Collection
+                    </button>
+                )}
                 {!collection.archived && (
                     <Link
                         href={`/photography?collection=${encodeURIComponent(id)}`}
@@ -900,6 +919,9 @@ function CollectionEditor({ id, data, busy, run, setDirty }) {
                     </Link>
                 )}
             </form>
+            {id !== 'featured' && photos.length > 0 && (
+                <p className={styles.muted}>Remove all photos from this collection to delete it, including draft and archived photos.</p>
+            )}
             <p className={styles.muted}>
                 Order here affects only {collection.title}. Draft and archived photos are included for planning but are
                 hidden publicly.

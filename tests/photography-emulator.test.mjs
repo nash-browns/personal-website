@@ -26,6 +26,54 @@ before(async()=>{
 });
 after(async()=>{await environment?.cleanup();await deleteApp(app);});
 const fields=(title,collectionIds)=>({title,location:'Kansas City',camera:'Kodak',film:'Fujifilm 400',altText:`View of ${title}`,collectionIds});
+test('only empty collections can be deleted, including archived collections', async () => {
+    for (const archived of [false, true]) {
+        const { id } = await service.saveCollection('new', { title: 'Empty collection' });
+        if (archived) await service.saveCollection(id, { title: 'Empty collection', archived, revision: 1 });
+        const revision = archived ? 2 : 1;
+        await assert.rejects(() => service.deleteCollection(id, { revision: revision - 1 }), /another tab/);
+        await service.deleteCollection(id, { revision });
+        assert.equal((await db.collection('photoCollections').doc(id).get()).exists, false);
+        await assert.rejects(() => service.deleteCollection(id, { revision }), { status: 404 });
+    }
+    await assert.rejects(() => service.deleteCollection('featured', { revision: 1 }), /default collection/);
+    await assert.rejects(() => service.deleteCollection('../bad', { revision: 1 }), /Invalid identifier/);
+});
+test('draft, published, and archived photos all block collection deletion without changing their records', async () => {
+    for (const status of ['draft', 'published', 'archived']) {
+        const { id } = await service.saveCollection('new', { title: `${status} collection` });
+        const photo = await service.savePhoto('new', fields('Keep this photo', [id]));
+        const photoRef = db.collection('photos').doc(photo.id);
+        await photoRef.update({ status });
+        const before = (await photoRef.get()).data();
+        await assert.rejects(() => service.deleteCollection(id, { revision: 2 }), /Remove all photos/);
+        assert.equal((await db.collection('photoCollections').doc(id).get()).exists, true);
+        assert.deepEqual((await photoRef.get()).data(), before);
+        assert.equal((await db.collection('photoAssets').doc(photo.id).get()).exists, true);
+        // Removing membership makes deletion possible and keeps the photo/assets.
+        await photoRef.update({ status: 'draft' });
+        await service.savePhoto(photo.id, { ...before, collectionIds: [] });
+        await service.deleteCollection(id, { revision: 3 });
+        assert.deepEqual((await photoRef.get()).data().collectionIds, []);
+        assert.equal((await db.collection('photoAssets').doc(photo.id).get()).exists, true);
+    }
+});
+test('concurrent photo addition and collection deletion cannot leave a dangling membership', async () => {
+    const { id } = await service.saveCollection('new', { title: 'Concurrent collection' });
+    const results = await Promise.allSettled([
+        service.deleteCollection(id, { revision: 1 }),
+        service.savePhoto('new', fields('Concurrent photo', [id])),
+    ]);
+    assert.equal(results.filter(result => result.status === 'fulfilled').length, 1);
+    const collection = await db.collection('photoCollections').doc(id).get();
+    const members = await db.collection('photos').where('collectionIds', 'array-contains', id).get();
+    assert.equal(members.size, collection.exists ? 1 : 0);
+    if (collection.exists) {
+        await members.docs[0].ref.delete();
+        await db.collection('photoAssets').doc(members.docs[0].id).delete();
+        await service.deleteCollection(id, { revision: collection.data().revision });
+    }
+});
 test('download quotas are atomic across instances and inaccessible to clients', async () => {
     const counter = db.collection('photographyDownloadLimits').doc('current');
     await counter.delete();
