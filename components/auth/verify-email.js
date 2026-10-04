@@ -6,7 +6,7 @@ import { sendEmailVerification } from 'firebase/auth';
 import { auth } from '@/firebase';
 import { syncServerSession, signOutSession } from '@/lib/firebase/client-session';
 
-export function VerifyEmail({ user }) {
+export function VerifyEmail({ user, sent = false }) {
     const router = useRouter();
     const [busy, setBusy] = useState(false);
     const [message, setMessage] = useState('');
@@ -40,7 +40,7 @@ export function VerifyEmail({ user }) {
                 <button className="btn" disabled={busy} onClick={() => perform(async () => {
                     await sendEmailVerification(user, { url: `${window.location.origin}/partners` });
                     setMessage('Verification email sent. Check your inbox and spam folder.');
-                })}>Send verification email</button>
+                })}>{sent ? 'Resend verification email' : 'Send verification email'}</button>
                 <button className="btn btn-primary" disabled={busy} onClick={() => perform(continueAfterVerification)}>
                     I&apos;ve verified my email
                 </button>
@@ -50,7 +50,7 @@ export function VerifyEmail({ user }) {
                     router.refresh();
                 })}>Sign out</button>
             </div>
-            {message && <p className="mt-4" role="status">{message}</p>}
+            {(message || (sent && !error)) && <p className="mt-4" role="status">{message || 'Verification email sent. Check your inbox and spam folder.'}</p>}
             {error && <p className="mt-4 text-error" role="alert">{error}</p>}
         </div>
     );

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 
 import { auth } from "@/firebase"
 import { syncServerSession, signOutSession } from "@/lib/firebase/client-session"
-import { createUserWithEmailAndPassword, confirmPasswordReset } from "firebase/auth"
+import { createUserWithEmailAndPassword, confirmPasswordReset, sendEmailVerification } from "firebase/auth"
 import { useAuth } from '@/lib/firebase/auth-context';
 import { VerifyEmail } from './verify-email';
 
@@ -23,6 +23,7 @@ export function ForgotPassword({ mode, oobCode, apiKey, lang }) {
 
     const [signUpError, setSignUpError] = useState(null)
     const [success, setSuccess] = useState(false)
+    const [verificationSent, setVerificationSent] = useState(false)
 
     const {
         register,
@@ -54,6 +55,9 @@ export function ForgotPassword({ mode, oobCode, apiKey, lang }) {
                 if (!userCredential) throw new Error("User not created")
                 // Verification must precede any email-based partner access.
                 await syncServerSession(userCredential.user);
+                // A failed send is recoverable: the verification screen can resend.
+                await sendEmailVerification(userCredential.user, { url: `${window.location.origin}/partners` })
+                    .then(() => setVerificationSent(true), () => {});
             }
         } catch (error) {
             console.error("Error:", error)
@@ -61,7 +65,7 @@ export function ForgotPassword({ mode, oobCode, apiKey, lang }) {
         }
     }
 
-    if (user && !user.emailVerified && mode !== 'resetPassword') return <VerifyEmail user={user}/>;
+    if (user && !user.emailVerified && mode !== 'resetPassword') return <VerifyEmail user={user} sent={verificationSent}/>;
 
     // If we have oobCode, show password reset form
     if (mode === 'resetPassword' && oobCode) {

@@ -16,6 +16,7 @@ export async function GET(request, { params }) {
         await requirePhotoOwner();
         const path = (await params).path;
         if (path.length === 1 && path[0] === 'library') return json(await service.library());
+        if (path.length === 2 && path[0] === 'assets') return json(await service.asset(path[1]));
         if (path.length === 2 && path[0] === 'preview') {
             const id = validId(path[1]);
             const doc = await photoDb.collection('photoAssets').doc(id).get();
