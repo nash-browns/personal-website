@@ -1,0 +1,26 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function owner() {
+      return request.auth != null
+        && request.auth.uid == 'bVcYU2LVoKUoTjxzFdH8jZHI0GD2'
+        && request.auth.token.email == 'nashb1323@gmail.com'
+        && request.auth.token.email_verified == true;
+    }
+    match /photography/private/{photoId}/{kind}/{version}/{filename} {
+      allow read: if owner();
+      allow create: if resource == null && owner() && kind in ['original', 'print']
+        && filename.matches('source[.](tif|tiff|jpg|jpeg)')
+        && request.resource.size > 0 && request.resource.size <= 262144000
+        && request.resource.contentType in ['image/tiff', 'image/jpeg'];
+      allow update, delete: if false;
+    }
+    match /photography/{allPaths=**} {
+      // Derivatives are served by the website only after a publication check.
+      allow read: if owner();
+      allow write: if false;
+    }
+    // Existing site assets use their current storage policy. Deployment must
+    // merge these scoped rules with the live legacy rules; do not replace it blindly.
+  }
+}

@@ -77,7 +77,7 @@ for (const failure of ['error', 'load']) {
     });
 }
 
-const articles = new URL('../.next/server/app/blog/articles/', import.meta.url);
+const articles = new URL(`../${process.env.NEXT_BUILD_DIR || '.next'}/server/app/blog/articles/`, import.meta.url);
 
 test('production articles defer every inline iframe and use previews for YouTube link cards', () => {
     const pages = fs.readdirSync(articles).filter(file => file.endsWith('.html'));

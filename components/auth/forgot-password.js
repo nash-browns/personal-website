@@ -8,6 +8,7 @@ import { auth } from "@/firebase"
 import { syncServerSession, signOutSession } from "@/lib/firebase/client-session"
 import { createUserWithEmailAndPassword, confirmPasswordReset } from "firebase/auth"
 import { useAuth } from '@/lib/firebase/auth-context';
+import { VerifyEmail } from './verify-email';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@awesome.me/kit-237330da78/icons/classic/regular'
@@ -51,17 +52,16 @@ export function ForgotPassword({ mode, oobCode, apiKey, lang }) {
                 // Handle new user signup (existing logic)
                 const userCredential = await createUserWithEmailAndPassword(auth, newUserEmail, data.password)
                 if (!userCredential) throw new Error("User not created")
-                const session = await syncServerSession(userCredential.user);
-                if (session.skipped) throw new Error("Your sign-in changed. Please try again.");
-
-                router.replace("/partners/dashboard");
-                router.refresh();
+                // Verification must precede any email-based partner access.
+                await syncServerSession(userCredential.user);
             }
         } catch (error) {
             console.error("Error:", error)
             setSignUpError(error.message)
         }
     }
+
+    if (user && !user.emailVerified && mode !== 'resetPassword') return <VerifyEmail user={user}/>;
 
     // If we have oobCode, show password reset form
     if (mode === 'resetPassword' && oobCode) {
@@ -195,4 +195,3 @@ export function ForgotPassword({ mode, oobCode, apiKey, lang }) {
         </form>
     )
 }
-

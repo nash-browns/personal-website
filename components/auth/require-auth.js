@@ -4,13 +4,16 @@ import { useAuth } from '@/lib/firebase/auth-context';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { SimpleSpinner } from '@/components/loading';
+import { VerifyEmail } from './verify-email';
 
 export function RequireAuth({ children }) {
-    const { initialized, loading, isAuthenticated, authError } = useAuth();
+    const { user, initialized, loading, isAuthenticated, authError } = useAuth();
     const router = useRouter();
     useEffect(() => {
-        if (initialized && !loading && !authError && !isAuthenticated) router.replace('/partners');
-    }, [initialized, loading, authError, isAuthenticated, router]);
+        if (initialized && !loading && !authError && !isAuthenticated && !user) router.replace('/partners');
+    }, [user, initialized, loading, authError, isAuthenticated, router]);
+
+    if (user && !user.emailVerified) return <VerifyEmail user={user}/>;
 
     if (authError) {
         return (

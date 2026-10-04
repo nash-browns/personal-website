@@ -84,7 +84,6 @@ export { HashBrownsLoader } from "./loaders/hash-browns-loader";
 export { AuthLoader } from "./loaders/auth-loader";
 
 //Art
-export { UnsplashDownloader } from "./art/download-unsplash";
 export { ArtNav } from "./art/art-nav";
 export { ArtCollection } from "./art/art-collection";
 export { Photos } from "./art/photos";

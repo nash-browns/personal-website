@@ -1,0 +1,13 @@
+.input {
+    min-width: 0;
+    background-color: transparent;
+}
+
+/* Browsers force an autofill background that background-color cannot override.
+   Clip that paint to the glyphs so the translucent field wrapper stays visible. */
+.input:is(:autofill, :-webkit-autofill) {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: oklch(var(--color-base-content));
+    caret-color: oklch(var(--color-base-content));
+}

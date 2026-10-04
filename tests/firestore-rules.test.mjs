@@ -83,6 +83,23 @@ test('anonymous visitors cannot read or write protected collections', async () =
     }
 });
 
+test('unverified and missing verification claims cannot inherit email-keyed member or admin permissions', async () => {
+    for (const name of ['admin', 'member']) {
+        for (const verified of [false, undefined, 'true']) {
+            const claims = { email: `${name}@example.test` };
+            if (verified !== undefined) claims.email_verified = verified;
+            const database = environment.authenticatedContext('different-uid', claims).firestore();
+            for (const path of [`users/${name}@example.test`, 'users/colleague@example.test', 'tenants/0', 'tenants/1', 'content/first', 'email_queue/existing']) {
+                await assertFails(getDoc(doc(database, path)));
+                await assertFails(setDoc(doc(database, path), { tenant: 0 }));
+                await assertFails(deleteDoc(doc(database, path)));
+            }
+            await assertFails(getDocs(collection(database, 'users')));
+            await assertFails(getDocs(query(collection(database, 'users'), where('tenant', '==', 1))));
+        }
+    }
+});
+
 test('members can read their own profile, colleagues, tenant, and assigned content', async () => {
     const database = signedIn('member');
     for (const path of ['users/member@example.test', 'users/colleague@example.test', 'tenants/1', 'content/first', 'content/shared']) {

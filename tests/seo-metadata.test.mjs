@@ -18,7 +18,7 @@ function meta(html, name) {
     return tags(html, 'meta').filter(tag => tag.name === name || tag.property === name).map(tag => tag.content);
 }
 async function builtHtml(route) {
-    return readFile(new URL(`../.next/server/app/${route === '/' ? 'index' : route.slice(1)}.html`, import.meta.url), 'utf8');
+    return readFile(new URL(`../${process.env.NEXT_BUILD_DIR || '.next'}/server/app/${route === '/' ? 'index' : route.slice(1)}.html`, import.meta.url), 'utf8');
 }
 async function posts() {
     const result = [];
@@ -141,7 +141,7 @@ test('every built blog post and story has its own canonical URL, real dates, cor
 test('ordinary built pages have correct titles, website previews, one viewport and their own canonicals', async () => {
     for (const [route, title, index] of [
         ['/', 'Nash Browns', true], ['/blog', 'Blog', true], ['/writing', 'Writing', true],
-        ['/art', 'Art', true], ['/projects', 'Projects', true], ['/partners', 'Partners', true],
+        ['/photography', 'Photography', true], ['/projects', 'Projects', true], ['/partners', 'Partners', true],
         ['/signup', 'Sign Up', false], ['/blog/projects', 'Projects', false],
     ]) {
         const html = await builtHtml(route);
@@ -162,10 +162,11 @@ test('generated sitemap lists active articles, omits drafts/accounts/assets and 
         assert.equal(!!entry, post.isActive, route);
         if (post.isActive) assert.match(entry, new RegExp(`<lastmod>${new Date(post.updated || post.published).toISOString()}</lastmod>`), route);
     }
-    for (const path of ['/signup', '/forgot-password', '/partners/dashboard', '/partners/users', '/blog/projects', '/apple-icon.png', '/icon.png']) {
+    for (const path of ['/admin', '/admin/photos/new', '/admin/collections', '/signup', '/forgot-password', '/partners/dashboard', '/partners/users', '/blog/projects', '/apple-icon.png', '/icon.png']) {
         assert.equal(entries.has(absolute(path)), false, path);
     }
-    for (const path of ['/blog', '/writing', '/art', '/projects', '/partners']) {
+    assert.ok([...entries.keys()].every(url => !/^\/admin(?:\/|$)/.test(new URL(url).pathname)), 'No admin subroutes belong in the sitemap');
+    for (const path of ['/blog', '/writing', '/photography', '/projects', '/partners']) {
         assert.ok(entries.has(absolute(path)), path);
         assert.doesNotMatch(entries.get(absolute(path)), /<lastmod>/, path);
     }

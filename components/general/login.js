@@ -6,6 +6,8 @@ import { signInWithEmailAndPassword, sendPasswordResetEmail, getAuth } from "fir
 import { auth } from "@/firebase"
 import { syncServerSession } from "@/lib/firebase/client-session"
 import { handleGoogleAuth } from "@/lib/firebase/auth-utils"
+import { useAuth } from '@/lib/firebase/auth-context';
+import { VerifyEmail } from '@/components/auth/verify-email';
 import { useRouter } from "next/navigation"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,6 +19,7 @@ import {
 
 
 export function Login() {
+    const { user } = useAuth();
     const [loginError, setLoginError] = useState(null)
     const [isGoogleLoading, setIsGoogleLoading] = useState(false)
     const router = useRouter()
@@ -36,6 +39,7 @@ export function Login() {
         setLoginError(null);
         try {
             const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password)
+            if (!userCredential.user.emailVerified) return;
             const session = await syncServerSession(userCredential.user);
             if (session.skipped) throw new Error('Your sign-in changed. Please try again.');
             router.replace("/partners/dashboard");
@@ -65,6 +69,8 @@ export function Login() {
         
         setIsGoogleLoading(false);
     }
+
+    if (user && !user.emailVerified) return <VerifyEmail user={user}/>;
 
     return (
         <div className="mx-auto w-full md:p-10 py-5 md:py-0">
@@ -244,4 +250,3 @@ function ForgotPasswordForm() {
         </>
     )
 }
-

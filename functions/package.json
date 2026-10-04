@@ -1,0 +1,9 @@
+{
+  "name": "photography-processing",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "engines": { "node": "22" },
+  "dependencies": { "firebase-admin": "^13.4.0", "firebase-functions": "^7.0.0", "sharp": "^0.35.4" },
+  "scripts": { "test": "node --test image-processing.test.mjs" }
+}

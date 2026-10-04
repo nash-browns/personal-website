@@ -1,25 +1,19 @@
-'use client'
-// import { readFiles } from "@/lib/next-path"
+'use client';
 
-import { MdxLayout } from "../mdx-layout"
-import { ArtNav } from "./art-nav"
-import { ArtCollection } from "./art-collection"
-import { Suspense } from "react";
-import { SimpleSpinner } from "@/components/loading"
+import { useSearchParams } from 'next/navigation';
+import { ArtNav } from './art-nav';
+import { ArtCollection } from './art-collection';
 
-export function Photos() {
-    // const allArt = readFiles('public/art', 1);
+export function Photos({ collections = [], initialCollectionId, initialResult = null }) {
+    const searchParams = useSearchParams();
+    const selectedCollection = collections.find(item => item.id === searchParams.get('collection')) || collections.find(item => item.id === 'featured') || collections[0];
+    if (!selectedCollection) return <p role="status" className="px-6 py-24 text-center text-stone-400">The collections couldn’t load. Please refresh to try again.</p>;
+    const { id: selected, title } = selectedCollection;
 
-    return(
-        <div className='grid grid-cols-1 justify-items-stretch w-full min-h-[calc(100vh-64px)] bg-[#f2f1ed] text-gray-700'>
-            <MdxLayout>
-                <div className="bg-[#f2f1ed] w-full">
-                    <Suspense fallback={<SimpleSpinner/>}>
-                        {/* <ArtCollection allArt={allArt} /> */}
-                        <ArtCollection/>
-                    </Suspense>
-                </div>
-            </MdxLayout>
-        </div>
-    )
+    return (
+        <>
+            <ArtNav collections={collections} selected={selected} title={title} />
+            <ArtCollection key={selected} collectionId={selected} title={title} collections={collections} initialResult={selected === initialCollectionId ? initialResult : null} />
+        </>
+    );
 }

@@ -32,7 +32,7 @@ export default async function RootLayout({ children }) {
         <html lang="en" className={`${inter.variable} ${neue.variable} ${spartan.variable} ${didot.variable}`} data-theme="retro">
             <body className='min-h-screen'>
                 <AddBackground bgColor={'bg-base-200'}>
-                    <PublicNavigation>
+                    <PublicNavigation photographyNavigation={<NavBar dark />}>
                         <NavBar/>
                     </PublicNavigation>
                     {children}

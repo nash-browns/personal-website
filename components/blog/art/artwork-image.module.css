@@ -1,0 +1,12 @@
+.filmReveal {
+    animation: develop 1000ms ease-out var(--reveal-delay, 0ms) both;
+}
+
+@keyframes develop {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .filmReveal { animation: none; }
+}

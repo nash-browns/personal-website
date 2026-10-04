@@ -12,5 +12,5 @@ export default defineConfig([
             'react-hooks/immutability': 'warn',
         },
     },
-    globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+    globalIgnores(['.next-photography-*/**', 'functions/node_modules/**', '.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
 ]);

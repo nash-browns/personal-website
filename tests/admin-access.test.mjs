@@ -8,6 +8,7 @@ async function loadRoute(collection, {
     profile = { tenant: 2 },
     email = 'member@example.test',
     tokenError = false,
+    emailVerified = true,
     profileError = false,
     queryError = false,
     rows = [{ id: 'example', name: 'Example' }],
@@ -17,7 +18,7 @@ async function loadRoute(collection, {
         async verifyIdToken(token) {
             calls.token.push(token);
             if (tokenError || token !== 'valid-token') throw new Error('Invalid token');
-            return { uid: 'test-user', email, email_verified: true };
+            return { uid: 'test-user', email, email_verified: emailVerified };
         },
     };
     const adminDb = {
@@ -85,6 +86,15 @@ for (const collection of ['users', 'tenants']) {
         const expired = await loadRoute(collection, { tokenError: true });
         assert.equal((await expired.request()).status, 401);
         assert.deepEqual(expired.calls.queries, []);
+    });
+
+    test(`${collection}: unverified email cannot inherit an existing admin membership`, async () => {
+        for (const emailVerified of [false, null, 'true', 1]) {
+            const route = await loadRoute(collection, { emailVerified, profile: { tenant: 0 } });
+            assert.equal((await route.request()).status, 401);
+            assert.deepEqual(route.calls.profile, []);
+            assert.deepEqual(route.calls.queries, []);
+        }
     });
 
     test(`${collection}: changing the URL to tenant 0 cannot grant a member admin access`, async () => {

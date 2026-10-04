@@ -41,13 +41,13 @@ async function load(file, mocks = {}, globals = {}) {
     return module.namespace;
 }
 
-async function sessionRoute({ current, tokenFails = false, sessionFails = false } = {}) {
+async function sessionRoute({ current, tokenFails = false, sessionFails = false, emailVerified = true } = {}) {
     const calls = [];
     const adminAuth = {
         async verifyIdToken(token, revoked) {
             calls.push(['token', token, revoked]);
             if (tokenFails || token !== 'valid-token') throw new Error('Invalid token');
-            return { uid: 'user-a', email: 'a@example.test' };
+            return { uid: 'user-a', email: 'a@example.test', email_verified: emailVerified };
         },
         async verifySessionCookie(token, revoked) {
             calls.push(['session', token, revoked]);
@@ -89,6 +89,45 @@ test('session endpoint rejects cross-origin, missing-origin, malformed and inval
     assert.equal(s.calls.filter(call => call[0] === 'create').length, 0);
 });
 
+test('unverified email cannot establish a session and clears any existing cookies', async () => {
+    for (const emailVerified of [false, null, 'true', 1]) {
+        const s = await sessionRoute({ emailVerified });
+        const response = await s.route.POST(s.request({ cookie: 'partnerSession=old; idToken=old' }));
+        assert.equal(response.status, 403);
+        assert.equal(response.cookies.get('partnerSession').maxAge, 0);
+        assert.equal(response.cookies.get('idToken').maxAge, 0);
+        assert.equal(s.calls.filter(call => call[0] === 'create').length, 0);
+    }
+});
+
+test('a newly verified token replaces an old unverified session', async () => {
+    const s = await sessionRoute({ current: { uid: 'user-a', email: 'a@example.test', email_verified: false, exp: Date.now() / 1000 + 3600 } });
+    const response = await s.route.POST(s.request({ cookie: 'partnerSession=old' }));
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).changed, true);
+});
+
+test('server pages reject old sessions and legacy tokens with unverified or absent email ownership', async () => {
+    for (const email_verified of [false, undefined, null, 'true', 1]) {
+        const claims = { uid: 'u', email: 'u@example.test', email_verified };
+        const adminAuth = { verifySessionCookie: async () => claims, verifyIdToken: async () => claims };
+        const { readServerUser } = await load('lib/firebase/server-session.js', { './admin': { adminAuth } });
+        for (const name of ['partnerSession', 'idToken']) {
+            assert.equal(await readServerUser({ get: key => key === name ? { value: 'old' } : undefined }), null);
+        }
+    }
+});
+
+test('partner data rejects unverified identities before membership or data queries', async () => {
+    const data = await pageData(0);
+    for (const emailVerified of [false, undefined, null, 'true', 1]) {
+        const user = { uid: 'u', email: 'u@example.test', emailVerified };
+        assert.equal((await data.getPartnerDashboardData(user)).status, 'signed-out');
+        assert.equal((await data.getPartnerUsersData(user)).status, 'signed-out');
+    }
+    assert.deepEqual(data.queries, []);
+});
+
 test('verified sign-in creates a one-day HttpOnly session and expires the old ID-token cookie', async () => {
     const s = await sessionRoute();
     const response = await s.route.POST(s.request());
@@ -121,10 +160,10 @@ test('session origin checks use the requested host when Next normalizes its inte
 
 test('valid sessions are reused; expiring, revoked and different-account sessions are replaced', async () => {
     for (const [current, sessionFails, changed] of [
-        [{ uid: 'user-a', exp: Date.now() / 1000 + 3600 }, false, false],
-        [{ uid: 'user-a', exp: Date.now() / 1000 + 60 }, false, true],
+        [{ uid: 'user-a', email: 'a@example.test', email_verified: true, exp: Date.now() / 1000 + 3600 }, false, false],
+        [{ uid: 'user-a', email: 'a@example.test', email_verified: true, exp: Date.now() / 1000 + 60 }, false, true],
         [{ uid: 'user-b', exp: Date.now() / 1000 + 3600 }, false, true],
-        [{ uid: 'user-a', exp: Date.now() / 1000 + 3600 }, true, true],
+        [{ uid: 'user-a', email: 'a@example.test', email_verified: true, exp: Date.now() / 1000 + 3600 }, true, true],
     ]) {
         const s = await sessionRoute({ current, sessionFails });
         const response = await s.route.POST(s.request({ cookie: 'partnerSession=old-session' }));
@@ -150,8 +189,8 @@ test('logout clears both cookies with matching attributes and rejects cross-orig
 test('server pages accept verified sessions or valid legacy tokens, and fail closed for revoked/malformed cookies', async () => {
     const calls = [];
     const adminAuth = {
-        async verifySessionCookie(value, revoked) { calls.push(['session', revoked]); if (value !== 'good') throw new Error(); return { uid: 'u', email: 'u@example.test' }; },
-        async verifyIdToken(value, revoked) { calls.push(['legacy', revoked]); if (value !== 'good') throw new Error(); return { uid: 'u', email: 'u@example.test' }; },
+        async verifySessionCookie(value, revoked) { calls.push(['session', revoked]); if (value !== 'good') throw new Error(); return { uid: 'u', email: 'u@example.test', email_verified: true }; },
+        async verifyIdToken(value, revoked) { calls.push(['legacy', revoked]); if (value !== 'good') throw new Error(); return { uid: 'u', email: 'u@example.test', email_verified: true }; },
     };
     const { readServerUser } = await load('lib/firebase/server-session.js', { './admin': { adminAuth } });
     const cookies = values => ({ get: key => values[key] ? { value: values[key] } : undefined });
@@ -165,7 +204,7 @@ test('server pages accept verified sessions or valid legacy tokens, and fail clo
 test('cookie synchronization serializes sign-in and logout so logout wins a late response', async () => {
     const pending = deferred();
     const calls = [];
-    const user = { getIdToken: async () => 'token' };
+    const user = { emailVerified: true, getIdToken: async () => 'token' };
     let current = user;
     const session = createSessionClient({ getCurrentUser: () => current, request: async (url, options) => {
         calls.push(options.method);
@@ -182,22 +221,36 @@ test('cookie synchronization serializes sign-in and logout so logout wins a late
     assert.deepEqual(calls, ['POST', 'DELETE']);
 });
 
+test('unverified users clear server access without requesting a token, and verified users can resume', async () => {
+    const calls = [];
+    const user = { emailVerified: false, getIdToken: async () => { calls.push('token'); return 'verified-token'; } };
+    const session = createSessionClient({ getCurrentUser: () => user, request: async (url, options) => {
+        calls.push(options.method);
+        return Response.json({ changed: true });
+    } });
+    assert.equal((await session.sync(user)).idToken, null);
+    assert.deepEqual(calls, ['DELETE']);
+    user.emailVerified = true;
+    assert.equal((await session.sync(user)).idToken, 'verified-token');
+    assert.deepEqual(calls, ['DELETE', 'token', 'POST']);
+});
+
 test('a token resolved after switching accounts cannot restore the previous login', async () => {
     const token = deferred();
-    const oldUser = { getIdToken: () => token.promise };
+    const oldUser = { emailVerified: true, getIdToken: () => token.promise };
     let current = oldUser;
     let requests = 0;
     const session = createSessionClient({ getCurrentUser: () => current, request: async () => { requests++; return Response.json({}); } });
     const pending = session.sync(oldUser);
     await tick();
-    current = { getIdToken: async () => 'new' };
+    current = { emailVerified: true, getIdToken: async () => 'new' };
     token.resolve('old');
     assert.equal((await pending).skipped, true);
     assert.equal(requests, 0);
 });
 
 test('failed cookie writes reject sign-in, remain retryable, and prevent a falsely completed logout', async () => {
-    const user = { getIdToken: async () => 'token' };
+    const user = { emailVerified: true, getIdToken: async () => 'token' };
     let fail = true;
     const session = createSessionClient({ getCurrentUser: () => user, request: async () => Response.json({}, { status: fail ? 500 : 200 }) });
     await assert.rejects(session.sync(user), /Unable to update/);
@@ -300,7 +353,7 @@ async function pageData(tenantId, fail = false) {
 }
 
 test('dashboard and user data handle tenant zero, missing assignments and signed-out requests explicitly', async () => {
-    const user = { uid: 'u', email: 'u@example.test' };
+    const user = { uid: 'u', email: 'u@example.test', emailVerified: true };
     for (const id of [0, '0']) {
         const data = await pageData(id);
         assert.equal((await data.getPartnerDashboardData(user)).tenantId, '0');
@@ -320,7 +373,7 @@ test('dashboard and user data handle tenant zero, missing assignments and signed
 });
 
 test('partner data stays scoped to the verified membership and errors cannot become an endless loading state', async () => {
-    const user = { uid: 'u', email: 'u@example.test' };
+    const user = { uid: 'u', email: 'u@example.test', emailVerified: true };
     const data = await pageData(2);
     const dashboard = await data.getPartnerDashboardData(user);
     assert.equal(dashboard.userId, 'u');

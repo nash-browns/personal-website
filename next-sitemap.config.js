@@ -3,10 +3,11 @@ const path = require('node:path');
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
+  sourceDir: process.env.NEXT_BUILD_DIR || '.next',
   siteUrl: process.env.SITE_URL || 'https://www.nashbrowns.com',
   generateRobotsTxt: true,
   autoLastmod: false,
-  exclude: ['/api/*', '/partners/dashboard', '/partners/users', '/signup', '/forgot-password'],
+  exclude: ['/admin', '/admin/*', '/api/*', '/partners/dashboard', '/partners/users', '/signup', '/forgot-password'],
   // Allow crawlers to read noindex tags; hiding drafts in robots.txt would prevent that.
   robotsTxtOptions: { policies: [{ userAgent: '*', allow: '/' }] },
   async transform(config, loc) {

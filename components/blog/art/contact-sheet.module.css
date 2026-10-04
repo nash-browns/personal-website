@@ -1,0 +1,152 @@
+.sheet {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px;
+    background: #080808;
+}
+
+.frame {
+    min-width: 0;
+    color: #dfaa68;
+    background: #080808;
+}
+
+.filmTop,
+.filmBottom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 32px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 9px;
+    letter-spacing: .06em;
+}
+
+.filmTop {
+    justify-content: space-between;
+    padding: 0 8px 9px;
+}
+
+.filmTitle {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.filmTop::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 3px;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, transparent 0 9px, #694320 9px 10px, #1c150d 10px 17px, #694320 17px 18px, transparent 18px 26px);
+    opacity: .65;
+}
+
+.exposure {
+    position: relative;
+    display: block;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+}
+
+.exposure:focus-visible {
+    outline: 2px solid #dfaa68;
+    outline-offset: 3px;
+    z-index: 1;
+}
+
+.landscape {
+    position: absolute;
+    inset: 0;
+}
+
+.portrait {
+    position: absolute;
+    width: 66.666667%;
+    height: 150%;
+    left: 16.666667%;
+    top: -25%;
+    transform: rotate(90deg);
+}
+
+.photoTitle {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 32px 12px 12px;
+    color: white;
+    font-size: 12px;
+    background: linear-gradient(transparent, rgb(0 0 0 / .8));
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.exposure:hover .photoTitle,
+.exposure:focus-visible .photoTitle {
+    opacity: 1;
+}
+
+.filmBottom {
+    padding: 8px 4px 0;
+    letter-spacing: 0;
+}
+
+.filmBottom::before {
+    content: '';
+    position: absolute;
+    inset: 4px 0 auto;
+    height: 5px;
+    background: repeating-linear-gradient(90deg, #dfaa68 0 2px, transparent 2px 5px, #dfaa68 5px 6px, transparent 6px 10px, #dfaa68 10px 13px, transparent 13px 17px, #dfaa68 17px 18px, transparent 18px 24px);
+    opacity: .8;
+}
+
+.frameNumber {
+    margin-right: auto;
+    font-size: 11px;
+}
+
+.credit {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    color: #bc9b72;
+    font-size: 8px;
+    white-space: nowrap;
+}
+
+.credit:hover,
+.credit:focus-visible {
+    color: #ffe0b8;
+    text-decoration: underline;
+}
+
+.collectionName {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 24px;
+}
+
+@media (min-width: 900px) {
+    .sheet {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .filmTop { font-size: 11px; }
+    .credit { font-size: 10px; }
+}
+
+@media (min-width: 1800px) {
+    .sheet { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .photoTitle { transition: none; }
+}

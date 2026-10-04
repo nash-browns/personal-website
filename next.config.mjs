@@ -3,6 +3,8 @@ import { fileURLToPath } from 'node:url';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // Isolated verification builds can run alongside the development server.
+    distDir: process.env.NEXT_BUILD_DIR || '.next',
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     async headers() {
         // Start resource restrictions in report-only mode: violations appear in
@@ -13,7 +15,7 @@ const nextConfig = {
             "object-src 'none'",
             "script-src 'self' 'unsafe-inline' https://strava-embeds.com https://maps.googleapis.com https://maps.gstatic.com https://apis.google.com https://www.googletagmanager.com https://va.vercel-scripts.com https://vercel.live",
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.mapbox.com",
-            "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://images.unsplash.com https://img.youtube.com https://*.googleusercontent.com https://*.gstatic.com https://*.googleapis.com https://*.mapbox.com",
+            "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://img.youtube.com https://*.googleusercontent.com https://*.gstatic.com https://*.googleapis.com https://*.mapbox.com",
             "font-src 'self' https://fonts.gstatic.com",
             "connect-src 'self' https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com https://*.mapbox.com https://*.google-analytics.com https://*.analytics.google.com https://vitals.vercel-insights.com https://vercel.live wss://*.pusher.com",
             "frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube.com https://www.youtube-nocookie.com https://strava-embeds.com https://www.strava.com https://www.alltrails.com https://ridewithgps.com https://bikekatytrail.com https://open.spotify.com https://*.firebaseapp.com https://vercel.live",
@@ -27,7 +29,10 @@ const nextConfig = {
             { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
             { key: 'Content-Security-Policy', value: "frame-ancestors 'self'; object-src 'none'; base-uri 'self'" },
             { key: 'Content-Security-Policy-Report-Only', value: reportOnlyPolicy },
-        ] }];
+        ] }, ...['/admin/:path*', '/api/photography/admin/:path*', '/api/admin/:path*'].map(source => ({
+            source,
+            headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+        }))];
     },
     images: {
         localPatterns: [
@@ -39,17 +44,11 @@ const nextConfig = {
         ],
         formats: ['image/avif', 'image/webp'],
         minimumCacheTTL: 2678400, // 31 days — floor for optimized-image caching when the source sends short/no cache headers
-        // domains: ['images.unsplash.com'],
         remotePatterns: [
             {
                 protocol: "https",
                 hostname: "firebasestorage.googleapis.com",
                 pathname: "/v0/b/**",
-            },
-            {
-                protocol: "https",
-                hostname: "images.unsplash.com",
-                // pathname: "/v0/b/**",
             },
             {
                 protocol: "https",

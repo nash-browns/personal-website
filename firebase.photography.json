@@ -1,0 +1,12 @@
+{
+  "functions": [{ "source": "functions", "codebase": "photography", "ignore": ["node_modules", "*.test.mjs", "firebase-debug.log"] }],
+  "storage": { "rules": "storage.photography.rules" },
+  "firestore": { "rules": "firestore.rules" },
+  "emulators": {
+    "auth": { "host": "127.0.0.1", "port": 9092 },
+    "firestore": { "host": "127.0.0.1", "port": 8092 },
+    "storage": { "host": "127.0.0.1", "port": 9192 },
+    "ui": { "enabled": false },
+    "singleProjectMode": true
+  }
+}

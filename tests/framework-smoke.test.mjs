@@ -95,6 +95,30 @@ test('article sharing metadata is in the crawler response and ignores tracking p
     assert.equal([...head.matchAll(/<meta name="viewport"/g)].length, 1);
 });
 
+test('all admin pages instruct crawlers not to index, including nested pages and query strings', async () => {
+    for (const path of ['/admin', '/admin/photos/new', '/admin/photos/example?source=test', '/admin/collections', '/admin/collections/example']) {
+        const response = await request(path, { headers: { 'User-Agent': 'Googlebot' } });
+        assert.equal(response.status, 200, path);
+        assert.equal(response.headers.get('x-robots-tag'), 'noindex, nofollow', path);
+        const html = await response.text();
+        for (const name of ['robots', 'googlebot']) {
+            assert.match(html, new RegExp(`<meta name="${name}" content="noindex, nofollow"`), path);
+        }
+    }
+});
+
+test('admin error responses and APIs carry noindex without changing public page indexing', async () => {
+    for (const path of ['/admin/not-a-page', '/api/photography/admin/library', '/api/admin/0/all-users']) {
+        const response = await request(path);
+        assert.ok(response.status >= 400 && response.status < 500, path);
+        assert.equal(response.headers.get('x-robots-tag'), 'noindex, nofollow', path);
+        await response.arrayBuffer();
+    }
+    const response = await request('/blog');
+    assert.equal(response.headers.get('x-robots-tag'), null);
+    assert.match(await response.text(), /<meta name="robots" content="index, follow"/);
+});
+
 test('QR redirects resolve asynchronous route parameters', async () => {
     const response = await request('/api/qr-code-redirect/wbb');
     assert.equal(response.status, 307);

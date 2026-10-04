@@ -3,7 +3,10 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function isAuthenticated() {
-      return request.auth != null && request.auth.token.email is string;
+      // Email-keyed memberships require proof that the caller owns the address.
+      return request.auth != null
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true;
     }
 
     function hasUserProfile() {
@@ -70,6 +73,26 @@ service cloud.firestore {
     match /incoming_request/{requestId} {
       allow create: if validContactRequest();
       allow read, update, delete: if false;
+    }
+
+    function isPhotographyOwner() {
+      return request.auth != null
+        && request.auth.uid == 'bVcYU2LVoKUoTjxzFdH8jZHI0GD2'
+        && request.auth.token.email == 'nashb1323@gmail.com'
+        && request.auth.token.email_verified == true;
+    }
+
+    match /photos/{photoId} {
+      allow read: if isPhotographyOwner() || resource.data.status == 'published';
+      allow write: if false; // Validated owner-only server endpoints perform writes.
+    }
+    match /photoCollections/{collectionId} {
+      allow read: if isPhotographyOwner() || resource.data.archived == false;
+      allow write: if false;
+    }
+    match /photoAssets/{photoId} {
+      allow read: if isPhotographyOwner();
+      allow write: if false;
     }
 
     match /{document=**} {

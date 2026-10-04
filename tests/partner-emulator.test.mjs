@@ -67,7 +67,18 @@ test('real Firebase sessions support sign-in, reuse, logout and revocation', asy
         body: JSON.stringify({ email: `session-${Date.now()}@example.test`, password: 'local-emulator-password', returnSecureToken: true }),
     });
     assert.equal(signup.status, 200);
-    const { idToken, localId, email } = await signup.json();
+    const { idToken: unverifiedToken, localId, email } = await signup.json();
+    assert.equal((await route.POST(request(unverifiedToken))).status, 403);
+    const oldSession = await adminAuth.createSessionCookie(unverifiedToken, { expiresIn: constants.SESSION_SECONDS * 1000 });
+    assert.equal(await readServerUser(request(undefined, `${constants.SESSION_COOKIE}=${oldSession}`).cookies), null);
+    // Simulate completing email verification only inside the isolated emulator.
+    await adminAuth.updateUser(localId, { emailVerified: true });
+    const login = await fetch('http://127.0.0.1:9099/identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=emulator-only', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password: 'local-emulator-password', returnSecureToken: true }),
+    });
+    assert.equal(login.status, 200);
+    const { idToken } = await login.json();
     const response = await route.POST(request(idToken));
     assert.equal(response.status, 200);
     const cookie = response.cookies.get(constants.SESSION_COOKIE);

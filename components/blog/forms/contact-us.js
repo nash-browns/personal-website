@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useForm } from 'react-hook-form'
 import { addIncomingRequest } from '@/lib/server-actions/firebase/firestore'
+import styles from './contact-us.module.css'
 
 import { 
     faSignature,
@@ -45,7 +46,7 @@ export function ContactUs() {
     }
 
     const getInputClassName = (fieldName) => {
-        const baseClasses = "grow text-base-content placeholder:text-base-content placeholder:font-didot"
+        const baseClasses = `${styles.input} grow text-base-content placeholder:text-base-content placeholder:font-didot`
         return errors[fieldName] ? `${baseClasses} border-red-500` : baseClasses
     }
 
@@ -78,6 +79,7 @@ export function ContactUs() {
                                 <FontAwesomeIcon icon={faSignature} className='h-5 w-5'/>
                                 <input 
                                     type="text" 
+                                    autoComplete="given-name"
                                     placeholder="First Name" 
                                     className={getInputClassName('firstName')}
                                     {...register('firstName', { 
@@ -98,6 +100,7 @@ export function ContactUs() {
                                 <FontAwesomeIcon icon={faSignature} className='h-5 w-5'/>
                                 <input 
                                     type="text" 
+                                    autoComplete="family-name"
                                     placeholder="Last Name" 
                                     className={getInputClassName('lastName')}
                                     {...register('lastName', { 
@@ -119,6 +122,7 @@ export function ContactUs() {
                             <FontAwesomeIcon icon={faEnvelope} className='h-5 w-5'/>
                             <input 
                                 type="email" 
+                                autoComplete="email"
                                 placeholder="Email"
                                 className={getInputClassName('email')}
                                 {...register('email', { 
@@ -139,6 +143,7 @@ export function ContactUs() {
                             <FontAwesomeIcon icon={faPhone} className='h-5 w-5'/>
                             <input 
                                 type="tel" 
+                                autoComplete="tel"
                                 placeholder="Phone"
                                 className={getInputClassName('phone')}
                                 {...register('phone', { 

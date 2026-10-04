@@ -6,7 +6,7 @@ import { test } from 'node:test';
 
 // Check the production output, since development does not split/preload chunks
 // the same way. Run `npm run build` before this suite.
-const build = path.resolve('.next');
+const build = path.resolve(process.env.NEXT_BUILD_DIR || '.next');
 const app = path.join(build, 'server/app');
 const sdkPattern = /identitytoolkit\.googleapis\.com|firestore\.googleapis\.com/;
 
@@ -35,14 +35,19 @@ test('all generated public pages exclude Firebase SDKs from initial scripts', ()
     for (const page of pages) {
         const html = fs.readFileSync(path.join(app, page), 'utf8');
         assert.doesNotMatch(initialScripts(html), sdkPattern, page);
-        assert.equal((html.match(/aria-label="Open navigation"/g) || []).length, 1, `${page}: one navigation bar`);
+        if (page === 'photography.html') {
+            assert.equal((html.match(/aria-label="Site navigation"/g) || []).length, 1, 'photography: one minimal navigation bar');
+        } else {
+            assert.equal((html.match(/aria-label="Open navigation"/g) || []).length, 1, `${page}: one navigation bar`);
+        }
     }
 });
 
 test('homepage and blog index only include their own client components', () => {
-    assert.deepEqual(clientModules('page').sort(), ['[project]/components/general/public-navigation.js']);
+    assert.deepEqual(clientModules('page').sort(), ['[project]/components/general/navigation-link.js', '[project]/components/general/public-navigation.js']);
     assert.deepEqual(clientModules('blog/page').sort(), [
         '[project]/components/blog/blog-browser.js',
+        '[project]/components/general/navigation-link.js',
         '[project]/components/general/public-navigation.js',
     ]);
 });

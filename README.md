@@ -20,7 +20,7 @@ Contact submission logs contain only a random request identifier, outcome and du
 
 ## Vercel operations review (September 2026)
 
-The Firebase private key and Unsplash key are stored as write-only Secrets. This protects access to stored values but does not isolate preview/development from production Firebase data; a separate test project is still needed.
+The Firebase private key is stored as a write-only Secret. This protects access to stored values but does not isolate preview/development from production Firebase data; a separate test project is still needed.
 
 Both Wired Woodsman hostnames and `personal-website-inky-theta.vercel.app` permanently redirect (308) to `www.nashbrowns.com`.
 
@@ -419,7 +419,14 @@ optimization. They require a local server and do not submit forms or change data
 
 Partner logins exchange a verified Firebase ID token for a one-day HttpOnly
 `partnerSession` cookie. The cookie endpoint checks request origin and token
-revocation; server-rendered partner pages verify the session cookie. Existing
+revocation and requires `email_verified === true`; server-rendered partner pages
+enforce the same requirement for session cookies and legacy tokens. Every
+authenticated API validates email ownership before looking up email-keyed
+membership. Password users must complete email verification using the sign-in
+screen before receiving partner access; Google users with verified email can
+continue normally. Unverified users can request verification but have no server
+session or access to protected Firestore documents, including their own profile.
+Existing
 valid `idToken` cookies are accepted during migration and removed when the
 browser synchronizes its session. Login, signup, and sign-out wait for cookie
 updates to succeed. The account-area auth provider observes ID-token changes,
@@ -446,7 +453,8 @@ assigned to tenant `0`. Changing the tenant in the URL does not grant access.
 
 `firestore.rules` applies the following policy to Firebase client SDK requests:
 
-- Members can read their own profile and records assigned to their tenant.
+- Only identities with `email_verified == true` can use email-keyed permissions.
+  Verified members can read their own profile and records assigned to their tenant.
   Collection queries must filter by that tenant (`tenant == id` for users and
   `tenant array-contains id` for content). Use the same number/string type stored
   in the user's profile.

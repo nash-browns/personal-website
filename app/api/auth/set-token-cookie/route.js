@@ -46,11 +46,18 @@ export async function POST(request) {
     try {
         const claims = await adminAuth.verifyIdToken(idToken, true);
         if (!claims.uid || !claims.email) return json({ error: 'Invalid account' }, 401);
+        if (claims.email_verified !== true) {
+            const response = json({ error: 'Verify your email before signing in.', code: 'auth/email-not-verified' }, 403);
+            clearCookie(response, SESSION_COOKIE);
+            clearCookie(response, LEGACY_TOKEN_COOKIE);
+            return response;
+        }
         const existing = request.cookies.get(SESSION_COOKIE)?.value;
         if (existing) {
             try {
                 const current = await adminAuth.verifySessionCookie(existing, true);
-                if (current.uid === claims.uid && current.exp > Date.now() / 1000 + 300) {
+                if (current.uid === claims.uid && current.email === claims.email
+                    && current.email_verified === true && current.exp > Date.now() / 1000 + 300) {
                     const response = json({ success: true, changed: false });
                     clearCookie(response, LEGACY_TOKEN_COOKIE);
                     return response;
