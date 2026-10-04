@@ -28,7 +28,7 @@ export default async function Page({ params, searchParams }) {
     const [photo, collections, query] = await Promise.all([loadPhoto(params), getPhotoCollections().catch(() => []), searchParams]);
     const back = photoBackLink(photo, collections, query?.collection);
     return <div className="flex min-h-[calc(100svh-64px)] flex-col bg-[#080808] text-stone-100 md:flex-row">
-        <div className="w-full bg-[#080808] md:grid md:min-h-[calc(100svh-64px)] md:w-1/2 md:grid-rows-[1fr_auto_1fr]">
+        <div className="flex w-full flex-1 flex-col bg-[#080808] md:grid md:flex-none md:min-h-[calc(100svh-64px)] md:w-1/2 md:grid-rows-[1fr_auto_1fr]">
             <nav aria-label="Photo navigation" className={`${subheading.className} row-start-1 mx-auto w-full max-w-2xl self-start px-6 pt-3 sm:px-10 md:pt-6 lg:px-12`}>
                 <Link href={back.href} className="inline-flex min-h-11 items-center gap-2 text-sm text-stone-400 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"><span aria-hidden="true">←</span>{back.label}</Link>
             </nav>
@@ -38,7 +38,7 @@ export default async function Page({ params, searchParams }) {
                     {[['Location',photo.location],['Camera',photo.camera],['Film',photo.film]].map(([label,value])=><div key={label} className="max-w-full"><dt className="text-sm font-normal uppercase text-stone-400">{label}</dt><dd className="break-words pt-2 text-base md:overflow-x-auto md:whitespace-nowrap font-medium text-stone-100 lg:text-xl">{value || '—'}</dd></div>)}
                 </dl>
             </div>
-            <div className="row-start-3 mx-auto grid w-full max-w-2xl grid-cols-[auto_minmax(0,1fr)] items-start gap-2 self-end px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-4 sm:gap-4 sm:px-10 md:pt-8 lg:px-12">
+            <div className="row-start-3 mx-auto mt-auto grid w-full max-w-2xl grid-cols-2 items-start gap-2 self-end md:mt-0 md:grid-cols-[auto_minmax(0,1fr)] px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-4 sm:gap-4 sm:px-10 md:pt-8 lg:px-12">
                     <PhotoDownload id={photo.id} title={photo.title} />
                     <PhotoPurchase headingClassName={heading.className} bodyClassName={subheading.className}>
                         <span aria-hidden="true" className="col-start-1 row-start-1 transition-opacity duration-200 group-hover:opacity-0 group-focus-visible:opacity-0 motion-reduce:transition-none">Purchase</span>
