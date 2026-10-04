@@ -37,11 +37,11 @@ export function PhotoPurchase({ children, headingClassName, bodyClassName }) {
                 <button type="button" className={styles.close} aria-label="Close purchase notice" onClick={() => dialog.current.close()} autoFocus><span aria-hidden="true">×</span></button>
                 <h2 id={titleId} className={`${styles.heading} ${headingClassName}`}>Purchases Currently Unavailable</h2>
                 <div className={styles.body}>
-                    <p>We apologize for the inconvenience! We are currently getting the website set up to take payments.</p>
-                    <p>We want to start our payments journey by accepting the future monetary units, so that we don&apos;t have to upgrade later.</p>
-                    <p>We will be accepting Bitcoin and Zcash as soon as humanly possible.</p>
-                    <p>Thank you for your understanding.</p>
-                    <p className={styles.signature}>Nash Browns Team</p>
+                    <p>I apologize for the inconvenience. I&apos;m taking time to set up my payment system properly by only accepting future proof money.</p>
+                    <p>I don&apos;t want the hassle of rebuilding my payments system later when it becomes the norm.</p>
+                    <p>Bitcoin and Zcash support will be live as soon as possible.</p>
+                    <p>Thanks for your patience and understanding.</p>
+                    <p className={styles.signature}>— Nash</p>
                 </div>
             </div>
         </dialog>
