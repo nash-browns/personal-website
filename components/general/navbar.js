@@ -12,7 +12,7 @@ const navigationTypography = `${heading.className} font-normal [&_a]:text-base l
 
 const menuItems = [
     {name: 'Blog', href: '/blog'},
-    // {name: 'Photography', href: '/photography'},
+    {name: 'Photography', href: '/photography'},
     // {name: 'Projects', href: '/projects'},
     // {name: 'Marketing', href: '/blog/marketing'},
     // {name: 'Outdoor', href: '/blog/outdoor'},
