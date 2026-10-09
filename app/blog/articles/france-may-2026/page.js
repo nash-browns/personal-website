@@ -1,3 +1,5 @@
+import { photoEssaySizes } from '@/lib/images/photo-essay-sizes.mjs';
+import placeholders from '@/data/france-may-2026-placeholders.json';
 import Image from 'next/image';
 import { Anton, Fira_Sans } from 'next/font/google';
 import { generateMetadata } from '@/lib/seo';
@@ -14,7 +16,7 @@ export const postMetadata = {
     description: "May 2026 in France with my camera. Paris streets, museums, and CineStill 800T at night — then north to Caen, Omaha Beach, Pointe du Hoc, and the American Cemetery in Normandy.",
     keywords: ['France', 'France travel', 'France photography', 'film photography', 'Paris', 'Normandy', 'Omaha Beach', 'Pointe du Hoc', 'Caen', 'CineStill 800T', 'France trip report'],
     tags: ['France', 'Travel', 'Photography', 'Film', 'Trips'],
-    isActive: true,
+    isActive: false,
 };
 
 export const metadata = generateMetadata({ ...postMetadata });
@@ -111,7 +113,7 @@ const libertyBarge = "https://firebasestorage.googleapis.com/v0/b/nash-browns.fi
  * Empty src strings render as gray placeholder tiles until the photos
  * are uploaded to Firebase Storage under france-may-2026/.
  */
-function Photo({ src, alt, className = '', priority = false, sizes = '100vw' }) {
+function Photo({ src, alt, className = '', preload = false, sizes = photoEssaySizes() }) {
     if (!src) {
         return <div className={`relative overflow-hidden bg-neutral-300 ${className}`} aria-label={alt} />;
     }
@@ -121,19 +123,21 @@ function Photo({ src, alt, className = '', priority = false, sizes = '100vw' }) 
                 src={src}
                 alt={alt}
                 fill
-                priority={priority}
+                preload={preload}
                 sizes={sizes}
+                placeholder={placeholders[src] ? 'blur' : 'empty'}
+                blurDataURL={placeholders[src]}
                 className="object-cover"
             />
         </div>
     );
 }
 
-function Land({ src, alt, sizes = '33vw', priority = false, className = '' }) {
-    return <Photo src={src} alt={alt} className={`aspect-[3/2] w-full ${className}`} sizes={sizes} priority={priority} />;
+function Land({ src, alt, sizes = photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 }), preload = false, className = '' }) {
+    return <Photo src={src} alt={alt} className={`aspect-[3/2] w-full ${className}`} sizes={sizes} preload={preload} />;
 }
 
-function Port({ src, alt, sizes = '25vw', className = '' }) {
+function Port({ src, alt, sizes = photoEssaySizes({ desktop: 1 / 4, desktopInset: 24 }), className = '' }) {
     return <Photo src={src} alt={alt} className={`aspect-[2/3] w-full ${className}`} sizes={sizes} />;
 }
 
@@ -176,7 +180,7 @@ function Label({ children }) {
 function HeroSection() {
     return (
         <section className="relative">
-            <Land src={heroStreet} alt="Police on rollerblades passing the art stalls near Notre Dame" sizes="100vw" priority />
+            <Land src={heroStreet} alt="Police on rollerblades passing the art stalls near Notre Dame" sizes={photoEssaySizes()} preload />
             <h1
                 className={`${heading.className} absolute bottom-0 right-0 text-black leading-none uppercase text-6xl sm:text-8xl xl:text-9xl pr-1`}
             >
@@ -191,14 +195,14 @@ function MonumentsSection() {
     return (
         <section className="grid grid-cols-1 sm:grid-cols-[1.46fr_1.46fr_1fr] gap-2 py-2 items-start sm:items-stretch">
             <div className="grid gap-2 sm:grid-rows-2">
-                <Land src={arcDay} alt="Arc de Triomphe on a sunny day behind the street sign" sizes="40vw" className="sm:aspect-auto" />
-                <Land src={arcNight} alt="Arc de Triomphe at night with red streetlamps" sizes="40vw" className="sm:aspect-auto" />
+                <Land src={arcDay} alt="Arc de Triomphe on a sunny day behind the street sign" sizes={photoEssaySizes({ desktop: 1.46 / 3.92, desktopInset: 16 })} className="sm:aspect-auto" />
+                <Land src={arcNight} alt="Arc de Triomphe at night with red streetlamps" sizes={photoEssaySizes({ desktop: 1.46 / 3.92, desktopInset: 16 })} className="sm:aspect-auto" />
             </div>
             <div className="grid gap-2 sm:grid-rows-2">
-                <Land src={trainPlatform} alt="Silver train pulling into the platform" sizes="40vw" className="sm:aspect-auto" />
-                <Land src={treesCar} alt="Old tan car parked under the plane trees" sizes="40vw" className="sm:aspect-auto" />
+                <Land src={trainPlatform} alt="Silver train pulling into the platform" sizes={photoEssaySizes({ desktop: 1.46 / 3.92, desktopInset: 16 })} className="sm:aspect-auto" />
+                <Land src={treesCar} alt="Old tan car parked under the plane trees" sizes={photoEssaySizes({ desktop: 1.46 / 3.92, desktopInset: 16 })} className="sm:aspect-auto" />
             </div>
-            <Port src={eiffelDay} alt="The Eiffel Tower rising over the trees" sizes="30vw" />
+            <Port src={eiffelDay} alt="The Eiffel Tower rising over the trees" sizes={photoEssaySizes({ desktop: 1 / 3.92, desktopInset: 16 })} />
         </section>
     );
 }
@@ -208,18 +212,18 @@ function SeineSection() {
     return (
         <section className="grid grid-cols-1 sm:grid-cols-[1fr_4.6fr_1fr] gap-2 py-2">
             <div className="grid grid-cols-2 gap-2 items-start sm:flex sm:flex-col sm:justify-between">
-                <Land src={goldDisc} alt="Golden disc glowing over the stained glass window" sizes="15vw" />
-                <Land src={laDefenseStreet} alt="La Grande Arche from street level" sizes="15vw" />
-                <Port src={glassTowers} alt="Glass towers behind the thumb sculpture at La Défense" sizes="15vw" />
+                <Land src={goldDisc} alt="Golden disc glowing over the stained glass window" sizes={photoEssaySizes({ desktop: 1 / 6.6, mobile: 0.5, desktopInset: 16, mobileInset: 8 })} />
+                <Land src={laDefenseStreet} alt="La Grande Arche from street level" sizes={photoEssaySizes({ desktop: 1 / 6.6, mobile: 0.5, desktopInset: 16, mobileInset: 8 })} />
+                <Port src={glassTowers} alt="Glass towers behind the thumb sculpture at La Défense" sizes={photoEssaySizes({ desktop: 1 / 6.6, mobile: 0.5, desktopInset: 16, mobileInset: 8 })} />
             </div>
             <div className="order-first sm:order-none">
-                <Land src={seineSunset} alt="The Seine at sunset with the Louvre in silhouette" sizes="70vw" />
+                <Land src={seineSunset} alt="The Seine at sunset with the Louvre in silhouette" sizes={photoEssaySizes({ desktop: 4.6 / 6.6, desktopInset: 16 })} />
             </div>
             <div className="grid grid-cols-2 gap-2 items-start sm:flex sm:flex-col sm:justify-between">
-                <Land src={redFiat} alt="Little red bubble car parked between black cars" sizes="15vw" />
-                <Land src={museumTerrace} alt="Museum rooftop terrace" sizes="15vw" />
-                <Land src={churchStreet} alt="Church facade at the end of the street" sizes="15vw" />
-                <Land src={rodinTopiary} alt="Rodin statue between the topiary cones" sizes="15vw" />
+                <Land src={redFiat} alt="Little red bubble car parked between black cars" sizes={photoEssaySizes({ desktop: 1 / 6.6, mobile: 0.5, desktopInset: 16, mobileInset: 8 })} />
+                <Land src={museumTerrace} alt="Museum rooftop terrace" sizes={photoEssaySizes({ desktop: 1 / 6.6, mobile: 0.5, desktopInset: 16, mobileInset: 8 })} />
+                <Land src={churchStreet} alt="Church facade at the end of the street" sizes={photoEssaySizes({ desktop: 1 / 6.6, mobile: 0.5, desktopInset: 16, mobileInset: 8 })} />
+                <Land src={rodinTopiary} alt="Rodin statue between the topiary cones" sizes={photoEssaySizes({ desktop: 1 / 6.6, mobile: 0.5, desktopInset: 16, mobileInset: 8 })} />
             </div>
         </section>
     );
@@ -230,21 +234,21 @@ function MuseumsSection() {
     return (
         <section className="py-2">
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_2.1fr] gap-2">
-                <Port src={picassoPortrait} alt="Portrait of Picasso hanging above his goat sculpture" sizes="35vw" />
+                <Port src={picassoPortrait} alt="Portrait of Picasso hanging above his goat sculpture" sizes={photoEssaySizes({ desktop: 1 / 3.1, desktopInset: 8 })} />
                 <div className="flex flex-col gap-2">
-                    <Photo src={galleryRoom} alt="White gallery room with a sculpture and paintings" className="aspect-[3/2] sm:aspect-auto sm:grow w-full" sizes="65vw" />
+                    <Photo src={galleryRoom} alt="White gallery room with a sculpture and paintings" className="aspect-[3/2] sm:aspect-auto sm:grow w-full" sizes={photoEssaySizes({ desktop: 2.1 / 3.1, desktopInset: 8 })} />
                     <Banner>I went to museums</Banner>
                 </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_2.1fr] gap-2 pt-2 items-center">
-                <Port src={monaLisa} alt="The Mona Lisa small in her glass case" sizes="35vw" />
+                <Port src={monaLisa} alt="The Mona Lisa small in her glass case" sizes={photoEssaySizes({ desktop: 1 / 3.1, desktopInset: 8 })} />
                 <p className={`${body.className} font-bold text-gray-900 text-xl sm:text-3xl text-center px-6 leading-snug`}>
                     They were great, but taking pictures in a museum is lame...
                 </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-                <Land src={picassoWall} alt="Wall of framed Picasso portraits" sizes="50vw" />
-                <Land src={stoneHead} alt="Stone head sculpture in front of the arched window" sizes="50vw" />
+                <Land src={picassoWall} alt="Wall of framed Picasso portraits" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
+                <Land src={stoneHead} alt="Stone head sculpture in front of the arched window" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
             </div>
         </section>
     );
@@ -258,9 +262,9 @@ function CinestillSection() {
         <section className="py-2">
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_3.7fr] gap-2">
                 <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-col">
-                    <Land src={seineNightBarge} alt="Lit boats along the Seine at night" sizes="22vw" />
-                    <Land src={nightStatue} alt="Statue at night in the red glow of traffic" sizes="22vw" />
-                    <Land src={notreDameNight} alt="Notre Dame in the distance past the red lights of the riverbank" sizes="22vw" />
+                    <Land src={seineNightBarge} alt="Lit boats along the Seine at night" sizes={photoEssaySizes({ desktop: 1 / 4.7, mobile: 0.5, desktopInset: 8, mobileInset: 8 })} />
+                    <Land src={nightStatue} alt="Statue at night in the red glow of traffic" sizes={photoEssaySizes({ desktop: 1 / 4.7, mobile: 0.5, desktopInset: 8, mobileInset: 8 })} />
+                    <Land src={notreDameNight} alt="Notre Dame in the distance past the red lights of the riverbank" sizes={photoEssaySizes({ desktop: 1 / 4.7, mobile: 0.5, desktopInset: 8, mobileInset: 8 })} />
                 </div>
                 <div className="flex flex-col">
                     <Banner>I tried CineStill 800T</Banner>
@@ -297,9 +301,9 @@ function CinestillSection() {
             </div>
             {/* bottom band — altar anchors the row height, the two portraits fill it */}
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_2.4fr_2.4fr] gap-2 pt-2 items-stretch">
-                <Port src={eiffelNight} alt="The Eiffel Tower glowing gold at night" sizes="17vw" className="sm:aspect-auto" />
-                <Land src={sacreCoeurAngel} alt="Angel statue on the arch inside Sacré-Cœur" sizes="40vw" className="sm:aspect-auto" />
-                <Land src={cathedralAltar} alt="Cathedral altar over the checkered floor" sizes="40vw" />
+                <Port src={eiffelNight} alt="The Eiffel Tower glowing gold at night" sizes={photoEssaySizes({ desktop: 1 / 5.8, desktopInset: 16 })} className="sm:aspect-auto" />
+                <Land src={sacreCoeurAngel} alt="Angel statue on the arch inside Sacré-Cœur" sizes={photoEssaySizes({ desktop: 2.4 / 5.8, desktopInset: 16 })} className="sm:aspect-auto" />
+                <Land src={cathedralAltar} alt="Cathedral altar over the checkered floor" sizes={photoEssaySizes({ desktop: 2.4 / 5.8, desktopInset: 16 })} />
             </div>
         </section>
     );
@@ -309,10 +313,10 @@ function CinestillSection() {
 function BeachSection() {
     return (
         <section className="grid grid-cols-1 sm:grid-cols-[2.1fr_1fr] gap-2 py-2 items-start sm:items-stretch">
-            <Land src={beachHorseBig} alt="Sulky horse and driver crossing the beach at low tide" sizes="65vw" />
+            <Land src={beachHorseBig} alt="Sulky horse and driver crossing the beach at low tide" sizes={photoEssaySizes({ desktop: 2.1 / 3.1, desktopInset: 8 })} />
             <div className="grid gap-2 sm:grid-rows-2">
-                <Land src={beachHorseFar} alt="Sulky horse far down the empty sand" sizes="35vw" className="sm:aspect-auto" />
-                <Land src={beachHorseWalkers} alt="Sulky horse passing two walkers on the beach" sizes="35vw" className="sm:aspect-auto" />
+                <Land src={beachHorseFar} alt="Sulky horse far down the empty sand" sizes={photoEssaySizes({ desktop: 1 / 3.1, desktopInset: 8 })} className="sm:aspect-auto" />
+                <Land src={beachHorseWalkers} alt="Sulky horse passing two walkers on the beach" sizes={photoEssaySizes({ desktop: 1 / 3.1, desktopInset: 8 })} className="sm:aspect-auto" />
             </div>
         </section>
     );
@@ -328,7 +332,7 @@ function CaenSection() {
                     with beautiful people and amazing food. Nice to get out to the countryside!
                 </PlaceCard>
             </div>
-            <Port src={lesBraves} alt="Les Braves sculpture rising out of the sand on Omaha Beach" sizes="45vw" />
+            <Port src={lesBraves} alt="Les Braves sculpture rising out of the sand on Omaha Beach" sizes={photoEssaySizes({ desktop: 1 / 2.2, desktopInset: 8 })} />
         </section>
     );
 }
@@ -338,13 +342,13 @@ function MemorialSection() {
     return (
         <section className="flex flex-col items-center gap-4 p-4 sm:p-10" style={{ backgroundColor: DARK }}>
             <div className="w-full sm:w-2/3">
-                <Port src={omahaMonument} alt="The Omaha Beach monument with flowers laid at its base" sizes="60vw" />
+                <Port src={omahaMonument} alt="The Omaha Beach monument with flowers laid at its base" sizes={photoEssaySizes({ desktop: 2 / 3, desktopInset: 80, mobileInset: 32 })} />
             </div>
             <div className="w-full sm:w-2/3">
-                <Land src={pointeDuHoc} alt="The Ranger monument on the cliff at Pointe du Hoc" sizes="60vw" />
+                <Land src={pointeDuHoc} alt="The Ranger monument on the cliff at Pointe du Hoc" sizes={photoEssaySizes({ desktop: 2 / 3, desktopInset: 80, mobileInset: 32 })} />
             </div>
             <div className="w-full sm:w-2/3">
-                <Land src={rangerPlaque} alt="RANGER plaque set into the stone" sizes="60vw" />
+                <Land src={rangerPlaque} alt="RANGER plaque set into the stone" sizes={photoEssaySizes({ desktop: 2 / 3, desktopInset: 80, mobileInset: 32 })} />
             </div>
         </section>
     );
@@ -359,16 +363,16 @@ export default function FranceMay2026() {
 
             {/* café row */}
             <section className="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2">
-                <Land src={cafeRed} alt="Red café corner with tables on the sidewalk" sizes="33vw" />
-                <Land src={cafeFloreAcross} alt="Café de Flore from across the boulevard" sizes="33vw" />
-                <Land src={cafeGreen} alt="Green café terrace behind the hedge" sizes="33vw" />
+                <Land src={cafeRed} alt="Red café corner with tables on the sidewalk" sizes={photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 })} />
+                <Land src={cafeFloreAcross} alt="Café de Flore from across the boulevard" sizes={photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 })} />
+                <Land src={cafeGreen} alt="Green café terrace behind the hedge" sizes={photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 })} />
             </section>
 
-            <Land src={cafeFloreBig} alt="The crowd outside Café de Flore" sizes="100vw" />
+            <Land src={cafeFloreBig} alt="The crowd outside Café de Flore" sizes={photoEssaySizes()} />
 
             {/* rodin garden + paris blurb */}
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-2 py-2 items-center">
-                <Port src={rodinGarden} alt="Rodin's Three Shades among the topiary cones with the Eiffel Tower behind" sizes="50vw" />
+                <Port src={rodinGarden} alt="Rodin's Three Shades among the topiary cones with the Eiffel Tower behind" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
                 <div className="px-2 sm:px-10">
                     <PlaceCard name="Paris">
                         Drinking wine and smoking cigarettes by the Seine is fun. Probably the
@@ -381,27 +385,27 @@ export default function FranceMay2026() {
 
             {/* street pair */}
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-2 py-2">
-                <Land src={iranAirStreet} alt="IranAir storefront on a quiet street" sizes="50vw" />
-                <Land src={darkWindow} alt="Light through a stone window in the dark" sizes="50vw" />
+                <Land src={iranAirStreet} alt="IranAir storefront on a quiet street" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
+                <Land src={darkWindow} alt="Light through a stone window in the dark" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
             </section>
 
             <MonumentsSection />
 
             {/* four across — tomb, arch, café, champs */}
             <section className="grid grid-cols-2 sm:grid-cols-[0.47fr_1fr_1fr_1fr] gap-2 py-2 items-start sm:items-stretch">
-                <Port src={napoleonTomb} alt="Napoleon's tomb under the dome of Les Invalides" sizes="15vw" />
-                <Land src={laDefenseArch} alt="La Grande Arche de la Défense" sizes="28vw" className="sm:aspect-auto" />
-                <Land src={redCafeCorner} alt="Red café over the checkered crosswalk" sizes="28vw" className="sm:aspect-auto" />
-                <Land src={champsElysees} alt="The Champs-Élysées running toward the Arc de Triomphe" sizes="28vw" className="sm:aspect-auto" />
+                <Port src={napoleonTomb} alt="Napoleon's tomb under the dome of Les Invalides" sizes={photoEssaySizes({ desktop: .47 / 3.47, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} />
+                <Land src={laDefenseArch} alt="La Grande Arche de la Défense" sizes={photoEssaySizes({ desktop: 1 / 3.47, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} className="sm:aspect-auto" />
+                <Land src={redCafeCorner} alt="Red café over the checkered crosswalk" sizes={photoEssaySizes({ desktop: 1 / 3.47, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} className="sm:aspect-auto" />
+                <Land src={champsElysees} alt="The Champs-Élysées running toward the Arc de Triomphe" sizes={photoEssaySizes({ desktop: 1 / 3.47, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} className="sm:aspect-auto" />
             </section>
 
             <SeineSection />
 
             {/* big three */}
             <section className="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2">
-                <Land src={invalidesLawn} alt="The esplanade lawn leading to the golden dome of Les Invalides" sizes="33vw" />
-                <Land src={louvrePyramid} alt="The Louvre pyramid and the crowd" sizes="33vw" />
-                <Land src={sacreCoeur} alt="Sacré-Cœur white against the sky" sizes="33vw" />
+                <Land src={invalidesLawn} alt="The esplanade lawn leading to the golden dome of Les Invalides" sizes={photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 })} />
+                <Land src={louvrePyramid} alt="The Louvre pyramid and the crowd" sizes={photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 })} />
+                <Land src={sacreCoeur} alt="Sacré-Cœur white against the sky" sizes={photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 })} />
             </section>
 
             <MuseumsSection />
@@ -409,7 +413,7 @@ export default function FranceMay2026() {
             <CinestillSection />
 
             {/* normandy */}
-            <Land src={flagsBeach} alt="French and Normandy flags flying over the beach at Ouistreham" sizes="100vw" />
+            <Land src={flagsBeach} alt="French and Normandy flags flying over the beach at Ouistreham" sizes={photoEssaySizes()} />
 
             <BeachSection />
 
@@ -417,21 +421,21 @@ export default function FranceMay2026() {
 
             {/* hotel + omaha */}
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-2 py-2">
-                <Land src={grandHotel} alt="The grand hotel rising behind the beach" sizes="50vw" />
-                <Land src={omahaPanorama} alt="Omaha Beach stretching toward the cliffs" sizes="50vw" />
+                <Land src={grandHotel} alt="The grand hotel rising behind the beach" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
+                <Land src={omahaPanorama} alt="Omaha Beach stretching toward the cliffs" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
             </section>
 
             {/* churches */}
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-2 py-2">
-                <Port src={churchNave} alt="Church nave with the stained glass and chandelier" sizes="50vw" />
-                <Port src={caenSpire} alt="The spire and rose window of the church in Caen" sizes="50vw" />
+                <Port src={churchNave} alt="Church nave with the stained glass and chandelier" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
+                <Port src={caenSpire} alt="The spire and rose window of the church in Caen" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
             </section>
 
-            <Land src={cemetery} alt="Rows of white crosses at the Normandy American Cemetery" sizes="100vw" />
+            <Land src={cemetery} alt="Rows of white crosses at the Normandy American Cemetery" sizes={photoEssaySizes()} />
 
             <MemorialSection />
 
-            <Land src={libertyBarge} alt="The LIBERTY barge below the Statue of Liberty replica on the Seine" sizes="100vw" />
+            <Land src={libertyBarge} alt="The LIBERTY barge below the Statue of Liberty replica on the Seine" sizes={photoEssaySizes()} />
 
             {/* related articles — MdxLayout's structure without its parchment background */}
             <div className="w-full flex flex-col justify-center items-center my-3 px-2 sm:px-0">

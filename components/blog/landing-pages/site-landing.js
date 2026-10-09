@@ -14,7 +14,7 @@ export function SiteLanding() {
                             height={500}
                             className='animate-spin-smooth'
                             sizes="(max-width: 500px) 100vw, 500px"
-                            priority
+                            preload
                         />
                     </div>
                 </div>

@@ -43,7 +43,9 @@ const nextConfig = {
             { pathname: '/_next/static/immutable/media/**' },
         ],
         formats: ['image/avif', 'image/webp'],
-        minimumCacheTTL: 2678400, // 31 days — floor for optimized-image caching when the source sends short/no cache headers
+        // Blog/static images use the optimizer. Managed photography uses its
+        // own responsive loader with the same 31-day public cache policy.
+        minimumCacheTTL: 2678400,
         remotePatterns: [
             {
                 protocol: "https",

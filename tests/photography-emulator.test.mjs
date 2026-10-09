@@ -21,7 +21,7 @@ async function moduleAt(file,dependencies){
 before(async()=>{
     assert.equal(process.env.FIRESTORE_EMULATOR_HOST,'127.0.0.1:8092');assert.equal(process.env.FIREBASE_STORAGE_EMULATOR_HOST,'127.0.0.1:9192');assert.equal(process.env.GCLOUD_PROJECT,projectId);
     app=initializeApp({projectId,storageBucket:`${projectId}.appspot.com`});db=getFirestore(app);bucket=getStorage(app).bucket();
-    service=await moduleAt('lib/photography/admin-service.js',{'server-only':{},'node:crypto':await import('node:crypto'),'./server':{photoDb:db,photoBucket:()=>bucket,serialize:doc=>({...doc.data(),id:doc.id})},'./model.mjs':model});
+    service=await moduleAt('lib/photography/admin-service.js',{'server-only':{},'node:crypto':await import('node:crypto'),'./server':{photoDb:db,photoBucket:()=>bucket,serialize:doc=>({...doc.data(),id:doc.id})},'./model.mjs':model,'./placeholder.mjs':await import('../lib/photography/placeholder.mjs')});
     environment=await initializeTestEnvironment({projectId,firestore:{host:'127.0.0.1',port:8092,rules:await readFile(new URL('../firestore.rules',import.meta.url),'utf8')},storage:{host:'127.0.0.1',port:9192,rules:await readFile(new URL('../storage.photography.rules',import.meta.url),'utf8')}});
 });
 after(async()=>{await environment?.cleanup();await deleteApp(app);});
@@ -198,7 +198,7 @@ test('publish copies only ready derivatives and archive preserves source files',
     for(const name of ['web','thumbnail'])await bucket.file(`photography/private/${id}/previews/v1/${name}.webp`).save(bytes);
     await db.collection('photoAssets').doc(id).set({ready:{version:'v1',web:{path:`photography/private/${id}/previews/v1/web.webp`,width:20,height:10},thumbnail:{path:`photography/private/${id}/previews/v1/thumbnail.webp`}}},{merge:true});
     await service.setPhotoStatus(id,{status:'published',revision:1});const photo=(await db.collection('photos').doc(id).get()).data();
-    assert.equal(photo.status,'published');assert.match(photo.webImage.url,/\/api\/photography\/media\//);assert.equal(photo.original,undefined);
+    assert.equal(photo.status,'published');assert.match(photo.webImage.url,/\/api\/photography\/media\//);assert.equal(photo.original,undefined);assert.match(photo.webImage.blurDataURL,/^data:image\/webp;base64,/);
     assert.equal((await bucket.file(photo.webImage.path).exists())[0],true);
     await service.setPhotoStatus(id,{status:'archived',revision:2});assert.equal((await db.collection('photos').doc(id).get()).data().status,'archived');
     assert.equal((await bucket.file(`photography/private/${id}/previews/v1/web.webp`).exists())[0],true);

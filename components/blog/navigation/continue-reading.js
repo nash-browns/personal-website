@@ -31,7 +31,7 @@ async function RelatedCard({article}) {
                         alt={`${title} Feature Image`}
                         src={thumbnailIllustration ? thumbnailIllustration : thumbnail}
                         fill
-                        sizes="(min-width: 808px) 50vw, 100vw"
+                        sizes="(min-width: 1152px) 368px, (min-width: 768px) calc(33.333vw - 20px), calc(100vw - 32px)"
                         style={{
                             objectFit: 'cover', // cover, contain, none
                         }}
@@ -51,4 +51,3 @@ async function RelatedCard({article}) {
         </div>
     )
 }
-

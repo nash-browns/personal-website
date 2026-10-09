@@ -1,5 +1,5 @@
 .filmReveal {
-    animation: develop 1000ms ease-out var(--reveal-delay, 0ms) both;
+    animation: develop 180ms ease-out both;
 }
 
 @keyframes develop {

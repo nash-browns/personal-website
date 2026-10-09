@@ -12,7 +12,7 @@ async function renderFixture(source, getDimensions) {
     const article = await run(compiled, runtime);
     const rendered = [];
     const capture = name => props => { rendered.push({ name, ...props }); return null; };
-    renderToStaticMarkup(article.default({ components: Object.fromEntries(['CenteredImage', 'TwoCenteredImages', 'ThreeCenteredImages', 'PhotoCarousel', 'ImageFeature'].map(name => [name, capture(name)])) }));
+    renderToStaticMarkup(article.default({ components: Object.fromEntries(['CenteredImage', 'TwoCenteredImages', 'ThreeCenteredImages', 'PhotoCarousel', 'ImageFeature', 'ImageDiff'].map(name => [name, capture(name)])) }));
     return { article, rendered };
 }
 
@@ -37,6 +37,16 @@ test('inline images and gallery entries receive dimensions without changing capt
 <PhotoCarousel photoUrls={[{photoUrl: '/photo.gif', title: 'Camp', show: true}]} />`, async () => ({ width: 120, height: 240 }));
     assert.deepEqual(rendered[0].image, { src: '/photo.png', width: 120, height: 240 });
     assert.deepEqual(rendered[1].photoUrls[0], { photoUrl: { src: '/photo.gif', width: 120, height: 240 }, title: 'Camp', show: true });
+});
+
+test('comparison images get independent intrinsic sizes without changing slider props', async () => {
+    const { rendered } = await renderFixture(`export const after = '/after.jpg';
+
+<ImageDiff imageBefore="/before.jpg" imageAfter={after} height="400px" beforeAltText="Before" afterAltText="After" />`, async src => src.includes('before') ? { width: 600, height: 400 } : { width: 1200, height: 800 });
+    assert.deepEqual(rendered[0].imageBefore, { src: '/before.jpg', width: 600, height: 400 });
+    assert.deepEqual(rendered[0].imageAfter, { src: '/after.jpg', width: 1200, height: 800 });
+    assert.equal(rendered[0].height, '400px');
+    assert.equal(rendered[0].beforeAltText, 'Before');
 });
 
 test('dynamic expressions and circular declarations fail clearly without executing article code', async () => {

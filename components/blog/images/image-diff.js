@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { useRef, useState, useCallback, useEffect } from 'react';
 
 export function ImageDiff({ imageBefore, imageAfter, beforeAltText, afterAltText, height }) {
@@ -28,8 +29,7 @@ export function ImageDiff({ imageBefore, imageAfter, beforeAltText, afterAltText
 
     return (
         <div
-            className="not-prose -ml-2 sm:-ml-3 lg:-ml-4 my-4 sm:my-6 px-2 sm:px-4"
-            style={{ width: 'min(100vw, 72rem)' }}
+            className="not-prose -ml-2 sm:-ml-3 lg:-ml-4 my-4 sm:my-6 w-[calc(100vw-16px)] sm:w-screen max-w-6xl px-2 sm:px-4"
         >
         <div
             ref={containerRef}
@@ -41,18 +41,22 @@ export function ImageDiff({ imageBefore, imageAfter, beforeAltText, afterAltText
             onTouchMove={onTouchMove}
             onTouchEnd={onMouseUp}
         >
-            {/* Before image — in normal flow when no height set, so container grows to fit */}
-            <img
+            {/* The base image reserves space before either download completes. */}
+            <Image
                 src={imageAfter}
+                fill={fixedHeight}
+                sizes="(min-width: 1152px) 1120px, calc(100vw - 32px)"
                 loading="lazy"
                 decoding="async"
                 alt={afterAltText}
                 className={`w-full pointer-events-none ${fixedHeight ? 'absolute inset-0 h-full object-cover' : 'block h-auto'}`}
                 draggable={false}
             />
-            {/* After image — always absolutely positioned, clipped to left of slider */}
-            <img
+            {/* The before image is clipped to the left of the slider. */}
+            <Image
                 src={imageBefore}
+                fill
+                sizes="(min-width: 1152px) 1120px, calc(100vw - 32px)"
                 loading="lazy"
                 decoding="async"
                 alt={beforeAltText}

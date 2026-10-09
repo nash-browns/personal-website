@@ -50,6 +50,6 @@ export default async function Page({ params, searchParams }) {
                     </PhotoPurchase>
             </div>
         </div>
-        <div className="relative order-first aspect-[var(--photo-ratio)] max-h-[80svh] w-full bg-[#080808] md:order-none md:aspect-auto md:max-h-none md:min-h-0 md:w-1/2" style={{ '--photo-ratio': photo.webImage.width && photo.webImage.height ? photo.webImage.width / photo.webImage.height : 1.5 }}><PhotoViewer key={photo.webImage.url} src={photo.webImage.url} alt={photo.altText} /></div>
+        <div className="relative order-first aspect-[var(--photo-ratio)] max-h-[80svh] w-full bg-[#080808] md:order-none md:aspect-auto md:max-h-none md:min-h-0 md:w-1/2" style={{ '--photo-ratio': photo.webImage.width && photo.webImage.height ? photo.webImage.width / photo.webImage.height : 1.5 }}><PhotoViewer key={photo.webImage.url} src={photo.webImage.url} alt={photo.altText} blurDataURL={photo.webImage.blurDataURL} /></div>
     </div>;
 }

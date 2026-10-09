@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export function BlogCard({ title, thumbnail }) {
+export function BlogCard({ title, thumbnail, sizes, preload = false }) {
     const isVideo = isVideoURL(thumbnail);
 
     return(
@@ -23,7 +23,8 @@ export function BlogCard({ title, thumbnail }) {
                     alt={`${title} thumbnail`}
                     style={{objectFit: 'cover', borderRadius: '1rem'}}
                     fill={true}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes={sizes}
+                    preload={preload}
                 />
             }
             <h2 className="hidden group-hover:block absolute right-0 bottom-0 p-1 pb-0 font-spartan font-bold text-slate-600 text-4xl uppercase rounded-md rounded-br-md backdrop-blur-xl bg-gray-200 bg-opacity-40">{title}</h2>
@@ -39,4 +40,3 @@ function isVideoURL(url) {
   const cleanURL = stripQuery(url);
   return /\.(mp4|webm|ogg|mov|avi|mkv)$/i.test(cleanURL);
 }
-

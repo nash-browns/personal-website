@@ -79,6 +79,19 @@ for (const failure of ['error', 'load']) {
 
 const articles = new URL(`../${process.env.NEXT_BUILD_DIR || '.next'}/server/app/blog/articles/`, import.meta.url);
 
+test('comparison images reserve intrinsic space and offer optimized responsive sources', () => {
+    const html = fs.readFileSync(new URL('alcan-spring.html', articles), 'utf8');
+    const images = [...html.matchAll(/<img\b[^>]*alt="Tacoma (?:Before|After) Alcan Spring Install"[^>]*>/g)].map(match => match[0]);
+    assert.equal(images.length, 2);
+    for (const tag of images) {
+        assert.match(tag, /srcSet="\/_next\/image\?/);
+        assert.match(tag, /loading="lazy"/);
+    }
+    const base = images.find(tag => tag.includes('alt="Tacoma After'));
+    assert.match(base, /\bwidth="[1-9]\d*"/);
+    assert.match(base, /\bheight="[1-9]\d*"/);
+});
+
 test('production articles defer every inline iframe and use previews for YouTube link cards', () => {
     const pages = fs.readdirSync(articles).filter(file => file.endsWith('.html'));
     assert.ok(pages.length >= 40, 'Run a full production build before this suite');

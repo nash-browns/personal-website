@@ -71,7 +71,7 @@ export function ArtCollection({ collectionId, title, collections = [], initialRe
                     height={500}
                     sizes="(max-width: 548px) calc(100vw - 48px), 500px"
                     className="h-auto w-full motion-safe:animate-spin-smooth"
-                    priority
+                    preload
                 />
             </div>
             <nav aria-label="Explore photography collections" className="flex flex-wrap justify-center gap-x-6 gap-y-2 sm:gap-x-10">
@@ -96,7 +96,18 @@ export function ArtCollection({ collectionId, title, collections = [], initialRe
                             </div>
                             <Link href={`/photography/view-photo/${photo.id}?collection=${encodeURIComponent(collectionId)}`} prefetch={false} aria-label={`View ${name}`} className={styles.exposure}>
                                 <div className={photo.height > photo.width ? styles.portrait : styles.landscape}>
-                                    <ArtworkImage key={photo.webImage.thumbnailUrl || photo.webImage.url} src={photo.webImage.thumbnailUrl || photo.webImage.url} alt={photo.altText || name} sizes="(min-width: 1800px) 20vw, (min-width: 900px) 33vw, 50vw" loading={index < 5 ? 'eager' : 'lazy'} film revealDelay={100 + (index % 5) * 70} />
+                                    <ArtworkImage
+                                        key={photo.webImage.thumbnailUrl || photo.webImage.url}
+                                        src={photo.webImage.thumbnailUrl || photo.webImage.url}
+                                        alt={photo.altText || name}
+                                        blurDataURL={photo.webImage.blurDataURL}
+                                        sizes={photo.height > photo.width
+                                            ? '(min-width: 1800px) calc(13.333vw - 9.6px), (min-width: 900px) calc(22.222vw - 10.667px), calc(33.333vw - 8px)'
+                                            : '(min-width: 1800px) calc(20vw - 14.4px), (min-width: 900px) calc(33.333vw - 16px), calc(50vw - 12px)'}
+                                        loading={index < 2 ? 'eager' : 'lazy'}
+                                        fetchPriority={index === 0 ? 'high' : undefined}
+                                        film
+                                    />
                                 </div>
                                 <span className={styles.photoTitle}>{name}<span aria-hidden="true"> ↗</span></span>
                             </Link>

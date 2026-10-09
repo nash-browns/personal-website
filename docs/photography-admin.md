@@ -40,6 +40,16 @@ photography/public/{photoId}/{version}/thumbnail.webp
 
 The source extension follows the uploaded format. Store object paths for private files, never permanent public download URLs. Even the `public` storage prefix denies anonymous direct reads; the website media endpoint checks publication and the current version before serving it. Previously downloaded or cached web copies cannot be revoked by unpublishing.
 
+### Preview delivery and caching
+
+Public previews use versioned URLs with a 31-day browser/CDN cache lifetime, chosen to favor repeat-visit speed. Archive removes a photo from the library, but a previously cached preview can remain visible for that window. New origin requests reject archived, deleted, and replaced versions, including conditional requests. Replacing an image changes its versioned URL immediately; do not overwrite a versioned preview in place. Previously saved files and old optimizer cache entries cannot be recalled.
+
+The gallery and full-screen viewer use a photography-specific image loader rather than passing previews through Next.js's image optimizer. It requests bounded widths (256–2,400 pixels) from `/api/photography/media/[id]/[version]/web?w=...`. The server resizes the existing WebP web preview, never a private original. Small sources are not enlarged or re-encoded. This works with existing published photos and requires no backfill or Firebase function deployment.
+
+Successful responses include a version/width ETag; unchanged conditional requests return 304 without loading image bytes. A process-local LRU cache retains up to 64 MiB/128 entries, shares concurrent requests, and reuses the source across sizes. At most four previews process concurrently with a bounded wait queue. Publication is checked before using cached bytes. Missing/invalid previews and temporary failures use `no-store`; transient failures return 503 rather than a cacheable missing-image response. Browser and CDN hits bypass origin checks during the approved cache window.
+
+Blog images retain Next.js AVIF/WebP optimization and the existing 31-day minimum cache lifetime. The article cache helper only accepts known article folders, previews changes by default, and requires `--apply` to update public image metadata. It does not target the photography tree or private files.
+
 Uploads currently support single-image files up to 250 MiB and 200 megapixels. Web derivatives have a maximum 2,400-pixel long edge; thumbnails have a maximum 1,000-pixel long edge. They are auto-oriented, converted to sRGB, and stripped of EXIF/GPS metadata. Originals are not resized or overwritten. These limits can be adjusted together in the UI/model, storage rules, and worker.
 
 Writes use revision checks to prevent silently overwriting another open editor. Ordering is transactional and currently limited to 400 items per reorder. Files are retained on archive and replacement; there is no automatic retention cleanup.
@@ -94,3 +104,11 @@ An isolated production build can run alongside the development server:
 ```sh
 NEXT_BUILD_DIR=.next-photography-build npm run build
 ```
+
+## Loading previews
+
+Public photo records may include a tiny `webImage.blurDataURL` (at most 512 characters). It is generated from the processed public WebP when a photo is published, and reused on later saves. Replacing a photo generates a new preview for that version. Existing photos acquire one the next time you save them through **Save Information**; until then they use a stable neutral loading tile. No original re-upload, database migration, or Firebase function deployment is needed.
+
+Placeholder generation is bounded to a 10 MiB public preview and 20 million decoded pixels. A failed preview preparation leaves publishing functional and retries on a later publish. Public page requests never generate placeholders. Gallery and detail images keep their reserved space, remove the placeholder on load, and retain the visible error message on failure. The fallback image reveal takes 180 ms without a stagger and is disabled for reduced motion. Full-screen viewing continues to show the loaded photo while a sharper copy arrives.
+
+The France essay's previews are prepared separately with `node scripts/prepare-image-placeholders.mjs france-may-2026` and checked into `data/france-may-2026-placeholders.json`. Add `--refresh` to regenerate them after intentional source changes. Builds use this manifest offline; no per-visit placeholder requests are added.

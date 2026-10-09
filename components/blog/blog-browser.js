@@ -155,6 +155,8 @@ export function BlogBrowser({ articles }) {
                             <Link href={`/blog/articles${article.folder}`}>
                                 <BlogCard
                                     title={article.title}
+                                    sizes={i % 4 < 2 ? '(min-width: 640px) min(528px, calc(50vw - 12px)), calc(100vw - 16px)' : '(min-width: 640px) min(260px, calc(25vw - 10px)), calc(100vw - 16px)'}
+                                    preload={i === 0}
                                     thumbnail={article.thumbnailIllustration ? article.thumbnailIllustration : article.thumbnail}
                                 />
                             </Link>

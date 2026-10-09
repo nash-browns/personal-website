@@ -54,7 +54,8 @@ export function NavBar({ partnerLinks = <PartnerLink/>, mobilePartnerLinks = <Pa
                         width={248}
                         height={48}
                         className="w-48 h-auto"
-                        priority
+                        sizes="192px"
+                        loading="eager"
                     />
                 </Link>
             </div>

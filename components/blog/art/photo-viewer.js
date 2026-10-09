@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { ArtworkImage } from './artwork-image';
+import { isPhotographyMedia, photographyImageLoader } from '@/lib/photography/image-loader.mjs';
 import styles from './photo-viewer.module.css';
 
 function fitImage(box, ratio) {
@@ -11,7 +12,7 @@ function fitImage(box, ratio) {
     return { left: box.left + (box.width - width) / 2, top: box.top + (box.height - height) / 2, width, height };
 }
 
-export function PhotoViewer({ src, alt }) {
+export function PhotoViewer({ src, alt, blurDataURL }) {
     const trigger = useRef(null), dialog = useRef(null), frame = useRef(null), backdrop = useRef(null);
     const animations = useRef([]), closing = useRef(false), destination = useRef(null);
     const [snapshot, setSnapshot] = useState(null);
@@ -85,14 +86,14 @@ export function PhotoViewer({ src, alt }) {
 
     return <>
         <button ref={trigger} type="button" className={styles.trigger} style={snapshot ? { visibility: 'hidden' } : undefined} onClick={openViewer} aria-label={`View ${alt || 'photograph'} full screen`} aria-haspopup="dialog">
-            <ArtworkImage src={src} alt={alt} dark fit="contain" />
+            <ArtworkImage key={src} src={src} alt={alt} blurDataURL={blurDataURL} loading="eager" fetchPriority="high" dark fit="contain" />
         </button>
         <dialog ref={dialog} className={styles.viewer} aria-label={alt ? `Full-screen photograph: ${alt}` : 'Full-screen photograph'} onCancel={event => { event.preventDefault(); closeViewer(); }} onClick={event => { if (event.target === event.currentTarget) closeViewer(); }}>
             {snapshot && <>
                 <div ref={backdrop} className={styles.backdrop} aria-hidden="true" />
                 <div ref={frame} className={styles.photoFrame}>
                     <Image src={snapshot.url} alt="" aria-hidden="true" fill unoptimized draggable={false} className="object-contain" />
-                    <Image src={src} alt={alt} fill sizes="100vw" draggable={false} onLoad={() => setSharp(true)} className={`object-contain transition-opacity duration-300 motion-reduce:transition-none ${sharp ? 'opacity-100' : 'opacity-0'}`} />
+                    <Image src={src} loader={isPhotographyMedia(src) ? photographyImageLoader : undefined} alt={alt} fill sizes={`min(calc(100vw - 32px), calc(${snapshot.ratio * 100}dvh - ${snapshot.ratio * 32}px))`} loading="eager" draggable={false} onLoad={() => setSharp(true)} className={`object-contain transition-opacity duration-300 motion-reduce:transition-none ${sharp ? 'opacity-100' : 'opacity-0'}`} />
                 </div>
                 <button type="button" className={styles.close} aria-label="Close full-screen photograph" onClick={closeViewer} autoFocus><span aria-hidden="true">×</span></button>
             </>}

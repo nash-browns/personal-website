@@ -1,3 +1,4 @@
+import { photoEssaySizes } from '@/lib/images/photo-essay-sizes.mjs';
 import Image from 'next/image';
 import { Anton, Fira_Sans } from 'next/font/google';
 import { generateMetadata } from '@/lib/seo';
@@ -14,7 +15,7 @@ export const postMetadata = {
     description: "A month wandering Japan in April 2026 with my first camera. Tokyo, Mt. Fuji, Osaka, Kyoto, Nara, Kitakyushu, Nagasaki, and Hiroshima — shot on film, totally unplanned.",
     keywords: ['Japan', 'Japan travel', 'Japan photography', 'film photography', 'Tokyo', 'Mt Fuji', 'Osaka', 'Kyoto', 'Nara', 'Nagasaki', 'Hiroshima', 'cherry blossoms', 'Japan trip report'],
     tags: ['Japan', 'Travel', 'Photography', 'Film', 'Trips'],
-    isActive: true,
+    isActive: false,
 };
 
 export const metadata = generateMetadata({ ...postMetadata });
@@ -145,7 +146,7 @@ const frameOf = (src) => { const m = src.match(/%2F([^?]+?)\.jpe?g/i); return m 
  * Collage columns are sized in fr units proportional to aspect ratio so
  * rows stay flush without cutting into any photo.
  */
-function Photo({ src, alt, className = '', priority = false, sizes = '100vw' }) {
+function Photo({ src, alt, className = '', preload = false, sizes = photoEssaySizes() }) {
     const blur = BLUR[frameOf(src)];
     return (
         <div className={`relative overflow-hidden ${className}`}>
@@ -153,7 +154,7 @@ function Photo({ src, alt, className = '', priority = false, sizes = '100vw' }) 
                 src={src}
                 alt={alt}
                 fill
-                priority={priority}
+                preload={preload}
                 sizes={sizes}
                 placeholder={blur ? 'blur' : 'empty'}
                 blurDataURL={blur}
@@ -163,11 +164,11 @@ function Photo({ src, alt, className = '', priority = false, sizes = '100vw' }) 
     );
 }
 
-function Land({ src, alt, sizes = '33vw', priority = false, className = '' }) {
-    return <Photo src={src} alt={alt} className={`aspect-[3000/2062] w-full ${className}`} sizes={sizes} priority={priority} />;
+function Land({ src, alt, sizes = photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 }), preload = false, className = '' }) {
+    return <Photo src={src} alt={alt} className={`aspect-[3000/2062] w-full ${className}`} sizes={sizes} preload={preload} />;
 }
 
-function Port({ src, alt, sizes = '25vw', className = '' }) {
+function Port({ src, alt, sizes = photoEssaySizes({ desktop: 1 / 4, desktopInset: 24 }), className = '' }) {
     return <Photo src={src} alt={alt} className={`aspect-[2062/3000] w-full ${className}`} sizes={sizes} />;
 }
 
@@ -194,24 +195,24 @@ function RouteSection() {
     return (
         <section className="bg-black grid grid-cols-1 sm:grid-cols-[1fr_3.4fr_1fr] gap-2 p-2">
             <div className="grid grid-cols-2 gap-2 items-start sm:flex sm:flex-col sm:justify-between">
-                <Port src={kokuraCastle} alt="Kokura Castle above stone walls and trees" sizes="20vw" />
-                <Port src={hiroshimaCastle} alt="Hiroshima Castle keep" sizes="20vw" />
-                <Land src={toriiGate} alt="Torii gate at the entrance of Fushimi Inari" sizes="20vw" />
-                <Land src={duskBay} alt="Pink dusk over the bay islands" sizes="20vw" />
+                <Port src={kokuraCastle} alt="Kokura Castle above stone walls and trees" sizes={photoEssaySizes({ desktop: 1 / 5.4, mobile: 0.5, desktopInset: 32, mobileInset: 24 })} />
+                <Port src={hiroshimaCastle} alt="Hiroshima Castle keep" sizes={photoEssaySizes({ desktop: 1 / 5.4, mobile: 0.5, desktopInset: 32, mobileInset: 24 })} />
+                <Land src={toriiGate} alt="Torii gate at the entrance of Fushimi Inari" sizes={photoEssaySizes({ desktop: 1 / 5.4, mobile: 0.5, desktopInset: 32, mobileInset: 24 })} />
+                <Land src={duskBay} alt="Pink dusk over the bay islands" sizes={photoEssaySizes({ desktop: 1 / 5.4, mobile: 0.5, desktopInset: 32, mobileInset: 24 })} />
             </div>
             <div className="flex flex-col gap-2 order-first sm:order-none">
                 <div className="bg-[#f2ead9] flex items-center justify-center p-6 sm:p-10">
                     <div className="relative w-full aspect-[863/593]">
-                        <Image src={routeMap} alt="Map of Japan with the route from Tokyo to Nagasaki" fill sizes="60vw" className="object-contain" />
+                        <Image src={routeMap} alt="Map of Japan with the route from Tokyo to Nagasaki" fill sizes={photoEssaySizes({ desktop: 3.4 / 5.4, desktopInset: 32 + 80 * 5.4 / 3.4, mobileInset: 64 })} className="object-contain" />
                     </div>
                 </div>
-                <Land src={floatingToriiWide} alt="The floating torii of Miyajima at low tide" sizes="60vw" />
+                <Land src={floatingToriiWide} alt="The floating torii of Miyajima at low tide" sizes={photoEssaySizes({ desktop: 3.4 / 5.4, desktopInset: 32, mobileInset: 16 })} />
             </div>
             <div className="grid grid-cols-2 gap-2 items-start sm:flex sm:flex-col sm:justify-between">
-                <Port src={cbdNeon} alt="Neon signs over a late-night food stall" sizes="20vw" className="order-1" />
-                <Land src={forestPagoda} alt="Pagoda rising out of a misty forest" sizes="20vw" className="order-3 sm:order-2" />
-                <Land src={toriiTunnel} alt="Tunnel of orange torii gates" sizes="20vw" className="order-4 sm:order-3" />
-                <Port src={nagasakiOverlook} alt="Overlook road above the city of Nagasaki" sizes="20vw" className="order-2 sm:order-4" />
+                <Port src={cbdNeon} alt="Neon signs over a late-night food stall" sizes={photoEssaySizes({ desktop: 1 / 5.4, mobile: 0.5, desktopInset: 32, mobileInset: 24 })} className="order-1" />
+                <Land src={forestPagoda} alt="Pagoda rising out of a misty forest" sizes={photoEssaySizes({ desktop: 1 / 5.4, mobile: 0.5, desktopInset: 32, mobileInset: 24 })} className="order-3 sm:order-2" />
+                <Land src={toriiTunnel} alt="Tunnel of orange torii gates" sizes={photoEssaySizes({ desktop: 1 / 5.4, mobile: 0.5, desktopInset: 32, mobileInset: 24 })} className="order-4 sm:order-3" />
+                <Port src={nagasakiOverlook} alt="Overlook road above the city of Nagasaki" sizes={photoEssaySizes({ desktop: 1 / 5.4, mobile: 0.5, desktopInset: 32, mobileInset: 24 })} className="order-2 sm:order-4" />
             </div>
         </section>
     );
@@ -221,8 +222,8 @@ function CitiesSection() {
     return (
         <section className="grid grid-cols-1 sm:grid-cols-[1fr_1.6fr] gap-4 w-full">
             <div className="grid gap-4 content-start">
-                <Port src={monkeyFence} alt="Monkey inspecting a watch through the fence on Miyajima" sizes="40vw" />
-                <Port src={floatingToriiTall} alt="The floating torii gate of Itsukushima Shrine" sizes="40vw" />
+                <Port src={monkeyFence} alt="Monkey inspecting a watch through the fence on Miyajima" sizes={photoEssaySizes({ desktop: 1 / 2.6, desktopInset: 16 })} />
+                <Port src={floatingToriiTall} alt="The floating torii gate of Itsukushima Shrine" sizes={photoEssaySizes({ desktop: 1 / 2.6, desktopInset: 16 })} />
             </div>
             <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8 content-evenly p-4 sm:py-4 sm:pr-12">
                 <PlaceCard name="Tokyo">
@@ -271,42 +272,42 @@ function TransitSection() {
     return (
         <section className="flex flex-col gap-2 py-2">
             <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_2fr] gap-2 items-start sm:items-stretch">
-                <Land src={trainPlatform} alt="Local train arriving at the platform" sizes="40vw" />
+                <Land src={trainPlatform} alt="Local train arriving at the platform" sizes={photoEssaySizes({ desktop: 0.4, desktopInset: 16 })} />
                 <div className="grid gap-2 sm:grid-rows-2">
-                    <Land src={ferryFunnel} alt="Ferry funnel logo against the Osaka skyline" sizes="20vw" className="sm:aspect-auto" />
-                    <Land src={pierDusk} alt="Pier stretching into the dusk" sizes="20vw" className="sm:aspect-auto" />
+                    <Land src={ferryFunnel} alt="Ferry funnel logo against the Osaka skyline" sizes={photoEssaySizes({ desktop: 0.2, desktopInset: 16 })} className="sm:aspect-auto" />
+                    <Land src={pierDusk} alt="Pier stretching into the dusk" sizes={photoEssaySizes({ desktop: 0.2, desktopInset: 16 })} className="sm:aspect-auto" />
                 </div>
-                <Land src={tramHighway} alt="Tram running through city traffic" sizes="40vw" />
+                <Land src={tramHighway} alt="Tram running through city traffic" sizes={photoEssaySizes({ desktop: 0.4, desktopInset: 16 })} />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_2fr_1fr] gap-2 items-start sm:items-stretch">
                 <div className="grid gap-2 sm:grid-rows-2">
-                    <Land src={greenTram} alt="Green streetcar at a Nagasaki tram stop" sizes="20vw" className="sm:aspect-auto" />
-                    <Land src={ferryWindow} alt="Sunset over the water from the ferry window" sizes="20vw" className="sm:aspect-auto" />
+                    <Land src={greenTram} alt="Green streetcar at a Nagasaki tram stop" sizes={photoEssaySizes({ desktop: 0.25, desktopInset: 16 })} className="sm:aspect-auto" />
+                    <Land src={ferryWindow} alt="Sunset over the water from the ferry window" sizes={photoEssaySizes({ desktop: 0.25, desktopInset: 16 })} className="sm:aspect-auto" />
                 </div>
-                <Land src={shinkansen} alt="Shinkansen nose at the platform" sizes="50vw" />
+                <Land src={shinkansen} alt="Shinkansen nose at the platform" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 16 })} />
                 <div className="grid gap-2 sm:grid-rows-2">
-                    <Land src={rockDebris} alt="Weathered debris on white stone" sizes="20vw" className="sm:aspect-auto" />
-                    <Land src={openOcean} alt="Open ocean from the ferry" sizes="20vw" className="sm:aspect-auto" />
+                    <Land src={rockDebris} alt="Weathered debris on white stone" sizes={photoEssaySizes({ desktop: 0.25, desktopInset: 16 })} className="sm:aspect-auto" />
+                    <Land src={openOcean} alt="Open ocean from the ferry" sizes={photoEssaySizes({ desktop: 0.25, desktopInset: 16 })} className="sm:aspect-auto" />
                 </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <Land src={ferryRoom} alt="Empty sleeping room on the overnight ferry" sizes="50vw" />
-                <Land src={ferryDusk} alt="Two silhouettes at the ferry railing under a storm sky" sizes="50vw" />
+                <Land src={ferryRoom} alt="Empty sleeping room on the overnight ferry" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
+                <Land src={ferryDusk} alt="Two silhouettes at the ferry railing under a storm sky" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-[1fr_1fr_1fr_0.95fr] gap-2 items-start sm:items-stretch">
                 <div className="grid gap-2 sm:grid-rows-2">
-                    <Land src={goldBuddha} alt="Gilded statue seated in lamplight" sizes="25vw" className="sm:aspect-auto" />
-                    <Land src={wrestling} alt="Crowd around an outdoor wrestling ring" sizes="25vw" className="sm:aspect-auto" />
+                    <Land src={goldBuddha} alt="Gilded statue seated in lamplight" sizes={photoEssaySizes({ desktop: 1 / 3.95, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} className="sm:aspect-auto" />
+                    <Land src={wrestling} alt="Crowd around an outdoor wrestling ring" sizes={photoEssaySizes({ desktop: 1 / 3.95, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} className="sm:aspect-auto" />
                 </div>
                 <div className="grid gap-2 sm:grid-rows-2">
-                    <Land src={monkeyHouse} alt="Monkeys on the roof of a hillside house" sizes="25vw" className="sm:aspect-auto" />
-                    <Land src={animalHand} alt="Feeding a monkey by hand" sizes="25vw" className="sm:aspect-auto" />
+                    <Land src={monkeyHouse} alt="Monkeys on the roof of a hillside house" sizes={photoEssaySizes({ desktop: 1 / 3.95, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} className="sm:aspect-auto" />
+                    <Land src={animalHand} alt="Feeding a monkey by hand" sizes={photoEssaySizes({ desktop: 1 / 3.95, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} className="sm:aspect-auto" />
                 </div>
                 <div className="grid gap-2 sm:grid-rows-2">
-                    <Land src={nightCouple} alt="Statue couple on a bench under night lights" sizes="25vw" className="sm:aspect-auto" />
-                    <Land src={townMountains} alt="Small town streets under green mountains" sizes="25vw" className="sm:aspect-auto" />
+                    <Land src={nightCouple} alt="Statue couple on a bench under night lights" sizes={photoEssaySizes({ desktop: 1 / 3.95, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} className="sm:aspect-auto" />
+                    <Land src={townMountains} alt="Small town streets under green mountains" sizes={photoEssaySizes({ desktop: 1 / 3.95, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} className="sm:aspect-auto" />
                 </div>
-                <Port src={mossyShrine} alt="Mossy stone shrine with small torii gates" sizes="25vw" />
+                <Port src={mossyShrine} alt="Mossy stone shrine with small torii gates" sizes={photoEssaySizes({ desktop: .95 / 3.95, mobile: 0.5, desktopInset: 24, mobileInset: 8 })} />
             </div>
         </section>
     );
@@ -317,55 +318,55 @@ export default function JapanApril2026() {
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-10 py-6 sm:py-10">
             <ArticleSeo post={postMetadata} slug="japan-april-2026" />
 
-            <Land src={fujiOverTown} alt="Mt. Fuji rising above the town of Kawaguchiko" sizes="100vw" priority />
+            <Land src={fujiOverTown} alt="Mt. Fuji rising above the town of Kawaguchiko" sizes={photoEssaySizes()} preload />
 
             {/* mosaic — streets, statues, sea, monkey */}
             <section className="bg-black grid grid-cols-2 sm:grid-cols-[1.46fr_0.69fr_0.73fr_1.46fr] gap-2 p-2 items-start sm:items-stretch">
-                <Land src={berrySign} alt="BERRY sign above a city street" sizes="35vw" className="order-1" />
-                <Port src={christAzalea} alt="Stone statue of Christ among azaleas and brick" sizes="16vw" className="order-3 sm:order-2" />
+                <Land src={berrySign} alt="BERRY sign above a city street" sizes={photoEssaySizes({ desktop: 1.46 / 4.34, mobile: 0.5, desktopInset: 40, mobileInset: 24 })} className="order-1" />
+                <Port src={christAzalea} alt="Stone statue of Christ among azaleas and brick" sizes={photoEssaySizes({ desktop: .69 / 4.34, mobile: 0.5, desktopInset: 40, mobileInset: 24 })} className="order-3 sm:order-2" />
                 <div className="grid gap-2 order-4 sm:order-3 sm:grid-rows-2">
-                    <Land src={seaViewTree} alt="Islands in the sea beyond a lone tree" sizes="17vw" className="sm:aspect-auto" />
-                    <Land src={ferryDusk} alt="Two silhouettes at the ferry railing at dusk" sizes="17vw" className="sm:aspect-auto" />
+                    <Land src={seaViewTree} alt="Islands in the sea beyond a lone tree" sizes={photoEssaySizes({ desktop: .73 / 4.34, mobile: 0.5, desktopInset: 40, mobileInset: 24 })} className="sm:aspect-auto" />
+                    <Land src={ferryDusk} alt="Two silhouettes at the ferry railing at dusk" sizes={photoEssaySizes({ desktop: .73 / 4.34, mobile: 0.5, desktopInset: 40, mobileInset: 24 })} className="sm:aspect-auto" />
                 </div>
-                <Land src={monkeyDirt} alt="Monkey sitting in the dirt among tree roots" sizes="35vw" className="order-2 sm:order-4" />
+                <Land src={monkeyDirt} alt="Monkey sitting in the dirt among tree roots" sizes={photoEssaySizes({ desktop: 1.46 / 4.34, mobile: 0.5, desktopInset: 40, mobileInset: 24 })} className="order-2 sm:order-4" />
             </section>
 
             <RouteSection />
 
-            <Land src={bmxRail} alt="BMX rider dropping in beside a building in Yokosuka" sizes="100vw" />
+            <Land src={bmxRail} alt="BMX rider dropping in beside a building in Yokosuka" sizes={photoEssaySizes()} />
 
             <CitiesSection />
 
             {/* camera store */}
-            <Land src={tokyoCameraStore} alt="The camera store street in Tokyo" sizes="100vw" />
+            <Land src={tokyoCameraStore} alt="The camera store street in Tokyo" sizes={photoEssaySizes()} />
 
             {/* fuji glimpses */}
             <section className="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2">
-                <Land src={fujiClouds} alt="Rippled clouds above the peak of Mt. Fuji" sizes="33vw" />
-                <Land src={fujiBlueSky} alt="Snow-capped Mt. Fuji against a deep blue sky" sizes="33vw" />
-                <Land src={fujiOverRoofs} alt="Mt. Fuji appearing above neighborhood rooftops" sizes="33vw" />
+                <Land src={fujiClouds} alt="Rippled clouds above the peak of Mt. Fuji" sizes={photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 })} />
+                <Land src={fujiBlueSky} alt="Snow-capped Mt. Fuji against a deep blue sky" sizes={photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 })} />
+                <Land src={fujiOverRoofs} alt="Mt. Fuji appearing above neighborhood rooftops" sizes={photoEssaySizes({ desktop: 1 / 3, desktopInset: 16 })} />
             </section>
 
             {/* kawaguchiko platform sign */}
-            <Land src={stationSign} alt="Platform 2 sign for Mt. Fuji, Fujikyu-Highland, and Kawaguchiko" sizes="100vw" />
+            <Land src={stationSign} alt="Platform 2 sign for Mt. Fuji, Fujikyu-Highland, and Kawaguchiko" sizes={photoEssaySizes()} />
 
             {/* cherry blossoms */}
-            <Land src={cherryBlossoms} alt="Cherry blossoms over a mountain road" sizes="100vw" />
+            <Land src={cherryBlossoms} alt="Cherry blossoms over a mountain road" sizes={photoEssaySizes()} />
 
             {/* hostels */}
-            <Land src={hostelBunk} alt="Warm light on a hostel capsule bunk" sizes="100vw" />
+            <Land src={hostelBunk} alt="Warm light on a hostel capsule bunk" sizes={photoEssaySizes()} />
 
             {/* iron heart */}
-            <Land src={ironHeartSign} alt="Iron Heart sign on the factory building" sizes="100vw" />
+            <Land src={ironHeartSign} alt="Iron Heart sign on the factory building" sizes={photoEssaySizes()} />
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-2 py-2">
-                <Land src={ironHeartWorks} alt="Iron Heart The Works with a red Jeep parked outside" sizes="50vw" />
-                <Land src={ironHeartGarage} alt="The Iron Heart garage stacked with boxes" sizes="50vw" />
+                <Land src={ironHeartWorks} alt="Iron Heart The Works with a red Jeep parked outside" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
+                <Land src={ironHeartGarage} alt="The Iron Heart garage stacked with boxes" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
             </section>
 
             <TransitSection />
 
             {/* nagasaki / hiroshima */}
-            <Land src={peaceParkStop} alt="Tram stop sign for Peace Park and the Atomic Bomb Museum" sizes="100vw" />
+            <Land src={peaceParkStop} alt="Tram stop sign for Peace Park and the Atomic Bomb Museum" sizes={photoEssaySizes()} />
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-8 p-6 sm:p-10 w-full">
                 <PlaceCard name="Nagasaki">
                     Powerful. This was the first &quot;atomic stop&quot;. When I got off the shinkansen, I didn&apos;t
@@ -384,20 +385,20 @@ export default function JapanApril2026() {
                 </PlaceCard>
             </section>
             <section className="grid grid-cols-2 gap-2 py-2">
-                <Port src={nagasakiMuseum} alt="Tiled museum building in Nagasaki" sizes="50vw" />
-                <Port src={memorialPillar} alt="Memorial pillar at the hypocenter in Nagasaki" sizes="50vw" />
+                <Port src={nagasakiMuseum} alt="Tiled museum building in Nagasaki" sizes={photoEssaySizes({ desktop: 0.5, mobile: 0.5, desktopInset: 8, mobileInset: 8 })} />
+                <Port src={memorialPillar} alt="Memorial pillar at the hypocenter in Nagasaki" sizes={photoEssaySizes({ desktop: 0.5, mobile: 0.5, desktopInset: 8, mobileInset: 8 })} />
             </section>
 
             {/* the statues of nagasaki */}
-            <Land src={azaleaRuins} alt="Headless stone saints along the brick ruins at Oura" sizes="100vw" />
+            <Land src={azaleaRuins} alt="Headless stone saints along the brick ruins at Oura" sizes={photoEssaySizes()} />
             <section className="mt-2 py-2 sm:py-3 text-center" style={{ backgroundColor: GREEN }}>
                 <h2 className={`${heading.className} text-white text-base sm:text-2xl xl:text-3xl uppercase tracking-[0.15em] px-2`}>
                     Christ and the Theotokos looking in the direction of the blast
                 </h2>
             </section>
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-2 py-2">
-                <Land src={azaleaStatues} alt="Statue in a garden of blooming azaleas" sizes="50vw" />
-                <Land src={peaceStatue} alt="The Nagasaki Peace Statue against the sky" sizes="50vw" />
+                <Land src={azaleaStatues} alt="Statue in a garden of blooming azaleas" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
+                <Land src={peaceStatue} alt="The Nagasaki Peace Statue against the sky" sizes={photoEssaySizes({ desktop: 0.5, desktopInset: 8 })} />
             </section>
 
             {/* related articles — MdxLayout's structure without its parchment background */}

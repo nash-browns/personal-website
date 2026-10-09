@@ -2,26 +2,30 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { isPhotographyMedia, photographyImageLoader } from '@/lib/photography/image-loader.mjs';
 import styles from './artwork-image.module.css';
 
-export function ArtworkImage({ src, alt, sizes = '(max-width: 767px) 100vw, 50vw', loading = 'eager', film = false, dark = film, revealDelay = 0, fit = film ? 'contain' : 'cover' }) {
+export function ArtworkImage({ src, alt, blurDataURL, sizes = '(min-width: 768px) 50vw, 100vw', loading = 'lazy', fetchPriority, film = false, dark = film, fit = film ? 'contain' : 'cover' }) {
     const [status, setStatus] = useState('loading');
 
     return (
         <div className={`absolute inset-0 overflow-hidden ${dark ? 'bg-[#080808]' : 'bg-stone-100'}`} aria-busy={status === 'loading'}>
             {status === 'loading' && (
-                <div role="status" className={`absolute inset-0 ${film ? '' : `motion-safe:animate-pulse ${dark ? 'bg-stone-900' : 'bg-stone-200'}`}`}>
+                <div role="status" className={`absolute inset-0 ${dark ? 'bg-stone-900' : 'bg-stone-200'}`}>
                     <span className="sr-only">Loading photograph…</span>
                 </div>
             )}
             <Image
                 src={src}
+                loader={isPhotographyMedia(src) ? photographyImageLoader : undefined}
                 alt={alt}
                 fill
                 sizes={sizes}
                 loading={loading}
-                className={`object-center ${fit === 'contain' ? 'object-contain' : 'object-cover'} ${film ? (status === 'loaded' ? styles.filmReveal : '') : 'transition-opacity duration-500 motion-reduce:transition-none'} ${status === 'loaded' ? 'opacity-100' : 'opacity-0'}`}
-                style={film ? { '--reveal-delay': `${revealDelay}ms` } : undefined}
+                fetchPriority={fetchPriority}
+                placeholder={blurDataURL ? 'blur' : 'empty'}
+                blurDataURL={blurDataURL}
+                className={`object-center ${fit === 'contain' ? 'object-contain' : 'object-cover'} ${status === 'loaded' && !blurDataURL ? styles.filmReveal : ''} ${status === 'loaded' || (blurDataURL && status === 'loading') ? 'opacity-100' : 'opacity-0'}`}
                 onLoad={() => setStatus('loaded')}
                 onError={() => setStatus('error')}
             />
