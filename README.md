@@ -382,7 +382,10 @@ Canonical and Open Graph URLs resolve to each page's own route automatically.
 Ordinary pages use the `website` type; posts with publication dates use `article`.
 
 `isActive: false` adds `noindex` to draft articles while keeping their URLs usable
-for previews. Account management, signup, password reset, and the placeholder
+for previews, even when `index: true` is also supplied. Use the exact field name
+`isActive` (capital A). After deployment, previously indexed posts are removed
+from Google results when Google next crawls them and reads `noindex`.
+Account management, signup, password reset, and the placeholder
 blog projects page also use `noindex`; the public Partners contact/login page
 remains indexable. The sitemap reads the built HTML to follow those decisions,
 excludes non-page assets, and uses article update dates instead of build dates.

@@ -77,7 +77,7 @@ test('social images prefer the chosen illustration, fall back to the photo, then
 });
 
 test('indexing honors inactive posts and explicit account-page overrides', () => {
-    for (const input of [{ isActive: false }, { index: false }, { isActive: true, index: false }]) {
+    for (const input of [{ isActive: false }, { isActive: false, index: true }, { index: false }, { isActive: true, index: false }]) {
         const metadata = generateMetadata(input);
         assert.equal(metadata.robots.index, false);
         assert.equal(metadata.robots.googleBot.index, false);

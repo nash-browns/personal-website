@@ -1,0 +1,197 @@
+import { generateMetadata } from '@/lib/seo';
+
+export const postMetadata = {
+    title: "lifes Rich Tapestry",
+    published: "2026-12-01",
+    updated: "2026-12-10",
+    author: 'Nash Bostwick',
+    thumbnail: '/blog/artical-template/thumbnail.JPEG',
+    thumbnailIllustration: 'https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-heavy-lift-strut-install%2Fhippy-hokusai-feature-image.jpg?alt=media&token=ddb151c0-09c7-4c4b-9c91-186e379839ea',
+    description:"description",
+    keywords: ['test', 'test', 'test', 'test', 'test', 'test'],
+    tags: ['test', 'test', 'test', 'test', 'test', 'test'],
+    isActive: false,
+};
+
+export const metadata = generateMetadata({...postMetadata});
+
+
+import { ArticleSeo } from '@/components/seo'
+
+<ArticleSeo post={postMetadata} slug="artical-template" />
+
+import { MdxLayout } from '@/components/blog/mdx-layout';
+import { CenteredImage } from '@/components/blog/images/centered-image';
+import { TwoCenteredImages } from '@/components/blog/images/two-centered-images';
+import { TLDR } from '@/components/blog/layout/tldr';
+import { BlogStatsSection, Stat } from '@/components/blog/data-display/stat-section';
+import { ImageFeature } from '@/components/blog/feature-sections/image-feature';
+import { ContinueReading } from '@/components/blog/navigation/continue-reading';
+import {
+    BarTape,
+    BikeTires,
+    MuklukFrameBag,
+    Garmin840Solar,
+    GarminFenix7,
+    ChainTool,
+    ValveCoreTool,
+    BikeToolKit,
+    TirePlugs,
+    DynaplugRacer,
+    BikeTubes,
+    SwissArmyKnife,
+    EgressPocket,
+    Pronghorn,
+    Spinelock10,
+    CineStill800T,
+    Fujifilm400,
+    KodakColorPlus200,
+    FujifilmAcros100,
+    Fomapan400,
+    FerraniaP30,
+    Zombie400,
+    EscuraEdo400,
+    KodakEktarH35N,
+    SonyZVE10,
+    Tamron1120,
+    SennheiserMKE400,
+    NisiVND,
+    NeewerTripod,
+    Chuckbucket,
+    PrestaAdapters,
+    PrestaValveCores,
+    VoileStraps,
+    BikeLock,
+    HoverAirX1ProMax,
+    SmallRigBatteries,
+    LexarMicroSD,
+    MemoryCardCase,
+    TarptentProTrek,
+    CarbonPolyPole,
+    SawyerSqueeze,
+    GoalZeroSherpa100,
+    MsrPocketRocket2,
+    SnowPeakMug,
+    ToaksLongSpoon,
+} from '@/products/product-links';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+    faReact,
+    faShopify,
+} from '@fortawesome/free-brands-svg-icons';
+
+export const featureImage = "https://firebasestorage.googleapis.com/v0/b/nash-browns.firebasestorage.app/o/tune-cold-weather-performance%2Fthumbnail.jpg?alt=media&token=ed7facc8-8f93-470b-a807-f4bbdfeccfae";
+
+export const relatedArticleOne = '/blog/articles/pepper-peak';
+export const relatedArticleTwo = '/blog/articles/north-yuyanq-chex';
+export const relatedArticleThree = '/blog/articles/salt-peak';
+
+<ImageFeature
+    title='Tune M1 Cold Weather Performance'
+    image={featureImage}
+/>
+
+<BlogStatsSection>
+    <Stat title={'TITLE'} stat={'value'} icon={faReact}/>
+</BlogStatsSection>
+
+
+<MdxLayout>
+
+<TLDR
+text="This is a summary of the article that will be written with bad spelling."
+/>
+
+
+
+
+# Gear List
+- Bike - Salasa Warbird
+    - <BikeTires/>
+    - <BarTape/>
+- Bags
+    - Front - <Pronghorn/>
+    - Very Front - <EgressPocket/>
+    - Back - <Spinelock10/>
+    - <MuklukFrameBag/>
+    - Bar - <Chuckbucket/>
+- <VoileStraps/>
+- Shoes
+- Cloths
+    - Pants
+- Helmet
+- GLoves
+- Glasses
+- <SwissArmyKnife/>
+- Tools
+    - <ChainTool/>
+    - <ValveCoreTool/>
+    - Patches
+    - <PrestaAdapters/>
+    - <PrestaValveCores/>
+    - <BikeToolKit/>
+- <BikeLock/>
+- <SawyerSqueeze/>
+- Kitchen
+    - <MsrPocketRocket2/>
+    - <SnowPeakMug/>
+    - <ToaksLongSpoon/>
+- Light
+- <GoalZeroSherpa100/>
+- Global Adapter
+- <TarptentProTrek/>
+    - <CarbonPolyPole/>
+- Pad
+- Steaks
+- Head Lamp
+- <Garmin840Solar/>
+- <GarminFenix7/>
+- 
+
+## Photography
+- Cannon GL17 GIII
+- <KodakEktarH35N/>
+- 30 Rolls of Film
+    - <Fomapan400/>
+    - <FerraniaP30/>
+    - <FujifilmAcros100/>
+    - CineStill 50D
+    - <CineStill800T/>
+
+## Videography
+- <SonyZVE10 title='Sony ZV-E10II'/>
+- <Tamron1120/>
+- <SennheiserMKE400/>
+- <NisiVND/>
+- GoPro Hero 12 Black
+- <HoverAirX1ProMax/>
+- <NeewerTripod/>
+- <SmallRigBatteries/>
+- SD Cards
+    - <LexarMicroSD/>
+    - <MemoryCardCase/>
+
+
+
+
+
+
+
+
+# This is the template
+[Kansas River Hazard Information][1]
+
+<CenteredImage image={featureImage} altText={'Cedar Niles 3 Corners'} title={'3 Corners'} width={500} />
+<TwoCenteredImages image={[featureImage, featureImage]} altText={['West Trailhead', 'Trail Entrance']} titles={['West Trailhead', 'Trail Entrance']} width={500} />
+
+<ContinueReading 
+    articleOne={relatedArticleOne}
+    articleTwo={relatedArticleTwo}
+    articleThree={relatedArticleThree}
+/>
+
+</MdxLayout>
+
+[1]: /blog/articals/artical-template
+
